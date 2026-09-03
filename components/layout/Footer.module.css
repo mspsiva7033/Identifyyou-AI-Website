@@ -1,0 +1,83 @@
+.footer {
+  background: #0E1512;
+  color: #9DAAA3;
+  padding: 64px 32px 32px;
+}
+
+.inner {
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 32px;
+  padding-bottom: 40px;
+  border-bottom: 1px solid #26332C;
+}
+
+.brand {
+  grid-column: span 1;
+  min-width: 200px;
+}
+
+.brandName {
+  font-family: 'Manrope', sans-serif;
+  font-weight: 800;
+  font-size: 19px;
+  color: #FAFAF8;
+  margin-bottom: 6px;
+}
+
+.brandTag {
+  font-size: 13.5px;
+  color: #2E8B62;
+  font-weight: 600;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+}
+
+.colTitle {
+  font-size: 13px;
+  font-weight: 700;
+  color: #FAFAF8;
+  margin-bottom: 14px;
+}
+
+.colLinks {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+}
+
+.colLink {
+  font-size: 13.5px;
+  color: #9DAAA3;
+  text-decoration: none;
+  transition: color 150ms ease;
+}
+
+.colLink:hover {
+  color: #2E8B62;
+}
+
+.colText {
+  font-size: 13.5px;
+  color: #9DAAA3;
+}
+
+.copyright {
+  padding-top: 24px;
+  font-size: 12.5px;
+  color: #5B6862;
+}
+
+@media (max-width: 768px) {
+  .footer {
+    padding: 48px 20px 24px;
+  }
+}

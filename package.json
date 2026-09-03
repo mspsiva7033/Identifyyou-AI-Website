@@ -2,16 +2,27 @@
   "name": "identifyyou-nextjs",
   "version": "0.1.0",
   "private": true,
+  "type": "module",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "generate:importmap": "node --import tsx/esm ./node_modules/payload/bin.js generate:importmap",
+    "seed": "node --import tsx/esm scripts/seed.ts --run"
   },
   "dependencies": {
-    "next": "16.3.4",
-    "react": "19.2.8",
-    "react-dom": "19.2.8"
+    "@payloadcms/db-postgres": "^3.88.0",
+    "@payloadcms/next": "^3.88.0",
+    "@payloadcms/richtext-lexical": "^3.88.0",
+    "@payloadcms/storage-s3": "^3.88.0",
+    "@payloadcms/ui": "^3.88.0",
+    "graphql": "^16.10.0",
+    "next": "^16.3.4",
+    "payload": "^3.88.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "sharp": "^0.33.5"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4",
@@ -19,7 +30,7 @@
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "eslint": "^9",
-    "eslint-config-next": "16.3.4",
+    "eslint-config-next": "^15",
     "tailwindcss": "^4",
     "typescript": "^5"
   }

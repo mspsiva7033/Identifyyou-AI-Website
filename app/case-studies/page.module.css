@@ -1,0 +1,22 @@
+.hero { max-width: 900px; margin: 0 auto; padding: clamp(48px,7vw,88px) 32px 8px; text-align: center; }
+.heroTitle { font-family: 'Manrope', sans-serif; font-weight: 800; font-size: clamp(32px,4.4vw,50px); line-height: 1.1; margin: 0 0 18px; }
+.heroSub { font-size: 15px; color: #8B978F; margin: 0; }
+.content { max-width: 1280px; margin: 0 auto; padding: 24px 32px 96px; }
+.filters { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; margin-bottom: 40px; }
+.filterBtn { border: 1px solid #D5DBD2; background: #FFFFFF; color: #2B3530; font-size: 13px; font-weight: 600; padding: 8px 16px; border-radius: 20px; cursor: pointer; transition: background 150ms ease, color 150ms ease; font-family: inherit; }
+.filterBtn:hover { border-color: #1C6B4F; color: #1C6B4F; }
+.filterActive { background: #1C6B4F !important; color: #FFFFFF !important; border-color: #1C6B4F !important; }
+.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 24px; }
+.card { background: #FFFFFF; border: 1px solid #E3E7E1; border-radius: 8px; padding: 28px; display: flex; flex-direction: column; }
+.cardTag { font-size: 12px; font-weight: 700; letter-spacing: 0.05em; color: #1C6B4F; text-transform: uppercase; margin-bottom: 10px; }
+.cardTitle { font-family: 'Manrope', sans-serif; font-weight: 700; font-size: 18px; margin-bottom: 14px; }
+.cardDetails { display: flex; flex-direction: column; gap: 9px; font-size: 13.5px; flex: 1; }
+.detailLabel { color: #8B978F; font-weight: 600; }
+.detailVal { color: #2B3530; }
+.detailTech { color: #2B3530; font-family: monospace; font-size: 12.5px; }
+.outcomeRow { padding-top: 8px; border-top: 1px solid #E3E7E1; }
+.outcomeVal { color: #1C6B4F; font-weight: 600; }
+.readMore { display: inline-block; margin-top: 16px; font-size: 13.5px; font-weight: 600; color: #1C6B4F; text-decoration: none; transition: color 150ms ease; }
+.readMore:hover { color: #2E8B62; }
+.noResults { text-align: center; padding: 60px 0; font-size: 16px; color: #8B978F; }
+@media (max-width: 768px) { .content { padding-left: 20px; padding-right: 20px; } }

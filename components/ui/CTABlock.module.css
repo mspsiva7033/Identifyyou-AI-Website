@@ -1,0 +1,38 @@
+.block {
+  background: #0E1512;
+  border-radius: 14px;
+  padding: 44px;
+  text-align: center;
+}
+
+.headline {
+  font-family: 'Manrope', sans-serif;
+  font-weight: 800;
+  font-size: clamp(22px, 2.8vw, 28px);
+  color: #FAFAF8;
+  margin: 0 0 14px;
+}
+
+.description {
+  font-size: 15px;
+  color: #9DAAA3;
+  margin: 0 0 28px;
+  text-wrap: pretty;
+}
+
+.button {
+  display: inline-block;
+  background: #2E8B62;
+  color: #FFFFFF;
+  padding: 13px 26px;
+  border-radius: 5px;
+  font-size: 14.5px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background 150ms ease;
+}
+
+.button:hover {
+  background: #3AA372;
+  color: #FFFFFF;
+}
