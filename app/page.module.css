@@ -1035,10 +1035,12 @@
   margin-bottom: 12px;
 }
 
-.partnerIcon {
-  width: 24px;
-  height: 24px;
-  object-fit: contain;
+.partnerIconBox {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
   flex-shrink: 0;
 }
 

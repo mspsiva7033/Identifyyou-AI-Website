@@ -4,6 +4,7 @@ import { Header } from '@/components/layout/Header'
 import { Footer } from '@/components/layout/Footer'
 import { HeroSection } from '@/components/sections/HeroSection'
 import { FlowChain } from '@/components/ui/FlowChain'
+import AnimatedMetrics from './components/AnimatedMetrics'
 import styles from './page.module.css'
 
 export const metadata: Metadata = {
@@ -155,55 +156,19 @@ const mfgArchitectureLayers = [
   { level: 'L0 SHOP FLOOR', stack: 'Machines · Sensors · Cameras · RFID', desc: 'Physical Hardware & Sensors' },
 ]
 
-// SOLUTION CARDS (2 Cards Per Line Uniform Grid - 100% Unique Non-Repeating Images)
-const allSolutions = [
+// FEATURED SOLUTION CARDS (Smart Factory & AI-Powered Procurement - 2 Cards 1 Line)
+const featuredSolutions = [
   {
     title: 'Smart Factory',
     desc: 'MES, production monitoring and digital shop-floor workflows.',
-    href: '/case-studies',
+    href: '/case-studies/manufacturing-data-platform',
     image: 'https://images.unsplash.com/photo-1563986768609-322da13575f3?q=80&w=1000&auto=format&fit=crop',
-  },
-  {
-    title: 'Manufacturing Data Platform',
-    desc: 'Enterprise manufacturing data, analytics and AI.',
-    href: '/case-studies',
-    image: 'https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?q=80&w=1000&auto=format&fit=crop',
   },
   {
     title: 'AI-Powered Procurement',
     desc: 'Supplier recommendation, price intelligence and forecasting.',
-    href: '/case-studies',
+    href: '/case-studies/ai-powered-procurement',
     image: 'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?q=80&w=1000&auto=format&fit=crop',
-  },
-  {
-    title: 'Inventory Intelligence',
-    desc: 'Inventory variance, WIP visibility and stock optimization.',
-    href: '/case-studies/revolutionizing-inventory-optimization',
-    image: 'https://images.unsplash.com/photo-1553413077-190dd305871c?q=80&w=1000&auto=format&fit=crop',
-  },
-  {
-    title: 'Vision Inspection',
-    desc: 'Visual inspection, dimensional measurement and defect detection.',
-    href: '/deep-tech/vision-ai',
-    image: 'https://images.unsplash.com/photo-1504384308090-c894fdcc538d?q=80&w=1000&auto=format&fit=crop',
-  },
-  {
-    title: 'Connected Factory',
-    desc: 'IIoT, edge computing and machine connectivity.',
-    href: '/deep-tech/industry-automation',
-    image: 'https://images.unsplash.com/photo-1581092162384-8987c1d64718?q=80&w=1000&auto=format&fit=crop',
-  },
-  {
-    title: 'Material Traceability',
-    desc: 'RFID, QR, lot tracking and pallet tracking.',
-    href: '/case-studies',
-    image: 'https://images.unsplash.com/photo-1578575437130-527eed3abbec?q=80&w=1000&auto=format&fit=crop',
-  },
-  {
-    title: 'Production Intelligence',
-    desc: 'Production monitoring, scheduling and analytics.',
-    href: '/case-studies',
-    image: 'https://images.unsplash.com/photo-1581093458791-9f3c3900df4b?q=80&w=1000&auto=format&fit=crop',
   },
 ]
 
@@ -255,32 +220,64 @@ const partnerships = [
   {
     name: 'Snowflake',
     desc: 'Partner practice. Certified professionals, Cortex AI, Native Apps.',
-    icon: 'https://cdn.simpleicons.org/snowflake/29B5E8',
+    icon: (
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#29B5E8" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <line x1="12" y1="2" x2="12" y2="22" /><line x1="20" y1="7" x2="4" y2="17" /><line x1="20" y1="17" x2="4" y2="7" />
+        <polyline points="9 5 12 2 15 5" /><polyline points="9 19 12 22 15 19" />
+      </svg>
+    ),
   },
   {
     name: 'Microsoft',
     desc: 'Power BI, Azure and D365 Business Central.',
-    icon: 'https://cdn.simpleicons.org/microsoft/0078D4',
+    icon: (
+      <svg width="22" height="22" viewBox="0 0 24 24">
+        <rect x="1" y="1" width="10" height="10" fill="#F25022"/>
+        <rect x="13" y="1" width="10" height="10" fill="#7FBA00"/>
+        <rect x="1" y="13" width="10" height="10" fill="#00A4EF"/>
+        <rect x="13" y="13" width="10" height="10" fill="#FFB900"/>
+      </svg>
+    ),
   },
   {
     name: 'Freshworks',
     desc: 'Marketplace plugins and integration platforms.',
-    icon: 'https://cdn.simpleicons.org/freshworks/F37023',
+    icon: <img src="/images/freshworks-logo.webp" alt="Freshworks" style={{ width: '24px', height: '24px', objectFit: 'contain' }} />,
   },
   {
     name: 'monday.com',
     desc: 'Work management integrations, including Azure DevOps.',
-    icon: 'https://cdn.simpleicons.org/mondaydotcom/6C5CE7',
+    icon: (
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+        <circle cx="5" cy="12" r="4" fill="#FF3366"/>
+        <circle cx="12" cy="12" r="4" fill="#FFCC00"/>
+        <circle cx="19" cy="12" r="4" fill="#00CA72"/>
+      </svg>
+    ),
   },
   {
     name: 'Zendesk',
     desc: 'Service platform integrations and apps.',
-    icon: 'https://cdn.simpleicons.org/zendesk/03363D',
+    icon: (
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="#03363D">
+        <path d="M12 2L2 12h7v10l10-10h-7V2z"/>
+      </svg>
+    ),
   },
   {
     name: 'Vision hardware & software vendors',
     desc: '2D CAMERA, 3D PROFILER, VISION AI SOFTWARE',
-    icon: 'https://cdn.simpleicons.org/aperture/2E8B62',
+    icon: (
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#2E8B62" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <circle cx="12" cy="12" r="10"/>
+        <line x1="14.31" y1="8" x2="20.05" y2="17.94"/>
+        <line x1="9.69" y1="8" x2="21.17" y2="8"/>
+        <line x1="7.38" y1="12" x2="13.12" y2="2.06"/>
+        <line x1="9.69" y1="16" x2="3.95" y2="6.06"/>
+        <line x1="14.31" y1="16" x2="2.83" y2="16"/>
+        <line x1="16.62" y1="12" x2="10.88" y2="21.94"/>
+      </svg>
+    ),
   },
 ]
 
@@ -525,11 +522,13 @@ export default function HomePage() {
       {/* 9. SOLUTION CARDS (Page 3 & 4) */}
       <section className={styles.sectionSolutions}>
         <div className={styles.container}>
-          <h2 className={styles.h2SolutionsTitle}>What If Your Factory Could See, Understand and Act in Real Time?</h2>
+          <h2 className={styles.h2SolutionsTitle}>
+            What If Your Factory Could See, Understand<br />and Act in Real Time?
+          </h2>
 
           {/* UNIFORM 2 CARDS PER LINE GRID */}
           <div className={styles.solutionsTwoColGrid}>
-            {allSolutions.map((sol) => (
+            {featuredSolutions.map((sol) => (
               <Link key={sol.title} href={sol.href} className={styles.solutionCardFull}>
                 <div className={styles.solutionBgVisual}>
                   <img src={sol.image} alt={sol.title} className={styles.solRealImg} loading="lazy" />
@@ -615,14 +614,13 @@ export default function HomePage() {
       {/* 13. YEARS OF EXPERIENCE / BUSINESS METRICS (Page 5) */}
       <section className={styles.sectionMetrics}>
         <div className={styles.container}>
-          <div className={styles.metricsGrid}>
-            {metrics.map((m) => (
-              <div key={m.label} className={styles.metricItem}>
-                <div className={styles.metricNum}>{m.stat}</div>
-                <div className={styles.metricLabel}>{m.label}</div>
-              </div>
-            ))}
-          </div>
+          <AnimatedMetrics
+            metrics={metrics}
+            gridClassName={styles.metricsGrid}
+            itemClassName={styles.metricItem}
+            numClassName={styles.metricNum}
+            labelClassName={styles.metricLabel}
+          />
         </div>
       </section>
 
@@ -636,7 +634,7 @@ export default function HomePage() {
             {partnerships.map((p) => (
               <div key={p.name} className={styles.partnerCard}>
                 <div className={styles.partnerHeader}>
-                  <img src={p.icon} alt={p.name} className={styles.partnerIcon} />
+                  <div className={styles.partnerIconBox}>{p.icon}</div>
                   <h3 className={styles.partnerName}>{p.name}</h3>
                 </div>
                 <p className={styles.partnerDesc}>{p.desc}</p>
