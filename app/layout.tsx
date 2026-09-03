@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import { Manrope, IBM_Plex_Sans } from 'next/font/google'
+import { WhatsAppButton } from '@/components/ui/WhatsAppButton'
 import './globals.css'
 
 const manrope = Manrope({
@@ -45,7 +46,11 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={`${manrope.variable} ${ibmPlexSans.variable}`}>
-      <body>{children}</body>
+      <body>
+        {children}
+        <WhatsAppButton />
+      </body>
     </html>
   )
 }
+

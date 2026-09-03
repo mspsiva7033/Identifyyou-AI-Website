@@ -37,16 +37,18 @@ const defaultNav: NavItem[] = [
   },
   {
     label: 'Industries',
-    href: '#',
+    href: '/manufacturing',
     subItems: [
       { label: 'Manufacturing', href: '/manufacturing' },
-      { label: 'Financial Services & FinTech', href: '#' },
-      { label: 'Healthcare', href: '#' },
+      { label: 'Industrial Robots', href: '/industrial-robots' },
+      { label: 'Financial Services & FinTech', href: '/contact' },
+      { label: 'Healthcare', href: '/contact' },
     ],
   },
   { label: 'Case Studies', href: '/case-studies' },
   { label: 'About', href: '/about' },
   { label: 'Contact', href: '/contact' },
+  { label: 'Blogs & News', href: '/blogs-and-news' },
 ]
 
 export function Header({ logo, navItems = defaultNav, ctaButton }: HeaderProps) {

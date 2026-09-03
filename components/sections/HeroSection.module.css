@@ -1,17 +1,20 @@
 .hero {
   position: relative;
-  min-height: 560px;
+  min-height: 600px;
   display: flex;
   align-items: center;
   overflow: hidden;
-  background: linear-gradient(100deg, rgba(9,14,12,0.97) 0%, rgba(9,14,12,0.92) 60%, rgba(9,14,12,0.6) 100%),
-              url('/images/hero-bg.jpg') center/cover no-repeat;
+  background: radial-gradient(circle at 80% 20%, rgba(46, 139, 98, 0.25) 0%, rgba(9, 14, 12, 0.98) 65%),
+              linear-gradient(180deg, #060908 0%, #0D1612 100%);
+  border-bottom: 1px solid rgba(46, 139, 98, 0.2);
 }
 
 .overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(100deg, rgba(9,14,12,0.94) 0%, rgba(9,14,12,0.88) 60%, rgba(9,14,12,0.5) 100%);
+  background-image: linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+                    linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+  background-size: 44px 44px;
   pointer-events: none;
 }
 
@@ -19,103 +22,119 @@
   position: relative;
   max-width: 1280px;
   margin: 0 auto;
-  padding: 80px 32px;
+  padding: 90px 32px;
   width: 100%;
+  z-index: 1;
 }
 
 .card {
-  max-width: 680px;
-  background: rgba(9,14,12,0.97);
-  border-radius: 12px;
-  padding: 36px;
+  max-width: 720px;
+  background: rgba(11, 18, 15, 0.85);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(95, 203, 144, 0.2);
+  border-radius: 16px;
+  padding: 44px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4), inset 0 0 30px rgba(46, 139, 98, 0.1);
 }
 
 .badge {
   display: inline-block;
-  background: rgba(46,139,98,0.18);
-  border: 1px solid #2E8B62;
-  color: #8FD4AE;
-  font-size: 13px;
-  font-weight: 600;
-  padding: 6px 14px;
+  background: rgba(46, 139, 98, 0.15);
+  border: 1px solid rgba(95, 203, 144, 0.35);
+  color: #5FCB90;
+  font-size: 12.5px;
+  font-weight: 700;
+  padding: 6px 16px;
   border-radius: 20px;
-  margin-bottom: 22px;
+  margin-bottom: 24px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
 }
 
 .headline {
   font-family: 'Manrope', sans-serif;
   font-weight: 800;
-  font-size: clamp(34px, 4.8vw, 58px);
+  font-size: clamp(36px, 5vw, 60px);
   line-height: 1.08;
-  margin: 0 0 20px;
-  letter-spacing: -0.01em;
+  margin: 0 0 22px;
+  letter-spacing: -0.015em;
   color: #FFFFFF;
 }
 
 .headlineAccent {
   color: #5FCB90;
+  background: linear-gradient(135deg, #8FD4AE 0%, #3AA372 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .subheading {
-  font-size: 19px;
+  font-size: 19.5px;
   color: #EDF1EF;
   font-weight: 500;
-  margin: 0 0 14px;
+  margin: 0 0 16px;
+  line-height: 1.45;
   text-wrap: pretty;
 }
 
 .description {
   font-size: 15.5px;
   color: #B9C4BE;
-  margin: 0 0 32px;
-  max-width: 540px;
+  margin: 0 0 36px;
+  max-width: 580px;
+  line-height: 1.6;
   text-wrap: pretty;
 }
 
 .buttons {
   display: flex;
-  gap: 14px;
+  gap: 16px;
   flex-wrap: wrap;
 }
 
 .btnPrimary {
   background: #2E8B62;
   color: #FFFFFF;
-  padding: 14px 26px;
-  border-radius: 5px;
+  padding: 14px 30px;
+  border-radius: 6px;
   font-size: 15px;
-  font-weight: 600;
+  font-weight: 700;
   text-decoration: none;
-  transition: background 150ms ease;
+  transition: all 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+  box-shadow: 0 4px 16px rgba(46, 139, 98, 0.35);
 }
 
 .btnPrimary:hover {
   background: #3AA372;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(46, 139, 98, 0.5);
   color: #FFFFFF;
 }
 
 .btnSecondary {
-  border: 1.5px solid #FFFFFF;
+  border: 1.5px solid rgba(255, 255, 255, 0.35);
   color: #FFFFFF;
-  padding: 14px 26px;
-  border-radius: 5px;
+  padding: 14px 30px;
+  border-radius: 6px;
   font-size: 15px;
   font-weight: 600;
   text-decoration: none;
-  transition: background 150ms ease;
+  transition: all 0.2s ease;
 }
 
 .btnSecondary:hover {
-  background: rgba(255,255,255,0.1);
-  color: #FFFFFF;
+  border-color: #5FCB90;
+  color: #5FCB90;
+  background: rgba(95, 203, 144, 0.08);
+  transform: translateY(-2px);
 }
 
 @media (max-width: 768px) {
   .content {
-    padding: 56px 20px;
+    padding: 60px 20px;
   }
 
   .card {
-    padding: 28px 20px;
+    padding: 32px 24px;
   }
 }

@@ -29,6 +29,7 @@ const defaultColumns: FooterColumn[] = [
     title: 'Manufacturing',
     links: [
       { label: 'Manufacturing', href: '/manufacturing' },
+      { label: 'Industrial Robots', href: '/industrial-robots' },
       { label: 'Smart Factory', href: '/case-studies' },
       { label: 'Vision Inspection', href: '/case-studies' },
     ],
@@ -37,13 +38,17 @@ const defaultColumns: FooterColumn[] = [
     title: 'Industries',
     links: [
       { label: 'Manufacturing', href: '/manufacturing' },
-      { label: 'Financial Services & FinTech', href: '#' },
-      { label: 'Healthcare', href: '#' },
+      { label: 'Industrial Robots', href: '/industrial-robots' },
+      { label: 'Financial Services & FinTech', href: '/contact' },
+      { label: 'Healthcare', href: '/contact' },
     ],
   },
   {
     title: 'Resources',
-    links: [{ label: 'Case Studies', href: '/case-studies' }],
+    links: [
+      { label: 'Case Studies', href: '/case-studies' },
+      { label: 'Blogs & News', href: '/blogs-and-news' },
+    ],
   },
   {
     title: 'Company',
