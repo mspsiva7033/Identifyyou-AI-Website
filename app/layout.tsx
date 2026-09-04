@@ -45,7 +45,7 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" className={`${manrope.variable} ${ibmPlexSans.variable}`}>
+    <html lang="en" suppressHydrationWarning className={`${manrope.variable} ${ibmPlexSans.variable}`}>
       <body>
         {children}
         <WhatsAppButton />
