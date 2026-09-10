@@ -30,9 +30,11 @@ export async function seed() {
   // Seed Case Studies
   await payload.create({
     collection: 'case-studies',
+    draft: false,
     data: {
       title: 'Revolutionizing Inventory Optimization With AI and Data Engineering',
       slug: 'revolutionizing-inventory-optimization',
+      template: 'classic',
       category: supplyChainCat.id,
       status: 'published',
       displayOrder: 1,
@@ -66,9 +68,11 @@ export async function seed() {
 
   await payload.create({
     collection: 'case-studies',
+    draft: false,
     data: {
       title: 'AI-Powered Procurement',
       slug: 'ai-powered-procurement',
+      template: 'classic',
       category: manufacturingCat.id,
       status: 'published',
       displayOrder: 2,
@@ -82,6 +86,54 @@ export async function seed() {
         tech: 'Python + PySpark + Snowflake Cortex AI',
         integration: 'SAP ERP.',
         outcome: 'Faster and more data-driven procurement decisions.',
+      },
+      detail: {
+        shortDescription: 'Enterprise procurement teams handle thousands of vendor contracts and purchase orders annually.',
+        technologyUsed: 'Python + PySpark + Snowflake Cortex AI + SAP ERP Integration',
+        challenges: [
+          { title: 'Manual Vendor Evaluation', description: 'Evaluating vendor track records across lead times and pricing involved hundreds of manual spreadsheets.' },
+          { title: 'Volatile Raw Material Prices', description: 'Lack of predictive intelligence meant buying at price spikes.' },
+        ],
+        results: [
+          { stat: '↑ 28%', label: 'Procurement decision speed' },
+          { stat: '↓ 12%', label: 'Raw material procurement costs' },
+        ],
+      },
+    },
+  })
+
+  await payload.create({
+    collection: 'case-studies',
+    draft: false,
+    data: {
+      title: 'Automated Dimensional Inspection',
+      slug: 'automated-dimensional-inspection',
+      template: 'classic',
+      category: manufacturingCat.id,
+      status: 'published',
+      displayOrder: 3,
+      tags: [{ tag: 'Manufacturing · Vision AI' }],
+      filterCategories: [{ category: 'Manufacturing' }, { category: 'Vision AI' }, { category: 'AI' }, { category: 'Automation' }],
+      summary: {
+        challenge: 'Manual measurement is slow and inconsistent.',
+        objective: 'Replace manual measurement with automated inspection.',
+        solution: 'Vision AI-based inspection replacing manual measurement.',
+        deepTech: 'Computer Vision + CNN.',
+        tech: 'Basler Cameras + OpenCV + Python',
+        integration: 'MES / Quality System.',
+        outcome: 'Faster, more consistent inspection at line speed.',
+      },
+      detail: {
+        shortDescription: 'Manual caliper and gauge measurements on precision machined parts are labor-intensive and subject to human error.',
+        technologyUsed: 'Basler Industrial Cameras + OpenCV + Python + TensorRT + MES',
+        challenges: [
+          { title: 'Inconsistent Measurement Quality', description: 'Human operators measured parts with varying precision across shifts.' },
+          { title: 'Production Line Bottlenecks', description: 'Manual sampling limited quality checks to 5% of manufactured components.' },
+        ],
+        results: [
+          { stat: '100%', label: 'Parts inspected at line speed' },
+          { stat: '< 0.01mm', label: 'Measurement resolution accuracy' },
+        ],
       },
     },
   })

@@ -1,0 +1,206 @@
+.page {
+  background-color: #090E0C;
+  color: #EDF1EF;
+  min-height: 100vh;
+  font-family: 'IBM Plex Sans', sans-serif;
+}
+
+.breadcrumb {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 40px 32px 0;
+  font-size: 14px;
+  color: #8C9C94;
+}
+
+.breadcrumbLink {
+  color: #8C9C94;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.breadcrumbLink:hover {
+  color: #5FCB90;
+}
+
+.content {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 32px 32px 80px;
+}
+
+.tagBadge {
+  display: inline-block;
+  background: rgba(46, 139, 98, 0.18);
+  border: 1px solid #2E8B62;
+  color: #5FCB90;
+  font-size: 12px;
+  font-weight: 700;
+  padding: 6px 14px;
+  border-radius: 20px;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.title {
+  font-family: 'Manrope', sans-serif;
+  font-size: clamp(30px, 4vw, 44px);
+  font-weight: 800;
+  color: #FFFFFF;
+  line-height: 1.25;
+  margin-bottom: 16px;
+}
+
+.metaLine {
+  font-size: 14px;
+  color: #8C9C94;
+  margin-bottom: 36px;
+}
+
+.heroImg {
+  width: 100%;
+  aspect-ratio: 16/8;
+  background: linear-gradient(135deg, #111B17 0%, #1A2B24 100%);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  margin-bottom: 44px;
+}
+
+.h2 {
+  font-family: 'Manrope', sans-serif;
+  font-size: 24px;
+  font-weight: 700;
+  color: #FFFFFF;
+  margin: 36px 0 16px;
+}
+
+.overview {
+  font-size: 17px;
+  color: #C5D1CB;
+  line-height: 1.7;
+  margin-bottom: 36px;
+}
+
+.sectionsList {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  margin-bottom: 44px;
+}
+
+.sectionBox {
+  background: #111B17;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 10px;
+  padding: 28px;
+}
+
+.sectionTitle {
+  font-family: 'Manrope', sans-serif;
+  font-size: 19px;
+  font-weight: 700;
+  color: #5FCB90;
+  margin-bottom: 12px;
+}
+
+.sectionText {
+  font-size: 15.5px;
+  color: #B9C4BE;
+  line-height: 1.65;
+  margin: 0;
+}
+
+.takeawaysBox {
+  background: rgba(46, 139, 98, 0.1);
+  border: 1px solid rgba(46, 139, 98, 0.3);
+  border-radius: 10px;
+  padding: 28px;
+  margin-bottom: 44px;
+}
+
+.takeawaysTitle {
+  font-family: 'Manrope', sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  color: #FFFFFF;
+  margin-bottom: 16px;
+}
+
+.takeawayItem {
+  font-size: 15px;
+  color: #D1DCD6;
+  margin-bottom: 10px;
+  line-height: 1.5;
+}
+
+.takeawayItem:last-child {
+  margin-bottom: 0;
+}
+
+.techUsed {
+  background: #0E1613;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 10px;
+  padding: 24px;
+  margin-bottom: 44px;
+}
+
+.techUsedLabel {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  color: #8C9C94;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+
+.techUsedValue {
+  font-family: monospace;
+  font-size: 15px;
+  color: #5FCB90;
+}
+
+.ctaBox {
+  background: linear-gradient(135deg, #111B17 0%, #16241F 100%);
+  border: 1px solid #2E8B62;
+  border-radius: 12px;
+  padding: 36px;
+  text-align: center;
+}
+
+.ctaBox h3 {
+  font-family: 'Manrope', sans-serif;
+  font-size: 22px;
+  font-weight: 700;
+  color: #FFFFFF;
+  margin-bottom: 12px;
+}
+
+.ctaBox p {
+  font-size: 15.5px;
+  color: #B9C4BE;
+  margin-bottom: 24px;
+}
+
+.ctaBtn {
+  display: inline-block;
+  background: #2E8B62;
+  color: #FFFFFF;
+  padding: 12px 26px;
+  border-radius: 6px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: background 0.2s ease;
+}
+
+.ctaBtn:hover {
+  background: #3AA372;
+}
+
+@media (max-width: 768px) {
+  .content {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}

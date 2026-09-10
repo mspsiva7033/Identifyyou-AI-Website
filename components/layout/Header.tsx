@@ -27,10 +27,9 @@ const defaultNav: NavItem[] = [
     label: 'Deep Tech',
     href: '/deep-tech',
     subItems: [
-      { label: 'Vision AI', href: '/deep-tech/vision-ai' },
+      { label: 'Vision AI & Industry Automation', href: '/deep-tech/vision-ai' },
       { label: 'AI & Intelligent Business', href: '/deep-tech/ai-intelligent-business' },
       { label: 'AI-Powered No-Code Platform', href: '/deep-tech/ai-no-code' },
-      { label: 'Industry Automation', href: '/deep-tech/industry-automation' },
       { label: 'Data Engineering', href: '/deep-tech/data-engineering' },
       { label: 'Digital Engineering', href: '/deep-tech/digital-engineering' },
     ],
@@ -90,8 +89,7 @@ export function Header({ logo, navItems = defaultNav, ctaButton }: HeaderProps) 
     <header ref={headerRef} className={styles.header}>
       <div className={styles.inner}>
         <Link href={brand.href} className={styles.logo}>
-          <span className={styles.logoName}>{brand.brandName}</span>
-          <span className={styles.logoTag}>{brand.tagline}</span>
+          <img src="/images/identifYou_logo.png" alt="IdentifYou" className={styles.logoImg} />
         </Link>
 
         {!isMobile && (
@@ -113,7 +111,7 @@ export function Header({ logo, navItems = defaultNav, ctaButton }: HeaderProps) 
                     {item.subItems && openDropdown === key && (
                       <div className={styles.dropdown}>
                         {item.subItems.map((sub) => (
-                          <Link key={sub.href} href={sub.href} className={styles.dropdownItem}>
+                          <Link key={`${sub.label}-${sub.href}`} href={sub.href} className={styles.dropdownItem}>
                             {sub.label}
                           </Link>
                         ))}
@@ -148,7 +146,7 @@ export function Header({ logo, navItems = defaultNav, ctaButton }: HeaderProps) 
                 {item.label}
               </a>
               {item.subItems?.map((sub) => (
-                <Link key={sub.href} href={sub.href} className={styles.mobileSubLink}>
+                <Link key={`${sub.label}-${sub.href}`} href={sub.href} className={styles.mobileSubLink}>
                   {sub.label}
                 </Link>
               ))}

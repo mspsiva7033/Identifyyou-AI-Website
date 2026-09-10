@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import React from 'react'
 import Link from 'next/link'
 import { Header } from '@/components/layout/Header'
 import { Footer } from '@/components/layout/Footer'
@@ -71,60 +72,162 @@ const supportingPillars = [
   },
 ]
 
-const aiSeesThinkActs = [
+// ----------------------------------------------------------------------
+// DATA STRUCTURES FOR HOME PAGE
+// ----------------------------------------------------------------------
+
+const aiTopRowPillars = [
   {
-    n: '01',
+    type: 'vision-ai',
+    badge: 'COMPUTER VISION',
     eyebrow: 'AI THAT SEES',
     title: 'Vision AI',
     subtext: 'See. Inspect. Measure. Decide.',
     flow: 'Camera → Image → Computer Vision → AI → Measurement → Decision',
     href: '/deep-tech/vision-ai',
     image: 'https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?q=80&w=800&auto=format&fit=crop',
+    iconSvg: (
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#5FCB90" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7z"></path>
+        <circle cx="12" cy="12" r="3"></circle>
+      </svg>
+    ),
   },
   {
-    n: '02',
+    type: 'ai-business',
+    badge: 'DECISION ENGINE',
     eyebrow: 'AI THAT THINKS',
     title: 'AI & Intelligent Business',
     subtext: 'Turn Business Decisions Into Intelligent Decisions.',
     flow: 'Business Data → AI → Prediction → Recommendation → Decision',
     href: '/deep-tech/ai-intelligent-business',
     image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=800&auto=format&fit=crop',
+    iconSvg: (
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#5FCB90" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+        <line x1="8" y1="21" x2="16" y2="21"></line>
+        <line x1="12" y1="17" x2="12" y2="21"></line>
+        <polyline points="6 10 10 7 14 11 18 7"></polyline>
+      </svg>
+    ),
   },
+]
+
+const aiBottomRowPillars = [
   {
-    n: '03',
+    type: 'no-code',
+    badge: 'NO-CODE PLATFORM',
     eyebrow: 'AI THAT ACTS',
     title: 'AI-Powered No-Code + Automation',
     subtext: 'Build Intelligent Applications Without Traditional Code.',
     flow: 'AI Decision → Workflow → Automation → Action',
     href: '/deep-tech/ai-no-code',
     image: '/images/deep-tech-chip.jpg',
+    iconSvg: (
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#5FCB90" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+      </svg>
+    ),
   },
   {
-    n: '04',
+    type: 'automation',
+    badge: 'ROBOTICS & PLCs',
     eyebrow: 'AI THAT CONNECTS',
     title: 'Industry Automation',
     subtext: 'Connect. Automate. Optimize.',
     flow: 'Robots → PLCs → Sensors → Edge → Automation',
     href: '/deep-tech/industry-automation',
     image: 'https://images.unsplash.com/photo-1616401784845-180882ba9ba8?q=80&w=800&auto=format&fit=crop',
+    iconSvg: (
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#5FCB90" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <rect x="3" y="11" width="18" height="10" rx="2"></rect>
+        <circle cx="12" cy="5" r="2"></circle>
+        <path d="M12 7v4"></path>
+        <line x1="8" y1="16" x2="8.01" y2="16"></line>
+        <line x1="16" y1="16" x2="16.01" y2="16"></line>
+      </svg>
+    ),
   },
   {
-    n: '05',
+    type: 'data-engineering',
+    badge: 'DATA PIPELINES',
     eyebrow: 'AI THAT ENABLES',
     title: 'Data Engineering',
     subtext: 'Turn Data Into a Trusted Business Asset.',
     flow: 'Raw Data → Ingestion → Pipeline → Analytics → Asset',
     href: '/deep-tech/data-engineering',
     image: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?q=80&w=800&auto=format&fit=crop',
+    iconSvg: (
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#5FCB90" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <ellipse cx="12" cy="5" rx="9" ry="3"></ellipse>
+        <path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"></path>
+        <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path>
+      </svg>
+    ),
   },
   {
-    n: '06',
+    type: 'digital-engineering',
+    badge: 'ENTERPRISE SAAS',
     eyebrow: 'AI THAT DELIVERS',
     title: 'Digital Engineering',
     subtext: 'Engineer Digital Products That Solve Real Business Problems.',
     flow: 'Workflow → Architecture → Cloud → SaaS → Business Value',
     href: '/deep-tech/digital-engineering',
     image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=800&auto=format&fit=crop',
+    iconSvg: (
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#5FCB90" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <polyline points="16 18 22 12 16 6"></polyline>
+        <polyline points="8 6 2 12 8 18"></polyline>
+      </svg>
+    ),
+  },
+]
+
+// AI & INTELLIGENT BUSINESS CASE STUDIES (4 Cards Before Deep Tech Across Industries)
+const aiIntelligentBusinessCaseStudies = [
+  {
+    title: 'ABM – Snowflake Solution',
+    desc: 'Precision ABM powered by Cortex AI within the Snowflake AI Data Cloud.',
+    href: 'https://identifyyou.in/projects/precision-abm-powered-by-cortex-ai-within-the-snowflake-ai-data-cloud/',
+    image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=800&auto=format&fit=crop',
+    isExternal: true,
+  },
+  {
+    title: 'Zebra Line Inspection',
+    desc: 'Infusing AI and Deep Learning into floating glass on-line inspection systems.',
+    href: 'https://identifyyou.in/projects/infusing-ai-and-deep-learning-into-floating-glass-on-line-inspection-systems/',
+    image: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=800&auto=format&fit=crop',
+    isExternal: true,
+  },
+  {
+    title: 'Machine Vision',
+    desc: 'Beyond the lens: Revolutionizing manufacturing through machine vision.',
+    href: 'https://identifyyou.in/projects/beyond-the-lens-revolutionizing-manufacturing-through-machine-vision/',
+    image: 'https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?q=80&w=800&auto=format&fit=crop',
+    isExternal: true,
+  },
+  {
+    title: 'Risk Insights Finance',
+    desc: 'AI-driven risk analysis and automated financial decision support.',
+    href: '/case-studies/risk-insights-finance',
+    image: 'https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?q=80&w=800&auto=format&fit=crop',
+    isExternal: false,
+  },
+]
+
+// OTHER 4 PILLARS CASE STUDIES (2 Big Cards After Deep Tech Across Industries)
+const otherPillarCaseStudies = [
+  {
+    title: 'Fluke T40 Case Study',
+    desc: 'Thermal edge gateway integration for real-time condition monitoring and temperature sensing.',
+    href: '/case-studies/fluke-t40',
+    image: 'https://images.unsplash.com/photo-1581092334651-ddf26d9a09d0?q=80&w=1000&auto=format&fit=crop',
+  },
+  {
+    title: 'UV Light based Defect Detection',
+    desc: 'Specialized ultraviolet illumination coupled with high-resolution vision models for micro-crack detection.',
+    href: '/case-studies/uv-light-defect-detection',
+    image: 'https://images.unsplash.com/photo-1504384308090-c894fdcc538d?q=80&w=1000&auto=format&fit=crop',
   },
 ]
 
@@ -136,9 +239,9 @@ const businessFirstSteps = [
 ]
 
 const visionCapabilities = [
-  { c1: 'Defect detection', c2: 'Surface inspection' },
-  { c1: 'Dimensional inspection', c2: 'Assembly verification' },
-  { c1: 'Counting & classification', c2: 'OCR & visual identification' },
+  { c1: 'Dimensional Inspection', c2: 'Surface Inspection' },
+  { c1: 'Defect Detection', c2: 'Counting & Classification' },
+  { c1: 'Assembly Verification', c2: 'Visual Identification' },
 ]
 
 const mfgSubcategories = [
@@ -147,32 +250,27 @@ const mfgSubcategories = [
   { sub1: 'Process Manufacturing', sub2: 'Quality & Inspection' },
 ]
 
-const mfgArchitectureLayers = [
-  { level: 'L5 ENTERPRISE', stack: 'ERP · CRM · Data Platform · BI', desc: 'Enterprise Planning & Intelligence' },
-  { level: 'L4 OPERATIONS', stack: 'MES · Production & Quality Apps', desc: 'Shop-Floor Execution & Operations' },
-  { level: 'L3 INTELLIGENCE', stack: 'Vision AI · ML Models · Anomaly Detection', desc: 'Real-time AI & Inferencing' },
-  { level: 'L2 EDGE', stack: 'Gateways · Local Compute · Buffering', desc: 'Low-latency Local Processing' },
-  { level: 'L1 CONTROL', stack: 'PLC · Robots · OPC UA · MQTT · RS485', desc: 'Machine & Robot Control' },
-  { level: 'L0 SHOP FLOOR', stack: 'Machines · Sensors · Cameras · RFID', desc: 'Physical Hardware & Sensors' },
-]
-
-// FEATURED SOLUTION CARDS (Smart Factory & AI-Powered Procurement - 2 Cards 1 Line)
+// FEATURED SOLUTION CARDS (Smart Factory & Thinking Factory)
 const featuredSolutions = [
   {
     title: 'Smart Factory',
-    desc: 'MES, production monitoring and digital shop-floor workflows.',
+    subtitle: 'IdentifYou Transformation',
+    desc: 'MES, production monitoring, digital shop-floor workflows, and transformation video.',
     href: '/case-studies/manufacturing-data-platform',
     image: 'https://images.unsplash.com/photo-1563986768609-322da13575f3?q=80&w=1000&auto=format&fit=crop',
+    hasVideo: true,
   },
   {
-    title: 'AI-Powered Procurement',
-    desc: 'Supplier recommendation, price intelligence and forecasting.',
-    href: '/case-studies/ai-powered-procurement',
-    image: 'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?q=80&w=1000&auto=format&fit=crop',
+    title: 'Thinking Factory',
+    subtitle: 'AI & Autonomous Decisions',
+    desc: 'Closed-loop AI inferencing driving shop floor optimization and predictive actions.',
+    href: '/case-studies/thinking-factory',
+    image: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=1000&auto=format&fit=crop',
+    hasVideo: false,
   },
 ]
 
-// PRODUCTS BY CATEGORY TABLE DATA (Page 4)
+// PRODUCTS BY CATEGORY TABLE DATA
 const productCategories = [
   {
     category: 'IIOT & EDGE',
@@ -207,7 +305,7 @@ const productCategories = [
   },
 ]
 
-// METRICS (Page 5)
+// METRICS
 const metrics = [
   { stat: '6+', label: 'YEARS IN BUSINESS' },
   { stat: '150+', label: 'CUSTOMERS' },
@@ -215,7 +313,7 @@ const metrics = [
   { stat: '1M+', label: 'CUSTOMER REQUESTS' },
 ]
 
-// PARTNERSHIPS (Page 5)
+// PARTNERSHIPS
 const partnerships = [
   {
     name: 'Snowflake',
@@ -265,6 +363,16 @@ const partnerships = [
     ),
   },
   {
+    name: 'Basler',
+    desc: 'Industrial cameras, 2D/3D vision hardware and sensor integration.',
+    icon: (
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#2E8B62" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/>
+        <circle cx="12" cy="13" r="4"/>
+      </svg>
+    ),
+  },
+  {
     name: 'Vision hardware & software vendors',
     desc: '2D CAMERA, 3D PROFILER, VISION AI SOFTWARE',
     icon: (
@@ -281,41 +389,7 @@ const partnerships = [
   },
 ]
 
-// WHY IDENTIFYOU (Page 6 WITH MANDATORY PROMPT UPDATES - 100% Unique Faceless Images)
-const whyIdentifYouCards = [
-  {
-    title: 'Business First',
-    desc: 'We understand the business before designing technology.',
-    image: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=600&auto=format&fit=crop',
-  },
-  {
-    title: 'Deep Tech',
-    desc: 'We engineer solutions using AI, Vision AI, IIoT, Edge and Automation.',
-    image: '/images/deep-tech-chip.jpg',
-  },
-  {
-    title: 'Domain and Technology',
-    desc: 'Engineers who understand the process on the floor as well as the stack above it.',
-    image: 'https://images.unsplash.com/photo-1531973576160-7125cd663d86?q=80&w=600&auto=format&fit=crop',
-  },
-  {
-    title: 'Outcome Ownership',
-    desc: 'Founded in 2017 on integrity, excellence and customer delight. We stay accountable to the result.',
-    image: 'https://images.unsplash.com/photo-1450133064473-71024230f91b?q=80&w=600&auto=format&fit=crop',
-  },
-  {
-    title: 'End-to-End Engineering',
-    desc: 'From machine and edge to cloud, data, AI and enterprise applications.',
-    image: 'https://images.unsplash.com/photo-1581092334651-ddf26d9a09d0?q=80&w=600&auto=format&fit=crop',
-  },
-  {
-    title: 'Outcome Driven',
-    desc: 'We measure success through business impact.',
-    image: 'https://images.unsplash.com/photo-1551836022-d5d88e9218df?q=80&w=600&auto=format&fit=crop',
-  },
-]
-
-// TESTIMONIALS (Page 6)
+// TESTIMONIALS
 const testimonials = [
   {
     quote:
@@ -350,7 +424,7 @@ export default function HomePage() {
       {/* 1. HERO SECTION (Page 1) */}
       <HeroSection />
 
-      {/* 2. INTRO STATEMENT & HEADING (Page 1 & 2) */}
+      {/* 2. INTRO STATEMENT & HEADING */}
       <section className={styles.sectionIntro}>
         <div className={styles.containerText}>
           <h2 className={styles.h2Center}>Deep Tech That Solves Real Business Problems</h2>
@@ -364,19 +438,43 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 3. AI THAT SEES, THINKS, ACTS & DEEP TECH CAPABILITIES (Cards 01 to 06) */}
+      {/* 3. AI THAT SEES, THINKS, ACTS & DEEP TECH CAPABILITIES */}
       <section className={styles.sectionDark}>
         <div className={styles.containerNarrow}>
-          <h2 className={styles.h2Dark}>AI That Sees. AI That Thinks. AI That Acts.</h2>
-          <div className={styles.aiCardsGrid}>
-            {aiSeesThinkActs.map((item) => (
+          <h2 className={styles.h2Dark}>All that Sees, All that Thinks and All that Act</h2>
+          
+          {/* Row 1: Vision AI and AI & Intelligent Business (2 Bigger Boxes) */}
+          <div className={styles.aiRowTopGrid}>
+            {aiTopRowPillars.map((item) => (
+              <Link key={item.title} href={item.href} className={styles.aiCardFullCoverBig}>
+                <div className={styles.aiCardBgVisual}>
+                  <img src={item.image} alt={item.title} className={styles.aiCardBgImg} loading="lazy" />
+                  <div className={styles.aiCardGradientOverlay} />
+                </div>
+                <div className={styles.aiCardTopHeader}>
+                  <span className={styles.aiCardPillBadge}>{item.badge}</span>
+                  <div className={styles.aiCardIconBox}>{item.iconSvg}</div>
+                </div>
+                <div className={styles.aiCardContentFull}>
+                  <span className={styles.aiEyebrowFull}>{item.eyebrow}</span>
+                  <h3 className={styles.aiTitleFullBig}>{item.title}</h3>
+                  <p className={styles.aiSubtextFullBig}>{item.subtext}</p>
+                </div>
+              </Link>
+            ))}
+          </div>
+
+          {/* Row 2: Remaining 4 Pillars (4 Smaller Boxes) */}
+          <div className={styles.aiRowBottomGrid}>
+            {aiBottomRowPillars.map((item) => (
               <Link key={item.title} href={item.href} className={styles.aiCardFullCover}>
                 <div className={styles.aiCardBgVisual}>
                   <img src={item.image} alt={item.title} className={styles.aiCardBgImg} loading="lazy" />
                   <div className={styles.aiCardGradientOverlay} />
                 </div>
                 <div className={styles.aiCardTopHeader}>
-                  <span className={styles.aiCardNumFull}>{item.n}</span>
+                  <span className={styles.aiCardPillBadgeSmall}>{item.badge}</span>
+                  <div className={styles.aiCardIconBoxSmall}>{item.iconSvg}</div>
                 </div>
                 <div className={styles.aiCardContentFull}>
                   <span className={styles.aiEyebrowFull}>{item.eyebrow}</span>
@@ -389,10 +487,51 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 5. BUSINESS-FIRST PROCESS (Horizontal Row) */}
+      {/* 4. VISION AI CASE STUDY SECTION (Next to All that Sees, All that Thinks and All that Act) */}
+      <section className={styles.sectionVisionCaseStudy}>
+        <div className={styles.containerNarrow}>
+          <div className={styles.visionCaseStudyBox}>
+            <div className={styles.visionCaseStudyTag}>Vision AI Case Study</div>
+            <h2 className={styles.visionCaseStudyTitle}>
+              Transforming Manufacturing Quality with Visual Intelligence — Powered by AI
+            </h2>
+
+            <div className={styles.visionCaseStudyGrid}>
+              <div className={styles.visionCaseStudyDesc}>
+                <p>
+                  Manufacturing quality is not just about seeing defects. It is about making the right quality decision, at the right time, on the production line.
+                </p>
+                <p>
+                  IdentifYou uses Visual Intelligence and AI to help manufacturers continuously understand what is happening on the production line, identify quality risks and turn visual information into real-time operational decisions — detecting defects, verifying processes, identifying deviations and enabling automated decisions in real time.
+                </p>
+                <p>
+                  The value goes beyond capturing images. It lies in turning what the production line sees into data, data into intelligence, and intelligence into action.
+                </p>
+                <p>
+                  By engineering AI-driven visual inspection into the manufacturing process, quality control can move from a reactive cost centre to a proactive capability that improves quality, reduces waste, strengthens process control and drives operational performance.
+                </p>
+              </div>
+
+              <div className={styles.visionCaseStudyCaps}>
+                <div className={styles.visionCapsTitle}>Capabilities & Offerings</div>
+                <div className={styles.visionCapsList}>
+                  {visionCapabilities.map((cap, idx) => (
+                    <React.Fragment key={idx}>
+                      <div className={styles.visionCapBadge}>{cap.c1}</div>
+                      <div className={styles.visionCapBadge}>{cap.c2}</div>
+                    </React.Fragment>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 5. BUSINESS-FIRST PROCESS (Black Background) */}
       <section className={styles.sectionDarkProcess}>
         <div className={styles.containerNarrow}>
-          <h2 className={styles.h2DarkProcess}>We Start With the Business. Not the Technology.</h2>
+          <h2 className={styles.h2DarkProcess}>We start with the Business. Not the Technology</h2>
           <div className={styles.processStepsHorizontal}>
             {businessFirstSteps.map((step, idx) => (
               <div key={step.n} className={styles.processStepHorizWrap}>
@@ -410,47 +549,39 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 6. VISION AI SECTION (Page 3) */}
-      <section className={styles.sectionVisionAI}>
+      {/* 6. BEFORE DEEP TECH ACROSS INDUSTRIES: 4 CARDS FOR CASE STUDIES OF 'AI & INTELLIGENT BUSINESS' */}
+      <section className={styles.sectionSolutions}>
         <div className={styles.container}>
-          <div className={styles.visionTwoCol}>
-            <div className={styles.visionTextCol}>
-              <div className={styles.eyebrowGreen}>VISION AI</div>
-              <h2 className={styles.h2Vision}>AI-Powered Visual Intelligence for the Factory Floor</h2>
-              <p className={styles.visionParagraph}>
-                Machine vision is not a camera above a conveyor. It is a sensory organ for manufacturing and quality
-                control, feeding image data into ML and AI systems that turn what is seen into an automated decision.
-              </p>
-              <p className={styles.visionParagraph}>
-                The value is in the transition from image to data — and from data to a decision the line can act on.
-                Shifting the focus from buying a camera to architecting an ML/AI-driven process is what turns quality
-                control from a cost centre into an advantage.
-              </p>
-              <div className={styles.capabilitiesHeader}>CAPABILITIES & OFFERINGS</div>
-              <div className={styles.capabilitiesGrid}>
-                {visionCapabilities.map((cap, idx) => (
-                  <div key={idx} className={styles.capRow}>
-                    <div className={styles.capItem}>• {cap.c1}</div>
-                    <div className={styles.capItem}>• {cap.c2}</div>
-                  </div>
-                ))}
-              </div>
-            </div>
+          <div className={styles.eyebrowGreen}>AI & INTELLIGENT BUSINESS</div>
+          <h2 className={styles.h2SolutionsTitle}>Case Studies in Intelligent Business</h2>
 
-            <div className={styles.visionVisualCol}>
-              <div className={styles.visionGraphicCard}>
-                <img
-                  src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=1000&auto=format&fit=crop"
-                  alt="Vision AI Inspection Station"
-                  className={styles.visionRealImgClean}
-                />
-              </div>
-            </div>
+          <div className={styles.solutionsTwoColGrid}>
+            {aiIntelligentBusinessCaseStudies.map((cs) => (
+              <a
+                key={cs.title}
+                href={cs.href}
+                target={cs.isExternal ? '_blank' : '_self'}
+                rel={cs.isExternal ? 'noopener noreferrer' : undefined}
+                className={styles.solutionCardFull}
+              >
+                <div className={styles.solutionBgVisual}>
+                  <img src={cs.image} alt={cs.title} className={styles.solRealImg} loading="lazy" />
+                  <div className={styles.solGlow} />
+                </div>
+                <div className={styles.solOverlayContent}>
+                  <h3 className={styles.solTitleFull}>{cs.title}</h3>
+                  <p className={styles.solDescFull}>{cs.desc}</p>
+                  <div className={styles.knowMoreHoverBtn}>
+                    View Case Study {cs.isExternal ? '↗' : '→'}
+                  </div>
+                </div>
+              </a>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* 7. DEEP TECH ACROSS INDUSTRIES (Page 3) */}
+      {/* 7. DEEP TECH ACROSS INDUSTRIES */}
       <section className={styles.sectionIndustries}>
         <div className={styles.container}>
           <h2 className={styles.h2CenterTitle}>Deep Tech Across Industries</h2>
@@ -498,47 +629,24 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 8. MANUFACTURING ARCHITECTURE (Page 3 - Dark Stack) */}
-      {/* <section className={styles.sectionArchitecture}>
-        <div className={styles.containerNarrow}>
-          <div className={styles.eyebrowGreen}>MANUFACTURING ARCHITECTURE</div>
-          <h2 className={styles.h2DarkArch}>The plant, layer by layer</h2>
-          <p className={styles.archDesc}>
-            Machine and sensor signals travel up through gateways and edge compute, into vision and AI, then into
-            manufacturing and enterprise applications. Automation commands travel back down the same path.
-          </p>
-
-          <div className={styles.archStack}>
-            {mfgArchitectureLayers.map((layer) => (
-              <div key={layer.level} className={styles.archLayerRow}>
-                <div className={styles.archLevelCol}>{layer.level}</div>
-                <div className={styles.archStackCol}>{layer.stack}</div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section> */}
-
-      {/* 9. SOLUTION CARDS (Page 3 & 4) */}
+      {/* 8. AFTER DEEP TECH ACROSS INDUSTRIES: 2 BIG CARDS FOR CASE STUDIES OF OTHER 4 PILLARS */}
       <section className={styles.sectionSolutions}>
         <div className={styles.container}>
-          <h2 className={styles.h2SolutionsTitle}>
-            What If Your Factory Could See, Understand<br />and Act in Real Time?
-          </h2>
+          <div className={styles.eyebrowGreen}>DEEP TECH IN PRACTICE</div>
+          <h2 className={styles.h2SolutionsTitle}>Case Studies Across Deep Tech Pillars</h2>
 
-          {/* UNIFORM 2 CARDS PER LINE GRID */}
           <div className={styles.solutionsTwoColGrid}>
-            {featuredSolutions.map((sol) => (
-              <Link key={sol.title} href={sol.href} className={styles.solutionCardFull}>
+            {otherPillarCaseStudies.map((cs) => (
+              <Link key={cs.title} href={cs.href} className={styles.solutionCardFull}>
                 <div className={styles.solutionBgVisual}>
-                  <img src={sol.image} alt={sol.title} className={styles.solRealImg} loading="lazy" />
+                  <img src={cs.image} alt={cs.title} className={styles.solRealImg} loading="lazy" />
                   <div className={styles.solGlow} />
                 </div>
                 <div className={styles.solOverlayContent}>
-                  <h3 className={styles.solTitleFull}>{sol.title}</h3>
-                  <p className={styles.solDescFull}>{sol.desc}</p>
+                  <h3 className={styles.solTitleFull}>{cs.title}</h3>
+                  <p className={styles.solDescFull}>{cs.desc}</p>
                   <div className={styles.knowMoreHoverBtn}>
-                    Know More →
+                    Explore Case Study →
                   </div>
                 </div>
               </Link>
@@ -547,9 +655,94 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* 9. NO-CODE PLATFORM HERO BANNER */}
+      <section className={styles.sectionNoCodeBanner}>
+        <div className={styles.container}>
+          <div className={styles.noCodeBannerFrame}>
+            <div className={styles.noCodeBackgroundPattern} />
+            <div className={styles.noCodeBannerInner}>
+              <div className={styles.noCodeBadgeBox}>
+                AI-POWERED NO-CODE PLATFORM
+              </div>
+              
+              <h2 className={styles.noCodeBannerHeadline}>
+                Describe It. Build It. Run It. <br />
+                <span className={styles.noCodeHeadlineGreen}>No-Code Enterprise Transformation</span>
+              </h2>
 
+              <p className={styles.noCodeBannerSub}>
+                Build automated workflows, vision AI pipelines, and intelligent operational tools 10x faster—with zero traditional coding overhead.
+              </p>
 
-      {/* 11. ENGAGEMENT MODELS (Page 5) */}
+              <div className={styles.noCodeFeaturesInline}>
+                <div className={styles.noCodeFeatureItem}>
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#5FCB90" strokeWidth="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                  <span>Visual Drag & Drop Workflows</span>
+                </div>
+                <div className={styles.noCodeFeatureItem}>
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#5FCB90" strokeWidth="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                  <span>Native AI Agent Integrations</span>
+                </div>
+                <div className={styles.noCodeFeatureItem}>
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#5FCB90" strokeWidth="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                  <span>Enterprise ERP & MES Connectors</span>
+                </div>
+              </div>
+
+              <div className={styles.noCodeCTAWrap}>
+                <Link href="/deep-tech/ai-no-code" className={styles.noCodePrimaryBtn}>
+                  Explore No-Code Platform →
+                </Link>
+                <Link href="/contact" className={styles.noCodeSecondaryBtn}>
+                  Schedule a Demo
+                </Link>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 10. SMART FACTORY & CAPABILITY CASE STUDIES */}
+      <section className={styles.sectionSolutions}>
+        <div className={styles.container}>
+          <div className={styles.eyebrowGreen}>SMART FACTORY CAPABILITY</div>
+          <h2 className={styles.h2SolutionsTitle}>
+            Capability Case Studies: Smart Factory
+          </h2>
+
+          <div className={styles.solutionsTwoColGrid}>
+            {featuredSolutions.map((sol) => (
+              <Link key={sol.title} href={sol.href} className={styles.solutionCardFull}>
+                <div className={styles.solutionBgVisual}>
+                  {sol.hasVideo ? (
+                    <video
+                      src="/videos/identifyyou_transformation.mp4"
+                      autoPlay
+                      loop
+                      muted
+                      playsInline
+                      className={styles.solRealImg}
+                    />
+                  ) : (
+                    <img src={sol.image} alt={sol.title} className={styles.solRealImg} loading="lazy" />
+                  )}
+                  <div className={styles.solGlow} />
+                </div>
+                <div className={styles.solOverlayContent}>
+                  <span className={styles.aiEyebrowFull}>{sol.subtitle}</span>
+                  <h3 className={styles.solTitleFull}>{sol.title}</h3>
+                  <p className={styles.solDescFull}>{sol.desc}</p>
+                  <div className={styles.knowMoreHoverBtn}>
+                    Explore Capability →
+                  </div>
+                </div>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 11. ENGAGEMENT MODELS & STAFF AUGMENTATION */}
       <section className={styles.sectionEngagement}>
         <div className={styles.container}>
           <div className={styles.eyebrowGreen}>ENGAGEMENT MODELS</div>
@@ -584,18 +777,18 @@ export default function HomePage() {
               <div className={styles.staffRolesGrid}>
                 <div className={styles.roleItem}>• AI Engineers</div>
                 <div className={styles.roleItem}>• Data Engineers</div>
-                <div className={styles.roleItem}>• Software Engineers</div>
-                <div className={styles.roleItem}>• Edge / IIoT Engineers</div>
-                <div className={styles.roleItem}>• Computer Vision Engineers</div>
+                <div className={styles.roleItem}>• Edge / IIOT Engineers</div>
                 <div className={styles.roleItem}>• Automation Engineers</div>
                 <div className={styles.roleItem}>• Cloud Engineers</div>
+                <div className={styles.roleItem}>• Software Engineers</div>
+                <div className={styles.roleItem}>• Computer Vision Engineers</div>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* 12. BUSINESS CTA (Page 5) */}
+      {/* 12. BUSINESS CTA */}
       <section className={styles.sectionBusinessCta}>
         <div className={styles.containerNarrow}>
           <div className={styles.ctaDarkCard}>
@@ -611,7 +804,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 13. YEARS OF EXPERIENCE / BUSINESS METRICS (Page 5) */}
+      {/* 13. YEARS OF EXPERIENCE / BUSINESS METRICS */}
       <section className={styles.sectionMetrics}>
         <div className={styles.container}>
           <AnimatedMetrics
@@ -624,7 +817,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 14. PARTNERSHIPS (Page 5) */}
+      {/* 14. PARTNERSHIPS */}
       <section className={styles.sectionPartnerships}>
         <div className={styles.container}>
           <div className={styles.eyebrowGreen}>PARTNERSHIPS</div>
@@ -644,7 +837,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 15. TESTIMONIALS (Page 6 - Dark Section) */}
+      {/* 15. TESTIMONIALS */}
       <section className={styles.sectionTestimonials}>
         <div className={styles.containerNarrow}>
           <div className={styles.eyebrowAccent}>WHY PEOPLE WORK WITH US</div>

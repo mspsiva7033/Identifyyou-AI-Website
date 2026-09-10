@@ -8,21 +8,21 @@
 
 /* Containers */
 .container {
-  max-width: 1280px;
+  max-width: 1400px;
   margin: 0 auto;
-  padding: 0 32px;
+  padding: 0 40px;
 }
 
 .containerNarrow {
-  max-width: 1120px;
+  max-width: 1280px;
   margin: 0 auto;
-  padding: 0 32px;
+  padding: 0 40px;
 }
 
 .containerText {
-  max-width: 900px;
+  max-width: 1000px;
   margin: 0 auto;
-  padding: 0 32px;
+  padding: 0 40px;
 }
 
 /* Eyebrows & Badges */
@@ -120,10 +120,62 @@
   letter-spacing: -0.015em;
 }
 
-.aiCardsGrid {
+.aiRowTopGrid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   gap: 28px;
+  margin-bottom: 28px;
+}
+
+.aiRowBottomGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+.aiCardFullCoverBig {
+  position: relative;
+  border-radius: 16px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 380px;
+  background: #090E0C;
+  border: 1px solid rgba(46, 139, 98, 0.35);
+  text-decoration: none;
+  color: #FFFFFF;
+  padding: 36px;
+  transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1), border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.aiCardFullCoverBig:hover {
+  transform: translateY(-6px);
+  border-color: #5FCB90;
+  box-shadow: 0 20px 48px rgba(0, 0, 0, 0.5), 0 0 25px rgba(95, 203, 144, 0.2);
+}
+
+.aiCardFullCoverBig:hover .aiCardBgImg {
+  transform: scale(1.08);
+  opacity: 0.65;
+}
+
+.aiTitleFullBig {
+  font-family: 'Manrope', sans-serif;
+  font-size: 28px;
+  font-weight: 800;
+  color: #FFFFFF;
+  margin: 0 0 10px;
+  letter-spacing: -0.01em;
+  line-height: 1.2;
+}
+
+.aiSubtextFullBig {
+  font-size: 16px;
+  font-weight: 600;
+  color: #8FD4AE;
+  margin: 0;
+  line-height: 1.45;
 }
 
 .aiCardFullCover {
@@ -133,12 +185,12 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  height: 330px;
+  height: 300px;
   background: #090E0C;
   border: 1px solid rgba(46, 139, 98, 0.25);
   text-decoration: none;
   color: #FFFFFF;
-  padding: 28px;
+  padding: 22px;
   transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1), border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
@@ -178,15 +230,85 @@
   position: relative;
   z-index: 2;
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
 }
 
-.aiCardNumFull {
-  font-family: 'Manrope', sans-serif;
+.aiCardPillBadge {
+  font-size: 11px;
   font-weight: 800;
-  font-size: 24px;
   color: #5FCB90;
-  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.8);
+  background: rgba(95, 203, 144, 0.12);
+  border: 1px solid rgba(95, 203, 144, 0.3);
+  padding: 5px 12px;
+  border-radius: 20px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  backdrop-filter: blur(4px);
+}
+
+.aiCardPillBadgeSmall {
+  font-size: 10px;
+  font-weight: 800;
+  color: #5FCB90;
+  background: rgba(95, 203, 144, 0.12);
+  border: 1px solid rgba(95, 203, 144, 0.3);
+  padding: 4px 10px;
+  border-radius: 20px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  backdrop-filter: blur(4px);
+}
+
+.aiCardIconBox {
+  background: rgba(15, 28, 22, 0.75);
+  border: 1px solid rgba(95, 203, 144, 0.35);
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(8px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.aiCardIconBoxSmall {
+  background: rgba(15, 28, 22, 0.75);
+  border: 1px solid rgba(95, 203, 144, 0.35);
+  width: 34px;
+  height: 34px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(8px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.aiCardFullCoverBig:hover .aiCardIconBox,
+.aiCardFullCover:hover .aiCardIconBoxSmall {
+  background: rgba(46, 139, 98, 0.3);
+  border-color: #5FCB90;
+  transform: scale(1.15) rotate(4deg);
+  box-shadow: 0 0 16px rgba(95, 203, 144, 0.4);
+}
+
+.aiFlowChip {
+  font-size: 11.5px;
+  font-family: monospace;
+  color: #A5D6BB;
+  background: rgba(0, 0, 0, 0.5);
+  border: 1px solid rgba(95, 203, 144, 0.2);
+  padding: 6px 10px;
+  border-radius: 6px;
+  margin-top: 14px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .aiCardContentFull {
@@ -240,13 +362,13 @@
   border: 1px solid rgba(95, 203, 144, 0.25);
 }
 
-/* 5. PROCESS SECTION (Horizontal) */
+/* 5. PROCESS SECTION (Horizontal) - Black Background */
 .sectionDarkProcess {
-  background: #F4F7F5;
-  color: #12181B;
+  background: #000000;
+  color: #FFFFFF;
   padding: 96px 32px;
-  border-top: 1px solid #E2E8E4;
-  border-bottom: 1px solid #E2E8E4;
+  border-top: 1px solid rgba(46, 139, 98, 0.25);
+  border-bottom: 1px solid rgba(46, 139, 98, 0.25);
 }
 
 .h2DarkProcess {
@@ -254,7 +376,7 @@
   font-size: clamp(28px, 4vw, 42px);
   font-weight: 800;
   text-align: center;
-  color: #12181B;
+  color: #FFFFFF;
   margin-bottom: 60px;
   letter-spacing: -0.015em;
 }
@@ -287,7 +409,7 @@
   font-family: 'Manrope', sans-serif;
   font-size: 16px;
   font-weight: 800;
-  color: #1C6B4F;
+  color: #5FCB90;
   margin-bottom: 8px;
 }
 
@@ -295,24 +417,238 @@
   font-family: 'Manrope', sans-serif;
   font-size: 22px;
   font-weight: 800;
-  color: #12181B;
+  color: #FFFFFF;
   margin: 0 0 6px;
   letter-spacing: -0.01em;
 }
 
 .stepSubHoriz {
   font-size: 13.5px;
-  color: #5A6862;
+  color: #A6B4AD;
   margin: 0;
   line-height: 1.4;
 }
 
 .stepArrowHoriz {
-  color: #1C6B4F;
+  color: #5FCB90;
   font-size: 22px;
   font-weight: bold;
   flex-shrink: 0;
   margin-top: -24px;
+}
+
+/* VISION AI CASE STUDY SECTION */
+.sectionVisionCaseStudy {
+  background: #090E0C;
+  color: #FFFFFF;
+  padding: 96px 32px;
+  border-bottom: 1px solid rgba(46, 139, 98, 0.25);
+}
+
+.visionCaseStudyBox {
+  background: #101815;
+  border: 1px solid rgba(46, 139, 98, 0.35);
+  border-radius: 20px;
+  padding: 48px;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.45);
+}
+
+.visionCaseStudyTag {
+  font-size: 12px;
+  font-weight: 700;
+  color: #5FCB90;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+
+.visionCaseStudyTitle {
+  font-family: 'Manrope', sans-serif;
+  font-size: clamp(26px, 3.5vw, 38px);
+  font-weight: 800;
+  color: #FFFFFF;
+  line-height: 1.25;
+  margin-bottom: 28px;
+  letter-spacing: -0.015em;
+}
+
+.visionCaseStudyGrid {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 48px;
+  align-items: start;
+}
+
+.visionCaseStudyDesc p {
+  font-size: 16px;
+  line-height: 1.68;
+  color: #C2D1C9;
+  margin-bottom: 18px;
+}
+
+.visionCaseStudyCaps {
+  background: rgba(46, 139, 98, 0.1);
+  border: 1px solid rgba(95, 203, 144, 0.25);
+  border-radius: 14px;
+  padding: 32px;
+}
+
+.visionCapsTitle {
+  font-size: 13px;
+  font-weight: 800;
+  color: #5FCB90;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+
+.visionCapsList {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.visionCapBadge {
+  font-size: 14.5px;
+  font-weight: 600;
+  color: #FFFFFF;
+  background: rgba(9, 14, 12, 0.7);
+  padding: 10px 14px;
+  border-radius: 8px;
+  border: 1px solid rgba(46, 139, 98, 0.3);
+}
+
+/* NO CODE HERO BANNER SECTION */
+.sectionNoCodeBanner {
+  background: #090E0C;
+  padding: 80px 32px;
+  border-bottom: 1px solid rgba(46, 139, 98, 0.2);
+}
+
+.noCodeBannerFrame {
+  position: relative;
+  background: rgba(11, 18, 15, 0.85);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(95, 203, 144, 0.25);
+  border-radius: 20px;
+  padding: 56px 48px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4), inset 0 0 30px rgba(46, 139, 98, 0.1);
+  overflow: hidden;
+}
+
+.noCodeBackgroundPattern {
+  position: absolute;
+  inset: 0;
+  background-image: linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+                    linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+  background-size: 44px 44px;
+  pointer-events: none;
+}
+
+.noCodeBannerInner {
+  position: relative;
+  z-index: 2;
+  max-width: 960px;
+}
+
+.noCodeBadgeBox {
+  display: inline-block;
+  background: rgba(46, 139, 98, 0.15);
+  border: 1px solid rgba(95, 203, 144, 0.35);
+  color: #5FCB90;
+  font-size: 12.5px;
+  font-weight: 700;
+  padding: 6px 16px;
+  border-radius: 20px;
+  margin-bottom: 24px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.noCodeBannerHeadline {
+  font-family: 'Manrope', sans-serif;
+  font-weight: 800;
+  font-size: clamp(32px, 4.2vw, 48px);
+  line-height: 1.15;
+  margin: 0 0 20px;
+  letter-spacing: -0.015em;
+  color: #FFFFFF;
+}
+
+.noCodeHeadlineGreen {
+  color: #5FCB90;
+  background: linear-gradient(135deg, #8FD4AE 0%, #3AA372 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.noCodeBannerSub {
+  font-size: 17px;
+  color: #B9C4BE;
+  margin: 0 0 32px;
+  max-width: 720px;
+  line-height: 1.6;
+}
+
+.noCodeFeaturesInline {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  margin-bottom: 40px;
+  padding-top: 8px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.noCodeFeatureItem {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 14.5px;
+  font-weight: 600;
+  color: #E0EAE5;
+}
+
+.noCodeCTAWrap {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.noCodePrimaryBtn {
+  background: #2E8B62;
+  color: #FFFFFF;
+  padding: 14px 30px;
+  border-radius: 6px;
+  font-size: 15px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: all 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+  box-shadow: 0 4px 16px rgba(46, 139, 98, 0.35);
+}
+
+.noCodePrimaryBtn:hover {
+  background: #3AA372;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(46, 139, 98, 0.5);
+  color: #FFFFFF;
+}
+
+.noCodeSecondaryBtn {
+  border: 1.5px solid rgba(255, 255, 255, 0.35);
+  color: #FFFFFF;
+  padding: 14px 30px;
+  border-radius: 6px;
+  font-size: 15px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.noCodeSecondaryBtn:hover {
+  border-color: #5FCB90;
+  color: #5FCB90;
+  background: rgba(95, 203, 144, 0.08);
+  transform: translateY(-2px);
 }
 
 /* 6. VISION AI SECTION */
@@ -1185,6 +1521,11 @@
 
 /* RESPONSIVE MEDIA QUERIES */
 @media (max-width: 992px) {
+  .aiRowTopGrid,
+  .aiRowBottomGrid,
+  .visionCaseStudyGrid,
+  .noCodeBannerBox,
+  .noCodeGrid,
   .aiCardsGrid,
   .introJuxtaposeGrid,
   .visionTwoCol,

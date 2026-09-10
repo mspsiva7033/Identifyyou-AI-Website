@@ -1,15 +1,240 @@
-.page { font-family: 'IBM Plex Sans', sans-serif; background: #FAFAF8; color: #12181B; line-height: 1.5; }
-.hero { max-width: 900px; margin: 0 auto; padding: clamp(48px,7vw,88px) 32px 24px; text-align: center; }
-.eyebrow { font-size: 12px; font-weight: 700; letter-spacing: 0.06em; color: #1C6B4F; text-transform: uppercase; margin-bottom: 14px; }
-.title { font-family: 'Manrope', sans-serif; font-weight: 800; font-size: clamp(32px,4.4vw,50px); line-height: 1.1; margin: 0 0 18px; }
-.desc { font-size: 17px; color: #5B6862; margin: 0; text-wrap: pretty; }
-.content { max-width: 900px; margin: 0 auto; padding: 24px 32px 64px; }
-.capGrid { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; margin-bottom: 44px; }
-.capTag { border: 1px solid #E3E7E1; color: #2B3530; font-size: 13.5px; padding: 7px 14px; border-radius: 5px; }
-.techBox { border: 1px solid #E3E7E1; border-radius: 10px; padding: 28px; margin-bottom: 32px; }
-.techLabel { font-size: 12px; font-weight: 700; letter-spacing: 0.05em; color: #8B978F; text-transform: uppercase; margin-bottom: 14px; text-align: center; }
-.techGrid { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; }
-.techTag { font-family: monospace; font-size: 13px; color: #1C6B4F; background: #F2F5F1; padding: 6px 12px; border-radius: 4px; }
-.checkList { display: flex; flex-direction: column; gap: 10px; margin-bottom: 44px; }
-.checkItem { font-size: 14px; color: #2B3530; }
-@media (max-width: 768px) { .content { padding-left: 20px; padding-right: 20px; } }
+.page {
+  font-family: 'IBM Plex Sans', sans-serif;
+  background: #FAFAF8;
+  color: #12181B;
+  line-height: 1.5;
+}
+
+.container {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.eyebrowGreen {
+  font-size: 11.5px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  color: #5FCB90;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+
+/* SECTION 1: FULL-PAGE HERO BANNER */
+.sectionHeroBanner {
+  position: relative;
+  width: 100%;
+  min-height: 560px;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  background: radial-gradient(circle at 80% 20%, rgba(46, 139, 98, 0.28) 0%, rgba(9, 14, 12, 0.98) 65%),
+              linear-gradient(180deg, #060908 0%, #0D1612 100%);
+  border-bottom: 1px solid rgba(46, 139, 98, 0.25);
+  padding: 56px 0;
+}
+
+.heroOverlayPattern {
+  position: absolute;
+  inset: 0;
+  background-image: linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+                    linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+  background-size: 44px 44px;
+  pointer-events: none;
+}
+
+.heroContainer {
+  position: relative;
+  z-index: 1;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 32px;
+  width: 100%;
+}
+
+.heroCard {
+  background: rgba(11, 18, 15, 0.85);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(95, 203, 144, 0.25);
+  border-radius: 20px;
+  padding: clamp(36px, 5vw, 56px);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  align-items: center;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5), inset 0 0 30px rgba(46, 139, 98, 0.1);
+  color: #FFFFFF;
+}
+
+.heroTitle {
+  font-family: 'Manrope', sans-serif;
+  font-weight: 800;
+  font-size: clamp(28px, 3.5vw, 44px);
+  line-height: 1.15;
+  color: #FFFFFF;
+  margin: 0 0 16px;
+  letter-spacing: -0.015em;
+}
+
+.heroSubtitle {
+  font-size: 16px;
+  font-weight: 700;
+  color: #5FCB90;
+  margin: 0 0 16px;
+}
+
+.heroDesc {
+  font-size: 15px;
+  line-height: 1.6;
+  color: #B9C4BE;
+  margin: 0 0 28px;
+}
+
+.btnGroup {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+}
+
+.btnPrimary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: #2E8B62;
+  color: #FFFFFF;
+  font-weight: 700;
+  font-size: 14px;
+  padding: 12px 26px;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: background 0.25s ease, transform 0.2s ease;
+}
+
+.btnPrimary:hover {
+  background: #3AA372;
+  transform: translateY(-2px);
+}
+
+.btnSecondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  color: #FFFFFF;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  font-weight: 600;
+  font-size: 14px;
+  padding: 12px 26px;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: border-color 0.25s ease, background 0.25s ease;
+}
+
+.btnSecondary:hover {
+  border-color: #5FCB90;
+  background: rgba(95, 203, 144, 0.1);
+}
+
+.heroVisualBox {
+  width: 100%;
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid rgba(95, 203, 144, 0.3);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.4);
+}
+
+.realImg {
+  width: 100%;
+  height: 100%;
+  max-height: 380px;
+  object-fit: cover;
+  display: block;
+}
+
+/* CONTENT STYLES */
+.content {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 64px 24px 64px;
+}
+
+.capGrid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+  margin-bottom: 44px;
+}
+
+.capTag {
+  background: #FFFFFF;
+  border: 1px solid #E3E7E1;
+  color: #2B3530;
+  font-size: 13.5px;
+  font-weight: 600;
+  padding: 8px 16px;
+  border-radius: 6px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.02);
+}
+
+.techBox {
+  background: #FFFFFF;
+  border: 1px solid #E3E7E1;
+  border-radius: 16px;
+  padding: 32px;
+  margin-bottom: 40px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.02);
+}
+
+.techLabel {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  color: #1C6B4F;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+  text-align: center;
+}
+
+.techGrid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+}
+
+.techTag {
+  font-family: monospace;
+  font-size: 13.5px;
+  font-weight: 600;
+  color: #1C6B4F;
+  background: rgba(28, 107, 79, 0.08);
+  padding: 8px 16px;
+  border-radius: 6px;
+}
+
+.checkList {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-bottom: 48px;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.checkItem {
+  font-size: 15px;
+  font-weight: 600;
+  color: #2B3530;
+  background: #FFFFFF;
+  border: 1px solid #E3E7E1;
+  padding: 12px 20px;
+  border-radius: 8px;
+}
+
+@media (max-width: 992px) {
+  .heroCard {
+    grid-template-columns: 1fr;
+  }
+}

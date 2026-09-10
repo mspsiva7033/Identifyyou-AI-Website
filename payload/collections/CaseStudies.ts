@@ -10,8 +10,15 @@ export const CaseStudies: CollectionConfig = {
     useAsTitle: 'title',
     group: 'Case Studies',
     defaultColumns: ['title', 'category', 'status', 'displayOrder'],
+    preview: (doc) => {
+      const slug = (doc?.slug as string) || 'manufacturing-data-platform'
+      return `${process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000'}/case-studies/${slug}`
+    },
     livePreview: {
-      url: ({ data }: { data: Record<string, unknown> }) => `${process.env.NEXT_PUBLIC_SITE_URL}/case-studies/${data?.slug}`,
+      url: ({ data }: { data: Record<string, unknown> }) => {
+        const slug = data?.slug || 'manufacturing-data-platform'
+        return `${process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000'}/case-studies/${slug}`
+      },
     },
   },
   access: {
@@ -33,6 +40,23 @@ export const CaseStudies: CollectionConfig = {
       required: true,
       admin: {
         position: 'sidebar',
+      },
+    },
+    {
+      name: 'template',
+      type: 'select',
+      label: 'Page Layout Template',
+      defaultValue: 'classic',
+      required: true,
+      options: [
+        { label: 'Classic Editorial (Default)', value: 'classic' },
+        { label: 'Tech Deep Dive (Dark Theme + Code & Architecture)', value: 'tech-deep-dive' },
+        { label: 'Visual Showcase (Large Media & Full-Width Banners)', value: 'visual-showcase' },
+        { label: 'Executive Brief (Split 2-Column with Key Highlights)', value: 'executive-brief' },
+      ],
+      admin: {
+        position: 'sidebar',
+        description: 'Choose visual template layout for this Case Study',
       },
     },
     {

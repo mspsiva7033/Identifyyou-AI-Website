@@ -47,6 +47,24 @@ const articles = [
     excerpt:
       'Empowering plant engineers and floor supervisors to create custom tracking apps and workflow automations without traditional software development delays.',
   },
+  {
+    slug: 'deep-tech-computer-vision-assembly-lines',
+    category: 'Vision AI & Quality',
+    date: 'June 25, 2026',
+    readTime: '6 min read',
+    title: 'Computer Vision & Edge Inferencing on High-Speed Assembly Lines',
+    excerpt:
+      'Synchronizing multi-angle camera feeds with edge TensorRT inferencing to verify component placement, wiring, and surface finish in sub-50ms cycles.',
+  },
+  {
+    slug: 'predictive-maintenance-iiot-sensor-fusion',
+    category: 'Industrial Automation',
+    date: 'June 10, 2026',
+    readTime: '7 min read',
+    title: 'Predictive Maintenance at Scale with IIoT Sensor Fusion & Machine Learning',
+    excerpt:
+      'Fusing thermal telemetry, vibration metrics, and current draw sensors to predict equipment failure before catastrophic downtime occurs.',
+  },
 ]
 
 export default function BlogsAndNewsPage() {
@@ -78,7 +96,7 @@ export default function BlogsAndNewsPage() {
                 <h2 className={styles.articleTitle}>{article.title}</h2>
                 <p className={styles.excerpt}>{article.excerpt}</p>
                 <div className={styles.cardFooter}>
-                  <Link href="/contact" className={styles.readMore}>
+                  <Link href={`/blogs-and-news/${article.slug}`} className={styles.readMore}>
                     Read Article →
                   </Link>
                 </div>

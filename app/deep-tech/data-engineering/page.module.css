@@ -1,11 +1,599 @@
-.page { font-family: 'IBM Plex Sans', sans-serif; background: #FAFAF8; color: #12181B; line-height: 1.5; }
-.hero { max-width: 900px; margin: 0 auto; padding: clamp(48px,7vw,88px) 32px 24px; text-align: center; }
-.eyebrow { font-size: 12px; font-weight: 700; letter-spacing: 0.06em; color: #1C6B4F; text-transform: uppercase; margin-bottom: 14px; }
-.title { font-family: 'Manrope', sans-serif; font-weight: 800; font-size: clamp(32px,4.4vw,50px); line-height: 1.1; margin: 0 0 18px; }
-.desc { font-size: 17px; color: #5B6862; margin: 0; text-wrap: pretty; }
-.content { max-width: 1000px; margin: 0 auto; padding: 24px 32px 64px; }
-.capsGrid { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; margin-bottom: 44px; }
-.cap { border: 1px solid #E3E7E1; color: #2B3530; font-size: 13.5px; padding: 7px 14px; border-radius: 5px; }
-.flowBox { border: 1px solid #E3E7E1; border-radius: 10px; padding: 32px; margin-bottom: 44px; }
-.flowLabel { font-size: 12px; font-weight: 700; letter-spacing: 0.05em; color: #8B978F; text-transform: uppercase; margin-bottom: 18px; text-align: center; }
-@media (max-width: 768px) { .content { padding-left: 20px; padding-right: 20px; } }
+.page {
+  font-family: 'IBM Plex Sans', sans-serif;
+  background: #FAFAF8;
+  color: #12181B;
+  line-height: 1.5;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.containerNarrow {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* SECTION 1: FULL-PAGE HERO BANNER */
+.sectionHeroBanner {
+  position: relative;
+  width: 100%;
+  min-height: 560px;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  background: radial-gradient(circle at 80% 20%, rgba(46, 139, 98, 0.28) 0%, rgba(9, 14, 12, 0.98) 65%),
+              linear-gradient(180deg, #060908 0%, #0D1612 100%);
+  border-bottom: 1px solid rgba(46, 139, 98, 0.25);
+  padding: 56px 0;
+}
+
+.heroOverlayPattern {
+  position: absolute;
+  inset: 0;
+  background-image: linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+                    linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+  background-size: 44px 44px;
+  pointer-events: none;
+}
+
+.heroContainer {
+  position: relative;
+  z-index: 1;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 32px;
+  width: 100%;
+}
+
+.heroBannerCard {
+  background: rgba(11, 18, 15, 0.85);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(95, 203, 144, 0.25);
+  border-radius: 20px;
+  padding: clamp(36px, 5vw, 56px);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  align-items: center;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5), inset 0 0 30px rgba(46, 139, 98, 0.1);
+  color: #FFFFFF;
+}
+
+.greenPillBadge {
+  display: inline-block;
+  font-size: 11.5px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: #5FCB90;
+  background: rgba(95, 203, 144, 0.14);
+  border: 1px solid rgba(95, 203, 144, 0.35);
+  padding: 6px 14px;
+  border-radius: 20px;
+  margin-bottom: 20px;
+}
+
+.heroBannerTitle {
+  font-family: 'Manrope', sans-serif;
+  font-weight: 800;
+  font-size: clamp(28px, 3.5vw, 42px);
+  line-height: 1.15;
+  color: #FFFFFF;
+  margin: 0 0 18px;
+  letter-spacing: -0.015em;
+}
+
+.heroBannerDesc {
+  font-size: 15.5px;
+  line-height: 1.55;
+  color: #A0B0A7;
+  margin: 0 0 28px;
+}
+
+.btnGroup {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+}
+
+.btnPrimary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: #1C6B4F;
+  color: #FFFFFF;
+  font-weight: 700;
+  font-size: 14px;
+  padding: 12px 24px;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: background 0.25s ease, transform 0.2s ease;
+}
+
+.btnPrimary:hover {
+  background: #248A66;
+  transform: translateY(-2px);
+}
+
+.btnSecondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  color: #FFFFFF;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  font-weight: 600;
+  font-size: 14px;
+  padding: 12px 24px;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: border-color 0.25s ease, background 0.25s ease;
+}
+
+.btnSecondary:hover {
+  border-color: #FFFFFF;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.heroVisualContainer {
+  width: 100%;
+  border-radius: 14px;
+  overflow: hidden;
+  border: 1px solid rgba(95, 203, 144, 0.35);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.4);
+}
+
+.realVisualImg {
+  width: 100%;
+  height: 100%;
+  max-height: 380px;
+  object-fit: cover;
+  display: block;
+}
+
+/* SECTION 2: SNOWFLAKE PARTNER STATS */
+.sectionPartnerStats {
+  max-width: 1240px;
+  margin: 0 auto 64px;
+  padding: 0 24px;
+}
+
+.partnerStatsCard {
+  background: #090E0C;
+  border: 1px solid rgba(46, 139, 98, 0.3);
+  border-radius: 16px;
+  padding: 36px 48px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 32px;
+  color: #FFFFFF;
+}
+
+.eyebrowGreen {
+  font-size: 11.5px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  color: #5FCB90;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+
+.partnerTitle {
+  font-family: 'Manrope', sans-serif;
+  font-weight: 800;
+  font-size: clamp(22px, 2.5vw, 30px);
+  margin: 0;
+  color: #FFFFFF;
+}
+
+.statsRow {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+
+.statItem {
+  display: flex;
+  flex-direction: column;
+}
+
+.statNum {
+  font-family: 'Manrope', sans-serif;
+  font-size: 26px;
+  font-weight: 800;
+  color: #FFFFFF;
+}
+
+.statLabel {
+  font-size: 12px;
+  font-weight: 600;
+  color: #8FD4AE;
+  margin-top: 2px;
+}
+
+/* SECTION 3: THE DIFFERENCE */
+.sectionDifference {
+  padding: 64px 24px;
+  text-align: center;
+}
+
+.diffEyebrow {
+  font-size: 11.5px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  color: #1C6B4F;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+
+.diffTitle {
+  font-family: 'Manrope', sans-serif;
+  font-weight: 800;
+  font-size: clamp(26px, 3.2vw, 38px);
+  color: #12181B;
+  margin: 0 0 16px;
+  letter-spacing: -0.01em;
+}
+
+.diffDesc {
+  max-width: 760px;
+  margin: 0 auto 36px;
+  font-size: 15.5px;
+  color: #5B6862;
+  line-height: 1.6;
+}
+
+.pillsFlowBox {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.pillNode {
+  background: #FFFFFF;
+  border: 1px solid #E3E7E1;
+  padding: 10px 22px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 700;
+  color: #12181B;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+}
+
+.pillArrow {
+  color: #8B978F;
+  font-size: 14px;
+}
+
+/* SECTION 4: PLATFORM ENGINEERING */
+.sectionPlatformEng {
+  padding: 48px 24px 64px;
+  max-width: 1240px;
+  margin: 0 auto;
+}
+
+.platformEngCard {
+  background: #F4F6F3;
+  border: 1px solid #E3E7E1;
+  border-radius: 20px;
+  padding: clamp(32px, 4vw, 56px);
+  text-align: center;
+}
+
+.diagramContainer {
+  width: 100%;
+  margin: 32px 0 40px;
+  border-radius: 14px;
+  overflow: hidden;
+  border: 1px solid #E3E7E1;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+}
+
+.realDiagramImg {
+  width: 100%;
+  height: auto;
+  max-height: 480px;
+  object-fit: cover;
+  display: block;
+}
+
+/* SECTION 5: BUILT ON SNOWFLAKE */
+.sectionBuiltOnSnowflake {
+  padding: 48px 24px 72px;
+  max-width: 1240px;
+  margin: 0 auto;
+}
+
+.twoColGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  align-items: center;
+}
+
+.archDiagramContainer {
+  width: 100%;
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid #E3E7E1;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+}
+
+.builtContentTitle {
+  font-family: 'Manrope', sans-serif;
+  font-weight: 800;
+  font-size: clamp(24px, 3vw, 34px);
+  color: #12181B;
+  margin: 0 0 16px;
+}
+
+.builtContentDesc {
+  font-size: 15.5px;
+  color: #5B6862;
+  line-height: 1.6;
+  margin: 0 0 28px;
+}
+
+.featureTagsGrid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 24px;
+}
+
+.featureTag {
+  background: #FFFFFF;
+  border: 1px solid #E3E7E1;
+  color: #2B3530;
+  font-size: 13px;
+  font-weight: 600;
+  padding: 8px 16px;
+  border-radius: 6px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.03);
+}
+
+/* SECTION 6: COMING NEXT BANNER */
+.sectionComingNext {
+  padding: 0 24px 72px;
+  max-width: 1240px;
+  margin: 0 auto;
+}
+
+.comingNextCard {
+  background: #0B110E;
+  border: 1px solid rgba(46, 139, 98, 0.35);
+  border-radius: 18px;
+  padding: 56px 40px;
+  text-align: center;
+  color: #FFFFFF;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.25);
+}
+
+.comingNextTitle {
+  font-family: 'Manrope', sans-serif;
+  font-weight: 800;
+  font-size: clamp(24px, 3vw, 36px);
+  color: #FFFFFF;
+  margin: 0 0 16px;
+}
+
+.comingNextDesc {
+  max-width: 720px;
+  margin: 0 auto;
+  font-size: 15px;
+  color: #A0B0A7;
+  line-height: 1.6;
+}
+
+/* SECTION 7: SNOWFLAKE CASE STUDIES */
+.sectionCaseStudies {
+  padding: 32px 24px 80px;
+  max-width: 1240px;
+  margin: 0 auto;
+}
+
+.csMainTitle {
+  font-family: 'Manrope', sans-serif;
+  font-weight: 800;
+  font-size: clamp(28px, 3.5vw, 40px);
+  text-align: center;
+  color: #12181B;
+  margin-bottom: 48px;
+}
+
+.featuredCaseStudyCard {
+  background: #F7F9F6;
+  border: 1px solid #E3E7E1;
+  border-radius: 18px;
+  padding: 36px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 36px;
+  align-items: center;
+  margin-bottom: 32px;
+}
+
+.csVisualContainer {
+  width: 100%;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid #E3E7E1;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
+}
+
+.realCsImg {
+  width: 100%;
+  height: 100%;
+  max-height: 320px;
+  object-fit: cover;
+  display: block;
+}
+
+.csFeaturedTag {
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  color: #1C6B4F;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+
+.csFeaturedTitle {
+  font-family: 'Manrope', sans-serif;
+  font-weight: 800;
+  font-size: 24px;
+  color: #12181B;
+  margin: 0 0 16px;
+  line-height: 1.25;
+}
+
+.csDetailRow {
+  font-size: 14px;
+  color: #4A5650;
+  margin-bottom: 8px;
+  line-height: 1.5;
+}
+
+.csDetailLabel {
+  font-weight: 700;
+  color: #12181B;
+}
+
+.csStatBadges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 20px 0;
+}
+
+.csStatBadge {
+  background: rgba(28, 107, 79, 0.08);
+  border: 1px solid rgba(28, 107, 79, 0.25);
+  color: #1C6B4F;
+  font-size: 12.5px;
+  font-weight: 700;
+  padding: 6px 14px;
+  border-radius: 6px;
+}
+
+.csLink {
+  display: inline-flex;
+  align-items: center;
+  font-size: 14px;
+  font-weight: 700;
+  color: #1C6B4F;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.csLink:hover {
+  color: #248A66;
+  text-decoration: underline;
+}
+
+.csThreeGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.csGridCard {
+  background: #FFFFFF;
+  border: 1px solid #E3E7E1;
+  border-radius: 14px;
+  padding: 28px 24px;
+  text-decoration: none;
+  transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.csGridCard:hover {
+  transform: translateY(-4px);
+  border-color: #1C6B4F;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.06);
+}
+
+.csCategoryTag {
+  font-size: 10.5px;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  color: #7A8E84;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+
+.csGridTitle {
+  font-family: 'Manrope', sans-serif;
+  font-weight: 800;
+  font-size: 17px;
+  color: #12181B;
+  margin: 0;
+  line-height: 1.35;
+}
+
+/* SECTION 8: READY TO TURN DATA INTO A BUSINESS ASSET CTA */
+.sectionCta {
+  padding: 0 24px 96px;
+  max-width: 1240px;
+  margin: 0 auto;
+}
+
+.ctaCardDark {
+  background: #0B110E;
+  border: 1px solid rgba(46, 139, 98, 0.35);
+  border-radius: 20px;
+  padding: clamp(48px, 6vw, 72px) 36px;
+  text-align: center;
+  color: #FFFFFF;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+}
+
+.ctaTitle {
+  font-family: 'Manrope', sans-serif;
+  font-weight: 800;
+  font-size: clamp(28px, 3.5vw, 40px);
+  color: #FFFFFF;
+  margin: 0 0 16px;
+}
+
+.ctaDesc {
+  max-width: 680px;
+  margin: 0 auto 32px;
+  font-size: 15.5px;
+  color: #A0B0A7;
+  line-height: 1.6;
+}
+
+/* RESPONSIVE STYLES */
+@media (max-width: 992px) {
+  .heroBannerCard,
+  .twoColGrid,
+  .featuredCaseStudyCard {
+    grid-template-columns: 1fr;
+  }
+  .csThreeGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .partnerStatsCard {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .statsRow {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+  }
+}

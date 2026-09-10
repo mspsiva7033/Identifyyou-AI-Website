@@ -17,10 +17,9 @@ const defaultColumns: FooterColumn[] = [
   {
     title: 'Deep Tech',
     links: [
-      { label: 'Vision AI', href: '/deep-tech/vision-ai' },
+      { label: 'Vision AI & Industry Automation', href: '/deep-tech/vision-ai' },
       { label: 'AI & Intelligent Business', href: '/deep-tech/ai-intelligent-business' },
       { label: 'AI-Powered No-Code Platform', href: '/deep-tech/ai-no-code' },
-      { label: 'Industry Automation', href: '/deep-tech/industry-automation' },
       { label: 'Data Engineering', href: '/deep-tech/data-engineering' },
       { label: 'Digital Engineering', href: '/deep-tech/digital-engineering' },
     ],
@@ -74,7 +73,7 @@ export function Footer({
       <div className={styles.inner}>
         <div className={styles.grid}>
           <div className={styles.brand}>
-            <div className={styles.brandName}>{b.name}</div>
+            <img src="/images/identifYou_logo.png" alt="IdentifYou" style={{ height: '44px', width: 'auto', marginBottom: '8px' }} />
             <div className={styles.brandTag}>{b.tagline}</div>
           </div>
 

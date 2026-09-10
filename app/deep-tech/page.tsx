@@ -6,8 +6,8 @@ import { getDeepTechCapabilities } from '@/lib/payload'
 import styles from './deep-tech.module.css'
 
 export const metadata: Metadata = {
-  title: 'Deep Tech — Six Pillars Built Around Business',
-  description: 'Six Deep Tech pillars — Vision AI, AI & Intelligent Business, AI-Powered No-Code, Industry Automation, Data Engineering and Digital Engineering — each engineered around a real business problem.',
+  title: 'Deep Tech — Core Pillars Built Around Business',
+  description: 'Deep Tech pillars — Vision AI & Industry Automation, AI & Intelligent Business, AI-Powered No-Code, Data Engineering and Digital Engineering — each engineered around a real business problem.',
 }
 
 export default async function DeepTechPage() {
@@ -21,7 +21,7 @@ export default async function DeepTechPage() {
           Deep Tech. <span className={styles.heroAccent}>Built Around Business.</span>
         </h1>
         <p className={styles.heroDesc}>
-          Six Deep Tech pillars — each engineered around a real business problem, never presented as technology in isolation.
+          Core Deep Tech pillars — each engineered around a real business problem, combining visual intelligence, edge automation, data platforms, and enterprise digital solutions.
         </p>
       </section>
       <section className={styles.capabilitiesSection}>

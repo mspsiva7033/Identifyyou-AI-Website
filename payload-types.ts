@@ -231,6 +231,10 @@ export interface CaseStudy {
   id: number;
   status: 'draft' | 'published';
   /**
+   * Choose visual template layout for this Case Study
+   */
+  template: 'classic' | 'tech-deep-dive' | 'visual-showcase' | 'executive-brief';
+  /**
    * Lower number = appears first
    */
   displayOrder?: number | null;
@@ -559,6 +563,7 @@ export interface CaseStudyCategoriesSelect<T extends boolean = true> {
  */
 export interface CaseStudiesSelect<T extends boolean = true> {
   status?: T;
+  template?: T;
   displayOrder?: T;
   title?: T;
   slug?: T;

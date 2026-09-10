@@ -1,7 +1,20 @@
 .footer {
-  background: #0E1512;
-  color: #9DAAA3;
-  padding: 64px 32px 32px;
+  background: #0B0F19;
+  color: #94A3B8;
+  padding: 72px 32px 36px;
+  position: relative;
+  border-top: 1px solid #1E293B;
+}
+
+.footer::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, #10B981, #06B6D4, transparent);
+  opacity: 0.6;
 }
 
 .inner {
@@ -11,28 +24,29 @@
 
 .grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-  gap: 32px;
-  padding-bottom: 40px;
-  border-bottom: 1px solid #26332C;
+  grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+  gap: 36px;
+  padding-bottom: 48px;
+  border-bottom: 1px solid #1E293B;
 }
 
 .brand {
   grid-column: span 1;
-  min-width: 200px;
+  min-width: 220px;
 }
 
 .brandName {
-  font-family: 'Manrope', sans-serif;
+  font-family: 'Plus Jakarta Sans', sans-serif;
   font-weight: 800;
-  font-size: 19px;
-  color: #FAFAF8;
+  font-size: 20px;
+  color: #F8FAFC;
   margin-bottom: 6px;
+  letter-spacing: -0.02em;
 }
 
 .brandTag {
   font-size: 13.5px;
-  color: #2E8B62;
+  color: #10B981;
   font-weight: 600;
 }
 
@@ -42,38 +56,48 @@
 }
 
 .colTitle {
+  font-family: 'Plus Jakarta Sans', sans-serif;
   font-size: 13px;
   font-weight: 700;
-  color: #FAFAF8;
-  margin-bottom: 14px;
+  color: #F8FAFC;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-bottom: 16px;
 }
 
 .colLinks {
   display: flex;
   flex-direction: column;
-  gap: 9px;
+  gap: 10px;
 }
 
 .colLink {
   font-size: 13.5px;
-  color: #9DAAA3;
+  color: #94A3B8;
   text-decoration: none;
-  transition: color 150ms ease;
+  transition: color 150ms ease, transform 150ms ease;
 }
 
 .colLink:hover {
-  color: #2E8B62;
+  color: #34D399;
+  transform: translateX(2px);
 }
 
 .colText {
   font-size: 13.5px;
-  color: #9DAAA3;
+  color: #94A3B8;
+  line-height: 1.6;
 }
 
 .copyright {
-  padding-top: 24px;
-  font-size: 12.5px;
-  color: #5B6862;
+  padding-top: 28px;
+  font-size: 13px;
+  color: #64748B;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
 }
 
 @media (max-width: 768px) {

@@ -22,12 +22,28 @@ type Props = {
   caseStudies: CaseStudy[]
 }
 
-const filterLabels = ['All', 'Manufacturing', 'Supply Chain', 'Financial Services', 'FinTech', 'Healthcare', 'AI', 'Vision AI', 'Data', 'Automation']
+const filterLabels = [
+  'All',
+  'AI & Intelligent Business',
+  'Data Engineering',
+  'Digital Engineering',
+  'Industry Automation',
+  'Vision AI',
+]
 
 export function CaseStudiesClient({ caseStudies }: Props) {
   const [filter, setFilter] = useState('All')
 
-  const visible = filter === 'All' ? caseStudies : caseStudies.filter((c) => c.categories.includes(filter))
+  const visible = filter === 'All'
+    ? caseStudies
+    : caseStudies.filter((c) => {
+        if (Array.isArray(c.categories) && c.categories.includes(filter)) return true
+        const f = filter.toLowerCase()
+        if (c.tag && c.tag.toLowerCase().includes(f)) return true
+        if (c.title && c.title.toLowerCase().includes(f)) return true
+        if (c.deepTech && c.deepTech.toLowerCase().includes(f)) return true
+        return false
+      })
 
   return (
     <main>
