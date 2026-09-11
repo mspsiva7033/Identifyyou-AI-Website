@@ -515,7 +515,7 @@
 .moreCard:hover {
   border-color: #96c73d;
   transform: translateY(-3px);
-  box-shadow: 0 12px 25px -5px rgba(150, 199, 61, );
+  box-shadow: 0 12px 25px -5px rgba(150, 199, 61, 0.2);
 }
 
 .moreIllustrationWrapper {

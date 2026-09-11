@@ -7,7 +7,7 @@
 
 .hero {
   padding: 100px 32px 70px;
-  background: radial-gradient(circle at 50% 0%, rgba(150, 199, 61, ) 0%, rgba(9,14,12,0.98) 70%), #0D1612;
+  background: radial-gradient(circle at 50% 0%, rgba(150, 199, 61, 0.2) 0%, rgba(9,14,12,0.98) 70%), #0D1612;
   border-bottom: 1px solid rgba(255,255,255,0.08);
   text-align: center;
 }
@@ -19,7 +19,7 @@
 
 .badge {
   display: inline-block;
-  background: rgba(150, 199, 61, );
+  background: rgba(150, 199, 61, 0.2);
   border: 1px solid #96c73d;
   color: #96c73d;
   font-size: 13px;
@@ -131,7 +131,7 @@
 
 .ctaBanner {
   background: #0D1612;
-  border-top: 1px solid rgba(150, 199, 61, );
+  border-top: 1px solid rgba(150, 199, 61, 0.2);
   padding: 80px 32px;
   text-align: center;
 }

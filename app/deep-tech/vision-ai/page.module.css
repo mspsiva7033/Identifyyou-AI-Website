@@ -34,9 +34,9 @@
   display: flex;
   align-items: center;
   overflow: hidden;
-  background: radial-gradient(circle at 80% 20%, rgba(150, 199, 61, ) 0%, rgba(9, 14, 12, 0.98) 65%),
+  background: radial-gradient(circle at 80% 20%, rgba(150, 199, 61, 0.2) 0%, rgba(9, 14, 12, 0.98) 65%),
               linear-gradient(180deg, #060908 0%, #0D1612 100%);
-  border-bottom: 1px solid rgba(150, 199, 61, );
+  border-bottom: 1px solid rgba(150, 199, 61, 0.2);
   padding: 56px 0;
 }
 
@@ -134,14 +134,14 @@
 
 .btnSecondary:hover {
   border-color: #96c73d;
-  background: rgba(150, 199, 61, );
+  background: rgba(150, 199, 61, 0.2);
 }
 
 .heroVisualBox {
   width: 100%;
   border-radius: 16px;
   overflow: hidden;
-  border: 1px solid rgba(150, 199, 61, );
+  border: 1px solid rgba(150, 199, 61, 0.2);
   box-shadow: 0 16px 40px rgba(0, 0, 0, 0.4);
 }
 
@@ -184,7 +184,7 @@
   margin: 0 auto 36px;
   border-radius: 16px;
   overflow: hidden;
-  border: 1px solid rgba(150, 199, 61, );
+  border: 1px solid rgba(150, 199, 61, 0.2);
 }
 
 .equipmentTagsGrid {
@@ -210,7 +210,7 @@
   margin: 32px auto;
   border-left: 3px solid #96c73d;
   padding: 14px 24px;
-  background: rgba(150, 199, 61, );
+  background: rgba(150, 199, 61, 0.2);
   text-align: left;
   border-radius: 0 8px 8px 0;
 }
@@ -365,8 +365,8 @@
 }
 
 .csStatBadge {
-  background: rgba(150, 199, 61, );
-  border: 1px solid rgba(150, 199, 61, );
+  background: rgba(150, 199, 61, 0.2);
+  border: 1px solid rgba(150, 199, 61, 0.2);
   color: #96c73d;
   font-size: 12px;
   font-weight: 700;
@@ -433,7 +433,7 @@
 
 .stackedFlowBlock {
   background: rgba(255, 255, 255, 0.04);
-  border: 1px solid rgba(150, 199, 61, );
+  border: 1px solid rgba(150, 199, 61, 0.2);
   border-radius: 12px;
   padding: 20px;
   text-align: center;

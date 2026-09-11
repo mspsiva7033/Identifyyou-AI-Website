@@ -31,7 +31,7 @@
 
 .tagBadge {
   display: inline-block;
-  background: rgba(150, 199, 61, );
+  background: rgba(150, 199, 61, 0.2);
   border: 1px solid #96c73d;
   color: #96c73d;
   font-size: 12px;
@@ -112,8 +112,8 @@
 }
 
 .takeawaysBox {
-  background: rgba(150, 199, 61, );
-  border: 1px solid rgba(150, 199, 61, );
+  background: rgba(150, 199, 61, 0.2);
+  border: 1px solid rgba(150, 199, 61, 0.2);
   border-radius: 10px;
   padding: 28px;
   margin-bottom: 44px;

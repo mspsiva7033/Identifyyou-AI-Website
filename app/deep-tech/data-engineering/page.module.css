@@ -25,9 +25,9 @@
   display: flex;
   align-items: center;
   overflow: hidden;
-  background: radial-gradient(circle at 80% 20%, rgba(150, 199, 61, ) 0%, rgba(9, 14, 12, 0.98) 65%),
+  background: radial-gradient(circle at 80% 20%, rgba(150, 199, 61, 0.2) 0%, rgba(9, 14, 12, 0.98) 65%),
               linear-gradient(180deg, #060908 0%, #0D1612 100%);
-  border-bottom: 1px solid rgba(150, 199, 61, );
+  border-bottom: 1px solid rgba(150, 199, 61, 0.2);
   padding: 56px 0;
 }
 
@@ -64,8 +64,8 @@
   font-weight: 700;
   letter-spacing: 0.04em;
   color: #96c73d;
-  background: rgba(150, 199, 61, );
-  border: 1px solid rgba(150, 199, 61, );
+  background: rgba(150, 199, 61, 0.2);
+  border: 1px solid rgba(150, 199, 61, 0.2);
   padding: 6px 14px;
   border-radius: 20px;
   margin-bottom: 20px;
@@ -109,10 +109,15 @@
 }
 
 .btnPrimary:hover {
-  background: #96c73d;
+  background: #82b032;
   transform: translateY(-2px);
 }
-  color: #0F172A;
+
+.btnSecondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: #FFFFFF;
   border: 1px solid rgba(255, 255, 255, 0.4);
   font-weight: 600;
   font-size: 14px;
@@ -131,7 +136,7 @@
   width: 100%;
   border-radius: 14px;
   overflow: hidden;
-  border: 1px solid rgba(150, 199, 61, );
+  border: 1px solid rgba(150, 199, 61, 0.3);
   box-shadow: 0 16px 40px rgba(0, 0, 0, 0.4);
 }
 
@@ -152,7 +157,7 @@
 
 .partnerStatsCard {
   background: #090E0C;
-  border: 1px solid rgba(150, 199, 61, );
+  border: 1px solid rgba(150, 199, 61, 0.2);
   border-radius: 16px;
   padding: 36px 48px;
   display: flex;
@@ -358,7 +363,7 @@
 
 .comingNextCard {
   background: #0B110E;
-  border: 1px solid rgba(150, 199, 61, );
+  border: 1px solid rgba(150, 199, 61, 0.2);
   border-radius: 18px;
   padding: 56px 40px;
   text-align: center;
@@ -465,8 +470,8 @@
 }
 
 .csStatBadge {
-  background: rgba(150, 199, 61, );
-  border: 1px solid rgba(150, 199, 61, );
+  background: rgba(150, 199, 61, 0.2);
+  border: 1px solid rgba(150, 199, 61, 0.2);
   color: #96c73d;
   font-size: 12.5px;
   font-weight: 700;
@@ -540,7 +545,7 @@
 
 .ctaCardDark {
   background: #0B110E;
-  border: 1px solid rgba(150, 199, 61, );
+  border: 1px solid rgba(150, 199, 61, 0.2);
   border-radius: 20px;
   padding: clamp(48px, 6vw, 72px) 36px;
   text-align: center;
