@@ -4,6 +4,7 @@ import Link from 'next/link'
 import { Header } from '@/components/layout/Header'
 import { Footer } from '@/components/layout/Footer'
 import { FlowChain } from '@/components/ui/FlowChain'
+import { CaseStudyCard } from '@/components/ui/CaseStudyCard'
 import styles from './page.module.css'
 
 export const metadata: Metadata = {
@@ -158,7 +159,7 @@ export default function VisionAIPage() {
           </div>
 
           <div>
-            <div className={styles.eyebrowGreen} style={{ color: '#1C6B4F' }}>
+            <div className={styles.eyebrowGreen} style={{ color: '#96c73d' }}>
               PRECISION + PERFORMANCE
             </div>
             <h2 className={styles.precisionTitle}>Precision Without Compromising Production Speed</h2>
@@ -202,66 +203,20 @@ export default function VisionAIPage() {
       <section id="case-studies" className={styles.sectionCaseStudies}>
         <h2 className={styles.csMainTitle}>Vision AI in Action</h2>
 
-        {/* Featured Case Study Card */}
-        <div className={styles.featuredCsCard}>
-          <div className={styles.csVisualBox}>
-            <img
-              src="/images/uv_light_defect_detection.png"
-              alt="UV Light-Based Inspection"
-              className={styles.realImg}
-              loading="lazy"
-            />
-          </div>
-          <div>
-            <div className={styles.csFeaturedTag}>FEATURED CASE STUDY</div>
-            <h3 className={styles.csFeaturedTitle}>UV Light-Based Inspection</h3>
-
-            <div className={styles.csDetailRow}>
-              <span className={styles.csDetailLabel}>Industry — </span>Manufacturing
-            </div>
-            <div className={styles.csDetailRow}>
-              <span className={styles.csDetailLabel}>Challenge — </span>Detecting micro-defects and surface cracks at high
-              production speeds.
-            </div>
-            <div className={styles.csDetailRow}>
-              <span className={styles.csDetailLabel}>Solution — </span>UV Camera + AI + Lighting + Fixture + Automation.
-            </div>
-            <div className={styles.csDetailRow}>
-              <span className={styles.csDetailLabel}>Outcome — </span>Sub-second defect detection and zero-defect quality control.
-            </div>
-
-            <div className={styles.csStatBadges}>
-              <span className={styles.csStatBadge}>High Inspection Accuracy</span>
-              <span className={styles.csStatBadge}>Sub-second Cycle Time</span>
-              <span className={styles.csStatBadge}>High Throughput</span>
-              <span className={styles.csStatBadge}>Manual Inspection Reduction</span>
-            </div>
-
-            <Link href="/case-studies/uv-light-defect-detection" className={styles.btnPrimary}>
-              View Vision AI Case Study →
-            </Link>
-          </div>
-        </div>
-
-        {/* 3 Case Study Grid Cards */}
+        {/* Vision AI Case Study Cards */}
         <div className={styles.csThreeGrid}>
-          {externalCaseStudies.map((cs) => (
-            <a
-              key={cs.title}
-              href={cs.href}
-              target="_blank"
-              rel="noopener noreferrer"
-              className={styles.csCard}
-            >
-              <div>
-                <div className={styles.csFeaturedTag}>PROJECT / CASE STUDY</div>
-                <h4 className={styles.csGridTitle}>{cs.title}</h4>
-              </div>
-              <div style={{ marginTop: '20px', fontSize: '13.5px', fontWeight: '700', color: '#1C6B4F' }}>
-                View Project ↗
-              </div>
-            </a>
-          ))}
+          <CaseStudyCard
+            slug="advanced-vision-inspection-surface"
+            title="Advanced Vision Inspection for Surface & Edge Integrity"
+          />
+          <CaseStudyCard
+            slug="vision-ai-bore-measurement"
+            title="High-Speed Micron-Level Bore & Interface Inspection"
+          />
+          <CaseStudyCard
+            slug="vision-ai-complex-dimension"
+            title="Precision Inspection of Complex Threads & Internal Geometries"
+          />
         </div>
       </section>
 
@@ -302,7 +257,7 @@ export default function VisionAIPage() {
             </div>
           </div>
 
-          <p style={{ margin: '24px 0 0', fontSize: '13.5px', color: '#8FD4AE', fontWeight: '600' }}>
+          <p style={{ margin: '24px 0 0', fontSize: '13.5px', color: '#a6d64c', fontWeight: '600' }}>
             From a proof-of-concept on the lab bench to a production-ready inspection cell on the factory floor.
           </p>
         </div>
@@ -311,7 +266,7 @@ export default function VisionAIPage() {
       {/* SECTION 6: POINT OF VIEW */}
       <section className={styles.sectionPov}>
         <div className={styles.container}>
-          <div className={styles.eyebrowGreen} style={{ color: '#1C6B4F' }}>
+          <div className={styles.eyebrowGreen} style={{ color: '#96c73d' }}>
             VISION AI POINT OF VIEW
           </div>
 
@@ -370,7 +325,7 @@ export default function VisionAIPage() {
 
       {/* SECTION 7: ECOSYSTEM */}
       <section className={styles.sectionPartners}>
-        <div className={styles.eyebrowGreen} style={{ color: '#1C6B4F' }}>
+        <div className={styles.eyebrowGreen} style={{ color: '#96c73d' }}>
           TECHNOLOGY &amp; PARTNERSHIP ECOSYSTEM
         </div>
         <h2 className={styles.csMainTitle}>Powered by the Right Technology Ecosystem</h2>
@@ -415,7 +370,7 @@ export default function VisionAIPage() {
 
       {/* SECTION 9: NEWS & INSIGHTS */}
       <section className={styles.sectionNews}>
-        <div className={styles.eyebrowGreen} style={{ color: '#1C6B4F' }}>
+        <div className={styles.eyebrowGreen} style={{ color: '#96c73d' }}>
           LATEST NEWS &amp; INSIGHTS
         </div>
 

@@ -3,6 +3,7 @@ import React from 'react'
 import Link from 'next/link'
 import { Header } from '@/components/layout/Header'
 import { Footer } from '@/components/layout/Footer'
+import { CaseStudyCard } from '@/components/ui/CaseStudyCard'
 import styles from './page.module.css'
 
 export const metadata: Metadata = {
@@ -78,61 +79,19 @@ export default function AIIntelligentBusinessPage() {
         </p>
       </section>
 
-      {/* SECTION 3: FEATURED CASE STUDY 1 (ZERO INVENTORY VARIANCE) */}
+      {/* SECTION 3 & 4: FEATURED CASE STUDIES */}
       <section className={styles.sectionCaseStudy1}>
-        <div className={styles.csCardDark}>
-          <div className={styles.csGrid}>
-            <div>
-              <div className={styles.csTag}>FEATURED CASE STUDY</div>
-              <h3 className={styles.csTitle}>Towards Zero Inventory Variance</h3>
-              <p className={styles.csDesc}>
-                Physical stock and system stock drift apart for reasons that rarely surface until a count. We reconcile
-                material movement, production consumption and warehouse transactions continuously — closing variance at the
-                source instead of at month-end.
-              </p>
-              <Link href="/case-studies/revolutionizing-inventory-optimization" className={styles.csLink}>
-                Read the case study →
-              </Link>
-            </div>
-
-            <div className={styles.csVisualBox}>
-              <img
-                src="/images/retail_inventory_dashboard.png"
-                alt="Towards Zero Inventory Variance - Warehouse & Inventory Reconciliation"
-                className={styles.realImg}
-                loading="lazy"
-              />
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* SECTION 4: FEATURED CASE STUDY 2 (RISK INSIGHTS IN FINANCE) */}
-      <section className={styles.sectionCaseStudy2}>
-        <div className={styles.csCardLight}>
-          <div className={styles.csGrid}>
-            <div className={styles.csVisualBox}>
-              <img
-                src="/images/precision_abm_dashboard.png"
-                alt="Risk Insights in Finance - Finance Risk & Working Capital"
-                className={styles.realImg}
-                loading="lazy"
-              />
-            </div>
-
-            <div>
-              <div className={styles.csTagLight}>FEATURED CASE STUDY</div>
-              <h3 className={styles.csTitleLight}>Risk Insights in Finance</h3>
-              <p className={styles.csDescLight}>
-                Cost overruns and working-capital pressure usually originate in operations, long before they reach a
-                financial statement. We connect operational cost drivers to financial exposure — giving finance leaders
-                early visibility into risk building up on the floor.
-              </p>
-              <Link href="/case-studies/risk-insights-finance" className={styles.csLinkLight}>
-                Read the case study →
-              </Link>
-            </div>
-          </div>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '28px' }}>
+          <CaseStudyCard
+            slug="revolutionizing-inventory-optimization"
+            title="Towards Zero Inventory Variance"
+            image="/images/retail_inventory_dashboard.png"
+          />
+          <CaseStudyCard
+            slug="risk-insights-finance"
+            title="Risk Insights in Finance"
+            image="/images/precision_abm_dashboard.png"
+          />
         </div>
       </section>
 

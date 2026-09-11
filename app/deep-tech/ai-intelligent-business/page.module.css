@@ -21,7 +21,7 @@
   font-size: 11.5px;
   font-weight: 800;
   letter-spacing: 0.08em;
-  color: #5FCB90;
+  color: #96c73d;
   text-transform: uppercase;
   margin-bottom: 12px;
 }
@@ -34,19 +34,14 @@
   display: flex;
   align-items: center;
   overflow: hidden;
-  background: radial-gradient(circle at 80% 20%, rgba(46, 139, 98, 0.28) 0%, rgba(9, 14, 12, 0.98) 65%),
+  background: radial-gradient(circle at 80% 20%, rgba(150, 199, 61, ) 0%, rgba(9, 14, 12, 0.98) 65%),
               linear-gradient(180deg, #060908 0%, #0D1612 100%);
-  border-bottom: 1px solid rgba(46, 139, 98, 0.25);
+  border-bottom: 1px solid rgba(150, 199, 61, );
   padding: 56px 0;
 }
 
 .heroOverlayPattern {
-  position: absolute;
-  inset: 0;
-  background-image: linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
-                    linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
-  background-size: 44px 44px;
-  pointer-events: none;
+  display: none;
 }
 
 .heroContainer {
@@ -59,30 +54,20 @@
 }
 
 .heroCardDark {
-  background: rgba(11, 18, 15, 0.88);
-  backdrop-filter: blur(12px);
-  border: 1px solid rgba(95, 203, 144, 0.25);
-  border-radius: 20px;
-  padding: clamp(36px, 5vw, 64px);
+  background: transparent;
+  backdrop-filter: none;
+  border: none;
+  border-radius: 0;
+  padding: 0;
   text-align: center;
   color: #FFFFFF;
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5), inset 0 0 30px rgba(46, 139, 98, 0.1);
+  box-shadow: none;
 }
-
-.heroTitle {
-  font-family: 'Manrope', sans-serif;
-  font-weight: 800;
-  font-size: clamp(28px, 3.8vw, 46px);
-  line-height: 1.15;
-  color: #FFFFFF;
+  color: #0F172A;
   margin: 0 0 20px;
   letter-spacing: -0.015em;
 }
-
-.heroDesc {
-  font-size: 16px;
-  line-height: 1.6;
-  color: #B9C4BE;
+  color: #475569;
   max-width: 760px;
   margin: 0 auto 28px;
 }
@@ -91,7 +76,7 @@
   font-family: 'Manrope', sans-serif;
   font-size: 20px;
   font-weight: 800;
-  color: #5FCB90;
+  color: #96c73d;
   margin-bottom: 28px;
 }
 
@@ -99,7 +84,7 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  background: #5FCB90;
+  background: #96c73d;
   color: #060908;
   font-weight: 800;
   font-size: 15px;
@@ -110,7 +95,7 @@
 }
 
 .btnPrimary:hover {
-  background: #8FD4AE;
+  background: #a6d64c;
   transform: translateY(-2px);
 }
 
@@ -152,12 +137,12 @@
 }
 
 .csCardDark {
-  background: #0B110E;
-  border: 1px solid rgba(46, 139, 98, 0.35);
-  border-radius: 20px;
-  padding: clamp(36px, 4vw, 56px);
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  padding: 0;
   color: #FFFFFF;
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+  box-shadow: none;
 }
 
 .csGrid {
@@ -171,7 +156,7 @@
   width: 100%;
   border-radius: 14px;
   overflow: hidden;
-  border: 1px solid rgba(95, 203, 144, 0.3);
+  border: 1px solid rgba(150, 199, 61, );
 }
 
 .realImg {
@@ -186,7 +171,7 @@
   font-size: 11px;
   font-weight: 800;
   letter-spacing: 0.08em;
-  color: #5FCB90;
+  color: #96c73d;
   text-transform: uppercase;
   margin-bottom: 12px;
 }
@@ -213,13 +198,13 @@
   align-items: center;
   font-size: 14.5px;
   font-weight: 700;
-  color: #5FCB90;
+  color: #96c73d;
   text-decoration: none;
   transition: color 0.2s ease;
 }
 
 .csLink:hover {
-  color: #8FD4AE;
+  color: #a6d64c;
   text-decoration: underline;
 }
 
@@ -231,18 +216,18 @@
 }
 
 .csCardLight {
-  background: #F7F9F6;
-  border: 1px solid #E3E7E1;
-  border-radius: 20px;
-  padding: clamp(36px, 4vw, 56px);
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.03);
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  padding: 0;
+  box-shadow: none;
 }
 
 .csTagLight {
   font-size: 11px;
   font-weight: 800;
   letter-spacing: 0.08em;
-  color: #1C6B4F;
+  color: #96c73d;
   text-transform: uppercase;
   margin-bottom: 12px;
 }
@@ -268,13 +253,13 @@
   align-items: center;
   font-size: 14.5px;
   font-weight: 700;
-  color: #1C6B4F;
+  color: #96c73d;
   text-decoration: none;
   transition: color 0.2s ease;
 }
 
 .csLinkLight:hover {
-  color: #248A66;
+  color: #96c73d;
   text-decoration: underline;
 }
 
@@ -286,10 +271,10 @@
 }
 
 .methodCardDark {
-  background: #090E0C;
-  border: 1px solid rgba(46, 139, 98, 0.35);
-  border-radius: 20px;
-  padding: clamp(36px, 5vw, 64px);
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  padding: 0;
   color: #FFFFFF;
 }
 
@@ -310,7 +295,7 @@
 
 .methodBlock {
   background: rgba(255, 255, 255, 0.03);
-  border: 1px solid rgba(95, 203, 144, 0.25);
+  border: 1px solid rgba(150, 199, 61, );
   border-radius: 14px;
   padding: 28px 24px;
 }
@@ -320,7 +305,7 @@
   font-size: 12px;
   font-weight: 800;
   letter-spacing: 0.06em;
-  color: #5FCB90;
+  color: #96c73d;
   margin-bottom: 12px;
 }
 
@@ -359,7 +344,7 @@
   font-size: 11px;
   font-weight: 800;
   letter-spacing: 0.08em;
-  color: #1C6B4F;
+  color: #96c73d;
   text-transform: uppercase;
   margin-bottom: 12px;
 }
@@ -405,7 +390,7 @@
 
 .newsCard:hover {
   transform: translateY(-4px);
-  border-color: #1C6B4F;
+  border-color: #96c73d;
   box-shadow: 0 12px 30px rgba(0, 0, 0, 0.06);
 }
 
@@ -424,7 +409,7 @@
   font-size: 11px;
   font-weight: 800;
   letter-spacing: 0.06em;
-  color: #1C6B4F;
+  color: #96c73d;
   text-transform: uppercase;
   margin-bottom: 10px;
 }

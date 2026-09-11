@@ -25,19 +25,14 @@
   display: flex;
   align-items: center;
   overflow: hidden;
-  background: radial-gradient(circle at 80% 20%, rgba(46, 139, 98, 0.28) 0%, rgba(9, 14, 12, 0.98) 65%),
+  background: radial-gradient(circle at 80% 20%, rgba(150, 199, 61, ) 0%, rgba(9, 14, 12, 0.98) 65%),
               linear-gradient(180deg, #060908 0%, #0D1612 100%);
-  border-bottom: 1px solid rgba(46, 139, 98, 0.25);
+  border-bottom: 1px solid rgba(150, 199, 61, );
   padding: 56px 0;
 }
 
 .heroOverlayPattern {
-  position: absolute;
-  inset: 0;
-  background-image: linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
-                    linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
-  background-size: 44px 44px;
-  pointer-events: none;
+  display: none;
 }
 
 .heroContainer {
@@ -50,16 +45,16 @@
 }
 
 .heroBannerCard {
-  background: rgba(11, 18, 15, 0.85);
-  backdrop-filter: blur(12px);
-  border: 1px solid rgba(95, 203, 144, 0.25);
-  border-radius: 20px;
-  padding: clamp(36px, 5vw, 56px);
+  background: transparent;
+  backdrop-filter: none;
+  border: none;
+  border-radius: 0;
+  padding: 0;
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 40px;
   align-items: center;
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5), inset 0 0 30px rgba(46, 139, 98, 0.1);
+  box-shadow: none;
   color: #FFFFFF;
 }
 
@@ -68,9 +63,9 @@
   font-size: 11.5px;
   font-weight: 700;
   letter-spacing: 0.04em;
-  color: #5FCB90;
-  background: rgba(95, 203, 144, 0.14);
-  border: 1px solid rgba(95, 203, 144, 0.35);
+  color: #96c73d;
+  background: rgba(150, 199, 61, );
+  border: 1px solid rgba(150, 199, 61, );
   padding: 6px 14px;
   border-radius: 20px;
   margin-bottom: 20px;
@@ -103,7 +98,7 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  background: #1C6B4F;
+  background: #96c73d;
   color: #FFFFFF;
   font-weight: 700;
   font-size: 14px;
@@ -114,16 +109,10 @@
 }
 
 .btnPrimary:hover {
-  background: #248A66;
+  background: #96c73d;
   transform: translateY(-2px);
 }
-
-.btnSecondary {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  background: transparent;
-  color: #FFFFFF;
+  color: #0F172A;
   border: 1px solid rgba(255, 255, 255, 0.4);
   font-weight: 600;
   font-size: 14px;
@@ -142,7 +131,7 @@
   width: 100%;
   border-radius: 14px;
   overflow: hidden;
-  border: 1px solid rgba(95, 203, 144, 0.35);
+  border: 1px solid rgba(150, 199, 61, );
   box-shadow: 0 16px 40px rgba(0, 0, 0, 0.4);
 }
 
@@ -163,7 +152,7 @@
 
 .partnerStatsCard {
   background: #090E0C;
-  border: 1px solid rgba(46, 139, 98, 0.3);
+  border: 1px solid rgba(150, 199, 61, );
   border-radius: 16px;
   padding: 36px 48px;
   display: flex;
@@ -178,7 +167,7 @@
   font-size: 11.5px;
   font-weight: 800;
   letter-spacing: 0.08em;
-  color: #5FCB90;
+  color: #96c73d;
   text-transform: uppercase;
   margin-bottom: 8px;
 }
@@ -213,7 +202,7 @@
 .statLabel {
   font-size: 12px;
   font-weight: 600;
-  color: #8FD4AE;
+  color: #a6d64c;
   margin-top: 2px;
 }
 
@@ -227,7 +216,7 @@
   font-size: 11.5px;
   font-weight: 800;
   letter-spacing: 0.08em;
-  color: #1C6B4F;
+  color: #96c73d;
   text-transform: uppercase;
   margin-bottom: 12px;
 }
@@ -369,7 +358,7 @@
 
 .comingNextCard {
   background: #0B110E;
-  border: 1px solid rgba(46, 139, 98, 0.35);
+  border: 1px solid rgba(150, 199, 61, );
   border-radius: 18px;
   padding: 56px 40px;
   text-align: center;
@@ -441,7 +430,7 @@
   font-size: 11px;
   font-weight: 800;
   letter-spacing: 0.06em;
-  color: #1C6B4F;
+  color: #96c73d;
   text-transform: uppercase;
   margin-bottom: 10px;
 }
@@ -476,9 +465,9 @@
 }
 
 .csStatBadge {
-  background: rgba(28, 107, 79, 0.08);
-  border: 1px solid rgba(28, 107, 79, 0.25);
-  color: #1C6B4F;
+  background: rgba(150, 199, 61, );
+  border: 1px solid rgba(150, 199, 61, );
+  color: #96c73d;
   font-size: 12.5px;
   font-weight: 700;
   padding: 6px 14px;
@@ -490,13 +479,13 @@
   align-items: center;
   font-size: 14px;
   font-weight: 700;
-  color: #1C6B4F;
+  color: #96c73d;
   text-decoration: none;
   transition: color 0.2s ease;
 }
 
 .csLink:hover {
-  color: #248A66;
+  color: #96c73d;
   text-decoration: underline;
 }
 
@@ -520,7 +509,7 @@
 
 .csGridCard:hover {
   transform: translateY(-4px);
-  border-color: #1C6B4F;
+  border-color: #96c73d;
   box-shadow: 0 12px 30px rgba(0, 0, 0, 0.06);
 }
 
@@ -551,7 +540,7 @@
 
 .ctaCardDark {
   background: #0B110E;
-  border: 1px solid rgba(46, 139, 98, 0.35);
+  border: 1px solid rgba(150, 199, 61, );
   border-radius: 20px;
   padding: clamp(48px, 6vw, 72px) 36px;
   text-align: center;

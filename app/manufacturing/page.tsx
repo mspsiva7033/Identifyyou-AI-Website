@@ -68,7 +68,7 @@ export default async function ManufacturingPage() {
         {/* Solutions */}
         <h2 className={styles.h2Center}>Manufacturing Solutions</h2>
         <div className={styles.solGrid}>
-          {manufacturingSolutions.map((m) => (
+          {manufacturingSolutions.map((m: any) => (
             <div key={m.title} className={styles.solCard}>
               <div className={styles.solCardImg} />
               <div className={styles.solCardOverlay}>

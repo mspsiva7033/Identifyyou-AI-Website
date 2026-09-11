@@ -21,7 +21,7 @@
 }
 
 .breadcrumbLink:hover {
-  color: #1C6B4F;
+  color: #96c73d;
 }
 
 .content {
@@ -36,7 +36,7 @@
   font-size: 12px;
   font-weight: 700;
   letter-spacing: 0.06em;
-  color: #10B981;
+  color: #96c73d;
   text-transform: uppercase;
   background: #ECFDF5;
   border: 1px solid #A7F3D0;
@@ -55,13 +55,23 @@
   margin: 0 0 32px;
 }
 
-.heroImg {
+.heroImgWrapper {
   width: 100%;
   aspect-ratio: 16/7;
   background: linear-gradient(135deg, #1E293B 0%, #0F172A 100%);
   border-radius: 16px;
   margin-bottom: 44px;
   box-shadow: 0 20px 40px -15px rgba(15, 23, 42, 0.2);
+  overflow: hidden;
+  position: relative;
+  border: 1px solid #1E293B;
+}
+
+.heroIllustration {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
 }
 
 .h2 {
@@ -88,7 +98,7 @@
   font-size: 21px;
   line-height: 1.35;
   margin: 32px 0 14px;
-  color: #047857;
+  color: #6b9426;
   letter-spacing: -0.01em;
   text-align: left;
 }
@@ -111,7 +121,7 @@
   display: inline-block;
   width: 7px;
   height: 7px;
-  background-color: #10B981;
+  background-color: #96c73d;
   border-radius: 50%;
   flex-shrink: 0;
 }
@@ -159,7 +169,7 @@
 .metaBlockLabel {
   font-family: 'Plus Jakarta Sans', sans-serif;
   font-weight: 700;
-  color: #1C6B4F;
+  color: #96c73d;
 }
 
 .metaBlockValue {
@@ -174,7 +184,7 @@
 }
 
 .challengeItem {
-  border-left: 3px solid #10B981;
+  border-left: 3px solid #96c73d;
   padding: 4px 0 4px 20px;
   background: #FFFFFF;
   border-radius: 0 8px 8px 0;
@@ -200,7 +210,7 @@
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: 24px;
-  background: linear-gradient(135deg, #0B0F19 0%, #047857 100%);
+  background: linear-gradient(135deg, #0B0F19 0%, #6b9426 100%);
   border-radius: 16px;
   padding: 44px 36px;
   margin-bottom: 56px;
@@ -267,7 +277,7 @@
 }
 
 .stepOutcome {
-  color: #10B981;
+  color: #96c73d;
   font-weight: 600;
 }
 
@@ -310,13 +320,13 @@
   font-family: 'Plus Jakarta Sans', sans-serif;
   font-weight: 600;
   font-size: 15px;
-  color: #34D399;
+  color: #a6d64c;
   box-shadow: 0 4px 12px rgba(0,0,0,0.2);
 }
 
 .workflowArrow {
   font-size: 22px;
-  color: #34D399;
+  color: #a6d64c;
   margin: 4px 0;
 }
 
@@ -367,7 +377,7 @@
 }
 
 .aiCol {
-  color: #065F46;
+  color: #54751e;
   font-weight: 600;
   background: #ECFDF5;
 }
@@ -408,7 +418,7 @@
   font-family: 'Plus Jakarta Sans', sans-serif;
   font-weight: 700;
   font-size: 16px;
-  color: #10B981;
+  color: #96c73d;
   margin: 0 0 14px;
 }
 
@@ -435,7 +445,7 @@
 }
 
 .secBullets li::marker {
-  color: #10B981;
+  color: #96c73d;
   font-size: 1.1em;
 }
 
@@ -460,7 +470,7 @@
 .techUsedValue {
   font-family: 'JetBrains Mono', monospace;
   font-size: 14.5px;
-  color: #1C6B4F;
+  color: #96c73d;
   font-weight: 500;
 }
 
@@ -494,17 +504,40 @@
   background: #111827;
   border: 1px solid #334155;
   border-radius: 12px;
-  padding: 26px;
+  padding: 20px;
   text-decoration: none;
   color: inherit;
   transition: border-color 200ms ease, transform 200ms ease, box-shadow 200ms ease;
   display: block;
+  overflow: hidden;
 }
 
 .moreCard:hover {
-  border-color: #10B981;
+  border-color: #96c73d;
   transform: translateY(-3px);
-  box-shadow: 0 12px 25px -5px rgba(16, 185, 129, 0.15);
+  box-shadow: 0 12px 25px -5px rgba(150, 199, 61, );
+}
+
+.moreIllustrationWrapper {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border-radius: 8px;
+  overflow: hidden;
+  margin-bottom: 16px;
+  background: #0F172A;
+  border: 1px solid #1E293B;
+}
+
+.moreIllustration {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 250ms ease;
+}
+
+.moreCard:hover .moreIllustration {
+  transform: scale(1.05);
 }
 
 .moreTag {
@@ -512,7 +545,7 @@
   font-size: 11.5px;
   font-weight: 700;
   letter-spacing: 0.06em;
-  color: #10B981;
+  color: #96c73d;
   text-transform: uppercase;
   margin-bottom: 10px;
 }

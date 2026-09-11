@@ -22,7 +22,7 @@
   width: 100%;
   height: 50.5vh;
   background: #090E0C;
-  border-bottom: 2px solid #5FCB90;
+  border-bottom: 2px solid #96c73d;
   transform: translateY(-100%);
   transition: transform 0.55s cubic-bezier(0.77, 0, 0.175, 1);
   will-change: transform;
@@ -37,7 +37,7 @@
   width: 100%;
   height: 50.5vh;
   background: #090E0C;
-  border-top: 2px solid #5FCB90;
+  border-top: 2px solid #96c73d;
   transform: translateY(100%);
   transition: transform 0.55s cubic-bezier(0.77, 0, 0.175, 1);
   will-change: transform;
@@ -74,8 +74,8 @@
   background: #FFFFFF;
   padding: 24px 44px;
   border-radius: 16px;
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6), 0 0 30px rgba(95, 203, 144, 0.3);
-  border: 1px solid rgba(95, 203, 144, 0.5);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6), 0 0 30px rgba(150, 199, 61, );
+  border: 1px solid rgba(150, 199, 61, );
   opacity: 0;
   transform: scale(0.85);
   transition: opacity 0.35s ease, transform 0.35s ease;
@@ -102,9 +102,9 @@
 .spinner {
   width: 24px;
   height: 24px;
-  border: 3px solid rgba(28, 107, 79, 0.15);
-  border-top-color: #1C6B4F;
-  border-right-color: #5FCB90;
+  border: 3px solid rgba(150, 199, 61, );
+  border-top-color: #96c73d;
+  border-right-color: #96c73d;
   border-radius: 50%;
   animation: spin 0.75s linear infinite;
 }
@@ -113,7 +113,7 @@
   font-family: 'Manrope', sans-serif;
   font-size: 13px;
   font-weight: 700;
-  color: #1C6B4F;
+  color: #96c73d;
   letter-spacing: 0.12em;
   text-transform: uppercase;
 }

@@ -21,7 +21,7 @@
   font-size: 11.5px;
   font-weight: 800;
   letter-spacing: 0.08em;
-  color: #5FCB90;
+  color: #96c73d;
   text-transform: uppercase;
   margin-bottom: 12px;
 }
@@ -34,19 +34,14 @@
   display: flex;
   align-items: center;
   overflow: hidden;
-  background: radial-gradient(circle at 80% 20%, rgba(46, 139, 98, 0.28) 0%, rgba(9, 14, 12, 0.98) 65%),
+  background: radial-gradient(circle at 80% 20%, rgba(150, 199, 61, ) 0%, rgba(9, 14, 12, 0.98) 65%),
               linear-gradient(180deg, #060908 0%, #0D1612 100%);
-  border-bottom: 1px solid rgba(46, 139, 98, 0.25);
+  border-bottom: 1px solid rgba(150, 199, 61, );
   padding: 56px 0;
 }
 
 .heroOverlayPattern {
-  position: absolute;
-  inset: 0;
-  background-image: linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
-                    linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
-  background-size: 44px 44px;
-  pointer-events: none;
+  display: none;
 }
 
 .heroContainer {
@@ -57,27 +52,20 @@
   padding: 0 32px;
   width: 100%;
 }
-
-.heroCard {
-  background: rgba(11, 18, 15, 0.85);
-  backdrop-filter: blur(12px);
-  border: 1px solid rgba(95, 203, 144, 0.25);
-  border-radius: 20px;
-  padding: clamp(36px, 5vw, 56px);
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 40px;
-  align-items: center;
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5), inset 0 0 30px rgba(46, 139, 98, 0.1);
-  color: #FFFFFF;
+.heroEyebrow {
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  color: #96c73d;
+  text-transform: uppercase;
+  margin-bottom: 12px;
 }
 
 .heroTitle {
-  font-family: 'Manrope', sans-serif;
+  font-size: clamp(32px, 4vw, 48px);
   font-weight: 800;
-  font-size: clamp(28px, 3.5vw, 44px);
   line-height: 1.15;
-  color: #FFFFFF;
+  color: #0F172A !important;
   margin: 0 0 16px;
   letter-spacing: -0.015em;
 }
@@ -85,15 +73,16 @@
 .heroSubtitle {
   font-size: 16px;
   font-weight: 700;
-  color: #5FCB90;
+  color: #96c73d;
   margin: 0 0 16px;
 }
 
 .heroDesc {
-  font-size: 15px;
+  font-size: 15.5px;
   line-height: 1.6;
-  color: #B9C4BE;
+  color: #475569 !important;
   margin: 0 0 28px;
+  max-width: 680px;
 }
 
 .btnGroup {
@@ -106,7 +95,7 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  background: #2E8B62;
+  background: #96c73d;
   color: #FFFFFF;
   font-weight: 700;
   font-size: 14px;
@@ -117,19 +106,26 @@
 }
 
 .btnPrimary:hover {
-  background: #3AA372;
-  transform: translateY(-2px);
-}
-
+  background: #82b032;
 .btnSecondary {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   background: transparent;
-  color: #FFFFFF;
-  border: 1px solid rgba(255, 255, 255, 0.35);
+  color: #0F172A !important;
+  border: 1px solid #0F172A !important;
   font-weight: 600;
   font-size: 14px;
+  padding: 12px 26px;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.btnSecondary:hover {
+  border-color: #96c73d !important;
+  color: #96c73d !important;
+}
   padding: 12px 26px;
   border-radius: 8px;
   text-decoration: none;
@@ -137,15 +133,15 @@
 }
 
 .btnSecondary:hover {
-  border-color: #5FCB90;
-  background: rgba(95, 203, 144, 0.1);
+  border-color: #96c73d;
+  background: rgba(150, 199, 61, );
 }
 
 .heroVisualBox {
   width: 100%;
   border-radius: 16px;
   overflow: hidden;
-  border: 1px solid rgba(95, 203, 144, 0.3);
+  border: 1px solid rgba(150, 199, 61, );
   box-shadow: 0 16px 40px rgba(0, 0, 0, 0.4);
 }
 
@@ -165,13 +161,13 @@
 }
 
 .darkCellCard {
-  background: #0B110E;
-  border: 1px solid rgba(46, 139, 98, 0.35);
-  border-radius: 20px;
-  padding: clamp(36px, 5vw, 64px);
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  padding: 0;
   color: #FFFFFF;
   text-align: center;
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+  box-shadow: none;
 }
 
 .darkCellTitle {
@@ -188,7 +184,7 @@
   margin: 0 auto 36px;
   border-radius: 16px;
   overflow: hidden;
-  border: 1px solid rgba(95, 203, 144, 0.3);
+  border: 1px solid rgba(150, 199, 61, );
 }
 
 .equipmentTagsGrid {
@@ -212,9 +208,9 @@
 .quoteBox {
   max-width: 780px;
   margin: 32px auto;
-  border-left: 3px solid #5FCB90;
+  border-left: 3px solid #96c73d;
   padding: 14px 24px;
-  background: rgba(95, 203, 144, 0.06);
+  background: rgba(150, 199, 61, );
   text-align: left;
   border-radius: 0 8px 8px 0;
 }
@@ -283,7 +279,7 @@
   font-family: 'Manrope', sans-serif;
   font-size: 26px;
   font-weight: 800;
-  color: #1C6B4F;
+  color: #96c73d;
 }
 
 .statMetricLabel {
@@ -312,10 +308,10 @@
 }
 
 .featuredCsCard {
-  background: #F7F9F6;
-  border: 1px solid #E3E7E1;
-  border-radius: 18px;
-  padding: 36px;
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  padding: 0;
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 36px;
@@ -334,7 +330,7 @@
   font-size: 11px;
   font-weight: 800;
   letter-spacing: 0.06em;
-  color: #1C6B4F;
+  color: #96c73d;
   text-transform: uppercase;
   margin-bottom: 10px;
 }
@@ -369,9 +365,9 @@
 }
 
 .csStatBadge {
-  background: rgba(28, 107, 79, 0.08);
-  border: 1px solid rgba(28, 107, 79, 0.25);
-  color: #1C6B4F;
+  background: rgba(150, 199, 61, );
+  border: 1px solid rgba(150, 199, 61, );
+  color: #96c73d;
   font-size: 12px;
   font-weight: 700;
   padding: 5px 12px;
@@ -398,7 +394,7 @@
 
 .csCard:hover {
   transform: translateY(-4px);
-  border-color: #1C6B4F;
+  border-color: #96c73d;
   box-shadow: 0 12px 30px rgba(0, 0, 0, 0.06);
 }
 
@@ -419,10 +415,10 @@
 }
 
 .darkDiffCard {
-  background: #090E0C;
-  border: 1px solid rgba(46, 139, 98, 0.35);
-  border-radius: 20px;
-  padding: clamp(40px, 5vw, 64px);
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  padding: 0;
   color: #FFFFFF;
   text-align: center;
 }
@@ -437,7 +433,7 @@
 
 .stackedFlowBlock {
   background: rgba(255, 255, 255, 0.04);
-  border: 1px solid rgba(95, 203, 144, 0.25);
+  border: 1px solid rgba(150, 199, 61, );
   border-radius: 12px;
   padding: 20px;
   text-align: center;
@@ -447,7 +443,7 @@
   font-family: 'Manrope', sans-serif;
   font-size: 18px;
   font-weight: 800;
-  color: #5FCB90;
+  color: #96c73d;
   margin-bottom: 4px;
 }
 
@@ -540,13 +536,13 @@
 }
 
 .ctaCardDark {
-  background: #0B110E;
-  border: 1px solid rgba(46, 139, 98, 0.35);
-  border-radius: 20px;
-  padding: clamp(48px, 6vw, 72px) 36px;
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  padding: 36px 0;
   text-align: center;
   color: #FFFFFF;
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+  box-shadow: none;
 }
 
 /* SECTION 9: NEWS */
@@ -574,14 +570,14 @@
 
 .newsCard:hover {
   transform: translateY(-3px);
-  border-color: #1C6B4F;
+  border-color: #96c73d;
 }
 
 .newsTag {
   font-size: 10.5px;
   font-weight: 800;
   letter-spacing: 0.06em;
-  color: #1C6B4F;
+  color: #96c73d;
   text-transform: uppercase;
   margin-bottom: 10px;
 }

@@ -4,16 +4,16 @@
 .heroDesc { font-size: 17px; color: #5B6862; margin: 0; text-wrap: pretty; }
 .content { max-width: 1280px; margin: 0 auto; padding: 24px 32px; }
 .factoryImg { width: 100%; aspect-ratio: 16/6; background: #E3E7E1; border-radius: 14px; margin-bottom: 48px; }
-.ecosystemBox { border: 1px solid #E3E7E1; border-radius: 10px; padding: 32px; margin-bottom: 56px; }
+.ecosystemBox { background: transparent; border: none; border-radius: 0; padding: 0; margin-bottom: 56px; }
 .ecosystemTitle { font-family: 'Manrope', sans-serif; font-weight: 700; font-size: 18px; margin-bottom: 20px; text-align: center; }
 .overlayTags { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; margin-top: 22px; padding-top: 22px; border-top: 1px solid #E3E7E1; }
-.overlayTag { color: #1C6B4F; font-size: 12.5px; font-weight: 600; }
+.overlayTag { color: #96c73d; font-size: 12.5px; font-weight: 600; }
 .seeActHeader { text-align: center; max-width: 760px; margin: 0 auto 40px; }
 .h2 { font-family: 'Manrope', sans-serif; font-weight: 800; font-size: clamp(24px,3vw,32px); margin: 0; }
 .h2Center { font-family: 'Manrope', sans-serif; font-weight: 800; font-size: clamp(26px,3.2vw,36px); margin: 0 0 32px; text-align: center; }
 .seeActGrid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; margin-bottom: 64px; }
-.seeActCard { background: #0E1512; border-radius: 10px; padding: 28px; color: #FAFAF8; }
-.seeActLabel { font-size: 12px; font-weight: 700; letter-spacing: 0.1em; color: #2E8B62; margin-bottom: 14px; }
+.seeActCard { background: transparent; border-radius: 0; padding: 0; color: #FAFAF8; }
+.seeActLabel { font-size: 12px; font-weight: 700; letter-spacing: 0.1em; color: #96c73d; margin-bottom: 14px; }
 .seeActTitle { font-family: 'Manrope', sans-serif; font-weight: 700; font-size: 19px; margin-bottom: 8px; }
 .seeActDesc { font-size: 14.5px; color: #9DAAA3; margin: 0 0 16px; }
 .seeActTech { font-family: monospace; font-size: 12px; color: #7C8B83; border-top: 1px solid #26332C; padding-top: 14px; }
@@ -24,12 +24,12 @@
 .solCardTitle { font-family: 'Manrope', sans-serif; font-weight: 700; font-size: 16px; color: #FFFFFF; margin-bottom: 5px; }
 .solCardTagline { font-size: 12.5px; color: #B9C4BE; margin: 0 0 12px; }
 .solKnowMore { display: inline-block; background: #FFFFFF; color: #12181B; font-size: 12px; font-weight: 600; padding: 7px 14px; border-radius: 5px; text-decoration: none; }
-.supplyChainBlock { background: #0E1512; border-radius: 14px; padding: 48px 40px; text-align: center; margin-bottom: 80px; }
-.supplyBadge { display: inline-block; background: #172019; color: #2E8B62; font-size: 12.5px; font-weight: 700; letter-spacing: 0.06em; padding: 6px 14px; border-radius: 20px; margin-bottom: 16px; }
+.supplyChainBlock { background: transparent; border-radius: 0; padding: 48px 0; text-align: center; margin-bottom: 80px; }
+.supplyBadge { display: inline-block; background: #172019; color: #96c73d; font-size: 12.5px; font-weight: 700; letter-spacing: 0.06em; padding: 6px 14px; border-radius: 20px; margin-bottom: 16px; }
 .supplyTitle { font-family: 'Manrope', sans-serif; font-weight: 800; font-size: clamp(24px,3vw,32px); color: #FAFAF8; margin: 0 0 28px; }
-.supplyBtn { display: inline-block; margin-top: 32px; background: #2E8B62; color: #FFFFFF; padding: 13px 26px; border-radius: 5px; font-size: 14.5px; font-weight: 600; text-decoration: none; transition: background 150ms ease; }
-.supplyBtn:hover { background: #3AA372; color: #FFFFFF; }
+.supplyBtn { display: inline-block; margin-top: 32px; background: #96c73d; color: #FFFFFF; padding: 13px 26px; border-radius: 5px; font-size: 14.5px; font-weight: 600; text-decoration: none; transition: background 150ms ease; }
+.supplyBtn:hover { background: #82b032; color: #FFFFFF; }
 .caseStudiesLink { text-align: center; padding-bottom: 80px; }
-.caseStudiesBtn { background: #1C6B4F; color: #FFFFFF; padding: 14px 28px; border-radius: 5px; font-size: 15px; font-weight: 600; text-decoration: none; transition: background 150ms ease; }
-.caseStudiesBtn:hover { background: #2E8B62; color: #FFFFFF; }
+.caseStudiesBtn { background: #96c73d; color: #FFFFFF; padding: 14px 28px; border-radius: 5px; font-size: 15px; font-weight: 600; text-decoration: none; transition: background 150ms ease; }
+.caseStudiesBtn:hover { background: #96c73d; color: #FFFFFF; }
 @media (max-width: 768px) { .content { padding-left: 20px; padding-right: 20px; } }

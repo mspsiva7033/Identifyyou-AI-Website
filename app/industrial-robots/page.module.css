@@ -8,19 +8,14 @@
 .hero {
   position: relative;
   padding: 120px 32px 90px;
-  background: radial-gradient(circle at 70% 30%, rgba(46,139,98,0.22) 0%, rgba(9,14,12,0.98) 70%),
+  background: radial-gradient(circle at 70% 30%, rgba(150, 199, 61, ) 0%, rgba(9,14,12,0.98) 70%),
               linear-gradient(180deg, #060908 0%, #0D1612 100%);
-  border-bottom: 1px solid rgba(46,139,98,0.25);
+  border-bottom: 1px solid rgba(150, 199, 61, );
   overflow: hidden;
 }
 
 .heroOverlay {
-  position: absolute;
-  inset: 0;
-  background-image: linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
-                    linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
-  background-size: 40px 40px;
-  pointer-events: none;
+  display: none;
 }
 
 .heroContainer {
@@ -32,9 +27,9 @@
 
 .badge {
   display: inline-block;
-  background: rgba(46,139,98,0.18);
-  border: 1px solid #2E8B62;
-  color: #5FCB90;
+  background: rgba(150, 199, 61, );
+  border: 1px solid #96c73d;
+  color: #96c73d;
   font-size: 13px;
   font-weight: 700;
   padding: 6px 16px;
@@ -54,7 +49,7 @@
 }
 
 .accentText {
-  color: #5FCB90;
+  color: #96c73d;
 }
 
 .heroSub {
@@ -72,7 +67,7 @@
 }
 
 .btnPrimary {
-  background: #2E8B62;
+  background: #96c73d;
   color: #FFFFFF;
   padding: 14px 28px;
   border-radius: 6px;
@@ -83,7 +78,7 @@
 }
 
 .btnPrimary:hover {
-  background: #3AA372;
+  background: #82b032;
 }
 
 .btnSecondary {
@@ -98,9 +93,9 @@
 }
 
 .btnSecondary:hover {
-  border-color: #5FCB90;
-  color: #5FCB90;
-  background: rgba(95,203,144,0.08);
+  border-color: #96c73d;
+  color: #96c73d;
+  background: rgba(150, 199, 61, );
 }
 
 .container {
@@ -123,7 +118,7 @@
 
 .robotGraphicBox {
   background: #060A08;
-  border: 1px solid #2E8B62;
+  border: 1px solid #96c73d;
   border-radius: 12px;
   padding: 36px;
   position: relative;
@@ -131,15 +126,15 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  box-shadow: 0 12px 40px rgba(0,0,0,0.5), inset 0 0 30px rgba(46,139,98,0.15);
+  box-shadow: 0 12px 40px rgba(0,0,0,0.5), inset 0 0 30px rgba(150, 199, 61, );
   overflow: hidden;
 }
 
 .gridOverlay {
   position: absolute;
   inset: 0;
-  background-image: linear-gradient(rgba(46,139,98,0.1) 1px, transparent 1px),
-                    linear-gradient(90deg, rgba(46,139,98,0.1) 1px, transparent 1px);
+  background-image: linear-gradient(rgba(150, 199, 61, ) 1px, transparent 1px),
+                    linear-gradient(90deg, rgba(150, 199, 61, ) 1px, transparent 1px);
   background-size: 20px 20px;
 }
 
@@ -164,9 +159,9 @@
   left: 30px;
   width: 80px;
   height: 24px;
-  background: #2E8B62;
+  background: #96c73d;
   border-radius: 4px;
-  box-shadow: 0 0 15px #5FCB90;
+  box-shadow: 0 0 15px #96c73d;
 }
 
 .armJoint1 {
@@ -186,7 +181,7 @@
   left: 68px;
   width: 10px;
   height: 80px;
-  background: #5FCB90;
+  background: #96c73d;
   transform: rotate(35deg);
   transform-origin: bottom center;
 }
@@ -207,7 +202,7 @@
   left: 115px;
   width: 8px;
   height: 70px;
-  background: #8FD4AE;
+  background: #a6d64c;
   transform: rotate(-60deg);
   transform-origin: top center;
 }
@@ -234,7 +229,7 @@
   right: 10px;
   width: 40px;
   height: 30px;
-  border: 2px dashed #5FCB90;
+  border: 2px dashed #96c73d;
   border-radius: 4px;
 }
 
@@ -242,17 +237,17 @@
   position: relative;
   z-index: 2;
   background: rgba(9,14,12,0.85);
-  border-top: 1px solid rgba(95,203,144,0.3);
+  border-top: 1px solid rgba(150, 199, 61, );
   padding: 12px 16px;
   border-radius: 6px;
   font-family: monospace;
   font-size: 11px;
-  color: #5FCB90;
+  color: #96c73d;
 }
 
 .hudLine { font-weight: bold; margin-bottom: 2px; color: #FFFFFF; }
-.hudStat { color: #8FD4AE; }
-.hudStatus { color: #5FCB90; font-weight: bold; }
+.hudStat { color: #a6d64c; }
+.hudStatus { color: #96c73d; font-weight: bold; }
 
 .showcaseContent {
   display: flex;
@@ -261,7 +256,7 @@
 }
 
 .eyebrow {
-  color: #5FCB90;
+  color: #96c73d;
   font-size: 13px;
   font-weight: 700;
   text-transform: uppercase;
@@ -342,7 +337,7 @@
 
 .capCard:hover {
   transform: translateY(-4px);
-  border-color: #2E8B62;
+  border-color: #96c73d;
 }
 
 .capIcon {
@@ -368,8 +363,8 @@
 .capSpec {
   font-size: 12.5px;
   font-weight: 700;
-  color: #5FCB90;
-  background: rgba(95,203,144,0.1);
+  color: #96c73d;
+  background: rgba(150, 199, 61, );
   padding: 6px 12px;
   border-radius: 4px;
   display: inline-block;
@@ -388,7 +383,7 @@
 
 .solCard {
   background: #0F1714;
-  border: 1px solid rgba(46,139,98,0.2);
+  border: 1px solid rgba(150, 199, 61, );
   border-radius: 10px;
   padding: 32px;
   display: flex;
@@ -399,7 +394,7 @@
 .solCategory {
   font-size: 12px;
   font-weight: 700;
-  color: #5FCB90;
+  color: #96c73d;
   text-transform: uppercase;
   letter-spacing: 0.06em;
   margin-bottom: 12px;
@@ -436,7 +431,7 @@
 
 .ctaBanner {
   background: linear-gradient(135deg, #0F1A15 0%, #060A08 100%);
-  border-top: 1px solid #2E8B62;
+  border-top: 1px solid #96c73d;
   padding: 80px 32px;
   text-align: center;
 }
@@ -471,7 +466,7 @@
 .contactPhone {
   font-size: 16px;
   font-weight: 700;
-  color: #5FCB90;
+  color: #96c73d;
 }
 
 @media (max-width: 900px) {

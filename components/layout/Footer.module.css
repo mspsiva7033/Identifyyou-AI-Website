@@ -13,7 +13,7 @@
   left: 0;
   right: 0;
   height: 1px;
-  background: linear-gradient(90deg, transparent, #10B981, #06B6D4, transparent);
+  background: linear-gradient(90deg, transparent, #96c73d, #06B6D4, transparent);
   opacity: 0.6;
 }
 
@@ -46,7 +46,7 @@
 
 .brandTag {
   font-size: 13.5px;
-  color: #10B981;
+  color: #96c73d;
   font-weight: 600;
 }
 
@@ -79,7 +79,7 @@
 }
 
 .colLink:hover {
-  color: #34D399;
+  color: #96c73d;
   transform: translateX(2px);
 }
 

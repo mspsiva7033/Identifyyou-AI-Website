@@ -23,7 +23,7 @@ export async function seed() {
 
   console.log('Seeding Payload CMS data...')
 
-  // Clear existing case studies
+  // Clear existing case studies and categories
   try {
     const existing = await payload.find({ collection: 'case-studies', limit: 100 })
     for (const doc of existing.docs) {
@@ -31,6 +31,15 @@ export async function seed() {
     }
   } catch (err) {
     console.log('No previous case studies found to delete.')
+  }
+
+  try {
+    const existingCats = await payload.find({ collection: 'case-study-categories', limit: 100 })
+    for (const doc of existingCats.docs) {
+      await payload.delete({ collection: 'case-study-categories', id: doc.id })
+    }
+  } catch (err) {
+    console.log('No previous categories found to delete.')
   }
 
   // Seed Categories

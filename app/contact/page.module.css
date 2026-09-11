@@ -1,33 +1,33 @@
 .page { font-family: 'IBM Plex Sans', sans-serif; background: #FAFAF8; color: #12181B; line-height: 1.5; }
 .main { max-width: 1100px; margin: 0 auto; padding: 64px 32px 88px; display: grid; grid-template-columns: minmax(280px, 1fr) minmax(360px, 580px); gap: 64px; }
 .leftPanel {}
-.eyebrow { font-size: 12px; font-weight: 700; letter-spacing: 0.06em; color: #1C6B4F; text-transform: uppercase; margin-bottom: 14px; }
+.eyebrow { font-size: 12px; font-weight: 700; letter-spacing: 0.06em; color: #96c73d; text-transform: uppercase; margin-bottom: 14px; }
 .title { font-family: 'Manrope', sans-serif; font-weight: 800; font-size: clamp(28px,3.4vw,40px); margin: 0 0 16px; }
 .desc { font-size: 15.5px; color: #5B6862; margin: 0 0 36px; text-wrap: pretty; }
 .pathLabel { font-size: 13px; font-weight: 700; color: #2B3530; margin-bottom: 12px; }
 .paths { display: flex; flex-direction: column; gap: 8px; margin-bottom: 40px; }
 .pathBtn { display: flex; align-items: center; gap: 10px; background: #FFFFFF; border: 1px solid #E3E7E1; padding: 12px 16px; border-radius: 7px; font-size: 14px; color: #2B3530; cursor: pointer; text-align: left; width: 100%; transition: border-color 150ms ease, background 150ms ease; font-family: inherit; }
-.pathBtn:hover { border-color: #1C6B4F; color: #1C6B4F; }
-.pathActive { border-color: #1C6B4F !important; background: #E9F1EC !important; color: #1C6B4F !important; }
+.pathBtn:hover { border-color: #96c73d; color: #96c73d; }
+.pathActive { border-color: #96c73d !important; background: #E9F1EC !important; color: #96c73d !important; }
 .pathIcon { font-size: 16px; }
 .contactInfo { border-top: 1px solid #E3E7E1; padding-top: 28px; }
 .contactInfoTitle { font-weight: 700; font-size: 14px; margin-bottom: 10px; }
 .contactInfoText { font-size: 13.5px; color: #5B6862; margin: 0 0 6px; }
 .rightPanel {}
-.form { background: #FFFFFF; border: 1px solid #E3E7E1; border-radius: 10px; padding: 36px; }
+.form { background: transparent; border: none; border-radius: 0; padding: 0; }
 .formTitle { font-family: 'Manrope', sans-serif; font-weight: 700; font-size: 21px; margin: 0 0 20px; }
-.selectedPathBadge { background: #E9F1EC; border: 1px solid #1C6B4F; color: #1C6B4F; font-size: 13px; padding: 7px 12px; border-radius: 5px; margin-bottom: 22px; }
+.selectedPathBadge { background: #E9F1EC; border: 1px solid #96c73d; color: #96c73d; font-size: 13px; padding: 7px 12px; border-radius: 5px; margin-bottom: 22px; }
 .field { display: flex; flex-direction: column; gap: 6px; margin-bottom: 18px; }
 .label { font-size: 13.5px; font-weight: 600; color: #2B3530; }
 .input { border: 1px solid #D5DBD2; border-radius: 5px; padding: 11px 14px; font-size: 14.5px; font-family: inherit; color: #12181B; background: #FAFAF8; outline: none; transition: border-color 150ms ease; }
-.input:focus { border-color: #1C6B4F; }
+.input:focus { border-color: #96c73d; }
 .textarea { border: 1px solid #D5DBD2; border-radius: 5px; padding: 11px 14px; font-size: 14.5px; font-family: inherit; color: #12181B; background: #FAFAF8; outline: none; resize: vertical; transition: border-color 150ms ease; }
-.textarea:focus { border-color: #1C6B4F; }
-.submitBtn { width: 100%; background: #1C6B4F; color: #FFFFFF; padding: 14px; border: none; border-radius: 5px; font-size: 15px; font-weight: 600; cursor: pointer; transition: background 150ms ease; font-family: inherit; margin-top: 4px; }
-.submitBtn:hover { background: #2E8B62; }
+.textarea:focus { border-color: #96c73d; }
+.submitBtn { width: 100%; background: #96c73d; color: #FFFFFF; padding: 14px; border: none; border-radius: 5px; font-size: 15px; font-weight: 600; cursor: pointer; transition: background 150ms ease; font-family: inherit; margin-top: 4px; }
+.submitBtn:hover { background: #96c73d; }
 .submitBtn:disabled { opacity: 0.6; cursor: not-allowed; }
-.successBox { background: #FFFFFF; border: 1px solid #E3E7E1; border-radius: 10px; padding: 56px 36px; text-align: center; }
-.successIcon { font-size: 40px; color: #1C6B4F; margin-bottom: 16px; }
+.successBox { background: transparent; border: none; border-radius: 0; padding: 36px 0; text-align: center; }
+.successIcon { font-size: 40px; color: #96c73d; margin-bottom: 16px; }
 .successTitle { font-family: 'Manrope', sans-serif; font-weight: 700; font-size: 26px; margin: 0 0 12px; }
 .successDesc { font-size: 15px; color: #5B6862; margin: 0; }
 @media (max-width: 900px) { .main { grid-template-columns: 1fr; padding: 48px 20px; } }

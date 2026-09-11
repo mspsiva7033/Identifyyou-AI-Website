@@ -1,7 +1,7 @@
 'use client'
 
 import { useState } from 'react'
-import Link from 'next/link'
+import { CaseStudyCard } from '@/components/ui/CaseStudyCard'
 import styles from './page.module.css'
 
 type CaseStudy = {
@@ -16,6 +16,7 @@ type CaseStudy = {
   tech: string
   integration: string
   outcome: string
+  illustration?: string
 }
 
 type Props = {
@@ -46,9 +47,11 @@ export function CaseStudiesClient({ caseStudies }: Props) {
       })
 
   return (
-    <main>
+    <div className={styles.mainWrapper}>
       <section className={styles.hero}>
-        <h1 className={styles.heroTitle}>Deep Tech in the Real World</h1>
+        <h1 className={styles.heroTitle}>
+          Deep Tech in the <span className={styles.heroTitleGreen}>Real World</span>
+        </h1>
         <p className={styles.heroSub}>Illustrative examples below — pending verified case studies from confirmed engagements.</p>
       </section>
 
@@ -70,23 +73,14 @@ export function CaseStudiesClient({ caseStudies }: Props) {
         {/* Cards */}
         <div className={styles.grid}>
           {visible.map((cs) => (
-            <div key={cs.slug} className={styles.card}>
-              <div className={styles.cardTag}>{cs.tag}</div>
-              <div className={styles.cardTitle}>{cs.title}</div>
-              <div className={styles.cardDetails}>
-                <div><span className={styles.detailLabel}>Challenge — </span><span className={styles.detailVal}>{cs.challenge}</span></div>
-                <div><span className={styles.detailLabel}>Objective — </span><span className={styles.detailVal}>{cs.objective}</span></div>
-                <div><span className={styles.detailLabel}>Solution — </span><span className={styles.detailVal}>{cs.solution}</span></div>
-                <div><span className={styles.detailLabel}>Deep Tech — </span><span className={styles.detailVal}>{cs.deepTech}</span></div>
-                <div><span className={styles.detailLabel}>Technology — </span><span className={styles.detailTech}>{cs.tech}</span></div>
-                <div><span className={styles.detailLabel}>Integration — </span><span className={styles.detailVal}>{cs.integration}</span></div>
-                <div className={styles.outcomeRow}>
-                  <span className={styles.detailLabel}>Outcome — </span>
-                  <span className={styles.outcomeVal}>{cs.outcome}</span>
-                </div>
-              </div>
-              <Link href={`/case-studies/${cs.slug}`} className={styles.readMore}>Read Case Study →</Link>
-            </div>
+            <CaseStudyCard
+              key={cs.slug}
+              slug={cs.slug}
+              title={cs.title}
+              tag={cs.tag}
+              categories={cs.categories}
+              illustration={cs.illustration}
+            />
           ))}
         </div>
 
@@ -94,6 +88,6 @@ export function CaseStudiesClient({ caseStudies }: Props) {
           <div className={styles.noResults}>No case studies found for &ldquo;{filter}&rdquo;.</div>
         )}
       </section>
-    </main>
+    </div>
   )
 }

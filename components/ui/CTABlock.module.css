@@ -1,7 +1,7 @@
 .block {
-  background: #0E1512;
-  border-radius: 14px;
-  padding: 44px;
+  background: transparent;
+  border-radius: 0;
+  padding: 44px 0;
   text-align: center;
 }
 
@@ -22,7 +22,7 @@
 
 .button {
   display: inline-block;
-  background: #2E8B62;
+  background: #96c73d;
   color: #FFFFFF;
   padding: 13px 26px;
   border-radius: 5px;
@@ -33,6 +33,6 @@
 }
 
 .button:hover {
-  background: #3AA372;
+  background: #82b032;
   color: #FFFFFF;
 }

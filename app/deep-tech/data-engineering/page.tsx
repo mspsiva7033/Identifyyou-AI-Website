@@ -4,6 +4,7 @@ import Link from 'next/link'
 import { Header } from '@/components/layout/Header'
 import { Footer } from '@/components/layout/Footer'
 import { FlowChain } from '@/components/ui/FlowChain'
+import { CaseStudyCard } from '@/components/ui/CaseStudyCard'
 import styles from './page.module.css'
 
 export const metadata: Metadata = {
@@ -208,54 +209,27 @@ export default function DataEngineeringPage() {
       <section className={styles.sectionCaseStudies}>
         <h2 className={styles.csMainTitle}>Snowflake Case Studies</h2>
 
-        {/* Featured Case Study Card */}
-        <div className={styles.featuredCaseStudyCard}>
-          <div className={styles.csVisualContainer}>
-            <img
-              src="/images/retail_inventory_dashboard.png"
-              alt="Retail inventory dashboard powered by Snowflake"
-              className={styles.realCsImg}
-              loading="lazy"
-            />
-          </div>
-          <div>
-            <div className={styles.csFeaturedTag}>FEATURED CASE STUDY</div>
-            <h3 className={styles.csFeaturedTitle}>Revolutionizing Inventory Optimization with Snowflake</h3>
-
-            <div className={styles.csDetailRow}>
-              <span className={styles.csDetailLabel}>Industry — </span>Retail
-            </div>
-            <div className={styles.csDetailRow}>
-              <span className={styles.csDetailLabel}>Challenge — </span>Lack of real-time inventory visibility, unreliable
-              demand forecasting and high carrying costs.
-            </div>
-            <div className={styles.csDetailRow}>
-              <span className={styles.csDetailLabel}>Solution — </span>Unified POS, WMS and IoT data on Snowflake with
-              predictive analytics for demand forecasting.
-            </div>
-
-            <div className={styles.csStatBadges}>
-              <span className={styles.csStatBadge}>40% fewer stockouts</span>
-              <span className={styles.csStatBadge}>+15% seasonal revenue</span>
-              <span className={styles.csStatBadge}>-20% operational cost</span>
-            </div>
-
-            <Link href="/case-studies/revolutionizing-inventory-optimization" className={styles.csLink}>
-              Read the full case study →
-            </Link>
-          </div>
-        </div>
-
-        {/* 3 Case Study Grid Cards */}
         <div className={styles.csThreeGrid}>
-          {gridCaseStudies.map((cs) => (
-            <Link key={cs.title} href={cs.href} className={styles.csGridCard}>
-              <div>
-                <div className={styles.csCategoryTag}>{cs.category}</div>
-                <h4 className={styles.csGridTitle}>{cs.title}</h4>
-              </div>
-            </Link>
-          ))}
+          <CaseStudyCard
+            slug="revolutionizing-inventory-optimization"
+            title="Revolutionizing Inventory Optimization with Snowflake"
+            image="/images/retail_inventory_dashboard.png"
+          />
+          <CaseStudyCard
+            href="/case-studies/optimizing-shipment-and-fleet-operations"
+            title="Optimizing Shipment and Fleet Operations with Snowflake"
+            image="/images/case-studies/optimizing-shipment-fleet-snowflake.png"
+          />
+          <CaseStudyCard
+            href="/case-studies/streamlining-shipment-planning-and-carrier-selection"
+            title="Streamlining Shipment Planning and Carrier Selection"
+            image="/images/case-studies/precision-abm-snowflake-cortex.png"
+          />
+          <CaseStudyCard
+            href="/case-studies/migrating-hadoop-and-hana-to-snowflake"
+            title="Migrating Hadoop and HANA to Snowflake for a Manufacturing Enterprise"
+            image="/images/case-studies/manufacturing-data-platform.png"
+          />
         </div>
       </section>
 

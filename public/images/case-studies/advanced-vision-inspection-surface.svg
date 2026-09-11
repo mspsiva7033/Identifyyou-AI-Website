@@ -1,0 +1,84 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0F172A"/>
+      <stop offset="50%" stop-color="#1E293B"/>
+      <stop offset="100%" stop-color="#0B132B"/>
+    </linearGradient>
+    <linearGradient id="emeraldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#96c73d"/>
+      <stop offset="100%" stop-color="#82b032"/>
+    </linearGradient>
+    <linearGradient id="metalGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#475569"/>
+      <stop offset="50%" stop-color="#94A3B8"/>
+      <stop offset="100%" stop-color="#334155"/>
+    </linearGradient>
+    <linearGradient id="beamGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#96c73d" stop-opacity="0.4"/>
+      <stop offset="100%" stop-color="#96c73d" stop-opacity="0.02"/>
+    </linearGradient>
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="6" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="675" fill="url(#bgGrad)"/>
+
+  <!-- Tech Grid Background -->
+  <g stroke="#334155" stroke-width="1" stroke-opacity="0.25">
+    <path d="M 0,135 L 1200,135 M 0,270 L 1200,270 M 0,405 L 1200,405 M 0,540 L 1200,540" />
+    <path d="M 240,0 L 240,675 M 480,0 L 480,675 M 720,0 L 720,675 M 960,0 L 960,675" />
+  </g>
+
+  <!-- Inspection Cone / Illumination Beam -->
+  <polygon points="600,120 380,480 820,480" fill="url(#beamGrad)"/>
+
+  <!-- Industrial Metal Plate (Inspected Object) -->
+  <rect x="340" y="460" width="520" height="130" rx="12" fill="url(#metalGrad)" stroke="#64748B" stroke-width="3"/>
+  <rect x="360" y="480" width="480" height="90" rx="6" fill="#1E293B" stroke="#475569" stroke-width="2"/>
+
+  <!-- Surface Texture Lines -->
+  <path d="M 380,495 H 820 M 380,510 H 820 M 380,525 H 820 M 380,540 H 820 M 380,555 H 820" stroke="#334155" stroke-width="2" stroke-dasharray="8 6"/>
+
+  <!-- AI Defect Detection Bounding Box 1 -->
+  <rect x="440" y="495" width="80" height="50" rx="4" fill="#96c73d" fill-opacity="0.15" stroke="#96c73d" stroke-width="2" filter="url(#glow)"/>
+  <path d="M 460,510 Q 480,530 500,515" stroke="#EF4444" stroke-width="3" stroke-linecap="round"/>
+  <text x="440" y="490" fill="#96c73d" font-family="'Plus Jakarta Sans', sans-serif" font-size="12" font-weight="700">SCRATCH [DEFECT DETECTED]</text>
+
+  <!-- AI Defect Detection Bounding Box 2 -->
+  <rect x="660" y="500" width="110" height="45" rx="4" fill="#96c73d" fill-opacity="0.15" stroke="#96c73d" stroke-width="2" filter="url(#glow)"/>
+  <circle cx="715" cy="522" r="10" fill="#EF4444" fill-opacity="0.4" stroke="#EF4444" stroke-width="2"/>
+  <text x="660" y="495" fill="#96c73d" font-family="'Plus Jakarta Sans', sans-serif" font-size="12" font-weight="700">SURFACE IMPERFECTION</text>
+
+  <!-- Vision AI Camera Unit -->
+  <g transform="translate(600, 110)">
+    <!-- Camera Body -->
+    <rect x="-90" y="-60" width="180" height="80" rx="10" fill="#0F172A" stroke="#96c73d" stroke-width="3"/>
+    <rect x="-70" y="-45" width="140" height="50" rx="6" fill="#1E293B"/>
+
+    <!-- Status Indicator LED -->
+    <circle cx="65" cy="-30" r="5" fill="#96c73d" filter="url(#glow)"/>
+
+    <!-- Camera Lens Ring & Illumination Dome -->
+    <circle cx="0" cy="20" r="45" fill="#0F172A" stroke="#64748B" stroke-width="4"/>
+    <circle cx="0" cy="20" r="35" fill="none" stroke="#96c73d" stroke-width="3" stroke-dasharray="12 6" filter="url(#glow)"/>
+    <circle cx="0" cy="20" r="22" fill="#06B6D4" fill-opacity="0.6" stroke="#38BDF8" stroke-width="3"/>
+    <circle cx="-6" cy="14" r="6" fill="#FFFFFF" fill-opacity="0.8"/>
+  </g>
+
+  <!-- Overlay HUD Interface Graphics -->
+  <g font-family="'Plus Jakarta Sans', sans-serif" font-weight="700">
+    <rect x="60" y="60" width="240" height="90" rx="8" fill="#1E293B" stroke="#334155" stroke-width="2"/>
+    <text x="80" y="90" fill="#94A3B8" font-size="12">SURFACE INSPECTION</text>
+    <text x="80" y="115" fill="#96c73d" font-size="20">100% INLINE PASS</text>
+    <text x="80" y="135" fill="#38BDF8" font-size="12">CYCLE: 0.8 SEC • 2D VISION</text>
+
+    <rect x="900" y="60" width="240" height="90" rx="8" fill="#1E293B" stroke="#334155" stroke-width="2"/>
+    <text x="920" y="90" fill="#94A3B8" font-size="12">LIGHTING SYSTEM</text>
+    <text x="920" y="115" fill="#a6d64c" font-size="18">MULTI-ANGLE LED</text>
+    <text x="920" y="135" fill="#F59E0B" font-size="12">GLARE ELIMINATED</text>
+  </g>
+</svg>

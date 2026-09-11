@@ -3,6 +3,7 @@ import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import { Header } from '@/components/layout/Header'
 import { Footer } from '@/components/layout/Footer'
+import { CaseStudyCard } from '@/components/ui/CaseStudyCard'
 import { getCaseStudyBySlug, getCaseStudies, DocItem } from '@/lib/payload'
 import styles from './page.module.css'
 
@@ -83,7 +84,13 @@ export default async function CaseStudyDetailPage({ params }: { params: Promise<
         <div className={styles.tagBadge}>{cs.tag}</div>
         <h1 className={styles.title}>{cs.title}</h1>
 
-        <div className={styles.heroImg} />
+        <div className={styles.heroImgWrapper}>
+          <img
+            src={cs.illustration || `/images/case-studies/${slug}.${['advanced-vision-inspection-surface', 'vision-ai-bore-measurement', 'vision-ai-complex-dimension'].includes(slug) ? 'svg' : 'png'}`}
+            alt={cs.title}
+            className={styles.heroIllustration}
+          />
+        </div>
 
         {cs.metaBlock && cs.metaBlock.length > 0 && (
           <div className={styles.metaBlockGrid}>
@@ -212,10 +219,7 @@ export default async function CaseStudyDetailPage({ params }: { params: Promise<
             <h2 className={styles.moreTitle}>More Case Studies</h2>
             <div className={styles.moreGrid}>
               {cs.more.map((m) => (
-                <Link key={m.slug} href={`/case-studies/${m.slug}`} className={styles.moreCard}>
-                  <div className={styles.moreTag}>{m.tag}</div>
-                  <div className={styles.moreCardTitle}>{m.title}</div>
-                </Link>
+                <CaseStudyCard key={m.slug} slug={m.slug} title={m.title} />
               ))}
             </div>
           </div>
