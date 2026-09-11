@@ -271,6 +271,28 @@ export interface CaseStudy {
     integration?: string | null;
     outcome?: string | null;
   };
+  /**
+   * Verbatim content blocks from DOCX (headings, paragraphs, bullet points)
+   */
+  docItems?:
+    | {
+        type: 'p' | 'h2' | 'h3' | 'h4' | 'bullet';
+        text: string;
+        id?: string | null;
+      }[]
+    | null;
+  /**
+   * Custom comparison table data structure from DOCX
+   */
+  comparisonTable?:
+    | {
+        [k: string]: unknown;
+      }
+    | unknown[]
+    | string
+    | number
+    | boolean
+    | null;
   detail?: {
     shortDescription?: string | null;
     overview?: {
@@ -591,6 +613,14 @@ export interface CaseStudiesSelect<T extends boolean = true> {
         integration?: T;
         outcome?: T;
       };
+  docItems?:
+    | T
+    | {
+        type?: T;
+        text?: T;
+        id?: T;
+      };
+  comparisonTable?: T;
   detail?:
     | T
     | {

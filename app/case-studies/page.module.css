@@ -144,6 +144,10 @@
   text-align: justify;
 }
 
+.cardDetails div, .cardDetails p {
+  text-align: justify;
+}
+
 .detailLabel {
   color: #64748B;
   font-weight: 600;
@@ -151,6 +155,7 @@
 
 .detailVal {
   color: #334155;
+  text-align: justify;
 }
 
 .detailTech {

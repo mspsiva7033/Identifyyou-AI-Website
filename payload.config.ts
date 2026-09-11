@@ -3,7 +3,23 @@ import { postgresAdapter } from '@payloadcms/db-postgres'
 import { lexicalEditor } from '@payloadcms/richtext-lexical'
 import { s3Storage } from '@payloadcms/storage-s3'
 import path from 'path'
+import fs from 'fs'
 import { fileURLToPath } from 'url'
+
+// Read .env.local if DATABASE_URI is not set
+if (!process.env.DATABASE_URI) {
+  const envPath = path.resolve(process.cwd(), '.env.local')
+  if (fs.existsSync(envPath)) {
+    const envContent = fs.readFileSync(envPath, 'utf8')
+    envContent.split(/\r?\n/).forEach((line) => {
+      const match = line.match(/^\s*([^#=]+)\s*=\s*(.*)$/)
+      if (match) {
+        process.env[match[1].trim()] = match[2].trim()
+      }
+    })
+  }
+}
+
 
 import { Media } from './payload/collections/Media'
 import { CaseStudyCategories } from './payload/collections/CaseStudyCategories'

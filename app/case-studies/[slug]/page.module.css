@@ -126,12 +126,17 @@
   text-align: justify;
 }
 
+.docItemsBlock p {
+  text-align: justify;
+}
+
 .overview {
   font-size: 17px;
   color: #334155;
   margin: 0 0 48px;
   max-width: 860px;
   line-height: 1.75;
+  text-align: justify;
 }
 
 .metaBlockGrid {
@@ -188,6 +193,7 @@
   color: #475569;
   margin: 0;
   line-height: 1.6;
+  text-align: justify;
 }
 
 .resultsGrid {
@@ -257,6 +263,7 @@
 
 .stepVal {
   color: #334155;
+  text-align: justify;
 }
 
 .stepOutcome {
@@ -347,6 +354,7 @@
   border-bottom: 1px solid #E2E8F0;
   vertical-align: top;
   line-height: 1.55;
+  text-align: justify;
 }
 
 .compTable tr:last-child td {

@@ -143,6 +143,41 @@ export const CaseStudies: CollectionConfig = {
 
     // Detail page fields
     {
+      name: 'docItems',
+      type: 'array',
+      label: 'DOCX Content Hierarchy & Blocks',
+      admin: {
+        description: 'Verbatim content blocks from DOCX (headings, paragraphs, bullet points)',
+      },
+      fields: [
+        {
+          name: 'type',
+          type: 'select',
+          options: [
+            { label: 'Paragraph (p)', value: 'p' },
+            { label: 'Heading 2 (h2)', value: 'h2' },
+            { label: 'Heading 3 (h3)', value: 'h3' },
+            { label: 'Heading 4 (h4)', value: 'h4' },
+            { label: 'Bullet Point (bullet)', value: 'bullet' },
+          ],
+          required: true,
+        },
+        {
+          name: 'text',
+          type: 'textarea',
+          required: true,
+        },
+      ],
+    },
+    {
+      name: 'comparisonTable',
+      type: 'json',
+      label: 'Comparison Table JSON ({ headers, rows })',
+      admin: {
+        description: 'Custom comparison table data structure from DOCX',
+      },
+    },
+    {
       type: 'group',
       name: 'detail',
       label: 'Detail Page Content',
@@ -205,6 +240,7 @@ export const CaseStudies: CollectionConfig = {
         },
       ],
     },
+
 
     // Related
     {
