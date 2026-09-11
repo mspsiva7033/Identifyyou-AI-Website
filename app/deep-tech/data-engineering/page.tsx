@@ -57,7 +57,7 @@ export default function DataEngineeringPage() {
     <div className={styles.page}>
       <Header />
 
-      {/* SECTION 1: FULL-PAGE HERO BANNER */}
+      {/* SECTION 1: ANNER */}
       <section className={styles.sectionHeroBanner}>
         <div className={styles.heroOverlayPattern} />
         <div className={styles.heroContainer}>
