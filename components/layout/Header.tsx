@@ -27,7 +27,7 @@ const defaultNav: NavItem[] = [
     label: 'Deep Tech',
     href: '/deep-tech',
     subItems: [
-      { label: 'Vision AI & Industry Automation', href: '/deep-tech/vision-ai' },
+      { label: 'Vision AI', href: '/deep-tech/vision-ai' },
       { label: 'AI & Intelligent Business', href: '/deep-tech/ai-intelligent-business' },
       { label: 'AI-Powered No-Code Platform', href: '/deep-tech/ai-no-code' },
       { label: 'Data Engineering', href: '/deep-tech/data-engineering' },

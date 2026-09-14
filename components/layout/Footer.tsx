@@ -17,9 +17,11 @@ const defaultColumns: FooterColumn[] = [
   {
     title: 'Deep Tech',
     links: [
-      { label: 'Vision AI & Industry Automation', href: '/deep-tech/vision-ai' },
+      { label: 'Vision AI', href: '/deep-tech/vision-ai' },
       { label: 'AI & Intelligent Business', href: '/deep-tech/ai-intelligent-business' },
-      { label: 'AI-Powered No-Code Platform', href: '/deep-tech/ai-no-code' },
+      { label: 'AI-Powered No-Code', href: '/deep-tech/ai-no-code' },
+      { label: 'Smart Factory', href: '/case-studies' },
+      { label: 'Industry Automation', href: '/deep-tech/industry-automation' },
       { label: 'Data Engineering', href: '/deep-tech/data-engineering' },
       { label: 'Digital Engineering', href: '/deep-tech/digital-engineering' },
     ],

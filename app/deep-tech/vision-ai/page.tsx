@@ -4,13 +4,12 @@ import Link from 'next/link'
 import { Header } from '@/components/layout/Header'
 import { Footer } from '@/components/layout/Footer'
 import { FlowChain } from '@/components/ui/FlowChain'
-import { CaseStudyCard } from '@/components/ui/CaseStudyCard'
 import styles from './page.module.css'
 
 export const metadata: Metadata = {
-  title: 'Vision AI & Industrial Inspection — Production-Grade Automation',
+  title: 'Vision AI for Intelligent, Production-Grade Inspection & Automation — IdentifYou',
   description:
-    'IdentifYou engineers complete Vision AI inspection systems combining advanced 2D/3D imaging, AI deep learning, precision measurement, custom fixtures, and robotics integration.',
+    'IdentifYou engineers complete Vision AI inspection systems combining advanced imaging, AI deep learning, precision measurement, custom fixtures, and robotics integration.',
 }
 
 const cellNodes = [
@@ -48,18 +47,24 @@ const equipmentTags = [
   'Safety & Guarding',
 ]
 
-const externalCaseStudies = [
+const threeCaseStudies = [
   {
     title: 'Transforming Wind Turbine Telemetry into Predictive AI Intelligence',
-    href: 'https://identifyyou.in/projects/transforming-wind-turbine-telemetry-into-predictive-ai-intelligence/',
+    tag: 'RENEWABLE ENERGY · PREDICTIVE AI',
+    url: 'https://identifyyou.in/projects/transforming-wind-turbine-telemetry-into-predictive-ai-intelligence/',
+    desc: 'Transforming wind turbine telemetry into real-time predictive AI intelligence for failure prevention, gearbox health monitoring, and energy yield optimization.',
   },
   {
     title: 'Infusing AI and Deep Learning into Floating Glass On-Line Inspection Systems',
-    href: 'https://identifyyou.in/projects/infusing-ai-and-deep-learning-into-floating-glass-on-line-inspection-systems/',
+    tag: 'GLASS MANUFACTURING · VISION AI',
+    url: 'https://identifyyou.in/projects/infusing-ai-and-deep-learning-into-floating-glass-online-inspection-systems/',
+    desc: 'High-speed, continuous float glass web inspection using multi-spectral cameras and deep learning models to detect optical defects, bubbles, and inclusions at line speeds.',
   },
   {
     title: 'Transforming Effluent Treatment Plants (ETP) through AI-Driven Industrial IoT (IIoT)',
-    href: 'https://identifyyou.in/projects/transforming-effluent-treatment-plants-etp-through-ai-driven-industrial-iot-iiot/',
+    tag: 'PROCESS & ETP · INDUSTRIAL IOT',
+    url: 'https://identifyyou.in/projects/transforming-effluent-treatment-plants-etp-through-ai-driven-industrial-iot-iiot/',
+    desc: 'AI-driven IIoT architecture for continuous water quality monitoring, automated chemical dosing optimization, and real-time compliance management in effluent treatment plants.',
   },
 ]
 
@@ -68,9 +73,8 @@ export default function VisionAIPage() {
     <div className={styles.page}>
       <Header />
 
-      {/* SECTION 1: FULL-PAGE HERO BANNER (MATCHING HOME PAGE HERO) */}
+      {/* 1. HERO / BANNER */}
       <section className={styles.sectionHeroBanner}>
-        <div className={styles.heroOverlayPattern} />
         <div className={styles.heroContainer}>
           <div className={styles.heroCard}>
             <div>
@@ -99,14 +103,13 @@ export default function VisionAIPage() {
                 src="/images/vision_ai_hero_production_line.png"
                 alt="Production line: camera + 3D profiler inspecting a component, robotic arm and conveyor visible"
                 className={styles.realImg}
-                loading="lazy"
               />
             </div>
           </div>
         </div>
       </section>
 
-      {/* SECTION 2: COMPLETE INSPECTION CELL (DARK) */}
+      {/* 2. INSPECTION CELL SECTION */}
       <section className={styles.sectionDarkCell}>
         <div className={styles.darkCellCard}>
           <div className={styles.eyebrowGreen}>PRODUCTION ENGINEERING</div>
@@ -117,7 +120,6 @@ export default function VisionAIPage() {
               src="/images/end_to_end_inspection_cell.png"
               alt="Full inspection cell: part feeder, conveyor, fixture, vision system, robot arm, sorting bins"
               className={styles.realImg}
-              loading="lazy"
             />
           </div>
 
@@ -146,7 +148,7 @@ export default function VisionAIPage() {
         </div>
       </section>
 
-      {/* SECTION 3: PRECISION & PERFORMANCE */}
+      {/* 3. PRECISION VISION AI SECTION */}
       <section className={styles.sectionPrecision}>
         <div className={styles.precisionGrid}>
           <div className={styles.precisionVisualBox}>
@@ -154,14 +156,11 @@ export default function VisionAIPage() {
               src="/images/precision_mechanical_measurement.png"
               alt="Precision mechanical component with dimensional measurement overlays"
               className={styles.realImg}
-              loading="lazy"
             />
           </div>
 
           <div>
-            <div className={styles.eyebrowGreen} style={{ color: '#96c73d' }}>
-              PRECISION + PERFORMANCE
-            </div>
+            <div className={styles.eyebrowGreen}>PRECISION + PERFORMANCE</div>
             <h2 className={styles.precisionTitle}>Precision Without Compromising Production Speed</h2>
             <p className={styles.precisionDesc}>
               Complex manufacturing applications often demand extremely tight tolerances. Our Vision AI systems are
@@ -171,26 +170,26 @@ export default function VisionAIPage() {
 
             <div className={styles.statMetricsGrid}>
               <div className={styles.statMetricBox}>
-                <span className={styles.statMetricVal}>99.9%</span>
+                <span className={styles.statMetricVal}>[XX.X%]</span>
                 <span className={styles.statMetricLabel}>Accuracy</span>
               </div>
               <div className={styles.statMetricBox}>
-                <span className={styles.statMetricVal}>±5 µm</span>
+                <span className={styles.statMetricVal}>[±X µm]</span>
                 <span className={styles.statMetricLabel}>Repeatability</span>
               </div>
               <div className={styles.statMetricBox}>
-                <span className={styles.statMetricVal}>&lt;1.5 sec</span>
+                <span className={styles.statMetricVal}>[XX sec]</span>
                 <span className={styles.statMetricLabel}>Cycle Time</span>
               </div>
               <div className={styles.statMetricBox}>
-                <span className={styles.statMetricVal}>2,400/hr</span>
+                <span className={styles.statMetricVal}>[XXX /hr]</span>
                 <span className={styles.statMetricLabel}>Throughput</span>
               </div>
             </div>
 
             <FlowChain nodes={precisionNodes} />
 
-            <div style={{ marginTop: '24px' }}>
+            <div style={{ marginTop: '28px' }}>
               <Link href="/deep-tech/vision-ai/precision-vision-ai-setup" className={styles.btnPrimary}>
                 Explore Precision Vision AI Setup →
               </Link>
@@ -199,33 +198,94 @@ export default function VisionAIPage() {
         </div>
       </section>
 
-      {/* SECTION 4: VISION AI IN ACTION (CASE STUDIES) */}
+      {/* 4. VISION AI IN ACTION / CASE STUDIES */}
       <section id="case-studies" className={styles.sectionCaseStudies}>
         <h2 className={styles.csMainTitle}>Vision AI in Action</h2>
 
-        {/* Vision AI Case Study Cards */}
+        {/* Featured Case Study: UV Light-Based Inspection (Copied as-is from Home Page Machine Vision Solution) */}
+        <div className={styles.featuredCsCard}>
+          <div className={styles.csVisualBox}>
+            <img
+              src="/images/uv_light_defect_detection.png"
+              alt="UV Light-Based Inspection"
+              className={styles.realImg}
+            />
+          </div>
+
+          <div>
+            <div className={styles.csFeaturedTag}>FEATURED CASE STUDY</div>
+            <h3 className={styles.csFeaturedTitle}>UV Light-Based Inspection</h3>
+            <h4 className={styles.csSubtitle}>
+              Transforming Manufacturing Quality with Visual Intelligence — Powered by AI
+            </h4>
+
+            <p className={styles.csDetailRow}>
+              <span className={styles.csDetailLabel}>Industry — </span>Manufacturing · Quality Inspection
+            </p>
+            <p className={styles.csDetailRow}>
+              <span className={styles.csDetailLabel}>Challenge — </span>Micro-crack &amp; surface defect detection at line speed
+            </p>
+            <p className={styles.csDetailRow}>
+              <span className={styles.csDetailLabel}>Solution — </span>UV Camera + AI + Lighting + Fixture + Automation
+            </p>
+            <p className={styles.csDetailRow}>
+              <span className={styles.csDetailLabel}>Outcome — </span>Verified real-time zero-defect inspection
+            </p>
+
+            <p className={styles.csBodyPara}>
+              Specialized ultraviolet illumination coupled with high-resolution vision models for micro-crack detection
+              and surface integrity inspection. IdentifYou uses Visual Intelligence and AI to help manufacturers
+              continuously understand what is happening on the production line, identify quality risks and turn visual
+              information into real-time operational decisions — detecting defects, verifying processes, identifying
+              deviations and enabling automated decisions in real time.
+            </p>
+            <p className={styles.csBodyPara}>
+              By engineering AI-driven visual inspection into the manufacturing process, quality control can move from
+              a reactive cost centre to a proactive capability that improves quality, reduces waste, strengthens
+              process control and drives operational performance.
+            </p>
+
+            <div className={styles.csStatBadges}>
+              <span className={styles.csStatBadge}>Inspection Accuracy</span>
+              <span className={styles.csStatBadge}>Cycle Time</span>
+              <span className={styles.csStatBadge}>Throughput</span>
+              <span className={styles.csStatBadge}>Manual Inspection Reduction</span>
+            </div>
+
+            <Link href="/case-studies/advanced-vision-inspection-surface" className={styles.btnPrimary}>
+              View Vision AI Case Study →
+            </Link>
+          </div>
+        </div>
+
+        {/* 5. THREE CASE STUDY CARDS */}
         <div className={styles.csThreeGrid}>
-          <CaseStudyCard
-            slug="advanced-vision-inspection-surface"
-            title="Advanced Vision Inspection for Surface & Edge Integrity"
-          />
-          <CaseStudyCard
-            slug="vision-ai-bore-measurement"
-            title="High-Speed Micron-Level Bore & Interface Inspection"
-          />
-          <CaseStudyCard
-            slug="vision-ai-complex-dimension"
-            title="Precision Inspection of Complex Threads & Internal Geometries"
-          />
+          {threeCaseStudies.map((cs) => (
+            <div key={cs.title} className={styles.csCard}>
+              <div>
+                <div className={styles.csGridTag}>{cs.tag}</div>
+                <h3 className={styles.csGridTitle}>{cs.title}</h3>
+                <p className={styles.csDesc}>{cs.desc}</p>
+              </div>
+              <a
+                href={cs.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={styles.csLink}
+              >
+                View Vision AI Case Study →
+              </a>
+            </div>
+          ))}
         </div>
       </section>
 
-      {/* SECTION 5: THE DIFFERENCE (DARK STACK) */}
+      {/* 6. FROM VISION INSPECTION TO PRODUCTION-READY AUTOMATION (DARK SECTION) */}
       <section className={styles.sectionDarkDifference}>
         <div className={styles.darkDiffCard}>
           <div className={styles.eyebrowGreen}>THE DIFFERENCE</div>
           <h2 className={styles.darkCellTitle}>From Vision Inspection to Production-Ready Automation</h2>
-          <p style={{ maxWidth: '760px', margin: '0 auto 28px', color: '#A0B0A7', fontSize: '15px' }}>
+          <p className={styles.darkDiffDesc}>
             Industrial inspection is not just about seeing a defect. It is about reliably inspecting the right feature,
             at the right accuracy, at production speed — and automatically acting on the result.
           </p>
@@ -237,51 +297,48 @@ export default function VisionAIPage() {
           <div className={styles.stackedFlowGrid}>
             <div className={styles.stackedFlowBlock}>
               <div className={styles.stackedTitle}>1. Advanced Imaging</div>
-              <div className={styles.stackedSub}>2D • 3D • UV • Thermal • Line Scan</div>
+              <div className={styles.stackedSub}>2D · 3D · UV · Thermal</div>
             </div>
             <div className={styles.stackedFlowBlock}>
               <div className={styles.stackedTitle}>2. AI &amp; Vision Intelligence</div>
-              <div className={styles.stackedSub}>Detection • Classification • Anomaly Detection • Measurement</div>
+              <div className={styles.stackedSub}>Detection · Classification · Anomaly Detection · Measurement</div>
             </div>
             <div className={styles.stackedFlowBlock}>
               <div className={styles.stackedTitle}>3. Precision Engineering</div>
-              <div className={styles.stackedSub}>Fixtures • Nests • Tooling • Positioning</div>
+              <div className={styles.stackedSub}>Fixtures · Nests · Tooling · Positioning</div>
             </div>
             <div className={styles.stackedFlowBlock}>
               <div className={styles.stackedTitle}>4. Industrial Automation</div>
-              <div className={styles.stackedSub}>Conveyors • Robots • Pick &amp; Place • PLC • Sorting</div>
+              <div className={styles.stackedSub}>Conveyors · Robots · Pick &amp; Place · PLC · Sorting</div>
             </div>
             <div className={styles.stackedFlowBlock}>
               <div className={styles.stackedTitle}>5. Production Deployment</div>
-              <div className={styles.stackedSub}>Cycle Time • Throughput • Integration • Commissioning</div>
+              <div className={styles.stackedSub}>Cycle Time · Throughput · Integration · Commissioning</div>
             </div>
           </div>
 
-          <p style={{ margin: '24px 0 0', fontSize: '13.5px', color: '#a6d64c', fontWeight: '600' }}>
+          <p className={styles.diffSummaryQuote}>
             From a proof-of-concept on the lab bench to a production-ready inspection cell on the factory floor.
           </p>
         </div>
       </section>
 
-      {/* SECTION 6: POINT OF VIEW */}
+      {/* 7. VISION AI POINT OF VIEW */}
       <section className={styles.sectionPov}>
         <div className={styles.container}>
-          <div className={styles.eyebrowGreen} style={{ color: '#96c73d' }}>
-            VISION AI POINT OF VIEW
-          </div>
+          <div className={styles.eyebrowGreen}>VISION AI POINT OF VIEW</div>
 
           <div className={styles.povThreeGrid}>
             <div className={styles.povCard}>
               <div>
-                <div style={{ borderRadius: '10px', overflow: 'hidden', height: '180px', marginBottom: '16px' }}>
+                <div className={styles.povImgBox}>
                   <img
                     src="/images/threed_component_profiling.png"
                     alt="3D-scanned component with dimensional overlays"
                     className={styles.realImg}
-                    loading="lazy"
                   />
                 </div>
-                <h3 className={styles.povTitle}>Why 3D Profiling is Transforming Industrial Inspection</h3>
+                <h3 className={styles.povTitle}>Why 3D Profiling Is Transforming Industrial Inspection</h3>
                 <p className={styles.povDesc}>
                   Explore how 3D profiling enables manufacturers to inspect complex geometry, depth, height, profiles
                   and dimensional characteristics that conventional 2D vision may not reliably capture.
@@ -294,12 +351,9 @@ export default function VisionAIPage() {
 
             <div className={styles.povCard}>
               <div>
-                <div className={styles.csFeaturedTag}>POINT OF VIEW</div>
-                <h3 className={styles.povTitle}>AI Deep Learning vs Traditional Rule-Based Vision</h3>
-                <p className={styles.povDesc}>
-                  Understanding when to use deep learning neural networks versus classical computer vision algorithms
-                  for high-speed factory quality inspection.
-                </p>
+                <span className={styles.placeholderBadge}>[Future Vision AI POV]</span>
+                <h3 className={styles.povTitle}>[Future Vision AI POV]</h3>
+                <p className={styles.povDesc}>[Teaser pending]</p>
               </div>
               <Link href="/blogs-and-news" className={styles.csLink}>
                 Read the POV →
@@ -308,12 +362,9 @@ export default function VisionAIPage() {
 
             <div className={styles.povCard}>
               <div>
-                <div className={styles.csFeaturedTag}>POINT OF VIEW</div>
-                <h3 className={styles.povTitle}>Integrating Vision Inspection with PLC and Robotics</h3>
-                <p className={styles.povDesc}>
-                  Best practices for zero-latency triggers, rejection mechanisms, and robotic guidance on automated
-                  assembly lines.
-                </p>
+                <span className={styles.placeholderBadge}>[Future Vision AI POV]</span>
+                <h3 className={styles.povTitle}>[Future Vision AI POV]</h3>
+                <p className={styles.povDesc}>[Teaser pending]</p>
               </div>
               <Link href="/blogs-and-news" className={styles.csLink}>
                 Read the POV →
@@ -323,11 +374,9 @@ export default function VisionAIPage() {
         </div>
       </section>
 
-      {/* SECTION 7: ECOSYSTEM */}
+      {/* 8. TECHNOLOGY & PARTNERSHIP ECOSYSTEM */}
       <section className={styles.sectionPartners}>
-        <div className={styles.eyebrowGreen} style={{ color: '#96c73d' }}>
-          TECHNOLOGY &amp; PARTNERSHIP ECOSYSTEM
-        </div>
+        <div className={styles.eyebrowGreen}>TECHNOLOGY &amp; PARTNERSHIP ECOSYSTEM</div>
         <h2 className={styles.csMainTitle}>Powered by the Right Technology Ecosystem</h2>
         <p style={{ maxWidth: '720px', margin: '0 auto', fontSize: '15px', color: '#5B6862' }}>
           Production-grade Vision AI requires the right combination of cameras, sensors, optics, lighting, computing,
@@ -336,30 +385,30 @@ export default function VisionAIPage() {
 
         <div className={styles.partnersGrid}>
           <div className={styles.partnerCard}>
-            <h3 className={styles.partnerTitle}>Basler Cameras</h3>
+            <h3 className={styles.partnerTitle}>[Basler Cameras]</h3>
             <p className={styles.partnerDesc}>
-              Industrial 2D matrix cameras, line scan sensors, 3D laser profilers, and high-speed optics integration.
+              [Partnership / technology description — pending confirmation]
             </p>
           </div>
           <div className={styles.partnerCard}>
-            <h3 className={styles.partnerTitle}>Vision AI Hardware &amp; GPUs</h3>
+            <h3 className={styles.partnerTitle}>[Partner Name]</h3>
             <p className={styles.partnerDesc}>
-              NVIDIA Jetson edge inferencing, industrial PCs, optical illumination arrays, and IP67 enclosures.
+              [Technology / capability — pending confirmation]
             </p>
           </div>
           <div className={styles.partnerCard}>
-            <h3 className={styles.partnerTitle}>Robotics &amp; Automation</h3>
+            <h3 className={styles.partnerTitle}>[Partner Name]</h3>
             <p className={styles.partnerDesc}>
-              PLC controllers (Siemens / Rockwell), pneumatic rejectors, linear actuators, and pick-and-place robots.
+              [Technology / capability — pending confirmation]
             </p>
           </div>
         </div>
       </section>
 
-      {/* SECTION 8: CTA BLOCK */}
+      {/* 9. FINAL CTA */}
       <section className={styles.sectionCta}>
         <div className={styles.ctaCardDark}>
-          <h2 className={styles.csMainTitle} style={{ color: '#FFFFFF', marginBottom: '24px' }}>
+          <h2 className={styles.ctaTitle}>
             Ready to See What Your Inspection Process Is Missing?
           </h2>
           <Link href="/contact" className={styles.btnPrimary}>
@@ -368,44 +417,47 @@ export default function VisionAIPage() {
         </div>
       </section>
 
-      {/* SECTION 9: NEWS & INSIGHTS */}
+      {/* 10. LATEST NEWS & INSIGHTS */}
       <section className={styles.sectionNews}>
-        <div className={styles.eyebrowGreen} style={{ color: '#96c73d' }}>
-          LATEST NEWS &amp; INSIGHTS
-        </div>
+        <div className={styles.eyebrowGreen}>LATEST NEWS &amp; INSIGHTS</div>
 
         <div className={styles.newsGrid}>
-          <Link href="/blogs-and-news" className={styles.newsCard}>
-            <div className={styles.newsTag}>NEWS</div>
-            <h3 className={styles.newsTitle}>Transforming Manufacturing Quality with AI Visual Intelligence</h3>
-            <p className={styles.newsDesc}>
-              How modern computer vision and deep learning are elevating quality control from reactive cost centers to
-              proactive competitive advantages.
-            </p>
-            <span className={styles.csLink}>Read More →</span>
-          </Link>
+          <div className={styles.newsCard}>
+            <div>
+              <div className={styles.newsTag}>NEWS</div>
+              <h3 className={styles.newsTitle}>[News Article]</h3>
+              <p className={styles.newsDesc}>[Short description]</p>
+            </div>
+            <Link href="/blogs-and-news" className={styles.csLink}>
+              Read More →
+            </Link>
+          </div>
 
-          <Link href="/blogs-and-news" className={styles.newsCard}>
-            <div className={styles.newsTag}>BLOG</div>
-            <h3 className={styles.newsTitle}>Key Considerations for Line-Speed Optical Inspection</h3>
-            <p className={styles.newsDesc}>
-              Balancing cycle time, exposure, strobe lighting, and inferencing latency on high-throughput assembly
-              lines.
-            </p>
-            <span className={styles.csLink}>Read More →</span>
-          </Link>
+          <div className={styles.newsCard}>
+            <div>
+              <div className={styles.newsTag}>BLOG</div>
+              <h3 className={styles.newsTitle}>[Vision AI Blog]</h3>
+              <p className={styles.newsDesc}>[Short description]</p>
+            </div>
+            <Link href="/blogs-and-news" className={styles.csLink}>
+              Read More →
+            </Link>
+          </div>
 
-          <Link href="/blogs-and-news" className={styles.newsCard}>
-            <div className={styles.newsTag}>INSIGHT</div>
-            <h3 className={styles.newsTitle}>Reducing Scrap and Re-Work using Closed-Loop Vision Control</h3>
-            <p className={styles.newsDesc}>
-              Connecting inspection decisions directly to PLC actuators and upstream tooling to prevent defect propagation.
-            </p>
-            <span className={styles.csLink}>Read More →</span>
-          </Link>
+          <div className={styles.newsCard}>
+            <div>
+              <div className={styles.newsTag}>INSIGHT</div>
+              <h3 className={styles.newsTitle}>[Industry Insight]</h3>
+              <p className={styles.newsDesc}>[Short description]</p>
+            </div>
+            <Link href="/blogs-and-news" className={styles.csLink}>
+              Read More →
+            </Link>
+          </div>
         </div>
       </section>
 
+      {/* 11. FOOTER */}
       <Footer />
     </div>
   )
