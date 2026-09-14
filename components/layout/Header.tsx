@@ -22,7 +22,6 @@ type HeaderProps = {
 }
 
 const defaultNav: NavItem[] = [
-  { label: 'Home', href: '/' },
   {
     label: 'Deep Tech',
     href: '/deep-tech',
