@@ -1,81 +1,75 @@
 .page {
-  font-family: 'IBM Plex Sans', sans-serif;
+  font-family: 'IBM Plex Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   background: #FAFAF8;
   color: #12181B;
   line-height: 1.5;
 }
 
 .container {
-  max-width: 1200px;
+  max-width: 1240px;
   margin: 0 auto;
   padding: 0 24px;
 }
 
 .containerNarrow {
-  max-width: 1000px;
+  max-width: 960px;
   margin: 0 auto;
   padding: 0 24px;
 }
 
-/* SECTION 1: FULL-PAGE HERO BANNER */
+.eyebrowGreen {
+  font-size: 11.5px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  color: #96c73d;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+
+/* ---------------------------------------------------------------------- */
+/* 1. HERO / ABM BANNER */
+/* ---------------------------------------------------------------------- */
 .sectionHeroBanner {
-  position: relative;
-  width: 100%;
-  min-height: 560px;
-  display: flex;
-  align-items: center;
-  overflow: hidden;
-  background: radial-gradient(circle at 80% 20%, rgba(150, 199, 61, 0.2) 0%, rgba(9, 14, 12, 0.98) 65%),
-              linear-gradient(180deg, #060908 0%, #0D1612 100%);
-  border-bottom: 1px solid rgba(150, 199, 61, 0.2);
-  padding: 56px 0;
-}
-
-.heroOverlayPattern {
-  display: none;
-}
-
-.heroContainer {
-  position: relative;
-  z-index: 1;
-  max-width: 1400px;
+  padding: 56px 24px 72px;
+  max-width: 1240px;
   margin: 0 auto;
-  padding: 0 32px;
-  width: 100%;
 }
 
-.heroBannerCard {
-  background: transparent;
-  backdrop-filter: none;
-  border: none;
-  border-radius: 0;
-  padding: 0;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 40px;
-  align-items: center;
-  box-shadow: none;
+.heroCardDarkWrapper {
+  background: #0D1612;
+  border: 1px solid rgba(150, 199, 61, 0.25);
+  border-radius: 24px;
+  padding: 48px;
   color: #FFFFFF;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+}
+
+.heroGrid {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 48px;
+  align-items: center;
 }
 
 .greenPillBadge {
   display: inline-block;
   font-size: 11.5px;
-  font-weight: 700;
-  letter-spacing: 0.04em;
+  font-weight: 800;
+  letter-spacing: 0.06em;
   color: #96c73d;
-  background: rgba(150, 199, 61, 0.2);
-  border: 1px solid rgba(150, 199, 61, 0.2);
-  padding: 6px 14px;
+  background: rgba(150, 199, 61, 0.15);
+  border: 1px solid rgba(150, 199, 61, 0.3);
+  padding: 5px 14px;
   border-radius: 20px;
   margin-bottom: 20px;
+  text-transform: uppercase;
 }
 
 .heroBannerTitle {
   font-family: 'Manrope', sans-serif;
   font-weight: 800;
-  font-size: clamp(28px, 3.5vw, 42px);
-  line-height: 1.15;
+  font-size: clamp(28px, 3.8vw, 44px);
+  line-height: 1.18;
   color: #FFFFFF;
   margin: 0 0 18px;
   letter-spacing: -0.015em;
@@ -83,7 +77,7 @@
 
 .heroBannerDesc {
   font-size: 15.5px;
-  line-height: 1.55;
+  line-height: 1.65;
   color: #A0B0A7;
   margin: 0 0 28px;
 }
@@ -99,56 +93,64 @@
   align-items: center;
   justify-content: center;
   background: #96c73d;
-  color: #FFFFFF;
-  font-weight: 700;
-  font-size: 14px;
-  padding: 12px 24px;
+  color: #0D1612;
+  font-weight: 800;
+  font-size: 14.5px;
+  padding: 13px 28px;
   border-radius: 8px;
   text-decoration: none;
-  transition: background 0.25s ease, transform 0.2s ease;
+  transition: all 0.25s ease;
+  box-shadow: 0 4px 16px rgba(150, 199, 61, 0.3);
+  border: 1px solid #96c73d;
 }
 
 .btnPrimary:hover {
-  background: #82b032;
+  background: #a6d64c;
+  border-color: #a6d64c;
   transform: translateY(-2px);
+  box-shadow: 0 6px 22px rgba(150, 199, 61, 0.4);
 }
 
 .btnSecondary {
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  background: transparent;
   color: #FFFFFF;
-  border: 1px solid rgba(255, 255, 255, 0.4);
-  font-weight: 600;
-  font-size: 14px;
-  padding: 12px 24px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  font-weight: 700;
+  font-size: 14.5px;
+  padding: 13px 28px;
   border-radius: 8px;
   text-decoration: none;
-  transition: border-color 0.25s ease, background 0.25s ease;
+  transition: all 0.2s ease;
 }
 
 .btnSecondary:hover {
-  border-color: #FFFFFF;
-  background: rgba(255, 255, 255, 0.08);
+  border-color: #96c73d;
+  color: #96c73d;
+  background: rgba(150, 199, 61, 0.1);
 }
 
 .heroVisualContainer {
   width: 100%;
   border-radius: 14px;
   overflow: hidden;
-  border: 1px solid rgba(150, 199, 61, 0.3);
-  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.4);
+  border: 1px solid rgba(150, 199, 61, 0.2);
+  background: rgba(255, 255, 255, 0.04);
 }
 
 .realVisualImg {
   width: 100%;
   height: 100%;
-  max-height: 380px;
+  max-height: 360px;
   object-fit: cover;
   display: block;
 }
 
-/* SECTION 2: SNOWFLAKE PARTNER STATS */
+/* ---------------------------------------------------------------------- */
+/* 2. SNOWFLAKE CERTIFICATION / EXPERTISE BANNER */
+/* ---------------------------------------------------------------------- */
 .sectionPartnerStats {
   max-width: 1240px;
   margin: 0 auto 64px;
@@ -156,10 +158,10 @@
 }
 
 .partnerStatsCard {
-  background: #090E0C;
-  border: 1px solid rgba(150, 199, 61, 0.2);
+  background: #0D1612;
+  border: 1px solid rgba(150, 199, 61, 0.25);
   border-radius: 16px;
-  padding: 36px 48px;
+  padding: 32px 48px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -168,19 +170,10 @@
   color: #FFFFFF;
 }
 
-.eyebrowGreen {
-  font-size: 11.5px;
-  font-weight: 800;
-  letter-spacing: 0.08em;
-  color: #96c73d;
-  text-transform: uppercase;
-  margin-bottom: 8px;
-}
-
 .partnerTitle {
   font-family: 'Manrope', sans-serif;
   font-weight: 800;
-  font-size: clamp(22px, 2.5vw, 30px);
+  font-size: clamp(22px, 2.8vw, 30px);
   margin: 0;
   color: #FFFFFF;
 }
@@ -206,41 +199,34 @@
 
 .statLabel {
   font-size: 12px;
-  font-weight: 600;
-  color: #a6d64c;
+  font-weight: 700;
+  color: #96c73d;
   margin-top: 2px;
 }
 
-/* SECTION 3: THE DIFFERENCE */
+/* ---------------------------------------------------------------------- */
+/* 3. THE DIFFERENCE / DATA FOUNDATION SECTION */
+/* ---------------------------------------------------------------------- */
 .sectionDifference {
-  padding: 64px 24px;
+  padding: 0 24px 80px;
   text-align: center;
-}
-
-.diffEyebrow {
-  font-size: 11.5px;
-  font-weight: 800;
-  letter-spacing: 0.08em;
-  color: #96c73d;
-  text-transform: uppercase;
-  margin-bottom: 12px;
 }
 
 .diffTitle {
   font-family: 'Manrope', sans-serif;
   font-weight: 800;
-  font-size: clamp(26px, 3.2vw, 38px);
+  font-size: clamp(28px, 3.5vw, 42px);
   color: #12181B;
-  margin: 0 0 16px;
-  letter-spacing: -0.01em;
+  margin: 0 0 18px;
+  letter-spacing: -0.015em;
 }
 
 .diffDesc {
-  max-width: 760px;
+  max-width: 780px;
   margin: 0 auto 36px;
-  font-size: 15.5px;
+  font-size: 16px;
   color: #5B6862;
-  line-height: 1.6;
+  line-height: 1.65;
 }
 
 .pillsFlowBox {
@@ -254,31 +240,34 @@
 .pillNode {
   background: #FFFFFF;
   border: 1px solid #E3E7E1;
-  padding: 10px 22px;
-  border-radius: 8px;
-  font-size: 14px;
+  padding: 12px 24px;
+  border-radius: 10px;
+  font-size: 14.5px;
   font-weight: 700;
   color: #12181B;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
 }
 
 .pillArrow {
-  color: #8B978F;
-  font-size: 14px;
+  color: #96c73d;
+  font-size: 16px;
+  font-weight: 800;
 }
 
-/* SECTION 4: PLATFORM ENGINEERING */
+/* ---------------------------------------------------------------------- */
+/* 4. COMPLETE DATA PLATFORM SECTION */
+/* ---------------------------------------------------------------------- */
 .sectionPlatformEng {
-  padding: 48px 24px 64px;
+  padding: 0 24px 80px;
   max-width: 1240px;
   margin: 0 auto;
 }
 
 .platformEngCard {
-  background: #F4F6F3;
+  background: #F5F7F4;
   border: 1px solid #E3E7E1;
   border-radius: 20px;
-  padding: clamp(32px, 4vw, 56px);
+  padding: clamp(36px, 4vw, 56px);
   text-align: center;
 }
 
@@ -288,7 +277,8 @@
   border-radius: 14px;
   overflow: hidden;
   border: 1px solid #E3E7E1;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.04);
+  background: #FFFFFF;
 }
 
 .realDiagramImg {
@@ -299,9 +289,11 @@
   display: block;
 }
 
-/* SECTION 5: BUILT ON SNOWFLAKE */
+/* ---------------------------------------------------------------------- */
+/* 5. SNOWFLAKE AI DATA CLOUD SECTION */
+/* ---------------------------------------------------------------------- */
 .sectionBuiltOnSnowflake {
-  padding: 48px 24px 72px;
+  padding: 0 24px 80px;
   max-width: 1240px;
   margin: 0 auto;
 }
@@ -309,7 +301,7 @@
 .twoColGrid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 40px;
+  gap: 48px;
   align-items: center;
 }
 
@@ -318,21 +310,23 @@
   border-radius: 16px;
   overflow: hidden;
   border: 1px solid #E3E7E1;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.04);
+  background: #FFFFFF;
 }
 
 .builtContentTitle {
   font-family: 'Manrope', sans-serif;
   font-weight: 800;
-  font-size: clamp(24px, 3vw, 34px);
+  font-size: clamp(26px, 3.2vw, 36px);
   color: #12181B;
-  margin: 0 0 16px;
+  margin: 0 0 18px;
+  line-height: 1.25;
 }
 
 .builtContentDesc {
   font-size: 15.5px;
   color: #5B6862;
-  line-height: 1.6;
+  line-height: 1.65;
   margin: 0 0 28px;
 }
 
@@ -340,32 +334,33 @@
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
-  margin-top: 24px;
 }
 
 .featureTag {
   background: #FFFFFF;
   border: 1px solid #E3E7E1;
-  color: #2B3530;
+  color: #12181B;
   font-size: 13px;
-  font-weight: 600;
+  font-weight: 700;
   padding: 8px 16px;
   border-radius: 6px;
-  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.03);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.02);
 }
 
-/* SECTION 6: COMING NEXT BANNER */
+/* ---------------------------------------------------------------------- */
+/* 6. COMING NEXT SECTION */
+/* ---------------------------------------------------------------------- */
 .sectionComingNext {
-  padding: 0 24px 72px;
+  padding: 0 24px 80px;
   max-width: 1240px;
   margin: 0 auto;
 }
 
 .comingNextCard {
-  background: #0B110E;
-  border: 1px solid rgba(150, 199, 61, 0.2);
-  border-radius: 18px;
-  padding: 56px 40px;
+  background: #0D1612;
+  border: 1px solid rgba(150, 199, 61, 0.25);
+  border-radius: 20px;
+  padding: 48px 36px;
   text-align: center;
   color: #FFFFFF;
   box-shadow: 0 16px 40px rgba(0, 0, 0, 0.25);
@@ -374,9 +369,9 @@
 .comingNextTitle {
   font-family: 'Manrope', sans-serif;
   font-weight: 800;
-  font-size: clamp(24px, 3vw, 36px);
+  font-size: clamp(24px, 3vw, 34px);
   color: #FFFFFF;
-  margin: 0 0 16px;
+  margin: 0 0 14px;
 }
 
 .comingNextDesc {
@@ -387,9 +382,11 @@
   line-height: 1.6;
 }
 
-/* SECTION 7: SNOWFLAKE CASE STUDIES */
+/* ---------------------------------------------------------------------- */
+/* 7. SNOWFLAKE CASE STUDIES (FEATURED CASE STUDY) */
+/* ---------------------------------------------------------------------- */
 .sectionCaseStudies {
-  padding: 32px 24px 80px;
+  padding: 0 24px 80px;
   max-width: 1240px;
   margin: 0 auto;
 }
@@ -401,49 +398,50 @@
   text-align: center;
   color: #12181B;
   margin-bottom: 48px;
+  letter-spacing: -0.01em;
 }
 
 .featuredCaseStudyCard {
-  background: #F7F9F6;
+  background: #F5F7F4;
   border: 1px solid #E3E7E1;
-  border-radius: 18px;
-  padding: 36px;
+  border-radius: 20px;
+  padding: 40px;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 36px;
+  gap: 40px;
   align-items: center;
   margin-bottom: 32px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
 }
 
 .csVisualContainer {
   width: 100%;
-  border-radius: 12px;
+  border-radius: 14px;
   overflow: hidden;
   border: 1px solid #E3E7E1;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
 }
 
 .realCsImg {
   width: 100%;
   height: 100%;
-  max-height: 320px;
+  max-height: 340px;
   object-fit: cover;
   display: block;
 }
 
 .csFeaturedTag {
-  font-size: 11px;
+  font-size: 11.5px;
   font-weight: 800;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.08em;
   color: #96c73d;
   text-transform: uppercase;
-  margin-bottom: 10px;
+  margin-bottom: 12px;
 }
 
 .csFeaturedTitle {
   font-family: 'Manrope', sans-serif;
   font-weight: 800;
-  font-size: 24px;
+  font-size: clamp(22px, 2.5vw, 28px);
   color: #12181B;
   margin: 0 0 16px;
   line-height: 1.25;
@@ -454,7 +452,6 @@
   color: #4A5650;
   margin-bottom: 8px;
   line-height: 1.5;
-  text-align: justify;
 }
 
 .csDetailLabel {
@@ -466,13 +463,13 @@
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
-  margin: 20px 0;
+  margin: 20px 0 24px;
 }
 
 .csStatBadge {
-  background: rgba(150, 199, 61, 0.2);
-  border: 1px solid rgba(150, 199, 61, 0.2);
-  color: #96c73d;
+  background: rgba(150, 199, 61, 0.15);
+  border: 1px solid rgba(150, 199, 61, 0.3);
+  color: #5A7E1C;
   font-size: 12.5px;
   font-weight: 700;
   padding: 6px 14px;
@@ -482,7 +479,7 @@
 .csLink {
   display: inline-flex;
   align-items: center;
-  font-size: 14px;
+  font-size: 14.5px;
   font-weight: 700;
   color: #96c73d;
   text-decoration: none;
@@ -490,26 +487,30 @@
 }
 
 .csLink:hover {
-  color: #96c73d;
+  color: #a6d64c;
   text-decoration: underline;
 }
 
-.csThreeGrid {
+/* ---------------------------------------------------------------------- */
+/* 8. ADDITIONAL CASE STUDY CARDS (4 CARDS GRID) */
+/* ---------------------------------------------------------------------- */
+.csFourGrid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 24px;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
 }
 
 .csGridCard {
   background: #FFFFFF;
   border: 1px solid #E3E7E1;
-  border-radius: 14px;
-  padding: 28px 24px;
+  border-radius: 16px;
+  padding: 24px 20px;
   text-decoration: none;
-  transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+  transition: all 0.25s ease;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
 }
 
 .csGridCard:hover {
@@ -522,7 +523,7 @@
   font-size: 10.5px;
   font-weight: 800;
   letter-spacing: 0.06em;
-  color: #7A8E84;
+  color: #96c73d;
   text-transform: uppercase;
   margin-bottom: 12px;
 }
@@ -530,13 +531,15 @@
 .csGridTitle {
   font-family: 'Manrope', sans-serif;
   font-weight: 800;
-  font-size: 17px;
+  font-size: 15.5px;
   color: #12181B;
   margin: 0;
   line-height: 1.35;
 }
 
-/* SECTION 8: READY TO TURN DATA INTO A BUSINESS ASSET CTA */
+/* ---------------------------------------------------------------------- */
+/* 9. FINAL CTA BANNER */
+/* ---------------------------------------------------------------------- */
 .sectionCta {
   padding: 0 24px 96px;
   max-width: 1240px;
@@ -544,10 +547,10 @@
 }
 
 .ctaCardDark {
-  background: #0B110E;
-  border: 1px solid rgba(150, 199, 61, 0.2);
+  background: #0D1612;
+  border: 1px solid rgba(150, 199, 61, 0.25);
   border-radius: 20px;
-  padding: clamp(48px, 6vw, 72px) 36px;
+  padding: 64px 36px;
   text-align: center;
   color: #FFFFFF;
   box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
@@ -556,35 +559,59 @@
 .ctaTitle {
   font-family: 'Manrope', sans-serif;
   font-weight: 800;
-  font-size: clamp(28px, 3.5vw, 40px);
+  font-size: clamp(26px, 3.5vw, 40px);
   color: #FFFFFF;
   margin: 0 0 16px;
+  letter-spacing: -0.01em;
 }
 
 .ctaDesc {
   max-width: 680px;
   margin: 0 auto 32px;
-  font-size: 15.5px;
+  font-size: 16px;
   color: #A0B0A7;
-  line-height: 1.6;
+  line-height: 1.65;
 }
 
-/* RESPONSIVE STYLES */
+/* ---------------------------------------------------------------------- */
+/* RESPONSIVE MEDIA QUERIES */
+/* ---------------------------------------------------------------------- */
+@media (max-width: 1100px) {
+  .csFourGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
 @media (max-width: 992px) {
-  .heroBannerCard,
+  .heroGrid,
   .twoColGrid,
   .featuredCaseStudyCard {
     grid-template-columns: 1fr;
-  }
-  .csThreeGrid {
-    grid-template-columns: 1fr;
+    gap: 32px;
   }
 }
 
-@media (max-width: 768px) {
-  .partnerStatsCard {
-    flex-direction: column;
-    align-items: flex-start;
+@media (max-width: 640px) {
+  .csFourGrid {
+    grid-template-columns: 1fr;
+  }
+  .sectionHeroBanner,
+  .sectionPartnerStats,
+  .sectionDifference,
+  .sectionPlatformEng,
+  .sectionBuiltOnSnowflake,
+  .sectionComingNext,
+  .sectionCaseStudies,
+  .sectionCta {
+    padding-top: 48px;
+    padding-bottom: 48px;
+  }
+  .heroCardDarkWrapper,
+  .partnerStatsCard,
+  .platformEngCard,
+  .comingNextCard,
+  .ctaCardDark {
+    padding: 36px 20px;
   }
   .statsRow {
     flex-direction: column;

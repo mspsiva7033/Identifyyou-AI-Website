@@ -4,11 +4,10 @@ import Link from 'next/link'
 import { Header } from '@/components/layout/Header'
 import { Footer } from '@/components/layout/Footer'
 import { FlowChain } from '@/components/ui/FlowChain'
-import { CaseStudyCard } from '@/components/ui/CaseStudyCard'
 import styles from './page.module.css'
 
 export const metadata: Metadata = {
-  title: 'Data Engineering — Turn Data Into a Trusted Business Asset | Snowflake Partner',
+  title: 'Data Engineering & Snowflake AI Data Cloud Solutions — IdentifYou',
   description:
     'Certified Snowflake experts building enterprise data platforms, Cortex AI integrations, ingestion pipelines, and governance to turn fragmented data into trusted intelligence.',
 }
@@ -34,7 +33,7 @@ const snowflakeFeatures = [
   'Role-Based Governance',
 ]
 
-const gridCaseStudies = [
+const fourCaseStudies = [
   {
     category: 'LOGISTICS · SNOWFLAKE',
     title: 'Optimizing Shipment and Fleet Operations with Snowflake',
@@ -47,8 +46,13 @@ const gridCaseStudies = [
   },
   {
     category: 'MANUFACTURING · MIGRATION',
-    title: 'Migrating Hadoop and HANA to Snowflake for a Manufacturing Enterprise',
+    title: 'Migrating Hadoop and HANA to Snowflake for a Manufacturing',
     href: '/case-studies/migrating-hadoop-and-hana-to-snowflake',
+  },
+  {
+    category: 'RETAIL · FORECASTING',
+    title: 'Optimizing Retail Demand Forecasting and Peak Season',
+    href: '/case-studies/optimizing-retail-demand-forecasting',
   },
 ]
 
@@ -57,11 +61,10 @@ export default function DataEngineeringPage() {
     <div className={styles.page}>
       <Header />
 
-      {/* SECTION 1: ANNER */}
+      {/* 1. HERO / ABM BANNER */}
       <section className={styles.sectionHeroBanner}>
-        <div className={styles.heroOverlayPattern} />
-        <div className={styles.heroContainer}>
-          <div className={styles.heroBannerCard}>
+        <div className={styles.heroCardDarkWrapper}>
+          <div className={styles.heroGrid}>
             <div>
               <span className={styles.greenPillBadge}>Live in Snowflake Marketplace</span>
               <h1 className={styles.heroBannerTitle}>
@@ -92,18 +95,17 @@ export default function DataEngineeringPage() {
                 src="/images/precision_abm_dashboard.png"
                 alt="Precision ABM Account scoring and targeting screen"
                 className={styles.realVisualImg}
-                loading="lazy"
               />
             </div>
           </div>
         </div>
       </section>
 
-      {/* SECTION 2: SNOWFLAKE PARTNER STATS */}
+      {/* 2. SNOWFLAKE CERTIFICATION / EXPERTISE BANNER */}
       <section className={styles.sectionPartnerStats}>
         <div className={styles.partnerStatsCard}>
           <div>
-            <div className={styles.eyebrowGreen}>SNOWFLAKE PARTNER</div>
+            <div className={styles.eyebrowGreen}>ENGINEERING PARTNER</div>
             <h2 className={styles.partnerTitle}>Certified Snowflake Experts, Not Generalists</h2>
           </div>
           <div className={styles.statsRow}>
@@ -123,10 +125,10 @@ export default function DataEngineeringPage() {
         </div>
       </section>
 
-      {/* SECTION 3: THE DIFFERENCE */}
+      {/* 3. THE DIFFERENCE / DATA FOUNDATION SECTION */}
       <section className={styles.sectionDifference}>
         <div className={styles.containerNarrow}>
-          <div className={styles.diffEyebrow}>THE DIFFERENCE</div>
+          <div className={styles.eyebrowGreen}>THE DIFFERENCE</div>
           <h2 className={styles.diffTitle}>From Fragmented Data to a Trusted Foundation</h2>
           <p className={styles.diffDesc}>
             Data engineering is not just about loading data into a warehouse. It is about integrating, transforming and
@@ -144,18 +146,17 @@ export default function DataEngineeringPage() {
         </div>
       </section>
 
-      {/* SECTION 4: PLATFORM ENGINEERING */}
+      {/* 4. COMPLETE DATA PLATFORM SECTION */}
       <section className={styles.sectionPlatformEng}>
         <div className={styles.platformEngCard}>
-          <div className={styles.diffEyebrow}>PLATFORM ENGINEERING</div>
+          <div className={styles.eyebrowGreen}>PLATFORM ENGINEERING</div>
           <h2 className={styles.diffTitle}>We Engineer the Complete Data Platform</h2>
 
           <div className={styles.diagramContainer}>
             <img
               src="/images/enterprise_data_platform_diagram.png"
-              alt="Enterprise data platform diagram"
+              alt="Enterprise data platform diagram: source systems, ingestion, Snowflake, transformation, governance, consumption layer"
               className={styles.realDiagramImg}
-              loading="lazy"
             />
           </div>
 
@@ -163,25 +164,25 @@ export default function DataEngineeringPage() {
         </div>
       </section>
 
-      {/* SECTION 5: BUILT ON SNOWFLAKE'S AI DATA CLOUD */}
+      {/* 5. SNOWFLAKE AI DATA CLOUD SECTION */}
       <section className={styles.sectionBuiltOnSnowflake}>
         <div className={styles.twoColGrid}>
           <div className={styles.archDiagramContainer}>
             <img
               src="/images/snowflake_cortex_architecture.png"
-              alt="Snowflake AI Data Cloud architecture"
+              alt="Snowflake AI Data Cloud architecture — unified platform with Cortex AI layer"
               className={styles.realDiagramImg}
-              loading="lazy"
             />
           </div>
 
           <div>
-            <div className={styles.diffEyebrow}>BUILT ON SNOWFLAKE&apos;S AI DATA CLOUD</div>
+            <div className={styles.eyebrowGreen}>BUILT ON SNOWFLAKE&apos;S AI DATA CLOUD</div>
             <h2 className={styles.builtContentTitle}>A Single Platform for Data, Analytics and AI</h2>
             <p className={styles.builtContentDesc}>
               Snowflake lets us bring data from ERP, POS, WMS, IoT and legacy systems into one governed platform —
               and layer Cortex AI directly on top, without moving data to a separate AI stack.
             </p>
+
             <div className={styles.featureTagsGrid}>
               {snowflakeFeatures.map((f) => (
                 <span key={f} className={styles.featureTag}>
@@ -193,7 +194,7 @@ export default function DataEngineeringPage() {
         </div>
       </section>
 
-      {/* SECTION 6: COMING NEXT BANNER */}
+      {/* 6. COMING NEXT SECTION */}
       <section className={styles.sectionComingNext}>
         <div className={styles.comingNextCard}>
           <div className={styles.eyebrowGreen}>COMING NEXT</div>
@@ -205,41 +206,73 @@ export default function DataEngineeringPage() {
         </div>
       </section>
 
-      {/* SECTION 7: SNOWFLAKE CASE STUDIES */}
+      {/* 7 & 8. SNOWFLAKE CASE STUDIES (FEATURED + 4 CARDS GRID) */}
       <section className={styles.sectionCaseStudies}>
         <h2 className={styles.csMainTitle}>Snowflake Case Studies</h2>
 
-        <div className={styles.csThreeGrid}>
-          <CaseStudyCard
-            slug="revolutionizing-inventory-optimization"
-            title="Revolutionizing Inventory Optimization with Snowflake"
-            image="/images/retail_inventory_dashboard.png"
-          />
-          <CaseStudyCard
-            href="/case-studies/optimizing-shipment-and-fleet-operations"
-            title="Optimizing Shipment and Fleet Operations with Snowflake"
-            image="/images/case-studies/optimizing-shipment-fleet-snowflake.png"
-          />
-          <CaseStudyCard
-            href="/case-studies/streamlining-shipment-planning-and-carrier-selection"
-            title="Streamlining Shipment Planning and Carrier Selection"
-            image="/images/case-studies/precision-abm-snowflake-cortex.png"
-          />
-          <CaseStudyCard
-            href="/case-studies/migrating-hadoop-and-hana-to-snowflake"
-            title="Migrating Hadoop and HANA to Snowflake for a Manufacturing Enterprise"
-            image="/images/case-studies/manufacturing-data-platform.png"
-          />
+        {/* Featured Case Study Card */}
+        <div className={styles.featuredCaseStudyCard}>
+          <div className={styles.csVisualContainer}>
+            <img
+              src="/images/retail_inventory_dashboard.png"
+              alt="Retail inventory dashboard powered by Snowflake"
+              className={styles.realCsImg}
+            />
+          </div>
+
+          <div>
+            <div className={styles.csFeaturedTag}>FEATURED CASE STUDY</div>
+            <h3 className={styles.csFeaturedTitle}>
+              Revolutionizing Inventory Optimization with Snowflake
+            </h3>
+
+            <p className={styles.csDetailRow}>
+              <span className={styles.csDetailLabel}>Industry — </span>Retail
+            </p>
+            <p className={styles.csDetailRow}>
+              <span className={styles.csDetailLabel}>Challenge — </span>Lack of real-time inventory visibility, unreliable
+              demand forecasting and high carrying costs.
+            </p>
+            <p className={styles.csDetailRow}>
+              <span className={styles.csDetailLabel}>Solution — </span>Unified POS, WMS and IoT data on Snowflake with
+              predictive analytics for demand forecasting.
+            </p>
+
+            <div className={styles.csStatBadges}>
+              <span className={styles.csStatBadge}>40% fewer stockouts</span>
+              <span className={styles.csStatBadge}>+15% seasonal revenue</span>
+              <span className={styles.csStatBadge}>-20% operational cost</span>
+            </div>
+
+            <Link
+              href="/case-studies/revolutionizing-inventory-optimization"
+              className={styles.csLink}
+            >
+              Read the full case study →
+            </Link>
+          </div>
+        </div>
+
+        {/* 4 Additional Case Studies Grid */}
+        <div className={styles.csFourGrid}>
+          {fourCaseStudies.map((cs) => (
+            <Link key={cs.title} href={cs.href} className={styles.csGridCard}>
+              <div>
+                <div className={styles.csCategoryTag}>{cs.category}</div>
+                <h4 className={styles.csGridTitle}>{cs.title}</h4>
+              </div>
+            </Link>
+          ))}
         </div>
       </section>
 
-      {/* SECTION 8: READY TO TURN DATA INTO A BUSINESS ASSET CTA */}
+      {/* 9. FINAL CTA BANNER */}
       <section className={styles.sectionCta}>
         <div className={styles.ctaCardDark}>
           <h2 className={styles.ctaTitle}>Ready to Turn Data Into a Business Asset?</h2>
           <p className={styles.ctaDesc}>
-            From migration to modernization, our certified Snowflake experts help enterprises build a data platform
-            their business can actually trust.
+            From migration to modern, our certified Snowflake experts help enterprises build a data platform their
+            business can actually trust.
           </p>
           <div className={styles.btnGroup} style={{ justifyContent: 'center' }}>
             <Link href="/contact" className={styles.btnPrimary}>
@@ -252,6 +285,7 @@ export default function DataEngineeringPage() {
         </div>
       </section>
 
+      {/* 10. FOOTER */}
       <Footer />
     </div>
   )
