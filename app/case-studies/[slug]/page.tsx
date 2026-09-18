@@ -86,7 +86,7 @@ export default async function CaseStudyDetailPage({ params }: { params: Promise<
 
         <div className={styles.heroImgWrapper}>
           <img
-            src={cs.illustration || `/images/case-studies/${slug}.${['advanced-vision-inspection-surface', 'vision-ai-bore-measurement', 'vision-ai-complex-dimension'].includes(slug) ? 'svg' : 'png'}`}
+            src={cs.illustration || `/images/case-studies/${slug}.png`}
             alt={cs.title}
             className={styles.heroIllustration}
           />

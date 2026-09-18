@@ -61,44 +61,49 @@ export default function DataEngineeringPage() {
     <div className={styles.page}>
       <Header />
 
-      {/* 1. HERO / ABM BANNER */}
+      {/* 1. TOP HERO BANNER */}
       <section className={styles.sectionHeroBanner}>
-        <div className={styles.heroCardDarkWrapper}>
-          <div className={styles.heroGrid}>
-            <div>
-              <span className={styles.greenPillBadge}>Live in Snowflake Marketplace</span>
-              <h1 className={styles.heroBannerTitle}>
-                Precision ABM, Powered by Cortex AI — Built Natively on Snowflake
-              </h1>
-              <p className={styles.heroBannerDesc}>
-                Our account-based marketing application runs Cortex AI directly inside the Snowflake AI Data Cloud — no
-                data movement, no separate AI stack. It&apos;s the proof point behind everything we build in data
-                engineering.
-              </p>
-              <div className={styles.btnGroup}>
-                <a
-                  href="https://identifyyou.in/projects/precision-abm-powered-by-cortex-ai-within-the-snowflake-ai-data-cloud/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={styles.btnPrimary}
-                >
-                  View the ABM Case Study ↗
-                </a>
-                <Link href="/contact" className={styles.btnSecondary}>
-                  Talk to a Snowflake Expert
-                </Link>
-              </div>
-            </div>
-
-            <div className={styles.heroVisualContainer}>
-              <img
-                src="/images/precision_abm_dashboard.png"
-                alt="Precision ABM Account scoring and targeting screen"
-                className={styles.realVisualImg}
-              />
+        <img
+          src="/images/snowflake_cortex_architecture.png"
+          alt="Data Engineering Background"
+          className={styles.heroBgImage}
+        />
+        <div className={styles.heroDarkOverlay} />
+        <div className={styles.heroContainer}>
+          <div className={styles.heroCardDark}>
+            <span className={styles.greenPillBadge}>Live in Snowflake Marketplace</span>
+            <h1 className={styles.heroBannerTitle}>
+              Precision ABM, Powered by Cortex AI — Built Natively on Snowflake
+            </h1>
+            <p className={styles.heroBannerDesc}>
+              Our account-based marketing application runs Cortex AI directly inside the Snowflake AI Data Cloud — no
+              data movement, no separate AI stack. It&apos;s the proof point behind everything we build in data
+              engineering.
+            </p>
+            <div className={styles.heroAccentGreen}>Turn Data Into a Trusted Business Asset</div>
+            <div className={styles.btnGroup}>
+              <a
+                href="https://identifyyou.in/projects/precision-abm-powered-by-cortex-ai-within-the-snowflake-ai-data-cloud/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className={styles.btnPrimary}
+              >
+                View the ABM Success Story ↗
+              </a>
+              <Link href="/contact" className={styles.btnSecondaryDark}>
+                Talk to a Snowflake Expert
+              </Link>
             </div>
           </div>
         </div>
+      </section>
+
+      {/* 2. MAIN INTRO SECTION */}
+      <section className={styles.sectionIntro}>
+        <h2 className={styles.introTitle}>Data Engineering &amp; Snowflake AI Data Cloud</h2>
+        <p className={styles.introParagraph}>
+          IdentifYou engineers unified enterprise data platforms, Cortex AI integrations, ingestion pipelines, and automated governance to turn fragmented operational data into trusted business intelligence. <span className={styles.introBold}>Single truth. Real-time scale. Trusted answers.</span>
+        </p>
       </section>
 
       {/* 2. SNOWFLAKE CERTIFICATION / EXPERTISE BANNER */}
@@ -206,11 +211,11 @@ export default function DataEngineeringPage() {
         </div>
       </section>
 
-      {/* 7 & 8. SNOWFLAKE CASE STUDIES (FEATURED + 4 CARDS GRID) */}
+      {/* 7 & 8. SNOWFLAKE SUCCESS STORIES (FEATURED + 4 CARDS GRID) */}
       <section className={styles.sectionCaseStudies}>
-        <h2 className={styles.csMainTitle}>Snowflake Case Studies</h2>
+        <h2 className={styles.csMainTitle}>Snowflake Success Stories</h2>
 
-        {/* Featured Case Study Card */}
+        {/* Featured Success Story Card */}
         <div className={styles.featuredCaseStudyCard}>
           <div className={styles.csVisualContainer}>
             <img
@@ -221,7 +226,7 @@ export default function DataEngineeringPage() {
           </div>
 
           <div>
-            <div className={styles.csFeaturedTag}>FEATURED CASE STUDY</div>
+            <div className={styles.csFeaturedTag}>FEATURED SUCCESS STORY</div>
             <h3 className={styles.csFeaturedTitle}>
               Revolutionizing Inventory Optimization with Snowflake
             </h3>
@@ -248,12 +253,12 @@ export default function DataEngineeringPage() {
               href="/case-studies/revolutionizing-inventory-optimization"
               className={styles.csLink}
             >
-              Read the full case study →
+              Read the full success story →
             </Link>
           </div>
         </div>
 
-        {/* 4 Additional Case Studies Grid */}
+        {/* 4 Additional Success Stories Grid */}
         <div className={styles.csFourGrid}>
           {fourCaseStudies.map((cs) => (
             <Link key={cs.title} href={cs.href} className={styles.csGridCard}>
@@ -279,7 +284,7 @@ export default function DataEngineeringPage() {
               Talk to a Snowflake Expert
             </Link>
             <Link href="/case-studies" className={styles.btnSecondary}>
-              Explore All Case Studies
+              Explore All Success Stories
             </Link>
           </div>
         </div>

@@ -77,37 +77,44 @@ export default function AINoCodePage() {
     <div className={styles.page}>
       <Header />
 
-      {/* 1. HERO BANNER */}
+      {/* 1. TOP HERO BANNER */}
       <section className={styles.sectionHeroBanner}>
+        <img
+          src="/images/ai_no_code_hero.png"
+          alt="AI-Powered No-Code Platform Background"
+          className={styles.heroBgImage}
+        />
+        <div className={styles.heroDarkOverlay} />
         <div className={styles.heroContainer}>
           <div className={styles.heroCardDark}>
-            <div className={styles.heroTextCol}>
-              <div className={styles.eyebrowGreen}>AI-POWERED NO-CODE PLATFORM</div>
-              <h1 className={styles.heroTitle}>Describe It. Build It. Run It.</h1>
-              <h2 className={styles.heroSubtitle}>No-Code Enterprise Application &amp; Workflow Transformation</h2>
-              <p className={styles.heroDesc}>
-                Build intelligent business applications by describing what your business needs in natural business language.
-                Generate workflows, data pipelines, and operational applications 10x faster — with zero traditional code overhead.
-              </p>
-              <div className={styles.btnGroup}>
-                <Link href="/contact" className={styles.btnPrimary}>
-                  Explore No-Code Platform
-                </Link>
-                <Link href="/contact" className={styles.btnSecondaryDark}>
-                  Schedule a Demo
-                </Link>
-              </div>
-            </div>
-
-            <div className={styles.heroVisualBox}>
-              <img
-                src="/images/ai_no_code_hero.png"
-                alt="AI-Powered No-Code Platform Interface"
-                className={styles.realImg}
-              />
+            <div className={styles.eyebrowGreen}>AI-POWERED NO-CODE PLATFORM</div>
+            <h1 className={styles.heroTitle}>
+              Describe It. Build It. Run It.
+            </h1>
+            <p className={styles.heroDesc}>
+              Build intelligent business applications by describing what your business needs in natural business language.
+              Generate workflows, data pipelines, and operational applications 10x faster — with zero traditional code overhead.
+            </p>
+            <div className={styles.heroAccentGreen}>No-Code Enterprise Application &amp; Workflow Transformation</div>
+            <div className={styles.btnGroup}>
+              <Link href="/contact" className={styles.btnPrimary}>
+                Explore No-Code Platform
+              </Link>
+              <Link href="/contact" className={styles.btnSecondaryDark}>
+                Schedule a Demo
+              </Link>
             </div>
           </div>
         </div>
+      </section>
+
+      {/* 2. MAIN INTRO SECTION */}
+      <section className={styles.sectionIntro}>
+        <h2 className={styles.introTitle}>AI-Powered No-Code Platform</h2>
+        <p className={styles.introParagraph}>
+          Empower domain experts and operational leaders to build, automate, and scale enterprise applications in days instead of months.
+          Integrate data pipelines, approval workflows, and native AI agents with zero traditional development friction. <span className={styles.introBold}>Build faster. Automate smarter. Scale seamlessly.</span>
+        </p>
       </section>
 
       {/* 2. CONCEPTUAL WORKFLOW JOURNEY */}
@@ -171,7 +178,7 @@ export default function AINoCodePage() {
         </div>
       </section>
 
-      {/* 5. FEATURED CASE STUDY */}
+      {/* 5. FEATURED SUCCESS STORY */}
       <section className={styles.sectionCaseStudy}>
         <div className={styles.container}>
           <div className={styles.csCardDark}>
@@ -184,7 +191,7 @@ export default function AINoCodePage() {
                 />
               </div>
               <div className={styles.csContent}>
-                <div className={styles.csTagGreen}>FEATURED CASE STUDY</div>
+                <div className={styles.csTagGreen}>FEATURED SUCCESS STORY</div>
                 <h3 className={styles.csTitle}>Tailored Enterprise Solutions &amp; Rapid No-Code Deployment</h3>
                 <div className={styles.csSection}>
                   <span className={styles.csLabel}>Industry:</span> Enterprise Operations &amp; Manufacturing
@@ -211,7 +218,7 @@ export default function AINoCodePage() {
                 </div>
                 <div style={{ marginTop: '24px' }}>
                   <Link href="/contact" className={styles.csBtn}>
-                    Request Case Study Details →
+                    Request Success Story Details →
                   </Link>
                 </div>
               </div>

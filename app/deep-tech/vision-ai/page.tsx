@@ -73,43 +73,45 @@ export default function VisionAIPage() {
     <div className={styles.page}>
       <Header />
 
-      {/* 1. HERO / BANNER */}
+      {/* 1. TOP HERO BANNER */}
       <section className={styles.sectionHeroBanner}>
+        <img
+          src="/images/vision_ai_hero_new.png"
+          alt="Vision AI Background"
+          className={styles.heroBgImage}
+        />
+        <div className={styles.heroDarkOverlay} />
         <div className={styles.heroContainer}>
-          <div className={styles.heroCard}>
-            <div>
-              <div className={styles.eyebrowGreen}>VISION AI</div>
-              <h1 className={styles.heroTitle}>
-                Vision AI for Intelligent, Production-Grade Inspection &amp; Automation
-              </h1>
-              <h2 className={styles.heroSubtitle}>From Vision Intelligence to Production-Ready Automation</h2>
-              <p className={styles.heroDesc}>
-                We don&apos;t just develop a vision model or install a camera. We engineer complete Vision AI inspection
-                systems — combining advanced imaging, AI, precision measurement, custom fixtures, automation and
-                production-line integration.
-              </p>
-              <div className={styles.btnGroup}>
-                <Link href="/deep-tech/vision-ai/end-to-end-inspection-cell" className={styles.btnPrimary}>
-                  Explore Vision AI
-                </Link>
-                <a href="#case-studies" className={styles.btnSecondary}>
-                  View Case Studies
-                </a>
-              </div>
-            </div>
-
-            <div className={styles.heroVisualBox}>
-              <img
-                src="/images/vision_ai_hero_production_line.png"
-                alt="Production line: camera + 3D profiler inspecting a component, robotic arm and conveyor visible"
-                className={styles.realImg}
-              />
+          <div className={styles.heroCardDark}>
+            <h1 className={styles.heroTitle}>
+              Intelligent Vision for Intelligent Manufacturing
+            </h1>
+            <p className={styles.heroDesc}>
+              Transform images into actionable intelligence for quality, production and automated operations.
+              IdentifYou engineers AI-powered visual intelligence for modern manufacturing, transforming visual data into
+              precise, real-time operational decisions.
+            </p>
+            <div className={styles.btnGroup}>
+              <Link href="/case-studies" className={styles.btnSecondaryDark}>
+                Explore More Success Stories
+              </Link>
             </div>
           </div>
         </div>
       </section>
 
-      {/* 2. INSPECTION CELL SECTION */}
+      {/* 2. MAIN INTRO SECTION */}
+      <section className={styles.sectionIntro}>
+        <h2 className={styles.introTitle}>AI-Powered Visual Intelligence for Manufacturing</h2>
+        <p className={styles.introParagraph}>
+          We don&apos;t just develop a vision model or install a camera. We engineer complete Vision AI inspection
+          systems — combining advanced imaging, AI, precision measurement, custom fixtures, automation and
+          production-line integration. From precision inspection and measurement to intelligent process control, we engineer
+          solutions designed for real-world manufacturing environments. <span className={styles.introBold}>See better. Decide faster. Operate smarter.</span>
+        </p>
+      </section>
+
+      {/* 3. INSPECTION CELL SECTION (PDF Page 2 Top) */}
       <section className={styles.sectionDarkCell}>
         <div className={styles.darkCellCard}>
           <div className={styles.eyebrowGreen}>PRODUCTION ENGINEERING</div>
@@ -141,14 +143,14 @@ export default function VisionAIPage() {
           </div>
 
           <div style={{ marginTop: '28px' }}>
-            <Link href="/deep-tech/vision-ai/end-to-end-inspection-cell" className={styles.btnPrimary}>
+            <Link href="/case-studies/end-to-end-inspection-cell" className={styles.btnPrimary}>
               Explore More → End to End Inspection Cell
             </Link>
           </div>
         </div>
       </section>
 
-      {/* 3. PRECISION VISION AI SECTION */}
+      {/* 4. PRECISION VISION AI SECTION (PDF Page 2 Bottom) */}
       <section className={styles.sectionPrecision}>
         <div className={styles.precisionGrid}>
           <div className={styles.precisionVisualBox}>
@@ -190,7 +192,7 @@ export default function VisionAIPage() {
             <FlowChain nodes={precisionNodes} />
 
             <div style={{ marginTop: '28px' }}>
-              <Link href="/deep-tech/vision-ai/precision-vision-ai-setup" className={styles.btnPrimary}>
+              <Link href="/case-studies/precision-vision-ai-setup" className={styles.btnPrimary}>
                 Explore Precision Vision AI Setup →
               </Link>
             </div>
@@ -198,11 +200,11 @@ export default function VisionAIPage() {
         </div>
       </section>
 
-      {/* 4. VISION AI IN ACTION / CASE STUDIES */}
+      {/* 5. VISION AI IN ACTION / SUCCESS STORIES (PDF Page 3) */}
       <section id="case-studies" className={styles.sectionCaseStudies}>
         <h2 className={styles.csMainTitle}>Vision AI in Action</h2>
 
-        {/* Featured Case Study: UV Light-Based Inspection (Copied as-is from Home Page Machine Vision Solution) */}
+        {/* Featured Success Story: UV Light-Based Inspection (Copied from Home Page Machine Vision Solution) */}
         <div className={styles.featuredCsCard}>
           <div className={styles.csVisualBox}>
             <img
@@ -213,7 +215,7 @@ export default function VisionAIPage() {
           </div>
 
           <div>
-            <div className={styles.csFeaturedTag}>FEATURED CASE STUDY</div>
+            <div className={styles.csFeaturedTag}>FEATURED SUCCESS STORY</div>
             <h3 className={styles.csFeaturedTitle}>UV Light-Based Inspection</h3>
             <h4 className={styles.csSubtitle}>
               Transforming Manufacturing Quality with Visual Intelligence — Powered by AI
@@ -253,12 +255,12 @@ export default function VisionAIPage() {
             </div>
 
             <Link href="/case-studies/advanced-vision-inspection-surface" className={styles.btnPrimary}>
-              View Vision AI Case Study →
+              View Vision AI Success Story →
             </Link>
           </div>
         </div>
 
-        {/* 5. THREE CASE STUDY CARDS */}
+        {/* 6. THREE SUCCESS STORY CARDS (PDF Page 3) */}
         <div className={styles.csThreeGrid}>
           {threeCaseStudies.map((cs) => (
             <div key={cs.title} className={styles.csCard}>
@@ -273,14 +275,14 @@ export default function VisionAIPage() {
                 rel="noopener noreferrer"
                 className={styles.csLink}
               >
-                View Vision AI Case Study →
+                View Vision AI Success Story →
               </a>
             </div>
           ))}
         </div>
       </section>
 
-      {/* 6. FROM VISION INSPECTION TO PRODUCTION-READY AUTOMATION (DARK SECTION) */}
+      {/* 7. FROM VISION INSPECTION TO PRODUCTION-READY AUTOMATION (PDF Page 3 Bottom - Dark Section) */}
       <section className={styles.sectionDarkDifference}>
         <div className={styles.darkDiffCard}>
           <div className={styles.eyebrowGreen}>THE DIFFERENCE</div>
@@ -323,7 +325,7 @@ export default function VisionAIPage() {
         </div>
       </section>
 
-      {/* 7. VISION AI POINT OF VIEW */}
+      {/* 8. VISION AI POINT OF VIEW (PDF Page 4 Top) */}
       <section className={styles.sectionPov}>
         <div className={styles.container}>
           <div className={styles.eyebrowGreen}>VISION AI POINT OF VIEW</div>
@@ -374,7 +376,7 @@ export default function VisionAIPage() {
         </div>
       </section>
 
-      {/* 8. TECHNOLOGY & PARTNERSHIP ECOSYSTEM */}
+      {/* 9. TECHNOLOGY & PARTNERSHIP ECOSYSTEM (PDF Page 4 Middle) */}
       <section className={styles.sectionPartners}>
         <div className={styles.eyebrowGreen}>TECHNOLOGY &amp; PARTNERSHIP ECOSYSTEM</div>
         <h2 className={styles.csMainTitle}>Powered by the Right Technology Ecosystem</h2>
@@ -405,7 +407,7 @@ export default function VisionAIPage() {
         </div>
       </section>
 
-      {/* 9. FINAL CTA */}
+      {/* 10. FINAL CTA (PDF Page 4 Bottom) */}
       <section className={styles.sectionCta}>
         <div className={styles.ctaCardDark}>
           <h2 className={styles.ctaTitle}>
@@ -417,7 +419,7 @@ export default function VisionAIPage() {
         </div>
       </section>
 
-      {/* 10. LATEST NEWS & INSIGHTS */}
+      {/* 11. LATEST NEWS & INSIGHTS (PDF Page 5 Top) */}
       <section className={styles.sectionNews}>
         <div className={styles.eyebrowGreen}>LATEST NEWS &amp; INSIGHTS</div>
 
@@ -457,7 +459,7 @@ export default function VisionAIPage() {
         </div>
       </section>
 
-      {/* 11. FOOTER */}
+      {/* 12. FOOTER (PDF Page 5 Bottom) */}
       <Footer />
     </div>
   )

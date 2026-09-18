@@ -71,35 +71,28 @@ export default function IndustryAutomationPage() {
 
       {/* 1. HERO / BANNER */}
       <section className={styles.sectionHeroBanner}>
+        <img
+          src="/images/industry_automation_hero.png"
+          alt="Industrial Automation Background"
+          className={styles.heroBgImage}
+        />
+        <div className={styles.heroDarkOverlay} />
         <div className={styles.heroContainer}>
-          <div className={styles.heroCard}>
-            <div>
-              <div className={styles.eyebrowGreen}>INDUSTRIAL AUTOMATION</div>
-              <h1 className={styles.heroTitle}>From production challenges to deployed automation.</h1>
-              <p className={styles.heroDesc}>
-                We design, develop, and deploy automation systems that connect production processes, move materials
-                intelligently, and help plants scale with confidence.
-              </p>
-              <div className={styles.btnGroup}>
-                <Link href="/contact" className={styles.btnPrimary}>
-                  Talk to an Automation Expert
-                </Link>
-                <a href="#capabilities" className={styles.btnSecondary}>
-                  Explore Capabilities
-                </a>
-              </div>
-            </div>
-
-            <div className={styles.circularVisualBox}>
-              <div className={styles.circleOuterDashed} />
-              <div className={styles.circleCenter}>
-                PLANT /<br />OPERATIONS
-              </div>
-
-              <div className={`${styles.circleNode} ${styles.nodeConnect}`}>CONNECT</div>
-              <div className={`${styles.circleNode} ${styles.nodeAutomate}`}>AUTOMATE</div>
-              <div className={`${styles.circleNode} ${styles.nodeOrchestrate}`}>ORCHESTRATE</div>
-              <div className={`${styles.circleNode} ${styles.nodeImprove}`}>IMPROVE</div>
+          <div className={styles.heroCardDark}>
+            <div className={styles.eyebrowGreen}>INDUSTRIAL AUTOMATION</div>
+            <h1 className={styles.heroTitle}>From production challenges to deployed automation.</h1>
+            <p className={styles.heroDesc}>
+              We design, develop, and deploy automation systems that connect production processes, move materials
+              intelligently, and help plants scale with confidence.
+            </p>
+            <div className={styles.heroAccentGreen}>Connect. Automate. Orchestrate. Improve.</div>
+            <div className={styles.btnGroup}>
+              <Link href="/contact" className={styles.btnPrimary}>
+                Talk to an Automation Expert
+              </Link>
+              <a href="#capabilities" className={styles.btnSecondaryDark}>
+                Explore Capabilities
+              </a>
             </div>
           </div>
         </div>
@@ -160,12 +153,12 @@ export default function IndustryAutomationPage() {
         </div>
       </section>
 
-      {/* 5. FLUKE TV30 CASE STUDY */}
+      {/* 5. FLUKE TV30 SUCCESS STORY */}
       <section className={styles.sectionCaseStudy}>
         <div className={styles.csCardDark}>
           <div className={styles.csGrid}>
             <div>
-              <div className={styles.csTag}>FEATURED CASE STUDY · INDUSTRY AUTOMATION</div>
+              <div className={styles.csTag}>FEATURED SUCCESS STORY · INDUSTRY AUTOMATION</div>
               <h2 className={styles.csTitle}>
                 Industrial Edge Gateway for Fluke Thermalert® TV30 Pyrometer
               </h2>
@@ -184,7 +177,7 @@ export default function IndustryAutomationPage() {
               </p>
               <div style={{ marginTop: '24px' }}>
                 <Link href="/case-studies/fluke-t40" className={styles.btnPrimary}>
-                  Explore Fluke TV30 Case Study →
+                  Explore Fluke TV30 Success Story →
                 </Link>
               </div>
             </div>

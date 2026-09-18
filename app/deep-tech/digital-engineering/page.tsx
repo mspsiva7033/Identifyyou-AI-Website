@@ -99,50 +99,44 @@ export default function DigitalEngineeringPage() {
     <div className={styles.page}>
       <Header />
 
-      {/* SECTION 1: HERO BANNER */}
+      {/* SECTION 1: TOP HERO BANNER */}
       <section className={styles.sectionHeroBanner}>
+        <img
+          src="/images/digital_engineering_hero.png"
+          alt="Digital Engineering Background"
+          className={styles.heroBgImage}
+        />
+        <div className={styles.heroDarkOverlay} />
         <div className={styles.heroContainer}>
-          <div className={styles.heroCard}>
-            <div className={styles.heroTextContent}>
-              <div className={styles.eyebrowGreen}>DIGITAL ENGINEERING</div>
-              <h1 className={styles.heroTitle}>
-                Engineer Digital Products That Solve Real Business Problems
-              </h1>
-              <h2 className={styles.heroSubtitle}>Cloud-Native Enterprise Web, Mobile &amp; SaaS Platforms</h2>
-              <p className={styles.heroDesc}>
-                Web, mobile, enterprise and SaaS applications engineered with modern cloud-native tooling — built around
-                your actual business workflow, not the other way around.
-              </p>
-              <div className={styles.btnGroup}>
-                <Link href="/contact" className={styles.btnPrimary}>
-                  Explore Digital Solutions
-                </Link>
-                <Link href="#capabilities" className={styles.btnSecondary}>
-                  View Core Capabilities
-                </Link>
-              </div>
-
-              {/* Metric Pills */}
-              <div className={styles.heroMetricsGrid}>
-                {metrics.map((m) => (
-                  <div key={m.label} className={styles.heroMetricItem}>
-                    <span className={styles.heroMetricVal}>{m.val}</span>
-                    <span className={styles.heroMetricLabel}>{m.label}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            <div className={styles.heroVisualBox}>
-              <img
-                src="/images/digital_engineering_hero.png"
-                alt="Digital Engineering Enterprise SaaS Application Dashboard"
-                className={styles.realImg}
-                loading="eager"
-              />
+          <div className={styles.heroCardDark}>
+            <div className={styles.eyebrowGreen}>ENTERPRISE SAAS &amp; DIGITAL PRODUCTS</div>
+            <h1 className={styles.heroTitle}>
+              Engineer Digital Products That Solve Real Business Problems
+            </h1>
+            <p className={styles.heroDesc}>
+              Web, mobile, enterprise and SaaS applications engineered with modern cloud-native tooling — built around
+              your actual business workflow, not the other way around.
+            </p>
+            <div className={styles.heroAccentGreen}>Cloud-Native Enterprise Web, Mobile &amp; SaaS Platforms</div>
+            <div className={styles.btnGroup}>
+              <Link href="/contact" className={styles.btnPrimary}>
+                Explore Digital Solutions
+              </Link>
+              <Link href="#capabilities" className={styles.btnSecondaryDark}>
+                View Core Capabilities
+              </Link>
             </div>
           </div>
         </div>
+      </section>
+
+      {/* SECTION 2: MAIN INTRO SECTION */}
+      <section className={styles.sectionIntro}>
+        <h2 className={styles.introTitle}>Digital Engineering for Modern Enterprises</h2>
+        <p className={styles.introParagraph}>
+          We replace manual processes and rigid legacy systems with bespoke web applications, microservices, and mobile platforms.
+          Interlock data validation, automated approval gates, and instant enterprise system updates. <span className={styles.introBold}>High performance. Zero friction. Enterprise scale.</span>
+        </p>
       </section>
 
       {/* SECTION 2: ENGINEERING METHODOLOGY & FLOW */}
@@ -217,7 +211,7 @@ export default function DigitalEngineeringPage() {
         </div>
       </section>
 
-      {/* SECTION 5: CASE STUDIES IN ACTION */}
+      {/* SECTION 5: SUCCESS STORIES IN ACTION */}
       <section className={styles.sectionCaseStudies}>
         <div className={styles.container}>
           <div className={styles.eyebrowGreen}>REAL WORLD IMPACT</div>

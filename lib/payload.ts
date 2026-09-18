@@ -40,9 +40,7 @@ export interface CaseStudyDetail {
 }
 
 export function getCaseStudyIllustration(slug: string): string {
-  const svgSlugs = ['advanced-vision-inspection-surface', 'vision-ai-bore-measurement', 'vision-ai-complex-dimension']
-  const ext = svgSlugs.includes(slug) ? 'svg' : 'png'
-  return `/images/case-studies/${slug}.${ext}`
+  return `/images/case-studies/${slug}.png`
 }
 
 export interface ManufacturingSolutionItem {

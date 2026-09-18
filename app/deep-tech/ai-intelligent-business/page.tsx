@@ -51,19 +51,28 @@ export default function AIIntelligentBusinessPage() {
 
       {/* 1. TOP CTA / HERO INTRO */}
       <section className={styles.sectionHeroBanner}>
-        <div className={styles.heroCardDark}>
-          <h1 className={styles.heroTitle}>
-            Intelligence Isn&apos;t a Dashboard. It&apos;s a Decision Made Earlier.
-          </h1>
-          <p className={styles.heroDesc}>
-            Data creates visibility. Models create foresight. People make the call — earlier, with more evidence, and with
-            less to react to later.
-          </p>
-          <div className={styles.heroAccentGreen}>Let&apos;s Build Your Intelligent Business Layer.</div>
-          <div>
-            <Link href="/contact" className={styles.btnPrimary}>
-              Talk to an Intelligence Architect
-            </Link>
+        <img
+          src="/images/ai_intelligent_business_hero.png"
+          alt="AI & Intelligent Business Background"
+          className={styles.heroBgImage}
+        />
+        <div className={styles.heroDarkOverlay} />
+        <div className={styles.heroContainer}>
+          <div className={styles.heroCardDark}>
+            <div className={styles.eyebrowGreen}>DECISION ENGINE</div>
+            <h1 className={styles.heroTitle}>
+              Intelligence Isn&apos;t a Dashboard. It&apos;s a Decision Made Earlier.
+            </h1>
+            <p className={styles.heroDesc}>
+              Data creates visibility. Models create foresight. People make the call — earlier, with more evidence, and with
+              less to react to later.
+            </p>
+            <div className={styles.heroAccentGreen}>Let&apos;s Build Your Intelligent Business Layer.</div>
+            <div>
+              <Link href="/contact" className={styles.btnPrimary}>
+                Talk to an Intelligence Architect
+              </Link>
+            </div>
           </div>
         </div>
       </section>
@@ -81,12 +90,12 @@ export default function AIIntelligentBusinessPage() {
         </p>
       </section>
 
-      {/* 4. FEATURED CASE STUDY — TOWARDS ZERO INVENTORY VARIANCE */}
+      {/* 4. FEATURED SUCCESS STORY — TOWARDS ZERO INVENTORY VARIANCE */}
       <section className={styles.sectionCaseStudy1}>
         <div className={styles.csCardDark}>
           <div className={styles.csGridDark}>
             <div>
-              <div className={styles.csTagGreen}>FEATURED CASE STUDY</div>
+              <div className={styles.csTagGreen}>FEATURED SUCCESS STORY</div>
               <h2 className={styles.csTitleDark}>Towards Zero Inventory Variance</h2>
               <p className={styles.csDescDark}>
                 Physical stock and system stock drift apart for reasons that rarely surface until a count. We reconcile
@@ -97,7 +106,7 @@ export default function AIIntelligentBusinessPage() {
                 href="/case-studies/revolutionizing-inventory-optimization"
                 className={styles.csLinkGreen}
               >
-                Read the case study →
+                Read the success story →
               </Link>
             </div>
 
@@ -112,7 +121,7 @@ export default function AIIntelligentBusinessPage() {
         </div>
       </section>
 
-      {/* 5. FEATURED CASE STUDY — RISK INSIGHTS IN FINANCE */}
+      {/* 5. FEATURED SUCCESS STORY — RISK INSIGHTS IN FINANCE */}
       <section className={styles.sectionCaseStudy2}>
         <div className={styles.csCardLight}>
           <div className={styles.csGridLight}>
@@ -125,7 +134,7 @@ export default function AIIntelligentBusinessPage() {
             </div>
 
             <div>
-              <div className={styles.csTagGreen}>FEATURED CASE STUDY</div>
+              <div className={styles.csTagGreen}>FEATURED SUCCESS STORY</div>
               <h2 className={styles.csTitleLight}>Risk Insights in Finance</h2>
               <p className={styles.csDescLight}>
                 Cost overruns and working-capital pressure usually originate in operations, long before they reach a financial
@@ -133,7 +142,7 @@ export default function AIIntelligentBusinessPage() {
                 into risk building up on the floor.
               </p>
               <Link href="/case-studies/risk-insights-finance" className={styles.csLinkGreen}>
-                Read the case study →
+                Read the success story →
               </Link>
             </div>
           </div>
@@ -164,10 +173,10 @@ export default function AIIntelligentBusinessPage() {
         </div>
       </section>
 
-      {/* 7. MORE CASE STUDIES (PROCUREMENT INTELLIGENCE) */}
+      {/* 7. MORE SUCCESS STORIES (PROCUREMENT INTELLIGENCE) */}
       <section className={styles.sectionProcurement}>
         <div className={styles.sectionHeaderLight}>
-          <div className={styles.csTagGreen}>MORE CASE STUDIES</div>
+          <div className={styles.csTagGreen}>MORE SUCCESS STORIES</div>
           <h2 className={styles.introTitle} style={{ textAlign: 'left', margin: '8px 0 0' }}>
             Procurement Intelligence, Applied Two Ways.
           </h2>
