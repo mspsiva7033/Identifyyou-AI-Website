@@ -72,6 +72,25 @@
   height: 100%;
   object-fit: cover;
   display: block;
+  filter: contrast(1.08) saturate(1.15);
+}
+
+.colorTintLayer {
+  position: absolute;
+  inset: 0;
+  mix-blend-mode: color;
+  pointer-events: none;
+  z-index: 1;
+  transition: opacity 0.35s ease;
+}
+
+.colorGradientLayer {
+  position: absolute;
+  inset: 0;
+  mix-blend-mode: soft-light;
+  pointer-events: none;
+  z-index: 2;
+  transition: opacity 0.35s ease;
 }
 
 .h2 {

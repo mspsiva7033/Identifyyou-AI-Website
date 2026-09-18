@@ -3,6 +3,7 @@
 import React from 'react'
 import Link from 'next/link'
 import styles from './CaseStudyCard.module.css'
+import { getCategoryTheme } from '@/lib/caseStudyCategories'
 
 export type CaseStudyCardProps = {
   slug?: string
@@ -44,11 +45,13 @@ export function CaseStudyCard({
 
   const linkHref = href || (slug ? `/case-studies/${slug}` : '/case-studies')
 
+  const theme = getCategoryTheme({ slug, categories, tag, industry, title, href: linkHref })
+
   // Clean industry/tag string
-  let rawTag = industry || (categories && categories.length > 0 ? categories[0] : tag) || 'AUTOMOTIVE & ENGINEERING'
+  let rawTag = industry || (categories && categories.length > 0 ? categories[0] : tag) || theme.name
 
   if (rawTag.includes('http://') || rawTag.includes('https://')) {
-    rawTag = (categories && categories.find((c) => !c.includes('http'))) || 'DEEP TECH'
+    rawTag = (categories && categories.find((c) => !c.includes('http'))) || theme.name
   }
 
   if (rawTag.includes('FUNCTION:')) {
@@ -67,20 +70,32 @@ export function CaseStudyCard({
 
   const cardContent = (
     <>
-      <img src={imageSrc} alt={title} className={styles.image} loading="lazy" />
+      <div className={styles.imageWrapper}>
+        <img src={imageSrc} alt={title} className={styles.image} loading="lazy" />
+        <div
+          className={styles.colorTintLayer}
+          style={{ backgroundColor: theme.tintColor, opacity: theme.overlayOpacity }}
+        />
+        <div
+          className={styles.colorGradientLayer}
+          style={{ background: theme.gradientCss }}
+        />
+      </div>
       
       {/* Bottom Gradient overlay with Industry Tag and Title */}
       <div className={styles.bottomGradient}>
-        <div className={styles.industryTag}>{industryText}</div>
+        <div className={styles.industryTag} style={{ color: theme.tagColor }}>
+          {industryText}
+        </div>
         <h3 className={styles.title}>{title}</h3>
       </div>
 
       {/* Hover Dark Semi-transparent Overlay */}
       <div className={styles.overlay} />
 
-      {/* Centered Solid Green Circle Arrow + "Read Case Study" Text */}
+      {/* Centered Solid Circle Arrow + "Read Case Study" Text */}
       <div className={styles.centerContent}>
-        <div className={styles.iconCircle}>
+        <div className={styles.iconCircle} style={{ backgroundColor: theme.tintColor }}>
           <svg
             className={styles.iconSvg}
             viewBox="0 0 24 24"

@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import { Header } from '@/components/layout/Header'
 import { Footer } from '@/components/layout/Footer'
+import { getCategoryTheme } from '@/lib/caseStudyCategories'
 import styles from '../[slug]/page.module.css'
 
 export const metadata: Metadata = {
@@ -11,6 +12,8 @@ export const metadata: Metadata = {
 }
 
 export default function PrecisionVisionAISetupCaseStudyPage() {
+  const theme = getCategoryTheme({ categories: ['Vision AI'] })
+
   return (
     <div className={styles.page}>
       <Header />
@@ -24,7 +27,12 @@ export default function PrecisionVisionAISetupCaseStudyPage() {
       </div>
 
       <section className={styles.content}>
-        <div className={styles.tagBadge}>VISION AI · PRECISION INSPECTION</div>
+        <div
+          className={styles.tagBadge}
+          style={{ color: theme.tagColor, backgroundColor: theme.badgeBg, borderColor: theme.tintColor }}
+        >
+          VISION AI · PRECISION INSPECTION
+        </div>
         <h1 className={styles.title}>Precision Vision AI Setup</h1>
 
         <div className={styles.heroImgWrapper}>
@@ -32,6 +40,14 @@ export default function PrecisionVisionAISetupCaseStudyPage() {
             src="/images/case-studies/precision-vision-ai-setup.png"
             alt="Precision Vision AI Setup"
             className={styles.heroIllustration}
+          />
+          <div
+            className={styles.colorTintLayer}
+            style={{ backgroundColor: theme.tintColor, opacity: theme.overlayOpacity }}
+          />
+          <div
+            className={styles.colorGradientLayer}
+            style={{ background: theme.gradientCss }}
           />
         </div>
 

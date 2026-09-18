@@ -7,6 +7,7 @@ import { HeroSection } from '@/components/sections/HeroSection'
 import { FlowChain } from '@/components/ui/FlowChain'
 import { CaseStudyCard } from '@/components/ui/CaseStudyCard'
 import AnimatedMetrics from './components/AnimatedMetrics'
+import { getCategoryTheme } from '@/lib/caseStudyCategories'
 import styles from './page.module.css'
 
 export const metadata: Metadata = {
@@ -489,6 +490,8 @@ export default function HomePage() {
                 alt="Vision AI Automated Inspection"
                 className={styles.bannerImg}
               />
+              <div className={styles.colorTintLayer} style={{ backgroundColor: getCategoryTheme({ categories: ['Vision AI'] }).tintColor, opacity: getCategoryTheme({ categories: ['Vision AI'] }).overlayOpacity }} />
+              <div className={styles.colorGradientLayer} style={{ background: getCategoryTheme({ categories: ['Vision AI'] }).gradientCss }} />
             </div>
           </div>
         </div>
@@ -497,7 +500,7 @@ export default function HomePage() {
       {/* 2. ABM – SNOWFLAKE CORTEX (DATA ENGINEERING) (Banner Type Layout, White BG) */}
       <section className={styles.sectionBannerLight}>
         <div className={styles.bannerContainer}>
-          <div className={styles.bannerTag}>DATA ENGINEERING</div>
+          <div className={styles.bannerTag} style={{ color: getCategoryTheme({ categories: ['Data Engineering'] }).tagColor }}>DATA ENGINEERING</div>
           <h2 className={styles.bannerTitleLight}>
             Precision ABM &amp; Demand Intelligence with Snowflake Cortex AI
           </h2>
@@ -508,6 +511,8 @@ export default function HomePage() {
                 alt="Precision ABM Snowflake Cortex AI"
                 className={styles.bannerImg}
               />
+              <div className={styles.colorTintLayer} style={{ backgroundColor: getCategoryTheme({ categories: ['Data Engineering'] }).tintColor, opacity: getCategoryTheme({ categories: ['Data Engineering'] }).overlayOpacity }} />
+              <div className={styles.colorGradientLayer} style={{ background: getCategoryTheme({ categories: ['Data Engineering'] }).gradientCss }} />
             </div>
             <div className={styles.bannerDescLight}>
               <p>
@@ -530,7 +535,7 @@ export default function HomePage() {
       {/* 3. FLUKE T430 / FLUKE T40 (Banner Type Layout, Black BG) */}
       <section className={styles.sectionBannerDark}>
         <div className={styles.bannerContainer}>
-          <div className={styles.bannerTag}>INDUSTRY AUTOMATION</div>
+          <div className={styles.bannerTag} style={{ color: getCategoryTheme({ categories: ['Industry Automation'] }).tagColor }}>INDUSTRY AUTOMATION</div>
           <h2 className={styles.bannerTitleDark}>
             Industrial Edge Gateway for Fluke Thermalert® T40 Pyrometer
           </h2>
@@ -555,6 +560,8 @@ export default function HomePage() {
                 alt="Fluke Thermalert T40 Edge Gateway"
                 className={styles.bannerImg}
               />
+              <div className={styles.colorTintLayer} style={{ backgroundColor: getCategoryTheme({ categories: ['Industry Automation'] }).tintColor, opacity: getCategoryTheme({ categories: ['Industry Automation'] }).overlayOpacity }} />
+              <div className={styles.colorGradientLayer} style={{ background: getCategoryTheme({ categories: ['Industry Automation'] }).gradientCss }} />
             </div>
           </div>
         </div>

@@ -5,6 +5,7 @@ import { Header } from '@/components/layout/Header'
 import { Footer } from '@/components/layout/Footer'
 import { CaseStudyCard } from '@/components/ui/CaseStudyCard'
 import { getCaseStudyBySlug, getCaseStudies, DocItem } from '@/lib/payload'
+import { getCategoryTheme } from '@/lib/caseStudyCategories'
 import styles from './page.module.css'
 
 export const dynamic = 'force-dynamic'
@@ -68,6 +69,8 @@ export default async function CaseStudyDetailPage({ params }: { params: Promise<
 
   if (!cs) notFound()
 
+  const theme = getCategoryTheme({ slug, tag: cs.tag, title: cs.title })
+
   return (
     <div className={styles.page}>
       <Header />
@@ -81,7 +84,12 @@ export default async function CaseStudyDetailPage({ params }: { params: Promise<
       </div>
 
       <section className={styles.content}>
-        <div className={styles.tagBadge}>{cs.tag}</div>
+        <div
+          className={styles.tagBadge}
+          style={{ color: theme.tagColor, backgroundColor: theme.badgeBg, borderColor: theme.tintColor }}
+        >
+          {cs.tag}
+        </div>
         <h1 className={styles.title}>{cs.title}</h1>
 
         <div className={styles.heroImgWrapper}>
@@ -89,6 +97,14 @@ export default async function CaseStudyDetailPage({ params }: { params: Promise<
             src={cs.illustration || `/images/case-studies/${slug}.png`}
             alt={cs.title}
             className={styles.heroIllustration}
+          />
+          <div
+            className={styles.colorTintLayer}
+            style={{ backgroundColor: theme.tintColor, opacity: theme.overlayOpacity }}
+          />
+          <div
+            className={styles.colorGradientLayer}
+            style={{ background: theme.gradientCss }}
           />
         </div>
 
