@@ -25,6 +25,11 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   }
 }
 
+function cleanHeadingText(text: string): string {
+  if (!text) return text
+  return text.replace(/^(?:0?\d{1,2}\s*[—–\-.:)]\s*|0\d\s+)/, '').trim()
+}
+
 function renderDocItems(docItems: DocItem[]) {
   const elements: React.ReactNode[] = []
   let currentBullets: string[] = []
@@ -34,7 +39,7 @@ function renderDocItems(docItems: DocItem[]) {
       elements.push(
         <ul key={key} className={styles.secBullets}>
           {currentBullets.map((b, bIdx) => (
-            <li key={bIdx}>{b}</li>
+            <li key={bIdx}>{cleanHeadingText(b)}</li>
           ))}
         </ul>
       )
@@ -48,13 +53,13 @@ function renderDocItems(docItems: DocItem[]) {
     } else {
       flushBullets(`bullets-${idx}`)
       if (item.type === 'h2') {
-        elements.push(<h2 key={idx} className={styles.h2}>{item.text}</h2>)
+        elements.push(<h2 key={idx} className={styles.h2}>{cleanHeadingText(item.text)}</h2>)
       } else if (item.type === 'h3') {
-        elements.push(<h3 key={idx} className={styles.h3}>{item.text}</h3>)
+        elements.push(<h3 key={idx} className={styles.h3}>{cleanHeadingText(item.text)}</h3>)
       } else if (item.type === 'h4') {
-        elements.push(<h4 key={idx} className={styles.h4}>{item.text}</h4>)
+        elements.push(<h4 key={idx} className={styles.h4}>{cleanHeadingText(item.text)}</h4>)
       } else if (item.type === 'p') {
-        elements.push(<p key={idx} className={styles.secPara}>{item.text}</p>)
+        elements.push(<p key={idx} className={styles.secPara}>{cleanHeadingText(item.text)}</p>)
       }
     }
   })
@@ -80,7 +85,7 @@ export default async function CaseStudyDetailPage({ params }: { params: Promise<
         {' / '}
         <Link href="/case-studies" className={styles.breadcrumbLink}>Case Studies</Link>
         {' / '}
-        {cs.breadcrumb}
+        {cleanHeadingText(cs.breadcrumb)}
       </div>
 
       <section className={styles.content}>
@@ -90,7 +95,7 @@ export default async function CaseStudyDetailPage({ params }: { params: Promise<
         >
           {cs.tag}
         </div>
-        <h1 className={styles.title}>{cs.title}</h1>
+        <h1 className={styles.title}>{cleanHeadingText(cs.title)}</h1>
 
         <div className={styles.heroImgWrapper}>
           <img
@@ -128,15 +133,15 @@ export default async function CaseStudyDetailPage({ params }: { params: Promise<
           <div className={styles.sectionsList}>
             {cs.sections.map((sec, i) => (
               <div key={sec.title || i} className={styles.sectionBlock}>
-                {sec.title && <h2 className={styles.h2}>{sec.title}</h2>}
-                {sec.subtitle && <p className={styles.secSubtitle}>{sec.subtitle}</p>}
+                {sec.title && <h2 className={styles.h2}>{cleanHeadingText(sec.title)}</h2>}
+                {sec.subtitle && <p className={styles.secSubtitle}>{cleanHeadingText(sec.subtitle)}</p>}
                 {sec.content && sec.content.map((p, pIdx) => (
-                  <p key={pIdx} className={styles.secPara}>{p}</p>
+                  <p key={pIdx} className={styles.secPara}>{cleanHeadingText(p)}</p>
                 ))}
                 {sec.bullets && sec.bullets.length > 0 && (
                   <ul className={styles.secBullets}>
                     {sec.bullets.map((b, bIdx) => (
-                      <li key={bIdx}>{b}</li>
+                      <li key={bIdx}>{cleanHeadingText(b)}</li>
                     ))}
                   </ul>
                 )}
@@ -157,8 +162,8 @@ export default async function CaseStudyDetailPage({ params }: { params: Promise<
                 <h2 className={styles.h2}>Challenges</h2>
                 <div className={styles.challengesList}>
                   {cs.challenges.map((c, i) => (
-                    <div key={c.n || i} className={styles.challengeItem}>
-                      <div className={styles.challengeTitle}>{c.n || i + 1}. {c.title}</div>
+                    <div key={i} className={styles.challengeItem}>
+                      <div className={styles.challengeTitle}>{cleanHeadingText(c.title)}</div>
                       <p className={styles.challengeDesc}>{c.desc}</p>
                     </div>
                   ))}

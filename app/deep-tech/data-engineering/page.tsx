@@ -82,14 +82,12 @@ export default function DataEngineeringPage() {
             </p>
             <div className={styles.heroAccentGreen}>Turn Data Into a Trusted Business Asset</div>
             <div className={styles.btnGroup}>
-              <a
-                href="https://identifyyou.in/projects/precision-abm-powered-by-cortex-ai-within-the-snowflake-ai-data-cloud/"
-                target="_blank"
-                rel="noopener noreferrer"
+              <Link
+                href="/case-studies/data-engineering/precision-abm"
                 className={styles.btnPrimary}
               >
-                View the ABM Success Story ↗
-              </a>
+                View the ABM Success Story →
+              </Link>
               <Link href="/contact" className={styles.btnSecondaryDark}>
                 Talk to a Snowflake Expert
               </Link>

@@ -51,19 +51,19 @@ const threeCaseStudies = [
   {
     title: 'Transforming Wind Turbine Telemetry into Predictive AI Intelligence',
     tag: 'RENEWABLE ENERGY · PREDICTIVE AI',
-    url: 'https://identifyyou.in/projects/transforming-wind-turbine-telemetry-into-predictive-ai-intelligence/',
+    url: '/case-studies',
     desc: 'Transforming wind turbine telemetry into real-time predictive AI intelligence for failure prevention, gearbox health monitoring, and energy yield optimization.',
   },
   {
     title: 'Infusing AI and Deep Learning into Floating Glass On-Line Inspection Systems',
     tag: 'GLASS MANUFACTURING · VISION AI',
-    url: 'https://identifyyou.in/projects/infusing-ai-and-deep-learning-into-floating-glass-online-inspection-systems/',
+    url: '/case-studies',
     desc: 'High-speed, continuous float glass web inspection using multi-spectral cameras and deep learning models to detect optical defects, bubbles, and inclusions at line speeds.',
   },
   {
     title: 'Transforming Effluent Treatment Plants (ETP) through AI-Driven Industrial IoT (IIoT)',
     tag: 'PROCESS & ETP · INDUSTRIAL IOT',
-    url: 'https://identifyyou.in/projects/transforming-effluent-treatment-plants-etp-through-ai-driven-industrial-iot-iiot/',
+    url: '/case-studies',
     desc: 'AI-driven IIoT architecture for continuous water quality monitoring, automated chemical dosing optimization, and real-time compliance management in effluent treatment plants.',
   },
 ]
@@ -269,14 +269,12 @@ export default function VisionAIPage() {
                 <h3 className={styles.csGridTitle}>{cs.title}</h3>
                 <p className={styles.csDesc}>{cs.desc}</p>
               </div>
-              <a
+              <Link
                 href={cs.url}
-                target="_blank"
-                rel="noopener noreferrer"
                 className={styles.csLink}
               >
                 View Vision AI Success Story →
-              </a>
+              </Link>
             </div>
           ))}
         </div>

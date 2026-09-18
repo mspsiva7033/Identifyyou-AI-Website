@@ -5,6 +5,11 @@ import Link from 'next/link'
 import styles from './CaseStudyCard.module.css'
 import { getCategoryTheme } from '@/lib/caseStudyCategories'
 
+function cleanHeadingText(text: string): string {
+  if (!text) return text
+  return text.replace(/^(?:0?\d{1,2}\s*[—–\-.:)]\s*|0\d\s+)/, '').trim()
+}
+
 export type CaseStudyCardProps = {
   slug?: string
   title: string
@@ -87,7 +92,7 @@ export function CaseStudyCard({
         <div className={styles.industryTag} style={{ color: theme.tagColor }}>
           {industryText}
         </div>
-        <h3 className={styles.title}>{title}</h3>
+        <h3 className={styles.title}>{cleanHeadingText(title)}</h3>
       </div>
 
       {/* Hover Dark Semi-transparent Overlay */}

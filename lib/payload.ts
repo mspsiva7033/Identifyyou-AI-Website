@@ -651,7 +651,7 @@ export const FALLBACK_CASE_STUDIES_MAP: Record<string, CaseStudyDetail> = {
       },
       {
         "type": "h2",
-        "text": "01 — The Challenge"
+        "text": "The Challenge"
       },
       {
         "type": "p",
@@ -679,7 +679,7 @@ export const FALLBACK_CASE_STUDIES_MAP: Record<string, CaseStudyDetail> = {
       },
       {
         "type": "h2",
-        "text": "02 — The IdentifYou Risk Intelligence Layer"
+        "text": "The IdentifYou Risk Intelligence Layer"
       },
       {
         "type": "p",
@@ -703,7 +703,7 @@ export const FALLBACK_CASE_STUDIES_MAP: Record<string, CaseStudyDetail> = {
       },
       {
         "type": "h2",
-        "text": "03 — The Intelligence Behind Every Risk Prediction"
+        "text": "The Intelligence Behind Every Risk Prediction"
       },
       {
         "type": "p",
@@ -719,7 +719,7 @@ export const FALLBACK_CASE_STUDIES_MAP: Record<string, CaseStudyDetail> = {
       },
       {
         "type": "h2",
-        "text": "01 — Risk Score"
+        "text": "Risk Score"
       },
       {
         "type": "p",
@@ -735,7 +735,7 @@ export const FALLBACK_CASE_STUDIES_MAP: Record<string, CaseStudyDetail> = {
       },
       {
         "type": "h2",
-        "text": "02 — Confidence Score"
+        "text": "Confidence Score"
       },
       {
         "type": "p",
@@ -755,7 +755,7 @@ export const FALLBACK_CASE_STUDIES_MAP: Record<string, CaseStudyDetail> = {
       },
       {
         "type": "h2",
-        "text": "03 — Risk Drivers"
+        "text": "Risk Drivers"
       },
       {
         "type": "p",
@@ -795,7 +795,7 @@ export const FALLBACK_CASE_STUDIES_MAP: Record<string, CaseStudyDetail> = {
       },
       {
         "type": "h2",
-        "text": "04 — Recommended Action"
+        "text": "Recommended Action"
       },
       {
         "type": "p",
@@ -819,7 +819,7 @@ export const FALLBACK_CASE_STUDIES_MAP: Record<string, CaseStudyDetail> = {
       },
       {
         "type": "h2",
-        "text": "04 — Intelligent Risk Insights"
+        "text": "Intelligent Risk Insights"
       },
       {
         "type": "p",
@@ -867,7 +867,7 @@ export const FALLBACK_CASE_STUDIES_MAP: Record<string, CaseStudyDetail> = {
       },
       {
         "type": "h2",
-        "text": "05 — From Alerts to Explainable Risk Decisions"
+        "text": "From Alerts to Explainable Risk Decisions"
       },
       {
         "type": "p",
@@ -895,7 +895,7 @@ export const FALLBACK_CASE_STUDIES_MAP: Record<string, CaseStudyDetail> = {
       },
       {
         "type": "h2",
-        "text": "06 — Example Risk Insight"
+        "text": "Example Risk Insight"
       },
       {
         "type": "p",
@@ -951,7 +951,7 @@ export const FALLBACK_CASE_STUDIES_MAP: Record<string, CaseStudyDetail> = {
       },
       {
         "type": "h2",
-        "text": "07 — Business Value"
+        "text": "Business Value"
       },
       {
         "type": "p",
@@ -987,7 +987,7 @@ export const FALLBACK_CASE_STUDIES_MAP: Record<string, CaseStudyDetail> = {
       },
       {
         "type": "h2",
-        "text": "08 — IdentifYou Value"
+        "text": "IdentifYou Value"
       },
       {
         "type": "p",
@@ -1120,7 +1120,7 @@ export const FALLBACK_CASE_STUDIES_MAP: Record<string, CaseStudyDetail> = {
       },
       {
         "type": "h2",
-        "text": "01 — CAPEX Intelligence"
+        "text": "CAPEX Intelligence"
       },
       {
         "type": "p",
@@ -1164,7 +1164,7 @@ export const FALLBACK_CASE_STUDIES_MAP: Record<string, CaseStudyDetail> = {
       },
       {
         "type": "h2",
-        "text": "02 — Raw Material Intelligence"
+        "text": "Raw Material Intelligence"
       },
       {
         "type": "p",
@@ -1208,7 +1208,7 @@ export const FALLBACK_CASE_STUDIES_MAP: Record<string, CaseStudyDetail> = {
       },
       {
         "type": "h2",
-        "text": "03 — Tooling Intelligence"
+        "text": "Tooling Intelligence"
       },
       {
         "type": "p",
@@ -1417,7 +1417,7 @@ export const FALLBACK_CASE_STUDIES_MAP: Record<string, CaseStudyDetail> = {
       },
       {
         "type": "h2",
-        "text": "02 — Challenges with the Current Process"
+        "text": "Challenges with the Current Process"
       },
       {
         "type": "p",
@@ -1485,7 +1485,7 @@ export const FALLBACK_CASE_STUDIES_MAP: Record<string, CaseStudyDetail> = {
       },
       {
         "type": "h2",
-        "text": "03 — Proposed Solution"
+        "text": "Proposed Solution"
       },
       {
         "type": "p",
@@ -1529,7 +1529,7 @@ export const FALLBACK_CASE_STUDIES_MAP: Record<string, CaseStudyDetail> = {
       },
       {
         "type": "h2",
-        "text": "04 — Manufacturing Strategies Implemented"
+        "text": "Manufacturing Strategies Implemented"
       },
       {
         "type": "p",
@@ -1653,7 +1653,7 @@ export const FALLBACK_CASE_STUDIES_MAP: Record<string, CaseStudyDetail> = {
       },
       {
         "type": "h2",
-        "text": "05 — How the Solution Drives Towards Zero Inventory Variance"
+        "text": "How the Solution Drives Towards Zero Inventory Variance"
       },
       {
         "type": "p",
@@ -1673,7 +1673,7 @@ export const FALLBACK_CASE_STUDIES_MAP: Record<string, CaseStudyDetail> = {
       },
       {
         "type": "p",
-        "text": "1. Identify"
+        "text": "Identify"
       },
       {
         "type": "p",
@@ -1681,7 +1681,7 @@ export const FALLBACK_CASE_STUDIES_MAP: Record<string, CaseStudyDetail> = {
       },
       {
         "type": "p",
-        "text": "2. Validate"
+        "text": "Validate"
       },
       {
         "type": "p",
@@ -1689,7 +1689,7 @@ export const FALLBACK_CASE_STUDIES_MAP: Record<string, CaseStudyDetail> = {
       },
       {
         "type": "p",
-        "text": "3. Authorize"
+        "text": "Authorize"
       },
       {
         "type": "p",
@@ -1697,7 +1697,7 @@ export const FALLBACK_CASE_STUDIES_MAP: Record<string, CaseStudyDetail> = {
       },
       {
         "type": "p",
-        "text": "4. Execute"
+        "text": "Execute"
       },
       {
         "type": "p",
@@ -1705,7 +1705,7 @@ export const FALLBACK_CASE_STUDIES_MAP: Record<string, CaseStudyDetail> = {
       },
       {
         "type": "p",
-        "text": "5. Confirm"
+        "text": "Confirm"
       },
       {
         "type": "p",
@@ -1713,7 +1713,7 @@ export const FALLBACK_CASE_STUDIES_MAP: Record<string, CaseStudyDetail> = {
       },
       {
         "type": "p",
-        "text": "6. Update"
+        "text": "Update"
       },
       {
         "type": "p",
@@ -1721,7 +1721,7 @@ export const FALLBACK_CASE_STUDIES_MAP: Record<string, CaseStudyDetail> = {
       },
       {
         "type": "p",
-        "text": "7. Reconcile"
+        "text": "Reconcile"
       },
       {
         "type": "p",
@@ -1777,7 +1777,7 @@ export const FALLBACK_CASE_STUDIES_MAP: Record<string, CaseStudyDetail> = {
       },
       {
         "type": "h2",
-        "text": "06 — Business Value"
+        "text": "Business Value"
       },
       {
         "type": "p",
@@ -1861,11 +1861,11 @@ export const FALLBACK_CASE_STUDIES_MAP: Record<string, CaseStudyDetail> = {
       },
       {
         "type": "h2",
-        "text": "07 — Transformation at a Glance"
+        "text": "Transformation at a Glance"
       },
       {
         "type": "h2",
-        "text": "08 — Executive Outcome"
+        "text": "Executive Outcome"
       },
       {
         "type": "p",
@@ -3136,7 +3136,7 @@ export const FALLBACK_CASE_STUDIES_MAP: Record<string, CaseStudyDetail> = {
       },
       {
         "type": "h2",
-        "text": "03 — Proposed Solution"
+        "text": "Proposed Solution"
       },
       {
         "type": "p",
@@ -3212,7 +3212,7 @@ export const FALLBACK_CASE_STUDIES_MAP: Record<string, CaseStudyDetail> = {
       },
       {
         "type": "h2",
-        "text": "04 — How It Drives Inventory Variance Towards Zero"
+        "text": "How It Drives Inventory Variance Towards Zero"
       },
       {
         "type": "p",
@@ -3292,7 +3292,7 @@ export const FALLBACK_CASE_STUDIES_MAP: Record<string, CaseStudyDetail> = {
       },
       {
         "type": "h2",
-        "text": "05 — Outcomes"
+        "text": "Outcomes"
       },
       {
         "type": "p",
@@ -3328,7 +3328,7 @@ export const FALLBACK_CASE_STUDIES_MAP: Record<string, CaseStudyDetail> = {
       },
       {
         "type": "h2",
-        "text": "06 — Value Proposition"
+        "text": "Value Proposition"
       },
       {
         "type": "p",
@@ -3718,7 +3718,7 @@ export const FALLBACK_CASE_STUDIES_MAP: Record<string, CaseStudyDetail> = {
       },
       {
         "type": "bullet",
-        "text": "9-Second Cycle TimeInspection synchronized with production."
+        "text": "Second Cycle TimeInspection synchronized with production."
       },
       {
         "type": "bullet",
