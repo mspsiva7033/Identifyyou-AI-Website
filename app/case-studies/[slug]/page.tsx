@@ -83,7 +83,9 @@ export default async function CaseStudyDetailPage({ params }: { params: Promise<
       <div className={styles.breadcrumb}>
         <Link href="/" className={styles.breadcrumbLink}>Home</Link>
         {' / '}
-        <Link href="/case-studies" className={styles.breadcrumbLink}>Case Studies</Link>
+        <Link href="/deep-tech" className={styles.breadcrumbLink}>Deep Tech</Link>
+        {' / '}
+        <Link href={`/deep-tech/${theme.key}`} className={styles.breadcrumbLink}>{theme.name}</Link>
         {' / '}
         {cleanHeadingText(cs.breadcrumb)}
       </div>
@@ -210,6 +212,62 @@ export default async function CaseStudyDetailPage({ params }: { params: Promise<
                 </tbody>
               </table>
             </div>
+          </div>
+        )}
+
+        {/* Dynamic Table Block */}
+        {cs.tableBlock && (
+          <div className={styles.tableBlock}>
+            <div className={styles.tableWrapper}>
+              <table className={styles.compTable}>
+                <thead>
+                  <tr>
+                    {cs.tableBlock.headers.map((header, idx) => (
+                      <th key={idx}>{header}</th>
+                    ))}
+                  </tr>
+                </thead>
+                <tbody>
+                  {cs.tableBlock.rows.map((row, idx) => (
+                    <tr key={idx}>
+                      {row.map((cell, cellIdx) => (
+                        <td key={cellIdx} className={cellIdx === 0 ? styles.tradCol : (cellIdx === row.length - 1 ? styles.aiCol : '')}>{cell}</td>
+                      ))}
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </div>
+        )}
+
+        {/* Custom CTA */}
+        {cs.customCTA && (
+          <div style={{ marginTop: '48px', padding: '28px', background: '#F8FAFC', borderRadius: '12px', border: '1px solid #E2E8F0', display: 'flex', flexDirection: 'column', gap: '16px', alignItems: 'flex-start' }}>
+            <div style={{ fontFamily: 'Plus Jakarta Sans, sans-serif', fontWeight: 700, fontSize: '18px', color: '#0F172A' }}>
+              {cs.customCTA.title}
+            </div>
+            <p className={styles.secPara} style={{ margin: 0 }}>
+              {cs.customCTA.desc}
+            </p>
+            <Link
+              href={cs.customCTA.linkHref}
+              className={styles.btnPrimary}
+              style={{
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: '8px',
+                padding: '12px 24px',
+                background: '#96c73d',
+                color: '#FFFFFF',
+                borderRadius: '8px',
+                fontWeight: 700,
+                textDecoration: 'none',
+                fontFamily: 'Plus Jakarta Sans, sans-serif'
+              }}
+            >
+              {cs.customCTA.linkLabel}
+            </Link>
           </div>
         )}
 

@@ -116,19 +116,24 @@
   box-shadow: 0 6px 20px rgba(150, 199, 61, 0.45);
 }
 
-/* Expanded Mega Menu Navbar Panel (TCS-Style Navbar Expansion on Pure White Background) */
+/* Floating Mega Menu Dropdown Overlay */
 .megaDrawer {
+  position: absolute;
+  top: 100%;
+  left: 0;
   width: 100%;
   background-color: #ffffff !important;
   background: #ffffff !important;
   border-top: 1px solid #e2e8f0;
+  box-shadow: 0 20px 40px -5px rgba(15, 23, 42, 0.15), 0 10px 15px -5px rgba(15, 23, 42, 0.08);
   animation: megaExpand 250ms cubic-bezier(0.16, 1, 0.3, 1);
+  z-index: 1100;
 }
 
 @keyframes megaExpand {
   from {
     opacity: 0;
-    transform: translateY(-6px);
+    transform: translateY(-8px);
   }
   to {
     opacity: 1;

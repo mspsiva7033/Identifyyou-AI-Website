@@ -293,6 +293,30 @@ export interface CaseStudy {
     | number
     | boolean
     | null;
+  /**
+   * Flexible dynamic table with any number of columns
+   */
+  tableBlock?:
+    | {
+        [k: string]: unknown;
+      }
+    | unknown[]
+    | string
+    | number
+    | boolean
+    | null;
+  /**
+   * Special call-to-action block for sub-case studies
+   */
+  customCTA?:
+    | {
+        [k: string]: unknown;
+      }
+    | unknown[]
+    | string
+    | number
+    | boolean
+    | null;
   detail?: {
     shortDescription?: string | null;
     overview?: {
@@ -621,6 +645,8 @@ export interface CaseStudiesSelect<T extends boolean = true> {
         id?: T;
       };
   comparisonTable?: T;
+  tableBlock?: T;
+  customCTA?: T;
   detail?:
     | T
     | {

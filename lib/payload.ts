@@ -34,6 +34,8 @@ export interface CaseStudyDetail {
   docItems?: DocItem[]
   workflow?: string[]
   comparisonTable?: { headers: [string, string]; rows: [string, string][] }
+  tableBlock?: { headers: string[]; rows: string[][] }
+  customCTA?: { title: string; desc: string; linkLabel: string; linkHref: string }
   technologyUsed: string
   tag: string
   more: { tag: string; title: string; slug: string }[]
@@ -1367,10 +1369,6 @@ export const FALLBACK_CASE_STUDIES_MAP: Record<string, CaseStudyDetail> = {
     "breadcrumb": "Towards Zero Inventory Variance",
     "tag": "Case Study",
     "docItems": [
-      {
-        "type": "p",
-        "text": "Towards Zero Inventory Variance"
-      },
       {
         "type": "p",
         "text": "Digitally Controlled Material Execution for Real-Time Inventory Accountability"
@@ -3064,10 +3062,6 @@ export const FALLBACK_CASE_STUDIES_MAP: Record<string, CaseStudyDetail> = {
     "docItems": [
       {
         "type": "p",
-        "text": "Towards Zero Inventory Variance"
-      },
-      {
-        "type": "p",
         "text": "Digitally Controlled Material Execution"
       },
       {
@@ -3936,6 +3930,65 @@ export const FALLBACK_CASE_STUDIES_MAP: Record<string, CaseStudyDetail> = {
     ],
     "technologyUsed": "",
     "more": []
+  },
+  "precision-abm-snowflake-cortex": {
+    title: "Precision ABM, Powered by Cortex AI within the Snowflake AI Data Cloud",
+    breadcrumb: "Precision ABM, Powered by Cortex AI",
+    tag: "ENTERPRISE · DATA ENGINEERING · SNOWFLAKE CORTEX AI",
+    metaBlock: [
+      { label: "Industry:", value: "Enterprise & B2B Technology" },
+      { label: "Platform:", value: "Snowflake AI Data Cloud" },
+      { label: "AI Engine:", value: "Snowflake Cortex AI" },
+      { label: "Visualization:", value: "Streamlit & Power BI" }
+    ],
+    docItems: [
+      { type: "h2", text: "Strategic Foundation" },
+      { type: "p", text: "Empowering data-driven sales and marketing decisions, the Account Based Marketing solution unifies ICP Analysis, Account Fit Scoring, Engagement Intelligence, Deal Analytics, and Revenue Insights into a single analytical framework. By identifying high-value accounts, measuring engagement effectiveness, and tracking opportunity progression, organizations can prioritize efforts that drive measurable business outcomes." },
+      { type: "h3", text: "Strategy identifies the opportunity; data accelerates the outcome." },
+      { type: "p", text: "This four-phase Account Based Marketing Framework (Sales Foundation, Pre-Sales Engagement, Deals & Activities, and Sales Closure) provides end-to-end visibility across the customer journey, helping teams align marketing and sales efforts while improving conversion effectiveness." },
+      { type: "h4", text: "Smart Sales Framework" }
+    ],
+    tableBlock: {
+      headers: ["Phase", "Strategic Focus", "Business Outcome"],
+      rows: [
+        ["Sales Foundation", "ICP analysis, account fit evaluation, and intent identification.", "Account Intelligence"],
+        ["Pre-Sales Engagement", "Engagement monitoring and contact activity analysis.", "Engagement Insights"],
+        ["Deals & Activities", "Deal velocity, pipeline visibility, and opportunity tracking.", "Sales Performance"],
+        ["Sales Closure", "Close-rate analysis and revenue optimization.", "Conversion Intelligence"]
+      ]
+    },
+    sections: [
+      {
+        content: [
+          "By integrating these critical business functions, organizations gain a unified analytical view that improves account prioritization, opportunity management, and revenue performance."
+        ]
+      },
+      {
+        title: "ABM Analytics & Visualization Engine — Power BI & Snowflake",
+        subtitle: "Executive Intelligence",
+        bullets: [
+          "**Account Visibility:** Monitor ICP Match Scores, Account Fit Scores, Intent Signals, and Opportunity Performance from a centralized dashboard.",
+          "**Performance Insights:** Analyze engagement trends, pipeline progression, and conversion effectiveness.",
+          "**Unified Reporting:** Consolidate marketing, sales, and account intelligence into a single decision-making platform."
+        ]
+      },
+      {
+        subtitle: "Operational Agility",
+        bullets: [
+          "**Interactive Analytics:** Explore account performance through dynamic dashboards and drill-through reporting.",
+          "**Engagement Intelligence:** Understand how contacts and accounts interact throughout the buying journey.",
+          "**Revenue Optimization:** Identify high-potential opportunities and improve sales outcomes through data-driven insights."
+        ]
+      }
+    ],
+    customCTA: {
+      title: "Sub-Case Study: Power BI ABM Analytics & Installation Guide",
+      desc: "Access the complete Power BI ABM framework, deployment guide, Snowflake connection parameters, configuration options, validation steps, troubleshooting, and user guide below.",
+      linkLabel: "POWER BI ABM →",
+      linkHref: "/case-studies/data-engineering/power-bi-abm"
+    },
+    technologyUsed: "",
+    more: []
   }
 }
 
@@ -4019,7 +4072,6 @@ export async function getCaseStudyBySlug(slug: string): Promise<CaseStudyDetail>
     'migrating-hadoop-and-hana-to-snowflake': 'precision-abm-snowflake-cortex',
     'ai-powered-procurement': 'procurement-operations-intelligence',
     'manufacturing-data-platform': 'precision-abm-snowflake-cortex',
-    'thinking-factory': 'towards-zero-inventory-variance-automation',
     'tailored-enterprise-solutions': 'procurement-operations-intelligence',
   }
 

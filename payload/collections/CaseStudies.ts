@@ -178,6 +178,22 @@ export const CaseStudies: CollectionConfig = {
       },
     },
     {
+      name: 'tableBlock',
+      type: 'json',
+      label: 'Dynamic Table Block JSON ({ headers, rows })',
+      admin: {
+        description: 'Flexible dynamic table with any number of columns',
+      },
+    },
+    {
+      name: 'customCTA',
+      type: 'json',
+      label: 'Custom CTA Box JSON ({ title, desc, linkLabel, linkHref })',
+      admin: {
+        description: 'Special call-to-action block for sub-case studies',
+      },
+    },
+    {
       type: 'group',
       name: 'detail',
       label: 'Detail Page Content',

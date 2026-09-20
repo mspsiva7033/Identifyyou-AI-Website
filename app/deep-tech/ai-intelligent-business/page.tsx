@@ -103,7 +103,7 @@ export default function AIIntelligentBusinessPage() {
                 source instead of at month-end.
               </p>
               <Link
-                href="/case-studies/revolutionizing-inventory-optimization"
+                href="/thinking-factory"
                 className={styles.csLinkGreen}
               >
                 Read the success story →

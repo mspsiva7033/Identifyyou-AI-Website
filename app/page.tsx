@@ -218,7 +218,7 @@ const smallIntelligentBusinessCaseStudies = [
   {
     title: 'Thinking Factory',
     industry: 'AI & AUTONOMOUS DECISIONS',
-    href: '/case-studies/thinking-factory',
+    href: '/thinking-factory',
     image: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=1000&auto=format&fit=crop',
   },
 ]
