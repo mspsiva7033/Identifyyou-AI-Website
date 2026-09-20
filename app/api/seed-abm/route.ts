@@ -4,6 +4,9 @@ import { getPayloadClient } from '@/lib/payload'
 export async function GET() {
   try {
     const payload = await getPayloadClient()
+    if (!payload) {
+      return NextResponse.json({ error: 'Payload client unavailable' }, { status: 500 })
+    }
 
     const existing = await payload.find({
       collection: 'case-studies',
@@ -16,8 +19,9 @@ export async function GET() {
       return NextResponse.json({ message: 'Already exists', doc: existing.docs[0] })
     }
 
-    const doc = await payload.create({
+    const doc = await (payload as any).create({
       collection: 'case-studies',
+      draft: false,
       data: {
         title: 'Precision ABM, Powered by Cortex AI within the Snowflake AI Data Cloud',
         slug: 'precision-abm-snowflake-cortex',
