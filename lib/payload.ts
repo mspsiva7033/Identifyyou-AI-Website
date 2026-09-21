@@ -2051,36 +2051,104 @@ export const FALLBACK_CASE_STUDIES_MAP: Record<string, CaseStudyDetail> = {
     }
   },
   "revolutionizing-inventory-optimization": {
-    "title": "ABM Case Study link :",
-    "breadcrumb": "ABM Case Study link :",
-    "tag": "https://identifyyou.in/projects/precision-abm-powered-by-cortex-ai-within-the-snowflake-ai-data-cloud/",
+    "title": "Revolutionizing Enterprise Inventory Optimization with Snowflake",
+    "breadcrumb": "Revolutionizing Enterprise Inventory Optimization with Snowflake",
+    "tag": "Manufacturing · Data Engineering · Supply Chain Optimization",
+    "illustration": "/images/case-studies/revolutionizing-inventory-optimization.png",
+    "overview": "Inventory management is critical to retail and manufacturing success, balancing the fine line between stockouts and overstock situations. Traditional inventory systems often struggle to provide real-time insights, leading to lost sales opportunities or excess carrying costs. Snowflake’s Data Cloud empowers enterprises to optimize inventory by providing real-time tracking, predictive analytics, and actionable insights to ensure optimal stock levels.",
     "docItems": [
       {
-        "type": "p",
-        "text": "ABM Case Study link :"
+        "type": "h2",
+        "text": "Overview"
       },
       {
         "type": "p",
-        "text": "https://identifyyou.in/projects/precision-abm-powered-by-cortex-ai-within-the-snowflake-ai-data-cloud/"
+        "text": "Inventory management is critical to retail success, balancing the fine line between stockouts and overstock situations. Traditional inventory systems often struggle to provide real-time insights, leading to lost sales opportunities or excess carrying costs. Snowflake’s Data Cloud empowers retailers to optimize inventory by providing real-time tracking, predictive analytics, and actionable insights to ensure optimal stock levels."
       },
       {
         "type": "p",
-        "text": "Inventory Optimization Link:"
+        "text": "This case study explores how Snowflake helps retailers enhance inventory optimization, improve demand forecasting, and achieve operational efficiency during peak and regular seasons."
       },
       {
-        "type": "p",
-        "text": "https://identifyyou.in/projects/revolutionizing-inventory-optimization-with-snowflake/"
+        "type": "h2",
+        "text": "Challenges in Inventory Management"
       },
       {
-        "type": "p",
-        "text": "Optimizing Shipment and Fleet Operations with Snowflake"
+        "type": "bullet",
+        "text": "Lack of Real-Time Visibility: Traditional systems often operate on batch processing, delaying insights into current inventory levels and stock movements."
       },
       {
-        "type": "p",
-        "text": "https://identifyyou.in/projects/optimizing-shipment-and-fleet-operations-with-snowflake/"
+        "type": "bullet",
+        "text": "Unreliable Demand Forecasting: Historical data alone often fails to account for dynamic factors like seasonal trends, promotional impacts, and external disruptions."
+      },
+      {
+        "type": "bullet",
+        "text": "High Carrying Costs: Overstock situations lead to increased warehousing expenses and potential obsolescence of unsold inventory."
+      },
+      {
+        "type": "bullet",
+        "text": "Inability to Respond to Seasonal Peaks: Retailers face difficulties in preparing for high-demand periods due to inadequate predictive capabilities."
+      },
+      {
+        "type": "h2",
+        "text": "Results & Operational Impact"
+      },
+      {
+        "type": "bullet",
+        "text": "40% Reduction in Stockouts: Stockouts of high-demand items were reduced by 40%, significantly improving customer satisfaction."
+      },
+      {
+        "type": "bullet",
+        "text": "15% Increase in Seasonal Sales Revenue: Seasonal sales revenue increased by 15%, driven by better inventory availability."
+      },
+      {
+        "type": "bullet",
+        "text": "20% Lower Operational Costs: Operational costs were reduced by 20% through improved inventory allocation and reduced last-minute expedited shipping."
       }
     ],
-    "technologyUsed": "",
+    "challenges": [
+      {
+        "n": 1,
+        "title": "Batch Ingestion Delays",
+        "desc": "Legacy systems operate on slow batch ingestion cycles, obscuring real-time stock status across warehouses."
+      },
+      {
+        "n": 2,
+        "title": "Unpredictable Demand Dynamics",
+        "desc": "Static historical data fails to model dynamic seasonal demand spikes and supply chain shocks."
+      }
+    ],
+    "results": [
+      {
+        "stat": "40%",
+        "label": "Reduction in Stockouts"
+      },
+      {
+        "stat": "15%",
+        "label": "Seasonal Revenue Growth"
+      },
+      {
+        "stat": "20%",
+        "label": "Operational Cost Savings"
+      }
+    ],
+    "solutionSteps": [
+      {
+        "n": 1,
+        "title": "Snowflake Data Cloud Ingestion",
+        "challenge": "Fragmented data silos across POS, WMS, and ERP systems.",
+        "solution": "Built continuous real-time data streaming pipelines into Snowflake Data Cloud using Snowpipe and dbt.",
+        "outcome": "Single source of truth for global inventory visibility."
+      },
+      {
+        "n": 2,
+        "title": "Predictive Replenishment Models",
+        "challenge": "Manual safety stock calculations causing excess carrying costs.",
+        "solution": "Deploys automated Snowpark ML models for dynamic safety stock calculation and auto-replenishment triggers.",
+        "outcome": "Optimal inventory turnover and zero peak-season stockouts."
+      }
+    ],
+    "technologyUsed": "Snowflake Data Cloud, Snowpark, PySpark, dbt, Apache Airflow, Python, POS/WMS Connectors",
     "more": []
   },
   "tailored-enterprise-solutions": {

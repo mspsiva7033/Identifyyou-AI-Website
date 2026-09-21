@@ -191,7 +191,7 @@ const featuredIntelligentBusinessCaseStudies = [
   {
     title: 'Smart Factory',
     industry: 'MANUFACTURING · MES & DIGITAL SHOP FLOOR',
-    href: '/case-studies/manufacturing-data-platform',
+    href: '/case-studies/connected-intelligent-plant',
     image: 'https://images.unsplash.com/photo-1563986768609-322da13575f3?q=80&w=1000&auto=format&fit=crop',
   },
   {
