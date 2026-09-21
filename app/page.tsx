@@ -6,6 +6,7 @@ import { Footer } from '@/components/layout/Footer'
 import { HeroSection } from '@/components/sections/HeroSection'
 import { FlowChain } from '@/components/ui/FlowChain'
 import { CaseStudyCard } from '@/components/ui/CaseStudyCard'
+import { SmartFactoryCard } from '@/components/ui/SmartFactoryCard'
 import AnimatedMetrics from './components/AnimatedMetrics'
 import { getCategoryTheme } from '@/lib/caseStudyCategories'
 import styles from './page.module.css'
@@ -206,13 +207,13 @@ const smallIntelligentBusinessCaseStudies = [
   {
     title: 'Zebra Line Inspection',
     industry: 'MANUFACTURING · VISION AI',
-    href: '/case-studies/advanced-vision-inspection-surface',
+    href: '/case-studies/zebra-line-inspection',
     image: '/images/case-studies/advanced-vision-inspection-surface.svg',
   },
   {
     title: 'Machine Vision',
     industry: 'MANUFACTURING · PRECISION METROLOGY',
-    href: '/case-studies/vision-ai-bore-measurement',
+    href: '/case-studies/machine-vision',
     image: '/images/case-studies/vision-ai-bore-measurement.svg',
   },
   {
@@ -573,18 +574,26 @@ export default function HomePage() {
           <div className={styles.eyebrowGreen}>AI &amp; INTELLIGENT BUSINESS</div>
           <h2 className={styles.h2SolutionsTitle}>Case Studies in Intelligent Business</h2>
 
-          {/* Top Row: 2 Featured Large Cards (Smart Factory & Risk Insights Finance) */}
+          {/* Top Row: 2 Featured Large Cards */}
           <div className={styles.featuredTwoGrid}>
-            {featuredIntelligentBusinessCaseStudies.map((cs) => (
-              <CaseStudyCard
-                key={cs.title}
-                title={cs.title}
-                industry={cs.industry}
-                image={cs.image}
-                href={cs.href}
-                aspectRatio="16 / 9"
-              />
-            ))}
+            {/* Smart Factory — triggers video modal with full media controls */}
+            <SmartFactoryCard
+              title="Smart Factory"
+              industry="MANUFACTURING · MES & DIGITAL SHOP FLOOR"
+              image="https://images.unsplash.com/photo-1563986768609-322da13575f3?q=80&w=1000&auto=format&fit=crop"
+              aspectRatio="16 / 9"
+              videoSrc="/videos/identifyyou_transformation.mp4"
+              videoTitle="IdentifYou Transformation — Smart Factory"
+            />
+            {/* Risk Insights Finance — standard navigation */}
+            <CaseStudyCard
+              key="Risk Insights Finance"
+              title="Risk Insights Finance"
+              industry="FINANCIAL SERVICES · RISK INTELLIGENCE"
+              image="/images/case-studies/risk-insights-finance.png"
+              href="/case-studies/risk-insights-finance"
+              aspectRatio="16 / 9"
+            />
           </div>
 
           {/* Bottom Row: 3 Small Cards in 3-Column Layout (Zebra Line Inspection, Machine Vision, Thinking Factory) */}

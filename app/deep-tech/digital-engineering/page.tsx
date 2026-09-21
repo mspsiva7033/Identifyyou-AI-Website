@@ -3,95 +3,48 @@ import React from 'react'
 import Link from 'next/link'
 import { Header } from '@/components/layout/Header'
 import { Footer } from '@/components/layout/Footer'
-import { FlowChain } from '@/components/ui/FlowChain'
 import { CaseStudyCard } from '@/components/ui/CaseStudyCard'
-import { CTABlock } from '@/components/ui/CTABlock'
 import styles from './page.module.css'
 
 export const metadata: Metadata = {
-  title: 'Digital Engineering — Engineer Digital Products That Solve Real Business Problems',
+  title: 'Engineering Digital Solutions That Drive Business | IdentifYou',
   description:
-    'Web, mobile, enterprise and SaaS applications engineered with modern cloud-native tooling. Built around the workflow, not the other way around.',
+    'We engineer digital solutions that simplify complexity and drive business value. Custom business applications, enterprise integrations, customer platforms, and low-code operational tools.',
 }
 
-const engineeringFlow = [
-  'Workflow Discovery',
-  'Architecture & Schema',
-  'Modular Microservices',
-  'Cloud Infrastructure',
-  'CI/CD & QA',
-  'Production Scale',
+const techEcosystemPills = [
+  'Microsoft PowerApps',
+  'Python',
+  'Node.js',
+  'React.js',
+  'Freshdesk',
+  'Azure',
+  'AWS',
+  'SQL',
 ]
 
-const capabilities = [
+const digitalCaseStudies = [
   {
-    title: 'SaaS Platform Engineering',
-    tag: 'Multi-Tenant Cloud',
-    desc: 'Scalable multi-tenant SaaS products designed for high availability, sub-100ms API response times, secure subscription management, and seamless end-user experiences.',
-    features: ['Multi-tenant Isolation', 'Role-Based Access Control (RBAC)', 'Subscription & Billing Engines', 'High-Throughput API Gateways'],
-    icon: '⚡',
+    slug: 'cost-model-simulation',
+    title: 'Cost Model for K-Type Configuration Manufacturing',
+    tag: 'MANUFACTURING · COST SIMULATION · DIGITAL ENGINEERING',
+    categories: ['Digital Engineering', 'Manufacturing', 'Automation'],
+    image: '/images/case-studies/cost-model-simulation.png',
   },
   {
-    title: 'Enterprise Web Applications',
-    tag: 'Modern Full-Stack',
-    desc: 'High-performance web applications built with Next.js, React, Node.js, and TypeScript, engineered to automate complex enterprise workflows and operational data entry.',
-    features: ['Responsive UI/UX System', 'Server-Side Rendering (SSR)', 'Complex Data Tables & Dashboards', 'Real-Time WebSockets'],
-    icon: '💻',
+    slug: 'enhancing-support-efficiency-with-integrated-order-management',
+    title: 'Integrating & Extending CRM Platforms Like Freshdesk',
+    tag: 'CRM & SUPPORT · FRESHDESK · ORDER MANAGEMENT',
+    categories: ['Digital Engineering', 'Automation'],
+    image: '/images/case-studies/enhancing-support-efficiency-with-integrated-order-management.png',
   },
   {
-    title: 'Mobile Application Engineering',
-    tag: 'iOS & Android',
-    desc: 'Cross-platform native mobile solutions with offline-first synchronization, secure local caching, and seamless integration with cloud backends.',
-    features: ['Offline-First Data Sync', 'Biometric Security & Encrypted Caching', 'Push Notifications & Telemetry', 'Field-Force Operational Tools'],
-    icon: '📱',
+    slug: 'overcoming-data-access-challenges-in-a-multi-business-environment-for-streamlined-decision-making',
+    title: 'Overcoming Data Access Challenges in a Multi-Business Environment',
+    tag: 'MULTI-BUSINESS DATA · BI ANALYTICS · DECISION MAKING',
+    categories: ['Digital Engineering', 'Data'],
+    image: '/images/case-studies/overcoming-data-access-challenges-in-a-multi-business-environment-for-streamlined-decision-making.png',
   },
-  {
-    title: 'Microservices & API Architecture',
-    tag: 'Cloud-Native',
-    desc: 'Decoupled, event-driven microservice architectures built on REST, GraphQL, and gRPC to bridge legacy ERP systems with modern cloud infrastructure.',
-    features: ['RESTful & GraphQL API Design', 'Event-Driven Messaging (Kafka/RabbitMQ)', 'Containerization & Docker Orchestration', 'API Gateway & Security Throttling'],
-    icon: '🔌',
-  },
-  {
-    title: 'Workflow & Process Automation',
-    tag: 'Zero Friction',
-    desc: 'Replacing manual spreadsheet processes with bespoke web applications that interlock data validation, automated approval gates, and instant ERP updates.',
-    features: ['Automated Approval Workflows', 'PDF & Document Generation', 'Real-Time Audit Logging', 'Third-Party System Connectors'],
-    icon: '⚙️',
-  },
-  {
-    title: 'Cloud Modernization & DevOps',
-    tag: 'AWS / Azure',
-    desc: 'Migrating legacy monoliths into cloud-native architectures with automated CI/CD pipelines, zero-downtime deployments, and infrastructure as code.',
-    features: ['Infrastructure as Code (Terraform)', 'Kubernetes & Container Orchestration', 'Automated Testing & Deployment', 'SOC2 / HIPAA Compliant Security'],
-    icon: '☁️',
-  },
-]
-
-const techCategories = [
-  {
-    name: 'Frontend & UI',
-    items: ['React.js', 'Next.js', 'TypeScript', 'CSS Modules', 'WebSockets', 'HTML5/Canvas'],
-  },
-  {
-    name: 'Backend & Microservices',
-    items: ['Node.js', 'Python', 'Express / NestJS', 'REST & GraphQL APIs', 'gRPC', 'Microservices'],
-  },
-  {
-    name: 'Cloud & DevOps',
-    items: ['Microsoft Azure', 'AWS', 'Docker', 'Kubernetes', 'Terraform', 'CI/CD Pipelines'],
-  },
-  {
-    name: 'Database & Data Storage',
-    items: ['PostgreSQL', 'Redis', 'MongoDB', 'Snowflake', 'Prisma ORM', 'Vector DBs'],
-  },
-]
-
-const metrics = [
-  { val: '99.99%', label: 'Uptime SLA Availability' },
-  { val: '<100ms', label: 'Average API Response Time' },
-  { val: '60%', label: 'Faster Release Cycles' },
-  { val: '100%', label: 'Cloud-Native Architecture' },
 ]
 
 export default function DigitalEngineeringPage() {
@@ -109,22 +62,20 @@ export default function DigitalEngineeringPage() {
         <div className={styles.heroDarkOverlay} />
         <div className={styles.heroContainer}>
           <div className={styles.heroCardDark}>
-            <div className={styles.eyebrowGreen}>ENTERPRISE SAAS &amp; DIGITAL PRODUCTS</div>
+            <div className={styles.eyebrowGreen}>DIGITAL ENGINEERING</div>
             <h1 className={styles.heroTitle}>
-              Engineer Digital Products That Solve Real Business Problems
+              Engineering Digital Solutions That Drive Business
             </h1>
             <p className={styles.heroDesc}>
-              Web, mobile, enterprise and SaaS applications engineered with modern cloud-native tooling — built around
-              your actual business workflow, not the other way around.
+              We engineer digital solutions that simplify complexity and drive business value.
             </p>
-            <div className={styles.heroAccentGreen}>Cloud-Native Enterprise Web, Mobile &amp; SaaS Platforms</div>
             <div className={styles.btnGroup}>
               <Link href="/contact" className={styles.btnPrimary}>
-                Explore Digital Solutions
+                Talk to a Digital Engineering Expert
               </Link>
-              <Link href="#capabilities" className={styles.btnSecondaryDark}>
-                View Core Capabilities
-              </Link>
+              <a href="#case-studies" className={styles.btnSecondaryDark}>
+                Explore Case Studies
+              </a>
             </div>
           </div>
         </div>
@@ -132,120 +83,143 @@ export default function DigitalEngineeringPage() {
 
       {/* SECTION 2: MAIN INTRO SECTION */}
       <section className={styles.sectionIntro}>
-        <h2 className={styles.introTitle}>Digital Engineering for Modern Enterprises</h2>
+        <div className={styles.eyebrowGreen}>BUSINESS FIRST APPROACH</div>
+        <h2 className={styles.introTitle}>
+          Engineering Digital Solutions for Real-World Business
+        </h2>
         <p className={styles.introParagraph}>
-          We replace manual processes and rigid legacy systems with bespoke web applications, microservices, and mobile platforms.
-          Interlock data validation, automated approval gates, and instant enterprise system updates. <span className={styles.introBold}>High performance. Zero friction. Enterprise scale.</span>
+          IdentifYou engineers custom digital solutions that solve complex business and operational challenges.
+          We combine modern application engineering, cloud, data, AI and integration capabilities to build scalable digital solutions.
+          From business applications and enterprise integrations to customer and operational platforms, we connect technology with real business needs.
+          Our Business First approach ensures every solution is designed around measurable business value, agility and long-term growth.
         </p>
       </section>
 
-      {/* SECTION 2: ENGINEERING METHODOLOGY & FLOW */}
-      <section className={styles.sectionFlow}>
+      {/* SECTION 3: FEATURED CASE STUDY SHOWCASE */}
+      <section id="case-studies" className={styles.sectionCaseStudyCard}>
         <div className={styles.container}>
-          <div className={styles.eyebrowGreen}>OUR METHODOLOGY</div>
-          <h2 className={styles.sectionTitle}>Engineered for Scale, Security, and Agility</h2>
-          <p className={styles.sectionDesc}>
-            From early architectural blueprinting to continuous production optimization, we follow a rigorous engineering methodology that ensures code quality, zero-downtime releases, and robust performance under peak operational load.
-          </p>
-          <div className={styles.flowWrapper}>
-            <FlowChain nodes={engineeringFlow} />
+          <div className={styles.csCardBorder}>
+            <div className={styles.csHeaderRow}>
+              <div className={styles.eyebrowGreen}>FEATURED CASE STUDY</div>
+              <h3 className={styles.csHeaderTitle}>
+                Digital Transformation of the RFQ Management Process in D365 Business Central
+              </h3>
+            </div>
+
+            <div className={styles.csSplitGrid}>
+              <div className={styles.csVisualBox}>
+                <Link href="/case-studies/enhancing-the-rfq-process-in-d365-business-central">
+                  <img
+                    src="/images/case-studies/enhancing-the-rfq-process-in-d365-business-central.png"
+                    alt="RFQ management dashboard with vendor comparison view"
+                    className={styles.csImg}
+                  />
+                </Link>
+                <div className={styles.csCaptionOverlay}>
+                  RFQ management dashboard with vendor comparison view
+                </div>
+              </div>
+
+              <div className={styles.csContentBox}>
+                <div className={styles.csEyebrow}>INDUSTRY — MANUFACTURING</div>
+                <h3 className={styles.csTitle}>
+                  <Link href="/case-studies/enhancing-the-rfq-process-in-d365-business-central" style={{ color: 'inherit', textDecoration: 'none' }}>
+                    Streamlining Quotation &amp; Vendor Management in D365
+                  </Link>
+                </h3>
+
+                <p className={styles.csDetailRow}>
+                  <span className={styles.csDetailLabel}>Challenge — </span>
+                  Incomplete RFQs, unorganized vendor communication, and zero visibility into request status.
+                </p>
+
+                <p className={styles.csDetailRow}>
+                  <span className={styles.csDetailLabel}>Solution — </span>
+                  A Microsoft PowerApps system for requirement capture, vendor communication, tracking, and comparative response analysis.
+                </p>
+
+                <div className={styles.csStatRow}>
+                  <span className={styles.csStatBadge}>⚡ 30% Faster Vendor Onboarding</span>
+                  <span className={styles.csStatBadge}>📈 50% Faster Evaluation</span>
+                </div>
+
+                <div>
+                  <Link
+                    href="/case-studies/enhancing-the-rfq-process-in-d365-business-central"
+                    className={styles.btnPrimary}
+                    style={{ textDecoration: 'none' }}
+                  >
+                    Read the Full Case Study →
+                  </Link>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* SECTION 3: CAPABILITIES GRID */}
-      <section id="capabilities" className={styles.sectionCapabilities}>
+      {/* SECTION 4: DIGITAL ENGINEERING CASE STUDIES GRID */}
+      <section className={styles.sectionCaseStudyBanner}>
         <div className={styles.container}>
-          <div className={styles.eyebrowGreen}>CORE CAPABILITIES</div>
-          <h2 className={styles.sectionTitle}>Full-Lifecycle Digital Engineering</h2>
-          <p className={styles.sectionDesc}>
-            End-to-end product development tailored to solve complex operational challenges, replace legacy monoliths, and drive growth.
+          <div className={styles.eyebrowGreen} style={{ textAlign: 'center' }}>
+            MORE DIGITAL ENGINEERING CASE STUDIES
+          </div>
+          <h2 className={styles.sectionTitle} style={{ textAlign: 'center', marginBottom: '36px' }}>
+            Proven Digital Solutions in Action
+          </h2>
+
+          <div className={styles.caseStudiesGrid}>
+            {digitalCaseStudies.map((cs) => (
+              <CaseStudyCard
+                key={cs.slug}
+                slug={cs.slug}
+                title={cs.title}
+                tag={cs.tag}
+                categories={cs.categories}
+                image={cs.image}
+                href={`/case-studies/${cs.slug}`}
+              />
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* SECTION 5: TECHNOLOGY ECOSYSTEM */}
+      <section className={styles.sectionTechEcosystem}>
+        <div className={styles.container}>
+          <div className={styles.eyebrowGreen}>TECHNOLOGY ECOSYSTEM</div>
+          <h2 className={styles.sectionTitle}>Powered by the Right Application Technology</h2>
+          <p className={styles.techSubtitle}>
+            Enterprise application engineering requires the right combination of low-code platforms, custom code and integration tooling.
           </p>
 
-          <div className={styles.capGridContainer}>
-            {capabilities.map((cap) => (
-              <div key={cap.title} className={styles.capCard}>
-                <div className={styles.capHeader}>
-                  <span className={styles.capIcon}>{cap.icon}</span>
-                  <span className={styles.capBadge}>{cap.tag}</span>
-                </div>
-                <h3 className={styles.capTitle}>{cap.title}</h3>
-                <p className={styles.capDesc}>{cap.desc}</p>
-                <ul className={styles.capFeatureList}>
-                  {cap.features.map((f) => (
-                    <li key={f} className={styles.capFeatureItem}>
-                      <span className={styles.checkIcon}>✓</span>
-                      {f}
-                    </li>
-                  ))}
-                </ul>
+          <div className={styles.techPillsRow}>
+            {techEcosystemPills.map((pill) => (
+              <div key={pill} className={styles.techPill}>
+                {pill}
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* SECTION 4: TECH STACK SHOWCASE */}
-      <section className={styles.sectionTechStack}>
-        <div className={styles.container}>
-          <div className={styles.eyebrowGreen}>MODERN TECH STACK</div>
-          <h2 className={styles.sectionTitle}>Built with Industry-Leading Technologies</h2>
-          <p className={styles.sectionDesc}>
-            We select modern, resilient, and enterprise-proven tech stacks to power your web, cloud, and mobile digital platforms.
+      {/* SECTION 6: BOTTOM CTA BANNER */}
+      <section className={styles.sectionCtaDark}>
+        <div className={styles.ctaCardDark}>
+          <h2 className={styles.ctaTitle}>
+            Ready to Engineer Your Next Business Application?
+          </h2>
+          <p className={styles.ctaSubtitle}>
+            From RFQ management to customer support, we help enterprises build applications people actually adopt.
           </p>
-
-          <div className={styles.techCategoriesGrid}>
-            {techCategories.map((cat) => (
-              <div key={cat.name} className={styles.techCatCard}>
-                <h3 className={styles.techCatName}>{cat.name}</h3>
-                <div className={styles.techPillsGrid}>
-                  {cat.items.map((item) => (
-                    <span key={item} className={styles.techPill}>
-                      {item}
-                    </span>
-                  ))}
-                </div>
-              </div>
-            ))}
+          <div className={styles.ctaBtnGroup}>
+            <Link href="/contact" className={styles.btnPrimary}>
+              Talk to a Digital Engineering Expert
+            </Link>
+            <Link href="/case-studies" className={styles.btnSecondaryDark}>
+              Explore All Case Studies
+            </Link>
           </div>
-        </div>
-      </section>
-
-      {/* SECTION 5: SUCCESS STORIES IN ACTION */}
-      <section className={styles.sectionCaseStudies}>
-        <div className={styles.container}>
-          <div className={styles.eyebrowGreen}>REAL WORLD IMPACT</div>
-          <h2 className={styles.sectionTitle}>Digital Engineering in Action</h2>
-          <p className={styles.sectionDesc}>
-            Explore how our digital engineering capabilities deliver high-performance enterprise applications and automated operational solutions.
-          </p>
-
-          <div className={styles.csThreeGrid}>
-            <CaseStudyCard
-              slug="tailored-enterprise-solutions"
-              title="Tailored Enterprise Digital Solutions & Modular Platform Engineering"
-            />
-            <CaseStudyCard
-              slug="precision-abm-snowflake-cortex"
-              title="Precision ABM & Demand Intelligence with Snowflake Cortex AI"
-            />
-            <CaseStudyCard
-              slug="procurement-operations-intelligence"
-              title="Transforming Routine Procurement to Intelligent Automation"
-            />
-          </div>
-        </div>
-      </section>
-
-      {/* SECTION 6: CTA BLOCK */}
-      <section className={styles.sectionCta}>
-        <div className={styles.container}>
-          <CTABlock
-            headline="Build Your Digital Product"
-            description="Tell us your requirements — we'll engineer the right digital solution tailored around your business workflow."
-            buttonLabel="Talk to a Digital Engineering Expert"
-            buttonHref="/contact"
-          />
         </div>
       </section>
 

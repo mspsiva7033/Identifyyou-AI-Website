@@ -55,9 +55,9 @@ const threeCaseStudies = [
     desc: 'Transforming wind turbine telemetry into real-time predictive AI intelligence for failure prevention, gearbox health monitoring, and energy yield optimization.',
   },
   {
-    title: 'Infusing AI and Deep Learning into Floating Glass On-Line Inspection Systems',
+    title: 'Zebra Line Inspection',
     tag: 'GLASS MANUFACTURING · VISION AI',
-    url: '/case-studies',
+    url: '/case-studies/zebra-line-inspection',
     desc: 'High-speed, continuous float glass web inspection using multi-spectral cameras and deep learning models to detect optical defects, bubbles, and inclusions at line speeds.',
   },
   {

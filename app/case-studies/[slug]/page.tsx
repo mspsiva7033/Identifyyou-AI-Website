@@ -48,18 +48,25 @@ function renderDocItems(docItems: DocItem[]) {
   }
 
   docItems.forEach((item, idx) => {
-    if (item.type === 'bullet') {
+    if (item.type === 'bullet' && item.text) {
       currentBullets.push(item.text)
     } else {
       flushBullets(`bullets-${idx}`)
       if (item.type === 'h2') {
-        elements.push(<h2 key={idx} className={styles.h2}>{cleanHeadingText(item.text)}</h2>)
+        elements.push(<h2 key={idx} className={styles.h2}>{cleanHeadingText(item.text || '')}</h2>)
       } else if (item.type === 'h3') {
-        elements.push(<h3 key={idx} className={styles.h3}>{cleanHeadingText(item.text)}</h3>)
+        elements.push(<h3 key={idx} className={styles.h3}>{cleanHeadingText(item.text || '')}</h3>)
       } else if (item.type === 'h4') {
-        elements.push(<h4 key={idx} className={styles.h4}>{cleanHeadingText(item.text)}</h4>)
+        elements.push(<h4 key={idx} className={styles.h4}>{cleanHeadingText(item.text || '')}</h4>)
       } else if (item.type === 'p') {
-        elements.push(<p key={idx} className={styles.secPara}>{cleanHeadingText(item.text)}</p>)
+        elements.push(<p key={idx} className={styles.secPara}>{cleanHeadingText(item.text || '')}</p>)
+      } else if (item.type === 'image' && item.src) {
+        elements.push(
+          <div key={idx} className={styles.inlineImageWrapper}>
+            <img src={item.src} alt={item.alt || item.text || 'Case Study Visual'} className={styles.inlineImage} />
+            {item.text && <p className={styles.imageCaption}>{cleanHeadingText(item.text)}</p>}
+          </div>
+        )
       }
     }
   })

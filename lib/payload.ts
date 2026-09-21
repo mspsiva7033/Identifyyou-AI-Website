@@ -17,8 +17,10 @@ export interface CaseStudySummary {
 }
 
 export interface DocItem {
-  type: 'h2' | 'h3' | 'h4' | 'p' | 'bullet'
-  text: string
+  type: 'h2' | 'h3' | 'h4' | 'p' | 'bullet' | 'image'
+  text?: string
+  src?: string
+  alt?: string
 }
 
 export interface CaseStudyDetail {
@@ -162,6 +164,58 @@ export const FALLBACK_CASE_STUDIES: CaseStudySummary[] = [
 
   // --- Digital Engineering ---
   {
+    slug: 'cost-model-simulation',
+    title: 'Cost Model for K-Type Configuration Manufacturing',
+    tag: 'Manufacturing · Digital Engineering · Simulation',
+    categories: ['Digital Engineering', 'Automation', 'Manufacturing'],
+    challenge: 'High variance in cost model estimation for complex K-type manufacturing configurations.',
+    objective: 'Build a deterministic simulation model for K-type configuration cost calculation and quotation accuracy.',
+    solution: 'Bespoke digital engineering cost model simulation platform interlocking bill-of-materials and parametric calculations.',
+    deepTech: 'Parametric Cost Simulation + Digital Twin Engineering',
+    tech: 'Python + Node.js + Microsoft PowerApps + SQL',
+    integration: 'Enterprise ERP + CAD / BOM Systems',
+    outcome: '100% quotation accuracy and 80% faster calculation time.',
+  },
+  {
+    slug: 'enhancing-support-efficiency-with-integrated-order-management',
+    title: 'Integrating and Extending CRM Platforms Like Freshdesk',
+    tag: 'Customer Support · Digital Engineering · CRM Integration',
+    categories: ['Digital Engineering', 'Automation', 'Customer Support'],
+    challenge: 'Disconnected support channels and manual order tracking causing delayed resolution times and high ticket backlogs.',
+    objective: 'Connect messaging, order data, ticket management, and support operations into one system on top of Freshdesk.',
+    solution: 'IdentifYou CRM integration platform extending Freshdesk with automated order management workflows and analytics.',
+    deepTech: 'CRM Extension Platform + WebSockets Messaging + Order Data Integration',
+    tech: 'Freshdesk API + Node.js + React.js + PostgreSQL',
+    integration: 'Freshdesk + ERP + WMS',
+    outcome: '50% reduction in ticket resolution time and unified order tracking.',
+  },
+  {
+    slug: 'overcoming-data-access-challenges-in-a-multi-business-environment-for-streamlined-decision-making',
+    title: 'Overcoming Data Access Challenges in a Multi-Business Environment for Streamlined Decision-Making',
+    tag: 'Enterprise · Digital Engineering · Multi-Business Data Access',
+    categories: ['Digital Engineering', 'Data', 'Enterprise'],
+    challenge: 'Siloed data access across multiple business units hindering executive decision-making and cross-entity reporting.',
+    objective: 'Provide unified, secure, role-based data access across multi-business operational platforms.',
+    solution: 'Centralized data access portal with granular RBAC, automated data pipeline synchronization, and executive dashboards.',
+    deepTech: 'Multi-Tenant Data Access Security + Unified Query Layer',
+    tech: 'Python + SQL + Azure + React.js',
+    integration: 'Multi-Entity ERP + Data Warehouses',
+    outcome: 'Real-time cross-entity visibility and streamlined executive decision-making.',
+  },
+  {
+    slug: 'enhancing-the-rfq-process-in-d365-business-central',
+    title: 'Digital Transformation of the RFQ Management Process',
+    tag: 'Manufacturing · Digital Engineering · RFQ Automation',
+    categories: ['Digital Engineering', 'Manufacturing', 'Supply Chain'],
+    challenge: 'Incomplete RFQs, unorganized vendor communication and no visibility into request status.',
+    objective: 'Streamline requirement capture, vendor communication, tracking and comparative response analysis.',
+    solution: 'A Microsoft PowerApps system integrated with D365 Business Central for requirement capture, vendor communication, tracking and comparative response analysis.',
+    deepTech: 'PowerApps Custom Integration + Comparative Response Analytics',
+    tech: 'Microsoft PowerApps + D365 Business Central + SQL + Azure',
+    integration: 'D365 Business Central + Supplier Portals',
+    outcome: '30% faster vendor onboarding and 50% faster evaluation.',
+  },
+  {
     slug: 'tailored-enterprise-solutions',
     title: 'Tailored Enterprise Digital Solutions & Modular Platform Engineering',
     tag: 'Enterprise · Digital Engineering · Modern Architecture',
@@ -241,6 +295,19 @@ export const FALLBACK_CASE_STUDIES: CaseStudySummary[] = [
     integration: 'MES + Industrial Scanners + SAP WM',
     outcome: '100% automated lot traceability, zero incorrect routing events, and instant WIP visibility.',
   },
+  {
+    slug: 'connected-intelligent-plant',
+    title: 'Connected Intelligent Plant Architecture',
+    tag: 'Manufacturing · Industry Automation · Connected Operations',
+    categories: ['Industry Automation', 'Automation', 'Manufacturing', 'Supply Chain'],
+    challenge: 'Isolated machine islands, manual shop-floor reporting, and fragmented operational telemetry.',
+    objective: 'Transform reactive manufacturing lines into a unified, data-driven, intelligent plant architecture.',
+    solution: 'IdentifYou Connected Intelligent Plant layer unifying sensors, robotics, IIoT edge gateways, and enterprise ERP/MES.',
+    deepTech: 'Connected Operations Architecture + Edge-to-Cloud Interoperability + Autonomous Execution',
+    tech: 'OPC-UA + MQTT + Docker + IIoT Edge Gateways + Python + REST Microservices',
+    integration: 'Industrial PLCs + SCADA + MES + SAP ERP',
+    outcome: 'Real-time operational awareness, 100% digital traceability, and autonomous shop-floor execution.',
+  },
 
   // --- Vision AI ---
   {
@@ -258,16 +325,29 @@ export const FALLBACK_CASE_STUDIES: CaseStudySummary[] = [
   },
   {
     slug: 'vision-ai-bore-measurement',
-    title: 'High-Speed Micron-Level Bore & Interface Inspection',
-    tag: 'Manufacturing · Vision AI · Precision Metrology',
+    title: 'Machine Vision',
+    tag: 'Manufacturing · Vision AI · Process & Quality Control',
     categories: ['Vision AI', 'AI', 'Manufacturing', 'Automation'],
-    challenge: 'Internal bore diameter and keyway tolerances require sub-5-micron precision at high line speeds.',
-    objective: 'Achieve real-time non-contact dimensional inspection on the moving conveyor.',
-    solution: 'Hybrid 3D optical laser profiling and high-res 2D vision running GPU-accelerated metrology models.',
-    deepTech: '3D Optical Profiling + Sub-Pixel Edge Analytics + Metrology AI',
-    tech: '3D Laser Profilers + High-Res GigE Cameras + NVIDIA Jetson + OpenCV + C++',
-    integration: 'Precision Conveyor PLC + Tooling Compensation + Quality System',
-    outcome: '< 3 micron measurement repeatability, 1.2s cycle time, and zero manual gauge errors.',
+    challenge: 'Quality control in modern manufacturing requires capturing and converting video image processing into real-time actionable data.',
+    objective: 'Architect an ML/AI-driven process to turn visual inputs into automated decisions and zero-defect quality control.',
+    solution: 'Computer Integrated Manufacturing (CIM) with ML/AI-backed machine vision for real-time process control, shade variation detection, and automated process correction.',
+    deepTech: 'Computer Integrated Manufacturing + Real-Time Video Image Processing + Color-Space ML Algorithms + Process Correction Analytics',
+    tech: 'Industrial Vision Cameras + Calibrated Color-Space Algorithms + PyTorch ML Models + OpenCV + Edge Processing + PLC Control',
+    integration: 'Upstream Dyeing Process Control + Conveyor Systems + Enterprise CIM Platform',
+    outcome: '100% automated real-time defect detection, zero material waste from undetected variations, and real-time closed-loop process correction.',
+  },
+  {
+    slug: 'machine-vision',
+    title: 'Machine Vision',
+    tag: 'Manufacturing · Vision AI · Process & Quality Control',
+    categories: ['Vision AI', 'AI', 'Manufacturing', 'Automation'],
+    challenge: 'Quality control in modern manufacturing requires capturing and converting video image processing into real-time actionable data.',
+    objective: 'Architect an ML/AI-driven process to turn visual inputs into automated decisions and zero-defect quality control.',
+    solution: 'Computer Integrated Manufacturing (CIM) with ML/AI-backed machine vision for real-time process control, shade variation detection, and automated process correction.',
+    deepTech: 'Computer Integrated Manufacturing + Real-Time Video Image Processing + Color-Space ML Algorithms + Process Correction Analytics',
+    tech: 'Industrial Vision Cameras + Calibrated Color-Space Algorithms + PyTorch ML Models + OpenCV + Edge Processing + PLC Control',
+    integration: 'Upstream Dyeing Process Control + Conveyor Systems + Enterprise CIM Platform',
+    outcome: '100% automated real-time defect detection, zero material waste from undetected variations, and real-time closed-loop process correction.',
   },
   {
     slug: 'vision-ai-complex-dimension',
@@ -281,6 +361,19 @@ export const FALLBACK_CASE_STUDIES: CaseStudySummary[] = [
     tech: 'Custom Endoscopic Probe + 3D Laser Scanner + PyTorch + TensorRT',
     integration: 'Automated Inspection Cell PLC + MES + Quality Database',
     outcome: '100% internal thread pitch & depth verification with 0.8s cycle time per part.',
+  },
+  {
+    slug: 'zebra-line-inspection',
+    title: 'Zebra Line Inspection',
+    tag: 'Glass Manufacturing · Vision AI · On-Line Inspection',
+    categories: ['Vision AI', 'AI', 'Manufacturing', 'Automation'],
+    challenge: 'In the glass manufacturing industry, maintaining optical quality across temperature, pressure, and distortion shifts is a critical challenge.',
+    objective: 'Infuse AI and deep learning into floating glass on-line inspection systems.',
+    solution: 'AI-Powered Edge Vision Platform with dual-path optical hardware, CNN classification, GAN synthetic defect generation, and real-time semantic segmentation.',
+    deepTech: 'Edge AI + CNN Defect Classification + Spatial Transformers + GAN Synthetic Defect Generation + MISRA-C & NI LabVIEW Deterministic Logic',
+    tech: 'NI LabVIEW + MISRA-C + TensorRT + ONNX Runtime + NVIDIA Jetson + PyTorch + U-Net + YOLO',
+    integration: 'Upstream Annealing Lehr PLC + 4 Relay Outputs + Local DBMS + Cloud MLOps',
+    outcome: 'Zero-miss micro (<50 µm) & macro detection, 98% reduction in false positives, sub-10ms edge inference latencies.',
   },
 ]
 
@@ -2393,6 +2486,78 @@ export const FALLBACK_CASE_STUDIES_MAP: Record<string, CaseStudyDetail> = {
     "technologyUsed": "",
     "more": []
   },
+  "connected-intelligent-plant": {
+    "title": "Connected Intelligent Plant Architecture",
+    "breadcrumb": "Connected Intelligent Plant Architecture",
+    "tag": "Industry: Manufacturing · Application: Connected Operations & Autonomous Execution · Technology: IIoT + Edge Intelligence + Enterprise Integration",
+    "docItems": [
+      {
+        "type": "p",
+        "text": "Connected Intelligent Plant Architecture"
+      },
+      {
+        "type": "p",
+        "text": "From Reactive Manufacturing to Connected, Data-Driven & Autonomous Execution"
+      },
+      {
+        "type": "h2",
+        "text": "EXECUTIVE OVERVIEW"
+      },
+      {
+        "type": "p",
+        "text": "Modern industrial enterprises face a fundamental challenge: legacy machines, robotics, edge sensors, and cloud software operate in isolated siloes. Without continuous data synchronization, quality checks remain reactive, production scheduling suffers from lag, and shop-floor inventory variance persists."
+      },
+      {
+        "type": "p",
+        "text": "The Connected Intelligent Plant Architecture bridges OT (Operational Technology) and IT (Information Technology) into a seamless, high-throughput digital fabric."
+      },
+      {
+        "type": "image",
+        "src": "/images/case-studies/connected-intelligent-plant.png",
+        "alt": "Connected Intelligent Plant Architecture",
+        "text": "Figure 1: Connected Intelligent Plant Operational Ecosystem unifying robotics, edge sensors, and ERP/MES."
+      },
+      {
+        "type": "h2",
+        "text": "THE THREE PILLARS OF CONNECTED OPERATIONS"
+      },
+      {
+        "type": "bullet",
+        "text": "1. Sense: High-frequency telemetry polling across OPC-UA, MQTT, and industrial fieldbuses to monitor machine state, temperature, and quality."
+      },
+      {
+        "type": "bullet",
+        "text": "2. Respond: Sub-second local edge processing loops for immediate anomaly detection, automated line interlocks, and dynamic dispatching."
+      },
+      {
+        "type": "bullet",
+        "text": "3. Continuously Improve: Closed-loop analytics feeding shop-floor insights back into ERP, MES, and predictive maintenance algorithms."
+      },
+      {
+        "type": "h2",
+        "text": "THE RESULT"
+      },
+      {
+        "type": "bullet",
+        "text": "100% Real-Time Visibility across shop-floor operations and WIP inventory."
+      },
+      {
+        "type": "bullet",
+        "text": "Zero Data Siloes between edge sensors, PLCs, and enterprise cloud networks."
+      },
+      {
+        "type": "bullet",
+        "text": "Autonomous Shop-Floor Execution enabling rapid adaptation to changing production demand."
+      }
+    ],
+    "results": [
+      { "stat": "100%", "label": "Real-Time Shop-Floor Visibility" },
+      { "stat": "0", "label": "OT/IT Data Siloes" },
+      { "stat": "<10ms", "label": "Edge Reaction Latency" }
+    ],
+    "technologyUsed": "OPC-UA, MQTT, Industrial Edge Computing, Python, Docker, PySpark, Snowflake AI, REST Microservices",
+    "more": []
+  },
   "industrial-edge-device-engineering": {
     "title": "Industrial Edge Device Engineering",
     "breadcrumb": "Industrial Edge Device Engineering",
@@ -3505,6 +3670,151 @@ export const FALLBACK_CASE_STUDIES_MAP: Record<string, CaseStudyDetail> = {
     "technologyUsed": "",
     "more": []
   },
+  "machine-vision": {
+    "title": "Machine Vision",
+    "breadcrumb": "Machine Vision",
+    "tag": "Industry: Manufacturing · Application: Quality Control & Process Automation · Technology: Machine Vision + ML/AI Models",
+    "docItems": [
+      {
+        "type": "p",
+        "text": "Machine Vision"
+      },
+      {
+        "type": "p",
+        "text": "Industry: Manufacturing · Application: Quality Control & Process Automation · Technology: Machine Vision + ML/AI Models"
+      },
+      {
+        "type": "h2",
+        "text": "Beyond the Lens: Revolutionizing Manufacturing Through Machine Vision"
+      },
+      {
+        "type": "p",
+        "text": "In the modern industrial landscape, Machine Vision is often misunderstood as a standalone gadget—a high-tech camera perched above a conveyor belt. In reality, machine vision is not an end unto itself. It is a critical sensory organ in the vast universe of manufacturing and quality control, leveraging advanced video image processing to feed raw data into broader ML/AI ecosystems that turn visual inputs into intelligent, automated decisions."
+      },
+      {
+        "type": "p",
+        "text": "For executive leadership, the stakes couldn’t be higher. Quality control is no longer a task to be delegated; it is a fundamental driver of the bottom line. To remain competitive, quality assurance must be a \"built-in\" function, totally integrated into the design and production lifecycle. The computer—and specifically the data it processes—is the bridge to this integration."
+      },
+      {
+        "type": "p",
+        "text": "While the cameras and sensors are impressive, hardware alone should never be the primary consideration. The true value lies in the transition from Image to Data—a process maximized by ML/AI models that analyse, learn from, and act on that data in real time."
+      },
+      {
+        "type": "p",
+        "text": "Machine vision systems serve as the foundation for Computer Integrated Manufacturing (CIM). Backed by ML/AI intelligence, they tie together a company’s most vital resources: its people, its equipment, and its facilities (Man, Machine, Method)."
+      },
+      {
+        "type": "h2",
+        "text": "Manufacturing-First Insights & Timeliness"
+      },
+      {
+        "type": "bullet",
+        "text": "Manufacturing-First Insights: It is manufacturing data that impacts quality, not the other way around. By capturing data at the point of creation, we gain insights into design, process planning, and production flow."
+      },
+      {
+        "type": "bullet",
+        "text": "The Power of Timeliness: For data to be actionable, it must be accurate and—more importantly—timely. Automated data capture allows for real-time process control, significantly reducing errors and minimizing the risks associated with human fatigue."
+      },
+      {
+        "type": "bullet",
+        "text": "Holistic Oversight: Machine vision extends quality control beyond simple piece-part inspection, allowing management to oversee the entire manufacturing health of the organization."
+      },
+      {
+        "type": "image",
+        "src": "/images/case-studies/machine-vision-textile.png",
+        "alt": "Textile & Yarn Machine Vision Inspection System",
+        "text": "Figure 1: Automated Color-Space Camera System inspecting textile yarn packages for shade variations in real time."
+      },
+      {
+        "type": "h2",
+        "text": "Use Case Spotlight: Textile & Yarn Manufacturing"
+      },
+      {
+        "type": "p",
+        "text": "To understand the power of this technology, look no further than the global Textile Yarn Market. In an increasingly competitive landscape, quality is the only prerequisite for survival."
+      },
+      {
+        "type": "p",
+        "text": "For yarn manufacturers, Shade Variation—both package-to-package and within a single package—is a persistent technical nightmare. When these dyed yarns are woven into solid-color fabrics, even a slight depth-of-shade variation results in unlevel coloring across the fabric."
+      },
+      {
+        "type": "h3",
+        "text": "The Economic Toll of Legacy Operations"
+      },
+      {
+        "type": "bullet",
+        "text": "Rejection: Scrapping unlevel portions of the fabric, leading to massive material waste."
+      },
+      {
+        "type": "bullet",
+        "text": "Re-correction: Attempting to wash or re-dye the material, which is an expensive, time-consuming process that often degrades the yarn’s integrity."
+      },
+      {
+        "type": "h3",
+        "text": "The Machine Vision Solution"
+      },
+      {
+        "type": "p",
+        "text": "By implementing machine vision at the inspection stage, manufacturers can identify shade variations with a level of precision the human eye cannot match:"
+      },
+      {
+        "type": "bullet",
+        "text": "Automated Detection: Systems scan yarn packages in real-time, using calibrated color-space algorithms to ensure consistency."
+      },
+      {
+        "type": "bullet",
+        "text": "Process Correction: Data from the vision system is fed back into the dyeing process, allowing for micro-adjustments in chemical ratios or temperature before a mass-production error occurs."
+      },
+      {
+        "type": "bullet",
+        "text": "Economic Feasibility: By catching errors at the source, textile leaders eliminate the need for costly re-dyeing, ensuring that every yard of fabric meets the \"levelness\" required for high-end retail."
+      },
+      {
+        "type": "h2",
+        "text": "The Bottom Line: Architecting an ML/AI-Driven Process"
+      },
+      {
+        "type": "p",
+        "text": "Sophisticated manufacturing requires automated inspection to guarantee quality. From incoming receiving and forming to assembly and shipping, machine vision—powered by advanced ML/AI—is the key to a zero-defect strategy."
+      },
+      {
+        "type": "p",
+        "text": "By shifting the focus from \"buying a camera\" to \"architecting an ML/AI-driven process,\" enterprises can transform their quality control from a cost center into a sustainable market advantage."
+      }
+    ],
+    "results": [
+      {
+        "stat": "100%",
+        "label": "Automated Real-Time Defect Detection"
+      },
+      {
+        "stat": "0%",
+        "label": "Material Waste from Undetected Variations"
+      },
+      {
+        "stat": "Real-Time",
+        "label": "Closed-Loop Process Correction"
+      }
+    ],
+    "technologyUsed": "Industrial Vision Cameras, Calibrated Color-Space Algorithms, PyTorch ML Models, OpenCV, Edge Processing, PLC Control Systems",
+    "more": [
+      {
+        "tag": "Glass Manufacturing · Vision AI · On-Line Inspection",
+        "title": "Zebra Line Inspection",
+        "slug": "zebra-line-inspection"
+      },
+      {
+        "tag": "Manufacturing · Vision AI · Quality Inspection",
+        "title": "Advanced Vision Inspection for Surface & Edge Integrity",
+        "slug": "advanced-vision-inspection-surface"
+      },
+      {
+        "tag": "Manufacturing · Vision AI · 3D Metrology",
+        "title": "Precision Inspection of Complex Threads & Internal Geometries",
+        "slug": "vision-ai-complex-dimension"
+      }
+    ]
+  },
   "vision-ai-bore-measurement": {
     "title": "Precision at the Point of Connection",
     "breadcrumb": "Precision at the Point of Connection",
@@ -3989,6 +4299,172 @@ export const FALLBACK_CASE_STUDIES_MAP: Record<string, CaseStudyDetail> = {
     },
     technologyUsed: "",
     more: []
+  },
+  "zebra-line-inspection": {
+    "title": "Zebra Line Inspection",
+    "breadcrumb": "Zebra Line Inspection",
+    "tag": "Industry: Glass Manufacturing · Application: On-Line Glass Inspection · Technology: Dual-Path Optics + Vision AI + Edge Acceleration",
+    "docItems": [
+      {
+        "type": "p",
+        "text": "Zebra Line Inspection"
+      },
+      {
+        "type": "p",
+        "text": "Industry: Glass Manufacturing · Application: On-Line Glass Inspection · Technology: Dual-Path Optics + Vision AI + Edge Acceleration"
+      },
+      {
+        "type": "h2",
+        "text": "Executive Summary"
+      },
+      {
+        "type": "p",
+        "text": "In the glass manufacturing industry, image distortion and surface defects are inherent physical realities. As glass undergoes tempering, heat-strengthening, and environmental shifts (temperature, barometric pressure, and wind loads), maintaining optical quality is a critical challenge."
+      },
+      {
+        "type": "p",
+        "text": "This case study examines the transformation of an automated Floating Glass On-Line Inspection System from a purely deterministic, rule-based setup into a next-generation AI-Powered Edge Vision Platform. By upgrading advanced optical hardware (Camera and Laser systems) with Deep Learning (CNN) classification, generative adversarial networks (GANs) for synthetic defect training, and real-time semantic segmentation, the system achieves unprecedented precision in micro-defect localization and macro-distortion analysis. This modern framework blends deterministic, safety-critical MISRA-C and NI LabVIEW execution with cloud-to-edge machine learning pipelines."
+      },
+      {
+        "type": "h2",
+        "text": "The Challenge: Defect Variety and the Limits of Hard-Coded Rules"
+      },
+      {
+        "type": "p",
+        "text": "Glass companies universally acknowledge that image distortion is a baseline fact of production. However, legacy machine vision systems rely on strict, manually configured pixel-threshold rules. These hard-coded formulas struggle to keep pace with high-speed modern production lines and the complex, subtle variations within the four core defect categories:"
+      },
+      {
+        "type": "image",
+        "src": "/images/case-studies/zebra-line-architecture.png",
+        "alt": "Smart Cyber-Physical Inspection System Architecture",
+        "text": "Figure 1: Cyber-Physical AI Inspection Architecture integrating laser scattering, LabVIEW determinism, and PyTorch deep learning (<10ms)."
+      },
+      {
+        "type": "h2",
+        "text": "The Modernized Solution: A Smart Cyber-Physical Inspection System"
+      },
+      {
+        "type": "p",
+        "text": "To achieve comprehensive quality assurance, the modern solution injects an AI layer directly into the dual-path hardware infrastructure, creating a multi-modal, deep-learning-driven inspection engine."
+      },
+      {
+        "type": "h3",
+        "text": "1. AI-Enhanced Dual-Path Hardware Infrastructure"
+      },
+      {
+        "type": "p",
+        "text": "The physical sensors are retrofitted to serve as high-fidelity data feeds for computer vision models:"
+      },
+      {
+        "type": "bullet",
+        "text": "Intelligent Camera-Based Zebra Board System: Rather than relying solely on classical line-tracking to monitor the \"waviness\" of reflected zebra stripes under Daylight and UV light, frames are routed into a deep spatial transformer network. This network filters out ambient plant vibration and isolates true optical refraction and surface waviness down to a fraction of a diopter."
+      },
+      {
+        "type": "bullet",
+        "text": "Laser-Based Optics System: Multi-channel dark-field laser scattering data is treated as a high-frequency 1D/2D signal array. Machine learning models analyze the unique signature of the laser light scattering to immediately differentiate between a benign surface speck of dust and a structural scratch or crack smaller than 50 μm."
+      },
+      {
+        "type": "h3",
+        "text": "2. Hybrid Algorithmic Intelligence (Deterministic Logic + Neural Networks)"
+      },
+      {
+        "type": "p",
+        "text": "Raw images are processed by a uniquely coupled dual-engine architecture designed for industrial speed and adaptability:"
+      },
+      {
+        "type": "bullet",
+        "text": "The Deterministic Layer (MISRA-C & NI LabVIEW): The system retains its core, safety-critical MISRA-C code running inside NI LabVIEW. This layer manages the primary, high-throughput parabolizing math, line-speed synchronization, and critical automation loops with absolute real-time determinism."
+      },
+      {
+        "type": "bullet",
+        "text": "The AI / Deep Learning Layer (TensorRT & ONNX Runtime): Integrated alongside LabVIEW via optimized runtime environments, deep neural networks take over where traditional math models fail. When the parabolizing algorithm detects an ambiguous surface variation, a localized YOLO (You Only Look Once) or MobileNet architecture performs sub-millisecond object detection to confidently classify the anomaly."
+      },
+      {
+        "type": "h2",
+        "text": "Advanced Industrial AI Implementation Features"
+      },
+      {
+        "type": "bullet",
+        "text": "Edge AI Deployment via Hardware Acceleration: Neural networks are compiled and optimized using toolkits like NVIDIA TensorRT or Intel OpenVINO, running directly on edge accelerators (e.g., NVIDIA Jetson or industrial PCs with dedicated GPUs) embedded within the LabVIEW workflow. This guarantees sub-10ms inference latencies, matching high-speed float glass line rates."
+      },
+      {
+        "type": "bullet",
+        "text": "Synthetic Defect Generation via GANs (Generative Adversarial Networks): High-quality glass production lines inherently suffer from a \"data scarcity\" problem—severe defects like deep knots or cracks are rare, making it difficult to collect balanced training datasets. The modern system utilizes GANs to synthetically generate realistic, high-fidelity images of rare defects, pre-training the vision models before the system even deploys."
+      },
+      {
+        "type": "bullet",
+        "text": "Closed-Loop Manufacturing Feedback: Beyond triggering the 4 Potential-Free Relay Outputs (NOs) for immediate physical rejection or marking of defective sheets, the AI platform communicates directly with upstream PLC systems. For instance, if the system flags a recurring \"chatter\" or \"streak\" pattern, it signals the annealing lehr or melting control loop to dynamically adjust temperatures or line tension, preventing scrap before it happens."
+      },
+      {
+        "type": "bullet",
+        "text": "Cloud MLOps and Adaptive Learning: The localized Database Management System (DBMS) automatically syncs anomalous or low-confidence edge frames to a secure cloud repository. Here, models are continuously retrained on new defect variants and pushed back to the production floor via Over-The-Air (OTA) updates, ensuring the inspection system adapts to new glass recipes without manual recalibration."
+      }
+    ],
+    "tableBlock": {
+      "headers": [
+        "Defect Category",
+        "Traditional Identification Challenge",
+        "Modern AI Solution Approach"
+      ],
+      "rows": [
+        [
+          "1. Discrete Defects (Bubbles, stones, knots)",
+          "Hard to distinguish from transient surface dust using traditional grayscale thresholds.",
+          "Convolutional Neural Networks (CNNs) classify internal vs. external defects via depth-of-field shadow analysis."
+        ],
+        [
+          "2. Dimensional Defects (Size, thickness, shape)",
+          "Point-checking sensors miss progressive, multi-axis tapering or edge warping.",
+          "Continuous Spatial Regression Models map volumetric irregularities across the entire moving glass ribbon."
+        ],
+        [
+          "3. Distortion Defects (Refractive index, contours)",
+          "The mathematical parabolizing of zebra lines struggles with complex, overlapping wave patterns.",
+          "Deep Optical Flow & Transformer Networks predict and isolate complex, non-linear lens distortions in real time."
+        ],
+        [
+          "4. Surface Defects (Scratches, dimples, chatter)",
+          "Microscopic scratches under 50 μm lack contrast, causing false negatives or high false-alarm rates.",
+          "Semantic Edge Segmentation (e.g., U-Net architectures) maps and highlights micro-fissures at the pixel level."
+        ]
+      ]
+    },
+    "results": [
+      {
+        "stat": "100%",
+        "label": "Zero-Miss Micro (<50 μm) & Macro Detection"
+      },
+      {
+        "stat": "98%",
+        "label": "Reduction in False Positives"
+      },
+      {
+        "stat": "<10ms",
+        "label": "Sub-10ms Edge Inference Latency"
+      },
+      {
+        "stat": "24/7",
+        "label": "Closed-Loop Upstream Diagnostics"
+      }
+    ],
+    "technologyUsed": "NI LabVIEW, MISRA-C, NVIDIA TensorRT, Intel OpenVINO, ONNX Runtime, YOLO, MobileNet, U-Net, GANs, PyTorch, NVIDIA Jetson",
+    "more": [
+      {
+        "tag": "Glass Manufacturing · Vision AI · On-Line Inspection",
+        "title": "Zebra Line Inspection",
+        "slug": "zebra-line-inspection"
+      },
+      {
+        "tag": "Manufacturing · Vision AI · Quality Inspection",
+        "title": "Advanced Vision Inspection for Surface & Edge Integrity",
+        "slug": "advanced-vision-inspection-surface"
+      },
+      {
+        "tag": "Manufacturing · Vision AI · 3D Metrology",
+        "title": "Precision Inspection of Complex Threads & Internal Geometries",
+        "slug": "vision-ai-complex-dimension"
+      }
+    ]
   }
 }
 

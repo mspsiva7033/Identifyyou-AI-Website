@@ -4,7 +4,32 @@ import React, { useState } from 'react'
 import Link from 'next/link'
 import { Header } from '@/components/layout/Header'
 import { Footer } from '@/components/layout/Footer'
+import { CaseStudyCard } from '@/components/ui/CaseStudyCard'
 import styles from './page.module.css'
+
+const connectedCaseStudies = [
+  {
+    slug: 'connected-intelligent-plant',
+    title: 'Connected Intelligent Plant Architecture',
+    tag: 'CONNECTED OPERATIONS · AUTOMATED EXECUTION',
+    categories: ['Industry Automation', 'Automation', 'Manufacturing'],
+    image: '/images/case-studies/connected-intelligent-plant.png',
+  },
+  {
+    slug: 'industrial-edge-device-engineering',
+    title: 'Industrial Edge Device Engineering — Hardware Foundation for Edge AI',
+    tag: 'HARDWARE FOUNDATION · EDGE AI',
+    categories: ['Industry Automation', 'Automation', 'Manufacturing'],
+    image: '/images/case-studies/industrial-edge-device-engineering.png',
+  },
+  {
+    slug: 'towards-zero-inventory-variance-automation',
+    title: 'Towards Zero Inventory Variance — Digitally Controlled Material Execution',
+    tag: 'MATERIAL TRACEABILITY · MES EXECUTION',
+    categories: ['Industry Automation', 'Automation', 'Supply Chain'],
+    image: '/images/case-studies/towards-zero-inventory-variance-automation.png',
+  },
+]
 
 const comparisonData = [
   { traditional: 'Machine data is isolated', connected: 'Machine data is connected' },
@@ -17,6 +42,54 @@ const comparisonData = [
   { traditional: 'Dashboards show history', connected: 'Intelligence supports decisions' },
   { traditional: 'People discover problems', connected: 'Systems detect and highlight problems' },
   { traditional: 'Data describes what happened', connected: 'AI helps determine what should happen next' },
+]
+
+const useCaseCards = [
+  {
+    id: 'tv30',
+    navLabel: '1. TV30 Pyrometer Gateway',
+    tag: 'FEATURED SUCCESS STORY · INDUSTRY AUTOMATION',
+    title: 'Industrial Edge Gateway for Fluke Thermalert® TV30 Pyrometer',
+    desc1:
+      'In high-stakes industrial environments, a slight temperature deviation can mean the difference between seamless production and costly equipment failure. Our Industrial Edge Gateway, purpose-built for the Fluke Thermalert TV30 Pyrometer, transforms raw thermal data into actionable business intelligence.',
+    desc2:
+      'We engineered an IP65 industrial edge gateway running Raspberry Pi 4 ARM hardware with RS485 pyrometer polling, local sub-second anomaly detection, and automated rich WhatsApp alerts.',
+    highlight:
+      'Achieving 99.4% equipment uptime, continuous 24/7 thermal assurance, and zero unpredicted critical failures.',
+    btnLabel: 'Explore Fluke TV30 Success Story →',
+    btnHref: '/case-studies/fluke-tv30',
+    image: '/images/case-studies/fluke-tv30.png',
+  },
+  {
+    id: 't40',
+    navLabel: '2. T40 Pyrometer Gateway',
+    tag: 'FEATURED SUCCESS STORY · INDUSTRY AUTOMATION',
+    title: 'Industrial Edge Gateway for Fluke Thermalert® T40 Pyrometer',
+    desc1:
+      'Thermal monitoring across continuous casting and heat-treatment lines requires non-stop telemetry polling without cloud latency or connection drops.',
+    desc2:
+      'Our T40 Edge Gateway processes high-frequency pyrometer telemetry at the edge, detecting micro-spikes instantly and pushing real-time alerts to maintenance engineers.',
+    highlight:
+      'Sub-second edge anomaly detection with zero unpredicted thermal shutdowns.',
+    btnLabel: 'Explore Fluke T40 Success Story →',
+    btnHref: '/case-studies/fluke-t40',
+    image: '/images/case-studies/fluke-t40.png',
+  },
+  {
+    id: 'edge-intelligence',
+    navLabel: '3. Industrial Edge Intelligence',
+    tag: 'SOFTWARE PLATFORM · EDGE AI',
+    title: 'Edge Intelligence & Software Platform for Industrial Applications',
+    desc1:
+      'Deploying containerized microservices and AI workloads across distributed factory edge gateways without OT downtime.',
+    desc2:
+      'IdentifYou Edge Intelligence software runtime brings Docker/K3s container orchestration, store-and-forward time-series caching, and centralized OTA management to shop-floor hardware.',
+    highlight:
+      'Sub-10ms real-time edge processing and fleet-wide OTA application management.',
+    btnLabel: 'Explore Industrial Edge Intelligence →',
+    btnHref: '/case-studies/industrial-edge-intelligence',
+    image: '/images/case-studies/industrial-edge-intelligence.png',
+  },
 ]
 
 const floorCapabilities: Record<
@@ -62,14 +135,17 @@ const floorCapabilities: Record<
 }
 
 export default function IndustryAutomationPage() {
+  const [activeUseCase, setActiveUseCase] = useState<string>('tv30')
   const [selectedCap, setSelectedCap] = useState<string>('AGV/AMR material movement')
+
   const currentCapData = floorCapabilities[selectedCap]
+  const currentUseCase = useCaseCards.find((c) => c.id === activeUseCase) || useCaseCards[0]
 
   return (
     <div className={styles.page}>
       <Header />
 
-      {/* 1. HERO / BANNER */}
+      {/* SECTION 1: HERO / BANNER */}
       <section className={styles.sectionHeroBanner}>
         <img
           src="/images/industry_automation_hero.png"
@@ -85,20 +161,31 @@ export default function IndustryAutomationPage() {
               We design, develop, and deploy automation systems that connect production processes, move materials
               intelligently, and help plants scale with confidence.
             </p>
-            <div className={styles.heroAccentGreen}>Connect. Automate. Orchestrate. Improve.</div>
             <div className={styles.btnGroup}>
               <Link href="/contact" className={styles.btnPrimary}>
                 Talk to an Automation Expert
               </Link>
-              <a href="#capabilities" className={styles.btnSecondaryDark}>
+              <a href="#capabilities" className={styles.btnSecondary}>
                 Explore Capabilities
               </a>
             </div>
           </div>
+
+          {/* CIRCULAR PLANT OPERATIONS CYCLE GRAPHIC */}
+          <div className={styles.circularVisualBox}>
+            <div className={styles.circleOuterDashed} />
+            <div className={styles.circleCenter}>
+              PLANT<br />OPERATIONS
+            </div>
+            <div className={`${styles.circleNode} ${styles.nodeConnect}`}>Connect</div>
+            <div className={`${styles.circleNode} ${styles.nodeAutomate}`}>Automate</div>
+            <div className={`${styles.circleNode} ${styles.nodeOrchestrate}`}>Orchestrate</div>
+            <div className={`${styles.circleNode} ${styles.nodeImprove}`}>Improve</div>
+          </div>
         </div>
       </section>
 
-      {/* 2. MAIN INTRODUCTION */}
+      {/* SECTION 2: MAIN INTRODUCTION */}
       <section className={styles.sectionIntro}>
         <h2 className={styles.introTitle}>
           Intelligent Industry Automation, Connected Operations &amp; Autonomous Execution
@@ -113,9 +200,91 @@ export default function IndustryAutomationPage() {
         </p>
       </section>
 
-      {/* 3. FROM REACTIVE MANUFACTURING TO INTELLIGENT MANUFACTURING */}
+      {/* SECTION 3: CONNECTED OPERATIONS CASE STUDIES */}
+      <section className={styles.sectionConnectedCaseStudies}>
+        <div className={styles.connectedHeaderRow}>
+          <div className={styles.eyebrowGreen}>CONNECTED OPERATIONS</div>
+          <h2 className={styles.connectedSectionTitle}>Pillar Case Studies &amp; Architecture</h2>
+          <p className={styles.connectedSectionSub}>
+            Real-world case studies demonstrating connected operations, edge device engineering, and zero inventory variance execution.
+          </p>
+        </div>
+
+        <div className={styles.caseStudiesGrid}>
+          {connectedCaseStudies.map((cs) => (
+            <CaseStudyCard
+              key={cs.slug}
+              slug={cs.slug}
+              title={cs.title}
+              tag={cs.tag}
+              categories={cs.categories}
+              image={cs.image}
+              href={`/case-studies/${cs.slug}`}
+            />
+          ))}
+        </div>
+      </section>
+
+      {/* SECTION 4: THREE FEATURED USE CASE CARDS */}
+      <section className={styles.sectionThreeUseCases}>
+        <div className={styles.useCaseHeaderRow}>
+          <div className={styles.eyebrowGreen}>CASE STUDIES &amp; HARDWARE PLATFORMS</div>
+          <h2 className={styles.useCaseTitle}>Featured Industrial Automation Solutions</h2>
+
+          <div className={styles.useCaseNavTabs}>
+            {useCaseCards.map((uc) => (
+              <button
+                key={uc.id}
+                onClick={() => setActiveUseCase(uc.id)}
+                className={`${styles.useCaseTab} ${
+                  activeUseCase === uc.id ? styles.useCaseTabActive : ''
+                }`}
+              >
+                {uc.navLabel}
+              </button>
+            ))}
+          </div>
+        </div>
+
+        <div className={styles.csCardDark}>
+          <div className={styles.csGrid}>
+            <div>
+              <div className={styles.csTag}>{currentUseCase.tag}</div>
+              <h3 className={styles.csTitle}>{currentUseCase.title}</h3>
+              <p className={styles.csDesc}>{currentUseCase.desc1}</p>
+              <p className={styles.csDesc}>{currentUseCase.desc2}</p>
+              <p className={styles.csDesc} style={{ color: '#96c73d', fontWeight: '700' }}>
+                {currentUseCase.highlight}
+              </p>
+              <div style={{ marginTop: '24px' }}>
+                <Link href={currentUseCase.btnHref} className={styles.btnPrimary}>
+                  {currentUseCase.btnLabel}
+                </Link>
+              </div>
+            </div>
+
+            <div className={styles.csImgBox}>
+              <img
+                src={currentUseCase.image}
+                alt={currentUseCase.title}
+                className={styles.realImg}
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* SECTION 5: COMPARISON TABLE */}
       <section className={styles.sectionComparison}>
-        <h2 className={styles.compHeading}>From Reactive Manufacturing to Intelligent Manufacturing</h2>
+        <div className={styles.eyebrowGreen} style={{ textAlign: 'center' }}>
+          OPERATIONAL TRANSFORMATION
+        </div>
+        <h2 className={styles.compHeading}>
+          Traditional Factory vs. Connected Intelligent Factory
+        </h2>
+        <p className={styles.compSubheading}>
+          A side-by-side breakdown of legacy operational siloes versus a modern, connected intelligent plant ecosystem.
+        </p>
 
         <div className={styles.compTable}>
           <div className={styles.compHeaderRow}>
@@ -134,100 +303,7 @@ export default function IndustryAutomationPage() {
         </div>
       </section>
 
-      {/* 4. SUPPORTING DOCUMENT CARD (CONNECTED INTELLIGENT PLANT) */}
-      <section className={styles.sectionSupportingCard}>
-        <div className={styles.supportingCard}>
-          <div>
-            <div className={styles.supportingPath}>
-              Industry_Automation → Supporting Document → connected_intelligent_plant
-            </div>
-            <h3 className={styles.supportingTitle}>Connected Intelligent Plant Architecture</h3>
-            <p className={styles.supportingDesc}>
-              Explore the detailed architecture for connecting shop-floor machines, PLCs, edge inferencing, and cloud
-              intelligence into a unified autonomous plant.
-            </p>
-          </div>
-          <Link href="/contact" className={styles.btnPrimary} style={{ whiteSpace: 'nowrap' }}>
-            Explore Connected Intelligent Plant →
-          </Link>
-        </div>
-      </section>
-
-      {/* 5. FLUKE TV30 SUCCESS STORY */}
-      <section className={styles.sectionCaseStudy}>
-        <div className={styles.csCardDark}>
-          <div className={styles.csGrid}>
-            <div>
-              <div className={styles.csTag}>FEATURED SUCCESS STORY · INDUSTRY AUTOMATION</div>
-              <h2 className={styles.csTitle}>
-                Industrial Edge Gateway for Fluke Thermalert® TV30 Pyrometer
-              </h2>
-              <p className={styles.csDesc}>
-                In high-stakes industrial environments, a slight temperature deviation can mean the difference between
-                seamless production and costly equipment failure. Our Industrial Edge Gateway, purpose-built for the
-                Fluke Thermalert TV30 Pyrometer, transforms raw thermal data into actionable business intelligence.
-              </p>
-              <p className={styles.csDesc}>
-                We engineered an IP65 industrial edge gateway running Raspberry Pi 4 ARM hardware with RS485 pyrometer
-                polling, local sub-second anomaly detection, and automated rich WhatsApp alerts.
-              </p>
-              <p className={styles.csDesc} style={{ color: '#96c73d', fontWeight: '700' }}>
-                Achieving 99.4% equipment uptime, continuous 24/7 thermal assurance, and zero unpredicted critical
-                failures.
-              </p>
-              <div style={{ marginTop: '24px' }}>
-                <Link href="/case-studies/fluke-t40" className={styles.btnPrimary}>
-                  Explore Fluke TV30 Success Story →
-                </Link>
-              </div>
-            </div>
-
-            <div className={styles.csImgBox}>
-              <img
-                src="/images/case-studies/fluke-t40.png"
-                alt="Fluke Thermalert TV30 Edge Gateway"
-                className={styles.realImg}
-              />
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* 6. MACHINE VISION */}
-      <section className={styles.sectionCaseStudy}>
-        <div className={styles.csCardDark} style={{ background: '#121C17' }}>
-          <div className={styles.csGrid}>
-            <div className={styles.csImgBox}>
-              <img
-                src="/images/vision_ai_hero_production_line.png"
-                alt="Machine Vision Quality Inspection"
-                className={styles.realImg}
-              />
-            </div>
-
-            <div>
-              <div className={styles.csTag}>VISION AI &amp; MACHINE VISION</div>
-              <h2 className={styles.csTitle}>Machine Vision &amp; Visual Quality Inspection</h2>
-              <p className={styles.csDesc}>
-                Manufacturing quality is not just about seeing defects. It is about making the right quality decision, at
-                the right time, on the production line.
-              </p>
-              <p className={styles.csDesc}>
-                IdentifYou uses Visual Intelligence and AI to help manufacturers continuously understand what is happening on
-                the production line, identify quality risks and turn visual information into real-time operational decisions —
-                detecting defects, verifying processes, identifying deviations and enabling automated decisions in real time.
-              </p>
-              <div style={{ marginTop: '24px' }}>
-                <Link href="/deep-tech/vision-ai" className={styles.btnPrimary}>
-                  Explore Machine Vision Solutions →
-                </Link>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* 7. WHERE THIS SHOWS UP ON THE FLOOR */}
+      {/* SECTION 6: WHERE THIS SHOWS UP ON THE FLOOR */}
       <section id="capabilities" className={styles.sectionCapabilities}>
         <div className={styles.capsCardDark}>
           <h2 className={styles.capsTitle}>Where This Shows Up on the Floor</h2>
@@ -282,7 +358,7 @@ export default function IndustryAutomationPage() {
         </div>
       </section>
 
-      {/* 8. FINAL CTA */}
+      {/* SECTION 7: FINAL CTA BANNER */}
       <section className={styles.sectionCta}>
         <div className={styles.ctaCardDark}>
           <h2 className={styles.ctaTitle}>
@@ -303,7 +379,6 @@ export default function IndustryAutomationPage() {
         </div>
       </section>
 
-      {/* 9. FOOTER */}
       <Footer />
     </div>
   )

@@ -38,11 +38,11 @@
   margin: 0 0 40px;
 }
 
-/* SECTION 1: TOP HERO BANNER (DARK SECTION WITH CATEGORY BG IMAGE AT 40% OPACITY) */
+/* SECTION 1: TOP HERO BANNER (<Banner>) */
 .sectionHeroBanner {
   position: relative;
   width: 100%;
-  padding: 80px 24px;
+  padding: 96px 24px;
   background: #0d1612;
   border-bottom: 1px solid rgba(150, 199, 61, 0.15);
   color: #ffffff;
@@ -56,7 +56,7 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-  opacity: 0.4;
+  opacity: 0.35;
   z-index: 0;
 }
 
@@ -66,7 +66,7 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(90deg, #0d1612 0%, rgba(13, 22, 18, 0.85) 55%, rgba(13, 22, 18, 0.45) 100%);
+  background: linear-gradient(90deg, #0d1612 0%, rgba(13, 22, 18, 0.88) 55%, rgba(13, 22, 18, 0.5) 100%);
   z-index: 1;
 }
 
@@ -75,49 +75,34 @@
   z-index: 2;
   max-width: 1240px;
   margin: 0 auto;
-  padding: 0;
 }
 
 .heroCardDark {
-  max-width: 820px;
-  margin: 0;
-  text-align: left;
+  max-width: 860px;
 }
 
 .heroTitle {
   font-family: 'Manrope', sans-serif;
   font-weight: 800;
-  font-size: clamp(30px, 4vw, 46px);
+  font-size: clamp(32px, 4.2vw, 48px);
   line-height: 1.18;
   color: #ffffff;
   margin: 0 0 20px;
   letter-spacing: -0.015em;
-  text-align: left;
 }
 
 .heroDesc {
-  font-size: clamp(15px, 1.8vw, 17px);
-  line-height: 1.6;
+  font-size: clamp(16px, 1.9vw, 18px);
+  line-height: 1.65;
   color: #a0b0a7;
-  max-width: 760px;
-  margin: 0 0 24px;
-  text-align: left;
-}
-
-.heroAccentGreen {
-  font-family: 'Manrope', sans-serif;
-  font-size: clamp(18px, 2.2vw, 24px);
-  font-weight: 800;
-  color: #96c73d;
-  margin-bottom: 32px;
-  text-align: left;
+  max-width: 780px;
+  margin: 0 0 32px;
 }
 
 .btnGroup {
   display: flex;
   flex-wrap: wrap;
-  gap: 14px;
-  justify-content: flex-start;
+  gap: 16px;
   align-items: center;
 }
 
@@ -165,9 +150,9 @@
   background: rgba(150, 199, 61, 0.1);
 }
 
-/* SECTION 2: MAIN INTRO SECTION */
+/* SECTION 2: INTRO SECTION */
 .sectionIntro {
-  padding: 80px 24px 64px;
+  padding: 80px 24px;
   max-width: 1040px;
   margin: 0 auto;
   text-align: center;
@@ -176,331 +161,345 @@
 .introTitle {
   font-family: 'Manrope', sans-serif;
   font-weight: 800;
-  font-size: clamp(34px, 4.5vw, 52px);
-  color: #0F172A;
-  margin: 0 0 28px;
+  font-size: clamp(30px, 3.8vw, 44px);
+  color: #0f172a;
+  margin: 0 0 24px;
   letter-spacing: -0.02em;
-  line-height: 1.15;
+  line-height: 1.2;
 }
 
 .introParagraph {
-  font-size: clamp(16.5px, 1.9vw, 20px);
+  font-size: clamp(16px, 1.8vw, 18.5px);
   line-height: 1.75;
-  color: #2B3530;
+  color: #334155;
   margin: 0;
 }
 
-.introBold {
-  font-weight: 800;
-  color: #0F172A;
+/* CASE STUDY BANNER SECTIONS */
+.sectionCaseStudyBanner {
+  padding: 64px 0;
+  background: #f8fafc;
+  border-top: 1px solid #e2e8f0;
+  border-bottom: 1px solid #e2e8f0;
 }
 
-.btnGroup {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 14px;
-  margin-bottom: 32px;
+.caseStudiesGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
 }
 
-.btnPrimary {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  background: #96c73d;
-  color: #ffffff;
-  font-weight: 700;
-  font-size: 14px;
-  padding: 12px 26px;
-  border-radius: 8px;
-  text-decoration: none;
-  box-shadow: 0 4px 14px rgba(150, 199, 61, 0.3);
-  transition: background 0.25s ease, transform 0.2s ease, box-shadow 0.25s ease;
+.simpleCsCard {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 32px;
+  box-shadow: 0 4px 16px rgba(15, 23, 42, 0.04);
+  transition: transform 0.2s ease, border-color 0.2s ease;
 }
 
-.btnPrimary:hover {
-  background: #82b032;
+.simpleCsCard:hover {
+  border-color: #96c73d;
   transform: translateY(-2px);
-  box-shadow: 0 6px 18px rgba(150, 199, 61, 0.4);
 }
 
-.btnSecondary {
+.csNumTag {
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  color: #96c73d;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+
+.simpleCsTitle {
+  font-size: clamp(20px, 2.4vw, 26px);
+  font-weight: 800;
+  color: #0f172a;
+  margin: 0 0 16px;
+  line-height: 1.3;
+}
+
+.docBadge {
   display: inline-flex;
   align-items: center;
-  justify-content: center;
-  background: transparent;
-  color: #0f172a;
-  border: 1px solid #cbd5e1;
-  font-weight: 600;
+  gap: 8px;
+  background: #f1f5f9;
+  color: #1e293b;
   font-size: 14px;
-  padding: 12px 26px;
-  border-radius: 8px;
+  font-weight: 700;
+  padding: 8px 16px;
+  border-radius: 6px;
+  border: 1px solid #cbd5e1;
   text-decoration: none;
   transition: all 0.2s ease;
 }
 
-.btnSecondary:hover {
+.docBadge:hover {
+  background: rgba(150, 199, 61, 0.12);
   border-color: #96c73d;
-  color: #96c73d;
-  background: rgba(150, 199, 61, 0.04);
+  color: #7aa12a;
 }
 
-/* Metric Pills in Hero */
-.heroMetricsGrid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 16px;
-  padding-top: 24px;
-  border-top: 1px solid #f1f5f9;
+/* FULL FEATURED CASE STUDY CARD (CASE STUDY 2 & 4) */
+.sectionCaseStudyCard {
+  padding: 64px 0;
+  background: #ffffff;
 }
 
-.heroMetricItem {
-  display: flex;
-  flex-direction: column;
+.csCardBorder {
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 16px;
+  padding: 36px;
+  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.04);
 }
 
-.heroMetricVal {
+.csHeaderRow {
+  margin-bottom: 24px;
+}
+
+.csHeaderTitle {
   font-size: 22px;
   font-weight: 800;
   color: #0f172a;
-  letter-spacing: -0.01em;
+  margin: 0 0 16px;
 }
 
-.heroMetricLabel {
-  font-size: 12.5px;
-  font-weight: 600;
-  color: #64748b;
+.csSplitGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 36px;
+  align-items: center;
 }
 
-.heroVisualBox {
+.csVisualBox {
   position: relative;
-  width: 100%;
-  border-radius: 16px;
+  border-radius: 12px;
   overflow: hidden;
-  box-shadow: 0 20px 40px rgba(15, 23, 42, 0.1);
   border: 1px solid #e2e8f0;
-  background: #f8fafc;
+  background: #0f172a;
+  box-shadow: 0 12px 28px rgba(15, 23, 42, 0.08);
 }
 
-.realImg {
+.csImg {
   width: 100%;
   height: auto;
   display: block;
   object-fit: cover;
 }
 
-/* SECTION 2: FLOW METHODOLOGY */
-.sectionFlow {
-  padding: 64px 0;
-  background: #f8fafc;
-  border-bottom: 1px solid #e2e8f0;
-}
-
-.flowWrapper {
-  margin-top: 32px;
-  background: #ffffff;
-  padding: 28px;
-  border-radius: 12px;
-  border: 1px solid #e2e8f0;
-  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.03);
-}
-
-/* SECTION 3: CAPABILITIES GRID */
-.sectionCapabilities {
-  padding: 72px 0;
-  background: #ffffff;
-  border-bottom: 1px solid #e2e8f0;
-}
-
-.capGridContainer {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 24px;
-}
-
-.capCard {
-  background: #f8fafc;
-  border: 1px solid #e2e8f0;
-  border-radius: 12px;
-  padding: 28px;
-  display: flex;
-  flex-direction: column;
-  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
-}
-
-.capCard:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 12px 24px rgba(15, 23, 42, 0.06);
-  border-color: #96c73d;
-}
-
-.capHeader {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 16px;
-}
-
-.capIcon {
-  font-size: 24px;
-}
-
-.capBadge {
-  font-size: 11px;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  color: #96c73d;
-  background: rgba(150, 199, 61, 0.12);
-  padding: 4px 10px;
-  border-radius: 20px;
-}
-
-.capTitle {
-  font-size: 18px;
-  font-weight: 800;
-  color: #0f172a;
-  margin: 0 0 10px;
-}
-
-.capDesc {
-  font-size: 14px;
-  line-height: 1.55;
-  color: #475569;
-  margin: 0 0 20px;
-  flex-grow: 1;
-}
-
-.capFeatureList {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-  border-top: 1px solid #e2e8f0;
-  padding-top: 16px;
-}
-
-.capFeatureItem {
-  font-size: 13px;
+.csCaptionOverlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 12px 16px;
+  background: rgba(15, 23, 42, 0.85);
+  backdrop-filter: blur(4px);
+  color: #94a3b8;
+  font-size: 12.5px;
   font-weight: 600;
-  color: #334155;
+}
+
+.csContentBox {
   display: flex;
-  align-items: center;
-  gap: 8px;
+  flex-direction: column;
 }
 
-.checkIcon {
-  color: #96c73d;
+.csEyebrow {
+  font-size: 11.5px;
   font-weight: 800;
+  letter-spacing: 0.1em;
+  color: #96c73d;
+  text-transform: uppercase;
+  margin-bottom: 10px;
 }
 
-/* SECTION 4: TECH STACK SHOWCASE */
-.sectionTechStack {
-  padding: 72px 0;
-  background: #f8fafc;
-  border-bottom: 1px solid #e2e8f0;
-}
-
-.techCategoriesGrid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 20px;
-}
-
-.techCatCard {
-  background: #ffffff;
-  border: 1px solid #e2e8f0;
-  border-radius: 12px;
-  padding: 24px;
-  box-shadow: 0 2px 8px rgba(15, 23, 42, 0.03);
-}
-
-.techCatName {
-  font-size: 16px;
+.csTitle {
+  font-size: clamp(22px, 2.6vw, 30px);
   font-weight: 800;
   color: #0f172a;
   margin: 0 0 16px;
-  padding-bottom: 10px;
-  border-bottom: 2px solid #96c73d;
+  line-height: 1.25;
 }
 
-.techPillsGrid {
+.csDesc {
+  font-size: 15px;
+  line-height: 1.6;
+  color: #475569;
+  margin: 0 0 20px;
+}
+
+.csDetailRow {
+  font-size: 14.5px;
+  line-height: 1.6;
+  color: #334155;
+  margin-bottom: 12px;
+}
+
+.csDetailLabel {
+  font-weight: 800;
+  color: #0f172a;
+}
+
+.csTagGrid {
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
+  margin: 16px 0 24px;
+}
+
+.csTagPill {
+  font-size: 12px;
+  font-weight: 700;
+  color: #334155;
+  background: #ffffff;
+  border: 1px solid #cbd5e1;
+  padding: 6px 14px;
+  border-radius: 6px;
+}
+
+.csStatRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.csStatBadge {
+  font-size: 13px;
+  font-weight: 800;
+  color: #0f172a;
+  background: rgba(150, 199, 61, 0.18);
+  border: 1px solid rgba(150, 199, 61, 0.4);
+  padding: 8px 16px;
+  border-radius: 6px;
+}
+
+.csLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: #7aa12a;
+  font-size: 14.5px;
+  font-weight: 800;
+  text-decoration: none;
+  transition: color 0.2s ease, transform 0.2s ease;
+  word-break: break-all;
+}
+
+.csLink:hover {
+  color: #61821e;
+  transform: translateX(4px);
+}
+
+/* SECTION 7: TECHNOLOGY ECOSYSTEM */
+.sectionTechEcosystem {
+  padding: 80px 0;
+  background: #f8fafc;
+  border-top: 1px solid #e2e8f0;
+  border-bottom: 1px solid #e2e8f0;
+  text-align: center;
+}
+
+.techSubtitle {
+  font-size: 16px;
+  line-height: 1.6;
+  color: #64748b;
+  max-width: 680px;
+  margin: 0 auto 36px;
+}
+
+.techPillsRow {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+  max-width: 900px;
+  margin: 0 auto;
 }
 
 .techPill {
-  font-size: 12.5px;
-  font-weight: 600;
-  color: #334155;
-  background: #f1f5f9;
-  padding: 6px 12px;
-  border-radius: 6px;
-  border: 1px solid #e2e8f0;
+  font-size: 14px;
+  font-weight: 700;
+  color: #1e293b;
+  background: #ffffff;
+  border: 1px solid #cbd5e1;
+  padding: 10px 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(15, 23, 42, 0.03);
   transition: all 0.2s ease;
 }
 
 .techPill:hover {
-  background: rgba(150, 199, 61, 0.1);
-  color: #82b032;
   border-color: #96c73d;
+  color: #7aa12a;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(150, 199, 61, 0.15);
 }
 
-/* SECTION 5: CASE STUDIES IN ACTION */
-.sectionCaseStudies {
-  padding: 72px 0;
+/* SECTION 8: BOTTOM CTA BANNER */
+.sectionCtaDark {
+  padding: 80px 24px;
   background: #ffffff;
-  border-bottom: 1px solid #e2e8f0;
 }
 
-.csThreeGrid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 24px;
+.ctaCardDark {
+  max-width: 1040px;
+  margin: 0 auto;
+  background: #0d1612;
+  border-radius: 20px;
+  padding: 60px 40px;
+  text-align: center;
+  color: #ffffff;
+  border: 1px solid rgba(150, 199, 61, 0.25);
+  box-shadow: 0 20px 50px rgba(13, 22, 18, 0.2);
 }
 
-/* SECTION 6: CTA BLOCK */
-.sectionCta {
-  padding: 64px 0 80px;
-  background: #ffffff;
+.ctaTitle {
+  font-family: 'Manrope', sans-serif;
+  font-weight: 800;
+  font-size: clamp(28px, 3.6vw, 42px);
+  margin: 0 0 16px;
+  letter-spacing: -0.015em;
+  color: #ffffff;
+}
+
+.ctaSubtitle {
+  font-size: clamp(15px, 1.8vw, 17.5px);
+  line-height: 1.6;
+  color: #94a3b8;
+  max-width: 680px;
+  margin: 0 auto 36px;
+}
+
+.ctaBtnGroup {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  justify-content: center;
+  align-items: center;
 }
 
 /* RESPONSIVE DESIGN */
-@media (max-width: 1024px) {
-  .heroCard {
+@media (max-width: 900px) {
+  .csSplitGrid {
     grid-template-columns: 1fr;
-    gap: 36px;
-  }
-
-  .capGridContainer {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .techCategoriesGrid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .csThreeGrid {
-    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
   }
 }
 
 @media (max-width: 640px) {
-  .capGridContainer {
-    grid-template-columns: 1fr;
+  .ctaCardDark {
+    padding: 40px 20px;
+  }
+  
+  .simpleCsCard {
+    padding: 24px;
   }
 
-  .techCategoriesGrid {
-    grid-template-columns: 1fr;
-  }
-
-  .csThreeGrid {
-    grid-template-columns: 1fr;
-  }
-
-  .heroMetricsGrid {
-    grid-template-columns: 1fr;
+  .csCardBorder {
+    padding: 24px;
   }
 }

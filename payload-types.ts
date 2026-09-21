@@ -276,8 +276,10 @@ export interface CaseStudy {
    */
   docItems?:
     | {
-        type: 'p' | 'h2' | 'h3' | 'h4' | 'bullet';
-        text: string;
+        type: 'p' | 'h2' | 'h3' | 'h4' | 'bullet' | 'image';
+        text?: string | null;
+        src?: string | null;
+        alt?: string | null;
         id?: string | null;
       }[]
     | null;
@@ -642,6 +644,8 @@ export interface CaseStudiesSelect<T extends boolean = true> {
     | {
         type?: T;
         text?: T;
+        src?: T;
+        alt?: T;
         id?: T;
       };
   comparisonTable?: T;
