@@ -4085,6 +4085,79 @@ export async function seed() {
     ],
     "technologyUsed": "Industrial Vision Cameras, Calibrated Color-Space Algorithms, PyTorch ML Models, OpenCV, Edge Processing, PLC Control Systems",
     "more": []
+  },
+  "overcoming-data-access-challenges-in-a-multi-business-environment-for-streamlined-decision-making": {
+    "title": "Overcoming Data Access Challenges in a Multi-Business Environment for Streamlined Decision-Making",
+    "breadcrumb": "Overcoming Data Access Challenges in a Multi-Business Environment for Streamlined Decision-Making",
+    "tag": "Enterprise · Digital Engineering · Multi-Business Data Access",
+    "illustration": "/images/case-studies/overcoming-data-access-challenges-in-a-multi-business-environment-for-streamlined-decision-making.png",
+    "overview": "In a multi-business and services environment, accessing decision-critical data spread across multiple enterprise systems poses significant challenges. Identifying the appropriate business functions for assigned tasks and issues is further complicated by tight SLAs and OLAs compliance targets, representing a major pain point for customers.",
+    "docItems": [
+      {
+        "type": "h2",
+        "text": "Problem Statement"
+      },
+      {
+        "type": "p",
+        "text": "In a multi-business and services environment, accessing decision-critical data spread across multiple enterprise systems poses significant challenges. Identifying the appropriate business functions for assigned tasks and issues is further complicated by tight SLAs and OLAs compliance targets, representing a major pain point for customers."
+      },
+      {
+        "type": "h2",
+        "text": "Solution Approach"
+      },
+      {
+        "type": "p",
+        "text": "To overcome these challenges, a customized application was developed. This application dynamically generates taxonomy-based business rules and interfaces with multiple enterprise systems and databases to validate these rules. By accurately identifying the right business functions to handle tasks, assignments, and issues, the solution streamlines processes."
+      },
+      {
+        "type": "p",
+        "text": "Additionally, through business flow automation and seamless integration with CRM systems, rapid issue resolution is facilitated, allowing customers to maintain higher SLAs and elevate their customer engagement scores. Moreover, strict adherence to OLAs compliances within the operations team is ensured, further enhancing operational efficiency."
+      },
+      {
+        "type": "h2",
+        "text": "Key Features"
+      },
+      {
+        "type": "bullet",
+        "text": "Dynamic Configuration of Business Rules: Users have the flexibility to dynamically configure business rules according to specific requirements."
+      },
+      {
+        "type": "bullet",
+        "text": "Seamless Integration Layer: The solution interface layer ensures seamless integrations between multiple enterprise systems, promoting data integrity and consistency."
+      },
+      {
+        "type": "bullet",
+        "text": "Enhanced Collaboration: A higher degree of collaboration between enterprise systems fosters improved data integrity and consistency, contributing to more effective decision-making processes."
+      },
+      {
+        "type": "h2",
+        "text": "Key Benefits"
+      },
+      {
+        "type": "bullet",
+        "text": "Improved Operational Efficiency: Streamlined processes and accurate business function identification lead to improved operational efficiency."
+      },
+      {
+        "type": "bullet",
+        "text": "Enhanced Compliance: Strict adherence to SLAs and OLAs compliances within the operations team ensures regulatory compliance and customer satisfaction."
+      },
+      {
+        "type": "bullet",
+        "text": "Elevated Customer Engagement: Rapid issue resolution and seamless integration with CRM systems result in higher customer engagement scores and improved customer satisfaction."
+      }
+    ],
+    "results": [
+      {
+        "stat": "100%",
+        "label": "OLA & SLA Compliance Adherence"
+      },
+      {
+        "stat": "Dynamic",
+        "label": "Taxonomy Business Rule Validation"
+      }
+    ],
+    "technologyUsed": "Python, SQL, Azure, React.js, CRM APIs, Enterprise Integration Layer",
+    "more": []
   }
 }
 
@@ -4096,6 +4169,10 @@ export async function seed() {
     { slug: 'precision-abm-snowflake-cortex', categoryId: supplyChainCat.id, filter: [{ category: 'Data Engineering' }, { category: 'Data' }, { category: 'AI' }] },
     { slug: 'revolutionizing-inventory-optimization', categoryId: supplyChainCat.id, filter: [{ category: 'Data Engineering' }, { category: 'Data' }, { category: 'Manufacturing' }, { category: 'Supply Chain' }] },
     { slug: 'optimizing-shipment-fleet-snowflake', categoryId: supplyChainCat.id, filter: [{ category: 'Data Engineering' }, { category: 'Data' }, { category: 'Supply Chain' }] },
+    { slug: 'cost-model-simulation', categoryId: manufacturingCat.id, filter: [{ category: 'Digital Engineering' }, { category: 'Automation' }, { category: 'Manufacturing' }] },
+    { slug: 'enhancing-support-efficiency-with-integrated-order-management', categoryId: manufacturingCat.id, filter: [{ category: 'Digital Engineering' }, { category: 'Automation' }, { category: 'Customer Support' }] },
+    { slug: 'overcoming-data-access-challenges-in-a-multi-business-environment-for-streamlined-decision-making', categoryId: manufacturingCat.id, filter: [{ category: 'Digital Engineering' }, { category: 'Data' }, { category: 'Automation' }] },
+    { slug: 'enhancing-the-rfq-process-in-d365-business-central', categoryId: manufacturingCat.id, filter: [{ category: 'Digital Engineering' }, { category: 'Manufacturing' }, { category: 'Supply Chain' }] },
     { slug: 'tailored-enterprise-solutions', categoryId: manufacturingCat.id, filter: [{ category: 'Digital Engineering' }, { category: 'Automation' }, { category: 'Manufacturing' }] },
     { slug: 'fluke-t40', categoryId: automationCat.id, filter: [{ category: 'Industry Automation' }, { category: 'Automation' }, { category: 'Manufacturing' }] },
     { slug: 'fluke-tv30', categoryId: automationCat.id, filter: [{ category: 'Industry Automation' }, { category: 'Automation' }, { category: 'Manufacturing' }] },

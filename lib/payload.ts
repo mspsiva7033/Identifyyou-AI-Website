@@ -4465,6 +4465,123 @@ export const FALLBACK_CASE_STUDIES_MAP: Record<string, CaseStudyDetail> = {
         "slug": "vision-ai-complex-dimension"
       }
     ]
+  },
+  "overcoming-data-access-challenges-in-a-multi-business-environment-for-streamlined-decision-making": {
+    "title": "Overcoming Data Access Challenges in a Multi-Business Environment for Streamlined Decision-Making",
+    "breadcrumb": "Overcoming Data Access Challenges in a Multi-Business Environment for Streamlined Decision-Making",
+    "tag": "Enterprise · Digital Engineering · Multi-Business Data Access",
+    "illustration": "/images/case-studies/overcoming-data-access-challenges-in-a-multi-business-environment-for-streamlined-decision-making.png",
+    "overview": "In a multi-business and services environment, accessing decision-critical data spread across multiple enterprise systems poses significant challenges. Identifying the appropriate business functions for assigned tasks and issues is further complicated by tight SLAs and OLAs compliance targets, representing a major pain point for customers.",
+    "docItems": [
+      {
+        "type": "h2",
+        "text": "Problem Statement"
+      },
+      {
+        "type": "p",
+        "text": "In a multi-business and services environment, accessing decision-critical data spread across multiple enterprise systems poses significant challenges. Identifying the appropriate business functions for assigned tasks and issues is further complicated by tight SLAs and OLAs compliance targets, representing a major pain point for customers."
+      },
+      {
+        "type": "h2",
+        "text": "Solution Approach"
+      },
+      {
+        "type": "p",
+        "text": "To overcome these challenges, a customized application was developed. This application dynamically generates taxonomy-based business rules and interfaces with multiple enterprise systems and databases to validate these rules. By accurately identifying the right business functions to handle tasks, assignments, and issues, the solution streamlines processes."
+      },
+      {
+        "type": "p",
+        "text": "Additionally, through business flow automation and seamless integration with CRM systems, rapid issue resolution is facilitated, allowing customers to maintain higher SLAs and elevate their customer engagement scores. Moreover, strict adherence to OLAs compliances within the operations team is ensured, further enhancing operational efficiency."
+      },
+      {
+        "type": "h2",
+        "text": "Key Features"
+      },
+      {
+        "type": "bullet",
+        "text": "Dynamic Configuration of Business Rules: Users have the flexibility to dynamically configure business rules according to specific requirements."
+      },
+      {
+        "type": "bullet",
+        "text": "Seamless Integration Layer: The solution interface layer ensures seamless integrations between multiple enterprise systems, promoting data integrity and consistency."
+      },
+      {
+        "type": "bullet",
+        "text": "Enhanced Collaboration: A higher degree of collaboration between enterprise systems fosters improved data integrity and consistency, contributing to more effective decision-making processes."
+      },
+      {
+        "type": "h2",
+        "text": "Key Benefits"
+      },
+      {
+        "type": "bullet",
+        "text": "Improved Operational Efficiency: Streamlined processes and accurate business function identification lead to improved operational efficiency."
+      },
+      {
+        "type": "bullet",
+        "text": "Enhanced Compliance: Strict adherence to SLAs and OLAs compliances within the operations team ensures regulatory compliance and customer satisfaction."
+      },
+      {
+        "type": "bullet",
+        "text": "Elevated Customer Engagement: Rapid issue resolution and seamless integration with CRM systems result in higher customer engagement scores and improved customer satisfaction."
+      }
+    ],
+    "challenges": [
+      {
+        "n": 1,
+        "title": "Multi-Business Data Fragmentation",
+        "desc": "Accessing decision-critical data spread across disparate enterprise systems in a multi-business environment."
+      },
+      {
+        "n": 2,
+        "title": "SLA & OLA Compliance Pressures",
+        "desc": "Identifying appropriate business functions for task routing under stringent SLA and OLA compliance targets."
+      }
+    ],
+    "results": [
+      {
+        "stat": "100%",
+        "label": "OLA & SLA Compliance Adherence"
+      },
+      {
+        "stat": "Dynamic",
+        "label": "Taxonomy Business Rule Validation"
+      }
+    ],
+    "solutionSteps": [
+      {
+        "n": 1,
+        "title": "Taxonomy-Based Business Rules Engine",
+        "challenge": "Manual or static task routing across multiple business entities.",
+        "solution": "Built a custom engine that dynamically generates and validates taxonomy business rules across enterprise databases.",
+        "outcome": "Accurate business function identification and seamless process execution."
+      },
+      {
+        "n": 2,
+        "title": "CRM Flow Automation & OLA Compliance",
+        "challenge": "Slow issue escalation and delayed customer resolution cycles.",
+        "solution": "Automated business workflows linked directly with CRM platforms to streamline task handoffs.",
+        "outcome": "Rapid resolution times and elevated customer satisfaction scores."
+      }
+    ],
+    "technologyUsed": "Python, SQL, Azure, React.js, CRM APIs, Enterprise Integration Layer",
+    "more": [
+      {
+        "tag": "Manufacturing · Digital Engineering · Simulation",
+        "title": "Cost Model for K-Type Configuration Manufacturing",
+        "slug": "cost-model-simulation"
+      },
+      {
+        "tag": "Customer Support · Digital Engineering · CRM Integration",
+        "title": "Integrating and Extending CRM Platforms Like Freshdesk",
+        "slug": "enhancing-support-efficiency-with-integrated-order-management"
+      },
+      {
+        "tag": "Manufacturing · Digital Engineering · RFQ Automation",
+        "title": "Digital Transformation of the RFQ Management Process",
+        "slug": "enhancing-the-rfq-process-in-d365-business-central"
+      }
+    ]
   }
 }
 
