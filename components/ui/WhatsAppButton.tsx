@@ -1,9 +1,16 @@
 'use client'
 
 import React from 'react'
+import { usePathname } from 'next/navigation'
 import styles from './WhatsAppButton.module.css'
 
 export function WhatsAppButton() {
+  const pathname = usePathname()
+
+  if (pathname?.startsWith('/admin')) {
+    return null
+  }
+
   const whatsappNumber = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || '919597046682'
   const message = encodeURIComponent('Hello IdentifYou Technologies, I would like to inquire about your Deep Tech & Industrial AI solutions.')
   const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${message}`
