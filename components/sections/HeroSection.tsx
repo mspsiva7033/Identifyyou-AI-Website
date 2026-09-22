@@ -67,7 +67,6 @@ export function HeroSection({
             {businessFirstSteps.map((step, idx) => (
               <div key={step.n} className={styles.processStepHorizWrap}>
                 <div className={styles.processStepHoriz}>
-                  <span className={styles.stepBadgeHoriz}>{step.n}</span>
                   <h3 className={styles.stepNameHoriz}>{step.title}</h3>
                   <p className={styles.stepSubHoriz}>{step.sub}</p>
                 </div>

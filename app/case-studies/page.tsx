@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import { Suspense } from 'react'
 import { Header } from '@/components/layout/Header'
 import { Footer } from '@/components/layout/Footer'
 import { CaseStudiesClient } from './CaseStudiesClient'
@@ -15,7 +16,9 @@ export default async function CaseStudiesPage() {
   return (
     <>
       <Header />
-      <CaseStudiesClient caseStudies={caseStudies} />
+      <Suspense fallback={null}>
+        <CaseStudiesClient caseStudies={caseStudies} />
+      </Suspense>
       <Footer />
     </>
   )

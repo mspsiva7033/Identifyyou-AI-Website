@@ -51,7 +51,7 @@ const threeCaseStudies = [
   {
     title: 'Transforming Wind Turbine Telemetry into Predictive AI Intelligence',
     tag: 'RENEWABLE ENERGY · PREDICTIVE AI',
-    url: '/case-studies',
+    url: '/case-studies?filter=Vision+AI',
     desc: 'Transforming wind turbine telemetry into real-time predictive AI intelligence for failure prevention, gearbox health monitoring, and energy yield optimization.',
   },
   {
@@ -63,7 +63,7 @@ const threeCaseStudies = [
   {
     title: 'Transforming Effluent Treatment Plants (ETP) through AI-Driven Industrial IoT (IIoT)',
     tag: 'PROCESS & ETP · INDUSTRIAL IOT',
-    url: '/case-studies',
+    url: '/case-studies?filter=Vision+AI',
     desc: 'AI-driven IIoT architecture for continuous water quality monitoring, automated chemical dosing optimization, and real-time compliance management in effluent treatment plants.',
   },
 ]
@@ -83,6 +83,7 @@ export default function VisionAIPage() {
         <div className={styles.heroDarkOverlay} />
         <div className={styles.heroContainer}>
           <div className={styles.heroCardDark}>
+            <div className={styles.eyebrowGreen}>VISION AI &amp; VISUAL INTELLIGENCE</div>
             <h1 className={styles.heroTitle}>
               Intelligent Vision for Intelligent Manufacturing
             </h1>
@@ -92,8 +93,11 @@ export default function VisionAIPage() {
               precise, real-time operational decisions.
             </p>
             <div className={styles.btnGroup}>
-              <Link href="/case-studies" className={styles.btnSecondaryDark}>
-                Explore More Success Stories
+              <Link href="/contact" className={styles.btnPrimary}>
+                Talk to a Vision AI Expert
+              </Link>
+              <Link href="/case-studies?filter=Vision+AI" className={styles.btnSecondaryDark}>
+                Explore Success Stories
               </Link>
             </div>
           </div>
@@ -172,20 +176,20 @@ export default function VisionAIPage() {
 
             <div className={styles.statMetricsGrid}>
               <div className={styles.statMetricBox}>
-                <span className={styles.statMetricVal}>[XX.X%]</span>
-                <span className={styles.statMetricLabel}>Accuracy</span>
+                <span className={styles.statMetricVal}>100%</span>
+                <span className={styles.statMetricLabel}>Zero-Miss Detection</span>
               </div>
               <div className={styles.statMetricBox}>
-                <span className={styles.statMetricVal}>[±X µm]</span>
-                <span className={styles.statMetricLabel}>Repeatability</span>
+                <span className={styles.statMetricVal}>98%</span>
+                <span className={styles.statMetricLabel}>Reduction in False Positives</span>
               </div>
               <div className={styles.statMetricBox}>
-                <span className={styles.statMetricVal}>[XX sec]</span>
-                <span className={styles.statMetricLabel}>Cycle Time</span>
+                <span className={styles.statMetricVal}>&lt;10ms</span>
+                <span className={styles.statMetricLabel}>Edge Inference Latency</span>
               </div>
               <div className={styles.statMetricBox}>
-                <span className={styles.statMetricVal}>[XXX /hr]</span>
-                <span className={styles.statMetricLabel}>Throughput</span>
+                <span className={styles.statMetricVal}>24/7</span>
+                <span className={styles.statMetricLabel}>Closed-Loop Upstream Diagnostics</span>
               </div>
             </div>
 

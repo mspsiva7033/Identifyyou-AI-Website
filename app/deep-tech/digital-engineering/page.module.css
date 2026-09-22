@@ -42,7 +42,11 @@
 .sectionHeroBanner {
   position: relative;
   width: 100%;
-  padding: 96px 24px;
+  height: 450px;
+  min-height: 450px;
+  padding: 40px 24px;
+  display: flex;
+  align-items: center;
   background: #0d1612;
   border-bottom: 1px solid rgba(150, 199, 61, 0.15);
   color: #ffffff;
@@ -74,6 +78,7 @@
   position: relative;
   z-index: 2;
   max-width: 1240px;
+  width: 100%;
   margin: 0 auto;
 }
 

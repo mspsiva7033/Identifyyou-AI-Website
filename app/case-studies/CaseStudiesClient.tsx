@@ -1,6 +1,7 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
+import { useSearchParams } from 'next/navigation'
 import { CaseStudyCard } from '@/components/ui/CaseStudyCard'
 import styles from './page.module.css'
 
@@ -33,7 +34,18 @@ const filterLabels = [
 ]
 
 export function CaseStudiesClient({ caseStudies }: Props) {
-  const [filter, setFilter] = useState('All')
+  const searchParams = useSearchParams()
+  const [filter, setFilter] = useState(() => {
+    const param = searchParams.get('filter')
+    return param && filterLabels.includes(param) ? param : 'All'
+  })
+
+  useEffect(() => {
+    const param = searchParams.get('filter')
+    if (param && filterLabels.includes(param)) {
+      setFilter(param)
+    }
+  }, [searchParams])
 
   const visible = filter === 'All'
     ? caseStudies
