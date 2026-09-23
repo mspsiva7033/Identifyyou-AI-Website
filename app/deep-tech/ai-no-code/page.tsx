@@ -43,7 +43,7 @@ const platformCapabilities = [
   {
     icon: '📊',
     title: 'Data-to-Application',
-    desc: 'Automatically inspect enterprise databases and warehouses to build interactive CRUD portals, management tools, and analytics UI.',
+    desc: 'Automatically inspect enterprise databases and Excel sheets to build interactive CRUD portals, management tools, and analytics UI.',
     tag: 'DATA SYNTHESIS',
   },
   {
@@ -66,9 +66,9 @@ const platformCapabilities = [
   },
   {
     icon: '☁️',
-    title: 'Cloud-Native & SaaS Deployment',
-    desc: 'Containerize and deploy applications into secure cloud environments or expose them instantly as multi-tenant SaaS modules.',
-    tag: 'MULTI-TENANT SCALE',
+    title: 'Cloud-Native & Lifecycle Deployment',
+    desc: 'Manage Dev, Staging, and Production environments with revision control, feature promotion, and cloud packaging.',
+    tag: 'LIFECYCLE CONTROL',
   },
 ]
 
@@ -76,57 +76,57 @@ const successStories = [
   {
     title: 'Business Driven Software System',
     slug: 'business-driven-software-system',
-    tag: 'ENTERPRISE OPERATIONS · AI NO-CODE',
-    desc: 'Transform business domain intent, process models, and operational logic into production-grade software applications without traditional development friction.',
+    tag: 'ENTERPRISE OPERATIONS · BUSINESS ARCHITECTURE',
+    desc: 'Enables business users to express requirements in business terms and build, change, and control business functions without writing code—shifting from software built for the business to software built by the business.',
     industry: 'Enterprise Operations',
-    challenge: 'Disconnect between domain leaders and technical IT sprints delayed application delivery.',
-    solution: 'AI platform converting business language definitions directly into operational schemas and web applications.',
-    metricVal: '80%',
-    metricLbl: 'Faster Time-to-Market',
+    challenge: 'Traditional software development requires translating requirements to IT teams, creating bottlenecks where simple functional updates take weeks or months.',
+    solution: 'Business-Owned No-Code Platform that understands business context (plants, suppliers, approval rules) to build business-driven software.',
+    metricVal: 'Business-Owned',
+    metricLbl: 'Rules & Logic Control',
   },
   {
     title: 'NLP based Text-to-Business Application',
     slug: 'nlp-text-to-business-application',
     tag: 'OPERATIONAL AUTOMATION · NLP ENGINE',
-    desc: 'Convert natural language descriptions and conversational prompts directly into forms, database models, and automated approval workflows.',
+    desc: 'Translate natural language requirements directly into working business applications while leveraging a continuously evolving knowledge base of reusable business rules.',
     industry: 'Process Automation',
-    challenge: 'Non-technical managers lacked coding tools to build custom operational workflow tools.',
-    solution: 'Natural language processing engine parsing text instructions into dynamic web forms and approval chains.',
-    metricVal: '< 10 Min',
-    metricLbl: 'Prompt to Live App',
+    challenge: 'Converting business requirements into software requires multiple analysis and dev cycles, often duplicating existing logic and workflows.',
+    solution: 'NLP engine parsing plain text descriptions to assemble UIs, business rules, workflows, validations, and actions automatically.',
+    metricVal: 'Text-to-App',
+    metricLbl: 'Intelligent Rule Reuse',
   },
   {
     title: 'Data to Application Development',
     slug: 'data-to-application-development',
-    tag: 'ENTERPRISE DATA · DATA INTEGRATION',
-    desc: 'Instantly turn raw databases, data warehouses, and API streams into functional, secure, and interactive enterprise web portals.',
+    tag: 'ENTERPRISE DATA · DATA-TO-APPLICATION',
+    desc: 'Build structured business applications directly from existing enterprise data, databases, and Excel spreadsheets across 4 flexible starting points.',
     industry: 'Enterprise Data',
-    challenge: 'Operational data trapped in data lakes without intuitive operational UI write-back.',
-    solution: 'Automated schema discovery compiler building responsive grid views and write-back portals over databases.',
-    metricVal: 'Instant',
-    metricLbl: 'Portal Generation',
+    challenge: 'Business data exists across databases and spreadsheets, but converting it into functional tools requires technical development effort.',
+    solution: 'Built-in data connectors and mappers allowing users to select data points and build applications around their real operational processes.',
+    metricVal: '4 Paths',
+    metricLbl: 'Excel, DB, UI & Req Ingestion',
   },
   {
     title: 'Business Portals Around Existing ERP',
     slug: 'business-portals-around-existing-erp',
-    tag: 'ERP EXTENSION · SAP INTEGRATION',
-    desc: 'Extend legacy ERP systems like SAP, Oracle, and Dynamics with modern, agile business portals without modifying core ERP logic.',
-    industry: 'Manufacturing & ERP',
-    challenge: 'Custom ERP modifications were expensive, slow, and risked core operational stability.',
-    solution: 'Non-invasive API connectors binding agile role-specific portals to SAP RFCs and enterprise endpoints.',
-    metricVal: '6x',
-    metricLbl: 'Faster Deployment',
+    tag: 'ENTERPRISE ERP · SAP & MES EXTENSION',
+    desc: 'Build purpose-built Production, Inventory, Supplier, and Quality Portals around existing ERP and MES systems—extending, not replacing, core enterprise investments.',
+    industry: 'Manufacturing & Enterprise Systems',
+    challenge: 'Core ERP and MES systems lack custom operational workflows, leading to spreadsheet/email workarounds while modifying core systems is costly and risky.',
+    solution: 'Application layer with built-in connectors providing a modern interface, workflows, and portals around existing ERP/MES investments.',
+    metricVal: 'Extension Layer',
+    metricLbl: 'Preserve Core ERP & MES',
   },
   {
     title: 'Deployment Management',
     slug: 'deployment-management',
-    tag: 'CLOUD RUNTIME · DEVOPS ORCHESTRATION',
-    desc: 'Automate cloud containerization, security vulnerability scanning, multi-tenant isolation, and continuous runtime governance.',
-    industry: 'Cloud Engineering',
-    challenge: 'Deploying generated apps required manual container packaging and security review bottlenecks.',
-    solution: 'Automated cloud deployment engine managing Docker container packaging, SAST scans, and SSO bindings.',
-    metricVal: '100%',
-    metricLbl: 'Automated Pipeline',
+    tag: 'CLOUD RUNTIME · REVISION CONTROL',
+    desc: 'Manage the complete application lifecycle with configurable Development, Staging, and Production environments, built-in Revision Management, and feature pushing.',
+    industry: 'Cloud Engineering & DevOps',
+    challenge: 'Traditional deployment processes introduce technical dependencies and prevent business teams from controlling application versions and release timing.',
+    solution: 'Configurable environment management and revision promotion framework enabling business-controlled application lifecycle management.',
+    metricVal: 'Dev → Stage → Prod',
+    metricLbl: 'Business-Controlled Lifecycle',
   },
 ]
 
@@ -255,10 +255,6 @@ export default function AINoCodePage() {
                       src={`/images/case-studies/${cs.slug}.png`}
                       alt={cs.title}
                       className={styles.csImg}
-                      onError={(e) => {
-                        // Fallback image if specific PNG does not exist
-                        e.currentTarget.src = '/images/ai_no_code_hero.png'
-                      }}
                     />
                   </div>
                   <div className={styles.csContent}>

@@ -23,7 +23,7 @@ export default function PowerBIABMCaseStudyPage() {
         {' / '}
         <Link href="/deep-tech/data-engineering" className={styles.breadcrumbLink}>Data Engineering</Link>
         {' / '}
-        <Link href="/case-studies/data-engineering/precision-abm" className={styles.breadcrumbLink}>Precision ABM</Link>
+        <Link href="/case-studies/precision-abm-snowflake-cortex" className={styles.breadcrumbLink}>Precision ABM</Link>
         {' / '}
         Power BI ABM
       </div>
