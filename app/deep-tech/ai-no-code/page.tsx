@@ -7,19 +7,19 @@ import { FlowChain } from '@/components/ui/FlowChain'
 import styles from './page.module.css'
 
 export const metadata: Metadata = {
-  title: 'AI-Powered No-Code Platform — Describe It. Build It. Run It.',
+  title: 'AI & No-Code Platform — Build Business Applications in Business Language',
   description:
-    'Build intelligent business applications by describing what your business needs in natural business language. Generate workflows, data pipelines, and operational applications 10x faster — with zero traditional code overhead.',
+    'Build business applications from natural language and enterprise data—with seamless system integration.',
 }
 
 const journey = [
   'Business User',
-  'Describe Requirement',
-  'AI Engine Understands',
-  'Application / Workflow Generated',
-  'Configure & Validate',
-  'Deploy to Cloud',
-  'Run as Business App / SaaS',
+  'Describe Business Requirement',
+  'AI Engine Parses Intent',
+  'Schema & Workflow Generated',
+  'Validate & Connect Data',
+  'Deploy to Enterprise Cloud',
+  'Run as Business Application',
 ]
 
 const highlights = [
@@ -36,39 +36,97 @@ const highlights = [
 const platformCapabilities = [
   {
     icon: '💬',
-    title: 'Natural Language App Generation',
-    desc: 'Transform plain-English business rules and process descriptions into full-stack relational schemas, UI forms, and REST APIs automatically.',
+    title: 'Text-to-Application',
+    desc: 'Transform natural language descriptions and business rules into relational schemas, form interfaces, and REST APIs automatically.',
     tag: 'NLP ENGINE',
   },
   {
-    icon: '⚡',
-    title: 'Visual Workflow & Automation',
-    desc: 'Drag-and-drop workflow builders interlocked with AI decision nodes, approval routing, and automated document generation.',
-    tag: 'ZERO FRICTION',
+    icon: '📊',
+    title: 'Data-to-Application',
+    desc: 'Automatically inspect enterprise databases and warehouses to build interactive CRUD portals, management tools, and analytics UI.',
+    tag: 'DATA SYNTHESIS',
+  },
+  {
+    icon: '🏢',
+    title: 'Business & Industrial Apps',
+    desc: 'Build operational tools for shop floor execution, procurement intelligence, supplier portals, and executive management.',
+    tag: 'INDUSTRIAL READY',
   },
   {
     icon: '🔌',
-    title: 'Enterprise Data Connectors',
-    desc: 'Instantly connect legacy ERPs (SAP, Oracle), databases, and cloud APIs into unified business applications without custom code.',
-    tag: 'UNIFIED DATA',
+    title: 'Enterprise System Integration',
+    desc: 'Seamlessly integrate with ERP (SAP, Oracle), MES, relational databases, cloud APIs, and third-party enterprise platforms.',
+    tag: 'SYSTEM CONNECTORS',
   },
   {
     icon: '🛡️',
-    title: 'Role-Based Access & Security',
-    desc: 'Enterprise-grade RBAC, single sign-on (SSO), row-level data governance, and audit trails baked into every generated app.',
-    tag: 'ENTERPRISE GOVERNANCE',
-  },
-  {
-    icon: '🔄',
-    title: 'Continuous AI Refinement',
-    desc: 'Modify live applications by describing updates in natural language—allowing domain experts to evolve business tools instantly.',
-    tag: 'AGILE EVOLUTION',
+    title: 'Role-Based Security & Governance',
+    desc: 'Enterprise-grade RBAC, single sign-on (SSO), row-level data security, and audit trails baked natively into every generated app.',
+    tag: 'ENTERPRISE RBAC',
   },
   {
     icon: '☁️',
-    title: 'Cloud-Native & SaaS Ready',
-    desc: 'Deploy generated applications into secure, scalable containerized environments or expose them directly as SaaS modules.',
+    title: 'Cloud-Native & SaaS Deployment',
+    desc: 'Containerize and deploy applications into secure cloud environments or expose them instantly as multi-tenant SaaS modules.',
     tag: 'MULTI-TENANT SCALE',
+  },
+]
+
+const successStories = [
+  {
+    title: 'Business Driven Software System',
+    slug: 'business-driven-software-system',
+    tag: 'ENTERPRISE OPERATIONS · AI NO-CODE',
+    desc: 'Transform business domain intent, process models, and operational logic into production-grade software applications without traditional development friction.',
+    industry: 'Enterprise Operations',
+    challenge: 'Disconnect between domain leaders and technical IT sprints delayed application delivery.',
+    solution: 'AI platform converting business language definitions directly into operational schemas and web applications.',
+    metricVal: '80%',
+    metricLbl: 'Faster Time-to-Market',
+  },
+  {
+    title: 'NLP based Text-to-Business Application',
+    slug: 'nlp-text-to-business-application',
+    tag: 'OPERATIONAL AUTOMATION · NLP ENGINE',
+    desc: 'Convert natural language descriptions and conversational prompts directly into forms, database models, and automated approval workflows.',
+    industry: 'Process Automation',
+    challenge: 'Non-technical managers lacked coding tools to build custom operational workflow tools.',
+    solution: 'Natural language processing engine parsing text instructions into dynamic web forms and approval chains.',
+    metricVal: '< 10 Min',
+    metricLbl: 'Prompt to Live App',
+  },
+  {
+    title: 'Data to Application Development',
+    slug: 'data-to-application-development',
+    tag: 'ENTERPRISE DATA · DATA INTEGRATION',
+    desc: 'Instantly turn raw databases, data warehouses, and API streams into functional, secure, and interactive enterprise web portals.',
+    industry: 'Enterprise Data',
+    challenge: 'Operational data trapped in data lakes without intuitive operational UI write-back.',
+    solution: 'Automated schema discovery compiler building responsive grid views and write-back portals over databases.',
+    metricVal: 'Instant',
+    metricLbl: 'Portal Generation',
+  },
+  {
+    title: 'Business Portals Around Existing ERP',
+    slug: 'business-portals-around-existing-erp',
+    tag: 'ERP EXTENSION · SAP INTEGRATION',
+    desc: 'Extend legacy ERP systems like SAP, Oracle, and Dynamics with modern, agile business portals without modifying core ERP logic.',
+    industry: 'Manufacturing & ERP',
+    challenge: 'Custom ERP modifications were expensive, slow, and risked core operational stability.',
+    solution: 'Non-invasive API connectors binding agile role-specific portals to SAP RFCs and enterprise endpoints.',
+    metricVal: '6x',
+    metricLbl: 'Faster Deployment',
+  },
+  {
+    title: 'Deployment Management',
+    slug: 'deployment-management',
+    tag: 'CLOUD RUNTIME · DEVOPS ORCHESTRATION',
+    desc: 'Automate cloud containerization, security vulnerability scanning, multi-tenant isolation, and continuous runtime governance.',
+    industry: 'Cloud Engineering',
+    challenge: 'Deploying generated apps required manual container packaging and security review bottlenecks.',
+    solution: 'Automated cloud deployment engine managing Docker container packaging, SAST scans, and SSO bindings.',
+    metricVal: '100%',
+    metricLbl: 'Automated Pipeline',
   },
 ]
 
@@ -89,13 +147,14 @@ export default function AINoCodePage() {
           <div className={styles.heroCardDark}>
             <div className={styles.eyebrowGreen}>AI-POWERED NO-CODE PLATFORM</div>
             <h1 className={styles.heroTitle}>
-              Describe It. Build It. Run It.
+              Build Business Applications in Business Language — Not Code.
             </h1>
             <p className={styles.heroDesc}>
-              Build intelligent business applications by describing what your business needs in natural business language.
-              Generate workflows, data pipelines, and operational applications 10x faster — with zero traditional code overhead.
+              Build business applications from natural language and enterprise data—with seamless system integration.
             </p>
-            <div className={styles.heroAccentGreen}>No-Code Enterprise Application &amp; Workflow Transformation</div>
+            <div className={styles.heroAccentGreen}>
+              Text-to-Application &amp; Data-to-Application for Enterprise Operations
+            </div>
             <div className={styles.btnGroup}>
               <Link href="/contact" className={styles.btnPrimary}>
                 Explore No-Code Platform
@@ -110,21 +169,22 @@ export default function AINoCodePage() {
 
       {/* 2. MAIN INTRO SECTION */}
       <section className={styles.sectionIntro}>
-        <h2 className={styles.introTitle}>AI-Powered No-Code Platform</h2>
+        <h2 className={styles.introTitle}>
+          AI-Powered No-Code Platform — From Business Language &amp; Data to Applications
+        </h2>
         <p className={styles.introParagraph}>
-          Empower domain experts and operational leaders to build, automate, and scale enterprise applications in days instead of months.
-          Integrate data pipelines, approval workflows, and native AI agents with zero traditional development friction. <span className={styles.introBold}>Build faster. Automate smarter. Scale seamlessly.</span>
+          IdentifYou&apos;s AI-Powered No-Code Platform is an enterprise application platform that transforms business language, natural language and enterprise data into working applications—without traditional software development. With Text-to-Application and Data-to-Application, organizations can rapidly build business and industrial applications that integrate with ERP, MES, databases, APIs and third-party systems.
         </p>
       </section>
 
-      {/* 2. CONCEPTUAL WORKFLOW JOURNEY */}
+      {/* 3. CONCEPTUAL WORKFLOW JOURNEY */}
       <section className={styles.sectionJourney}>
         <div className={styles.container}>
           <div className={styles.centerHeader}>
             <div className={styles.eyebrowGreen}>CONCEPTUAL WORKFLOW</div>
-            <h2 className={styles.sectionTitleDark}>From Natural Language Description to Live Application</h2>
+            <h2 className={styles.sectionTitleDark}>From Natural Language &amp; Data to Live Application</h2>
             <p className={styles.sectionDescLight}>
-              Eliminate the traditional software development bottleneck. Our AI engine parses business intent and converts it into production-ready software components.
+              Eliminate traditional software development bottlenecks. Our AI engine parses business intent and enterprise schemas to generate production-ready applications.
             </p>
           </div>
           <div className={styles.journeyBox}>
@@ -133,14 +193,14 @@ export default function AINoCodePage() {
         </div>
       </section>
 
-      {/* 3. PLATFORM CAPABILITIES GRID */}
+      {/* 4. PLATFORM CAPABILITIES GRID */}
       <section className={styles.sectionCapabilities}>
         <div className={styles.container}>
           <div className={styles.centerHeader}>
             <div className={styles.eyebrowGreen}>PLATFORM CAPABILITIES</div>
             <h2 className={styles.sectionTitleDark}>Engineered for Enterprise Operational Velocity</h2>
             <p className={styles.sectionDescLight}>
-              Empower non-technical domain experts to build robust, secure, and integrated applications without burdening engineering resources.
+              Empower domain experts and operational leaders to build, automate, and scale applications without traditional engineering overhead.
             </p>
           </div>
           <div className={styles.capabilitiesGrid}>
@@ -158,7 +218,7 @@ export default function AINoCodePage() {
         </div>
       </section>
 
-      {/* 4. PLATFORM HIGHLIGHTS & CHIPS */}
+      {/* 5. PLATFORM HIGHLIGHTS & CHIPS */}
       <section className={styles.sectionHighlights}>
         <div className={styles.container}>
           <div className={styles.highlightsCardDark}>
@@ -171,63 +231,79 @@ export default function AINoCodePage() {
                 </span>
               ))}
             </div>
-            <p className={styles.disclaimer}>
-              * Claims such as &ldquo;zero IT required&rdquo; are used only where verified for a specific implementation.
-            </p>
           </div>
         </div>
       </section>
 
-      {/* 5. FEATURED SUCCESS STORY */}
+      {/* 6. SUCCESS STORIES SECTION */}
       <section className={styles.sectionCaseStudy}>
         <div className={styles.container}>
-          <div className={styles.csCardDark}>
-            <div className={styles.csGrid}>
-              <div className={styles.csImgBox}>
-                <img
-                  src="/images/case-studies/tailored-enterprise-solutions.png"
-                  alt="Tailored Enterprise Solutions & Rapid No-Code Deployment"
-                  className={styles.csImg}
-                />
+          <div className={styles.centerHeader}>
+            <div className={styles.eyebrowGreen}>SUCCESS STORIES</div>
+            <h2 className={styles.sectionTitleDark}>Proven Enterprise Applications Built with No-Code</h2>
+            <p className={styles.sectionDescLight}>
+              Explore how IdentifYou&apos;s AI-Powered No-Code Platform transforms complex operational challenges into live software systems.
+            </p>
+          </div>
+
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '32px' }}>
+            {successStories.map((cs) => (
+              <div key={cs.slug} className={styles.csCardDark}>
+                <div className={styles.csGrid}>
+                  <div className={styles.csImgBox}>
+                    <img
+                      src={`/images/case-studies/${cs.slug}.png`}
+                      alt={cs.title}
+                      className={styles.csImg}
+                      onError={(e) => {
+                        // Fallback image if specific PNG does not exist
+                        e.currentTarget.src = '/images/ai_no_code_hero.png'
+                      }}
+                    />
+                  </div>
+                  <div className={styles.csContent}>
+                    <div className={styles.csTagGreen}>{cs.tag}</div>
+                    <h3 className={styles.csTitle}>{cs.title}</h3>
+                    <p className={styles.csSection}>{cs.desc}</p>
+
+                    <div className={styles.csSection}>
+                      <span className={styles.csLabel}>Challenge: </span>
+                      {cs.challenge}
+                    </div>
+                    <div className={styles.csSection}>
+                      <span className={styles.csLabel}>Solution: </span>
+                      {cs.solution}
+                    </div>
+
+                    <div className={styles.metricsRow}>
+                      <div className={styles.metricItem}>
+                        <span className={styles.metricVal}>{cs.metricVal}</span>
+                        <span className={styles.metricLbl}>{cs.metricLbl}</span>
+                      </div>
+                      <div className={styles.metricItem}>
+                        <span className={styles.metricVal}>100%</span>
+                        <span className={styles.metricLbl}>ERP &amp; System Integration</span>
+                      </div>
+                      <div className={styles.metricItem}>
+                        <span className={styles.metricVal}>No Code</span>
+                        <span className={styles.metricLbl}>Domain Leader Autonomy</span>
+                      </div>
+                    </div>
+
+                    <div style={{ marginTop: '24px' }}>
+                      <Link href={`/case-studies/${cs.slug}`} className={styles.csBtn}>
+                        Explore Success Story →
+                      </Link>
+                    </div>
+                  </div>
+                </div>
               </div>
-              <div className={styles.csContent}>
-                <div className={styles.csTagGreen}>FEATURED SUCCESS STORY</div>
-                <h3 className={styles.csTitle}>Tailored Enterprise Solutions &amp; Rapid No-Code Deployment</h3>
-                <div className={styles.csSection}>
-                  <span className={styles.csLabel}>Industry:</span> Enterprise Operations &amp; Manufacturing
-                </div>
-                <div className={styles.csSection}>
-                  <span className={styles.csLabel}>Challenge:</span> Traditional IT development backlogs delayed critical operational tools by 6-9 months, impacting field productivity.
-                </div>
-                <div className={styles.csSection}>
-                  <span className={styles.csLabel}>Solution:</span> Deployed an AI-powered no-code workflow platform, allowing operational teams to describe, generate, and launch 12 custom business applications in under 4 weeks.
-                </div>
-                <div className={styles.metricsRow}>
-                  <div className={styles.metricItem}>
-                    <span className={styles.metricVal}>10x</span>
-                    <span className={styles.metricLbl}>Faster Time-to-Market</span>
-                  </div>
-                  <div className={styles.metricItem}>
-                    <span className={styles.metricVal}>-80%</span>
-                    <span className={styles.metricLbl}>Development Cost</span>
-                  </div>
-                  <div className={styles.metricItem}>
-                    <span className={styles.metricVal}>100%</span>
-                    <span className={styles.metricLbl}>Business User Adoption</span>
-                  </div>
-                </div>
-                <div style={{ marginTop: '24px' }}>
-                  <Link href="/contact" className={styles.csBtn}>
-                    Request Success Story Details →
-                  </Link>
-                </div>
-              </div>
-            </div>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* 6. FINAL CTA BLOCK */}
+      {/* 7. FINAL CTA BLOCK */}
       <section className={styles.sectionCTA}>
         <div className={styles.container}>
           <div className={styles.ctaCardDark}>

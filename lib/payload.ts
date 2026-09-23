@@ -67,6 +67,73 @@ export interface DeepTechCapabilityItem {
 
 // Fallback Static Data
 export const FALLBACK_CASE_STUDIES: CaseStudySummary[] = [
+  // --- AI-Powered No-Code Platform ---
+  {
+    slug: 'business-driven-software-system',
+    title: 'Business Driven Software System',
+    tag: 'Enterprise Operations · AI No-Code · Business Architecture',
+    categories: ['AI-Powered No-Code Platform', 'AI', 'Enterprise'],
+    challenge: 'Traditional software development creates a disconnect between domain experts and application logic.',
+    objective: 'Transform business domain intent into production-ready software without traditional code overhead.',
+    solution: 'AI-Powered No-Code Platform converting business language definitions directly into operational schemas and applications.',
+    deepTech: 'Domain Language Compiler + Relational Schema Synthesis + AI Workflow Engine',
+    tech: 'IdentifYou No-Code Engine + React.js + Python + Node.js',
+    integration: 'Enterprise ERP + Legacy Databases + Cloud APIs',
+    outcome: '80% faster application creation and perfect alignment between business intent and software execution.',
+  },
+  {
+    slug: 'nlp-text-to-business-application',
+    title: 'NLP based Text-to-Business Application',
+    tag: 'Operational Automation · AI No-Code · NLP Engine',
+    categories: ['AI-Powered No-Code Platform', 'AI', 'Automation'],
+    challenge: 'Operational teams lack software engineering resources to rapidly build custom workflow tools.',
+    objective: 'Enable non-technical business leaders to describe and deploy workflow applications using natural language.',
+    solution: 'Natural Language Processing (NLP) engine parsing prompts into forms, database models, and approval chains.',
+    deepTech: 'Text-to-Application Syntax Parser + LLM Application Generation + Dynamic Form Binding',
+    tech: 'NLP Prompt Engine + REST APIs + PostgreSQL + Node.js',
+    integration: 'Corporate Communication Networks + Cloud Portals',
+    outcome: 'Deploy functional business applications from text prompts in under 10 minutes.',
+  },
+  {
+    slug: 'data-to-application-development',
+    title: 'Data to Application Development',
+    tag: 'Enterprise Data · AI No-Code · Data Integration',
+    categories: ['AI-Powered No-Code Platform', 'Data Engineering', 'Enterprise'],
+    challenge: 'Isolated enterprise databases lack intuitive operational interfaces for business users.',
+    objective: 'Automatically turn enterprise data structures into interactive, production-ready web portals.',
+    solution: 'Automated schema discovery and data-to-application compiler generating CRUD interfaces and analytics.',
+    deepTech: 'Automated Schema Discovery + Bidirectional Data Synchronization + RBAC Middleware',
+    tech: 'Snowflake + SQL Server + IdentifYou Data App Compiler',
+    integration: 'Enterprise ERPs + Data Lakes + SQL Databases',
+    outcome: 'Instant creation of secure business portals over legacy enterprise data repositories.',
+  },
+  {
+    slug: 'business-portals-around-existing-erp',
+    title: 'Business Portals Around Existing ERP',
+    tag: 'ERP Extension · AI No-Code · SAP Integration',
+    categories: ['AI-Powered No-Code Platform', 'Digital Engineering', 'Manufacturing'],
+    challenge: 'Modifying core ERPs (SAP, Oracle) is slow, expensive, and risks core operational stability.',
+    objective: 'Build agile, customized web and mobile portals extending ERP functionality without changing core code.',
+    solution: 'AI-driven portal generation layer binding real-time APIs to light, role-specific business interfaces.',
+    deepTech: 'Non-Invasive API Interlocking + Decoupled Portal Staging + SAP RFC Connectors',
+    tech: 'SAP OData / BAPI + IdentifYou Portal Engine + React.js',
+    integration: 'SAP ERP + Oracle EBS + Microsoft Dynamics 365',
+    outcome: '6x faster portal deployment with zero disruption or risk to underlying ERP systems.',
+  },
+  {
+    slug: 'deployment-management',
+    title: 'Deployment Management',
+    tag: 'Cloud Runtime · AI No-Code · DevOps Orchestration',
+    categories: ['AI-Powered No-Code Platform', 'Digital Engineering', 'Cloud'],
+    challenge: 'No-code applications often struggle with enterprise compliance, multi-tenant isolation, and cloud deployment.',
+    objective: 'Automate containerization, security scanning, access governance, and cloud runtime management.',
+    solution: 'Enterprise deployment engine providing zero-downtime container packaging and automated multi-tenant scaling.',
+    deepTech: 'Automated Container Packaging + Zero-Trust RBAC + CI/CD Cloud Pipeline',
+    tech: 'Docker + Kubernetes + Azure / AWS + Security Scanners',
+    integration: 'Cloud Hosting Providers + SSO Identity Networks (SAML / OAuth2)',
+    outcome: '100% automated enterprise deployment pipeline with zero manual DevOps overhead.',
+  },
+
   // --- AI & Intelligent Business ---
   {
     slug: 'procurement-operations-intelligence',
@@ -378,6 +445,172 @@ export const FALLBACK_CASE_STUDIES: CaseStudySummary[] = [
 ]
 
 export const FALLBACK_CASE_STUDIES_MAP: Record<string, CaseStudyDetail> = {
+  "business-driven-software-system": {
+    "title": "Business Driven Software System",
+    "breadcrumb": "Business Driven Software System",
+    "tag": "Industry: Enterprise Operations · Function: Application Architecture · Focus: Business-Language Driven Software",
+    "overview": "IdentifYou's AI-Powered No-Code Platform transforms business language, domain models, and enterprise data into production-grade business applications without traditional software development bottlenecks.",
+    "docItems": [
+      { "type": "p", "text": "Business Driven Software System — Transforming Domain Intent into Functional Applications" },
+      { "type": "p", "text": "Industry: Enterprise Operations · Function: Application Architecture · Focus: Business-Language Driven Software" },
+      { "type": "h2", "text": "The Challenge" },
+      { "type": "p", "text": "Traditional software development creates a persistent disconnect between business domain experts and technical implementation teams. Operational leaders understand process logic and compliance requirements, but relying on engineering sprints delays application delivery by months and introduces translation errors between business intent and software execution." },
+      { "type": "bullet", "text": "Requirements gathering and backlog prioritizing add months of latency before initial prototype testing." },
+      { "type": "bullet", "text": "Hardcoded software logic makes rapid iteration difficult when market conditions or operational rules change." },
+      { "type": "bullet", "text": "High dependency on external software development resources inflates total cost of ownership (TCO)." },
+      { "type": "h2", "text": "The AI-Powered Solution" },
+      { "type": "p", "text": "IdentifYou's Business Driven Software System allows domain leaders to express entity models, approval hierarchies, and process rules directly in business language. The AI platform interprets business intent, generates normalized data schemas, creates secure REST endpoints, and builds responsive user interfaces automatically." },
+      { "type": "bullet", "text": "Direct translation of natural business language into relational schemas and API endpoints." },
+      { "type": "bullet", "text": "Real-time validation of business logic against existing enterprise datasets." },
+      { "type": "bullet", "text": "Role-based user interface generation adapted to distinct operational personas." },
+      { "type": "h2", "text": "Measurable Business Outcomes" },
+      { "type": "p", "text": "By eliminating traditional manual coding cycles, organizations achieve unprecedented speed and alignment." }
+    ],
+    "results": [
+      { "stat": "80%", "label": "Faster Time-to-Market" },
+      { "stat": "0%", "label": "Translation Gap Between Business & IT" },
+      { "stat": "100%", "label": "Domain Leader Autonomy" }
+    ],
+    "technologyUsed": "IdentifYou No-Code Engine, Domain Language Compiler, React.js, Python, PostgreSQL, Node.js",
+    "more": [
+      { "tag": "AI No-Code · NLP Prompt Engine", "title": "NLP based Text-to-Business Application", "slug": "nlp-text-to-business-application" },
+      { "tag": "AI No-Code · Data Integration", "title": "Data to Application Development", "slug": "data-to-application-development" },
+      { "tag": "AI No-Code · SAP Extension", "title": "Business Portals Around Existing ERP", "slug": "business-portals-around-existing-erp" }
+    ]
+  },
+
+  "nlp-text-to-business-application": {
+    "title": "NLP based Text-to-Business Application",
+    "breadcrumb": "NLP based Text-to-Business Application",
+    "tag": "Industry: Operational Automation · Function: Process Innovation · Focus: Text-to-Application Prompting",
+    "overview": "Convert natural language descriptions directly into fully interactive business applications, forms, and automated decision workflows.",
+    "docItems": [
+      { "type": "p", "text": "NLP based Text-to-Business Application — From Conversational Prompts to Operational Software" },
+      { "type": "p", "text": "Industry: Operational Automation · Function: Process Innovation · Focus: Text-to-Application Prompting" },
+      { "type": "h2", "text": "The Challenge" },
+      { "type": "p", "text": "Operational teams frequently identify manual bottlenecks—such as vendor intake forms, maintenance ticket routing, or quality audit checklists—that require custom software. However, creating dedicated software tickets for minor internal tools is cost-prohibitive and slow." },
+      { "type": "bullet", "text": "Non-technical managers cannot build structured database applications without IT support." },
+      { "type": "bullet", "text": "Static form builders lack complex conditional logic, API integrations, and enterprise security." },
+      { "type": "bullet", "text": "Manual data collection via email or spreadsheets introduces errors and compliance risks." },
+      { "type": "h2", "text": "The AI-Powered Solution" },
+      { "type": "p", "text": "IdentifYou's NLP Text-to-Application engine parses natural language descriptions (e.g., 'Build a vendor qualification tool that captures tax IDs, validates addresses via API, and routes approvals to the finance manager if contract value exceeds $50k'). The platform synthesizes the UI, database, validation rules, and approval workflow instantly." },
+      { "type": "bullet", "text": "LLM-driven prompt parser that understands complex business constraints." },
+      { "type": "bullet", "text": "Automatic creation of dynamic web forms with field validation and file attachment support." },
+      { "type": "bullet", "text": "Automated workflow routing interlocked with email and enterprise messaging notifications." },
+      { "type": "h2", "text": "Measurable Business Outcomes" }
+    ],
+    "results": [
+      { "stat": "< 10 Min", "label": "From Prompt to Working Application" },
+      { "stat": "90%", "label": "Reduction in IT Backlog Tickets" },
+      { "stat": "100%", "label": "Self-Service Business Adoption" }
+    ],
+    "technologyUsed": "IdentifYou NLP Engine, OpenAI / Snowflake LLM Services, React.js, Python, Node.js",
+    "more": [
+      { "tag": "AI No-Code · Application Architecture", "title": "Business Driven Software System", "slug": "business-driven-software-system" },
+      { "tag": "AI No-Code · Data Integration", "title": "Data to Application Development", "slug": "data-to-application-development" },
+      { "tag": "AI No-Code · DevOps Orchestration", "title": "Deployment Management", "slug": "deployment-management" }
+    ]
+  },
+
+  "data-to-application-development": {
+    "title": "Data to Application Development",
+    "breadcrumb": "Data to Application Development",
+    "tag": "Industry: Enterprise Data · Function: Data Application Engineering · Focus: Data-to-Application Synthesis",
+    "overview": "Instantly turn raw databases, data warehouses, and API streams into functional, secure, and interactive business portals.",
+    "docItems": [
+      { "type": "p", "text": "Data to Application Development — Empowering Business Operations with Data-Driven Apps" },
+      { "type": "p", "text": "Industry: Enterprise Data · Function: Data Application Engineering · Focus: Data-to-Application Synthesis" },
+      { "type": "h2", "text": "The Challenge" },
+      { "type": "p", "text": "Modern enterprises possess immense volumes of curated operational data in Snowflake, SQL Server, PostgreSQL, and cloud lakes. However, converting this backend data into active operational tools requires front-end engineering, API design, authentication, and state management." },
+      { "type": "bullet", "text": "Data remains trapped in BI dashboards that display stats but do not support operational write-back or actions." },
+      { "type": "bullet", "text": "Custom web application development for every database table is impractical and resource-intensive." },
+      { "type": "bullet", "text": "Enforcing row-level security and compliance across custom frontend applications is difficult." },
+      { "type": "h2", "text": "The AI-Powered Solution" },
+      { "type": "p", "text": "IdentifYou's Data-to-Application module inspects database schemas, foreign keys, and metadata to generate full-featured relational web applications automatically. Domain users get instant grid views, detail cards, filtering controls, search indices, and secure write-back capabilities." },
+      { "type": "bullet", "text": "Automated schema introspection and relational UI model compilation." },
+      { "type": "bullet", "text": "Real-time bidirectional synchronization with enterprise data warehouses and operational DBs." },
+      { "type": "bullet", "text": "Built-in role-based access control (RBAC) enforcing enterprise security policies." },
+      { "type": "h2", "text": "Measurable Business Outcomes" }
+    ],
+    "results": [
+      { "stat": "Instant", "label": "Portal Generation over Existing Schemas" },
+      { "stat": "70%", "label": "Lower Custom App Development Cost" },
+      { "stat": "100%", "label": "Data Security & Governance Adherence" }
+    ],
+    "technologyUsed": "Snowflake, PostgreSQL, IdentifYou Data App Compiler, Node.js, React.js, GraphQL",
+    "more": [
+      { "tag": "AI No-Code · Application Architecture", "title": "Business Driven Software System", "slug": "business-driven-software-system" },
+      { "tag": "AI No-Code · SAP Extension", "title": "Business Portals Around Existing ERP", "slug": "business-portals-around-existing-erp" },
+      { "tag": "AI No-Code · DevOps Orchestration", "title": "Deployment Management", "slug": "deployment-management" }
+    ]
+  },
+
+  "business-portals-around-existing-erp": {
+    "title": "Business Portals Around Existing ERP",
+    "breadcrumb": "Business Portals Around Existing ERP",
+    "tag": "Industry: Enterprise ERP · Function: Portal Engineering · Focus: SAP & Legacy ERP Extension",
+    "overview": "Extend SAP, Oracle, and legacy ERP systems with modern, agile business portals without altering underlying core logic.",
+    "docItems": [
+      { "type": "p", "text": "Business Portals Around Existing ERP — Non-Invasive Extension of Core Systems" },
+      { "type": "p", "text": "Industry: Enterprise ERP · Function: Portal Engineering · Focus: SAP & Legacy ERP Extension" },
+      { "type": "h2", "text": "The Challenge" },
+      { "type": "p", "text": "Enterprise Resource Planning (ERP) systems like SAP ERP, Oracle EBS, and Microsoft Dynamics house vital master data. However, exposing ERP workflows directly to external suppliers, customers, or mobile field staff requires costly ABAP/custom coding, licensing overhead, and risk of disrupting core ERP stability." },
+      { "type": "bullet", "text": "Custom ERP modifications require specialized developer skillsets and extensive testing cycles." },
+      { "type": "bullet", "text": "Clunky default ERP screens slow down supplier quotation, order tracking, and invoice approval." },
+      { "type": "bullet", "text": "Security teams resist granting external vendors direct access to core ERP instances." },
+      { "type": "h2", "text": "The AI-Powered Solution" },
+      { "type": "p", "text": "Using IdentifYou's AI-Powered No-Code Platform, organizations rapidly deploy dedicated external and internal portals (e.g., Supplier Collaboration Portal, Customer Order Portal, Field Service App) decoupled from the ERP core. Real-time connectors bind portal actions to ERP RFCs, BAPIs, and REST endpoints." },
+      { "type": "bullet", "text": "Non-invasive ERP connector layer handling authentication, caching, and rate limiting." },
+      { "type": "bullet", "text": "Tailored, responsive user interfaces optimized for specific user roles and mobile devices." },
+      { "type": "bullet", "text": "Decoupled transactional staging ensuring zero downtime or performance drag on core ERP." },
+      { "type": "h2", "text": "Measurable Business Outcomes" }
+    ],
+    "results": [
+      { "stat": "6x", "label": "Faster Portal Launch vs Native ERP Dev" },
+      { "stat": "0%", "label": "Modification Risk to Core ERP Code" },
+      { "stat": "95%", "label": "Supplier & Partner Portal Adoption" }
+    ],
+    "technologyUsed": "SAP OData / RFC, IdentifYou Portal Engine, React.js, Node.js, REST APIs, OAuth2",
+    "more": [
+      { "tag": "AI No-Code · Application Architecture", "title": "Business Driven Software System", "slug": "business-driven-software-system" },
+      { "tag": "AI No-Code · Data Integration", "title": "Data to Application Development", "slug": "data-to-application-development" },
+      { "tag": "AI No-Code · DevOps Orchestration", "title": "Deployment Management", "slug": "deployment-management" }
+    ]
+  },
+
+  "deployment-management": {
+    "title": "Deployment Management",
+    "breadcrumb": "Deployment Management",
+    "tag": "Industry: Cloud Engineering · Function: DevOps & Runtime · Focus: Automated Container Deployment",
+    "overview": "Automate cloud deployment, containerization, multi-tenant isolation, and continuous runtime governance for no-code applications.",
+    "docItems": [
+      { "type": "p", "text": "Deployment Management — Automated Cloud Packaging & Enterprise Governance" },
+      { "type": "p", "text": "Industry: Cloud Engineering · Function: DevOps & Runtime · Focus: Automated Container Deployment" },
+      { "type": "h2", "text": "The Challenge" },
+      { "type": "p", "text": "While no-code application generation accelerates initial creation, deploying generated code into production environments often uncovers operational friction. Enterprise security teams require automated static code analysis, container packaging, SSL certificate management, role-based access controls, and zero-downtime rolling updates." },
+      { "type": "bullet", "text": "Manual cloud deployment creates bottlenecks after application generation." },
+      { "type": "bullet", "text": "Lack of multi-environment isolation (Development, Staging, Production) increases deployment risk." },
+      { "type": "bullet", "text": "Ensuring enterprise compliance, audit trails, and single sign-on (SSO) integration across generated apps is challenging." },
+      { "type": "h2", "text": "The AI-Powered Solution" },
+      { "type": "p", "text": "IdentifYou's Deployment Management engine automates the entire runtime packaging lifecycle. When an application is generated or updated, the platform automatically packages container images, executes security vulnerability scans, provisions isolated cloud resources, and manages DNS/SSO bindings." },
+      { "type": "bullet", "text": "Automated Docker containerization and Kubernetes orchestration." },
+      { "type": "bullet", "text": "Integrated static application security testing (SAST) and compliance reporting." },
+      { "type": "bullet", "text": "Zero-downtime deployment pipelines with one-click rollback capabilities." },
+      { "type": "h2", "text": "Measurable Business Outcomes" }
+    ],
+    "results": [
+      { "stat": "100%", "label": "Automated Deployment Pipeline" },
+      { "stat": "0", "label": "Manual DevOps Intervention Required" },
+      { "stat": "99.99%", "label": "Runtime Availability SLA" }
+    ],
+    "technologyUsed": "Docker, Kubernetes, Azure / AWS Cloud Services, GitHub Actions, OAuth2 / SAML, Python",
+    "more": [
+      { "tag": "AI No-Code · Application Architecture", "title": "Business Driven Software System", "slug": "business-driven-software-system" },
+      { "tag": "AI No-Code · NLP Prompt Engine", "title": "NLP based Text-to-Business Application", "slug": "nlp-text-to-business-application" },
+      { "tag": "AI No-Code · SAP Extension", "title": "Business Portals Around Existing ERP", "slug": "business-portals-around-existing-erp" }
+    ]
+  },
+
   "procurement-operations-intelligence": {
     "title": "Transforming Routine Procurement from Manual Processing to Intelligent Automation",
     "breadcrumb": "Transforming Routine Procurement from Manual Processing to Intelligent Automation",

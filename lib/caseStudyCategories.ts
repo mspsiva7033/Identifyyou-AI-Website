@@ -1,5 +1,6 @@
 export type CategoryKey =
   | 'ai-intelligent-business'
+  | 'ai-no-code'
   | 'vision-ai'
   | 'industry-automation'
   | 'data-engineering'
@@ -21,6 +22,17 @@ export interface CategoryTheme {
 }
 
 export const CATEGORY_THEMES: Record<CategoryKey, CategoryTheme> = {
+  'ai-no-code': {
+    key: 'ai-no-code',
+    name: 'AI & No-Code Platform',
+    tintColor: '#06b6d4',
+    tintRgb: '6, 182, 212',
+    tagColor: '#22d3ee',
+    gradientCss: 'linear-gradient(135deg, rgba(6, 182, 212, 0.14) 0%, rgba(14, 165, 233, 0.04) 100%)',
+    overlayOpacity: 0.14,
+    hoverGlow: 'rgba(6, 182, 212, 0.25)',
+    badgeBg: 'rgba(6, 182, 212, 0.10)',
+  },
   'ai-intelligent-business': {
     key: 'ai-intelligent-business',
     name: 'AI & Intelligent Business',
@@ -125,6 +137,7 @@ export function getCategoryTheme(params: {
   // 1. Check explicit categories array
   if (categories && categories.length > 0) {
     const catStr = categories.join(' ').toLowerCase()
+    if (catStr.includes('no-code') || catStr.includes('no code') || catStr.includes('text-to-application') || catStr.includes('data-to-application')) return CATEGORY_THEMES['ai-no-code']
     if (catStr.includes('vision')) return CATEGORY_THEMES['vision-ai']
     if (catStr.includes('data engineering') || catStr.includes('data platform')) return CATEGORY_THEMES['data-engineering']
     if (catStr.includes('digital engineering')) return CATEGORY_THEMES['digital-engineering']
@@ -135,6 +148,18 @@ export function getCategoryTheme(params: {
   }
 
   // 2. Slugs & Hrefs mapping
+  if (
+    slug.includes('business-driven-software') ||
+    slug.includes('nlp-text-to-business') ||
+    slug.includes('data-to-application') ||
+    slug.includes('business-portals-around-existing-erp') ||
+    slug.includes('deployment-management') ||
+    slug.includes('ai-no-code') ||
+    slug.includes('no-code') ||
+    href.includes('ai-no-code')
+  ) {
+    return CATEGORY_THEMES['ai-no-code']
+  }
   if (
     slug.includes('vision') ||
     slug.includes('surface') ||
