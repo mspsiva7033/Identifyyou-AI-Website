@@ -6,8 +6,8 @@ import { CaseStudiesClient } from './CaseStudiesClient'
 import { getCaseStudies } from '@/lib/payload'
 
 export const metadata: Metadata = {
-  title: 'Case Studies — Deep Tech in the Real World',
-  description: 'Illustrative case studies showing AI-powered, Vision AI, Data Engineering and Industry Automation solutions in manufacturing, financial services and healthcare.',
+  title: 'Success Stories — Deep Tech in the Real World',
+  description: 'Illustrative success stories showing AI-powered, Vision AI, Data Engineering and Industry Automation solutions in manufacturing, financial services and healthcare.',
 }
 
 export default async function CaseStudiesPage() {

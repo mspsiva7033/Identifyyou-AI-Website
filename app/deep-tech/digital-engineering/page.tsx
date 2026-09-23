@@ -74,7 +74,7 @@ export default function DigitalEngineeringPage() {
                 Talk to a Digital Engineering Expert
               </Link>
               <a href="#case-studies" className={styles.btnSecondaryDark}>
-                Explore Case Studies
+                Explore Success Stories
               </a>
             </div>
           </div>
@@ -95,12 +95,12 @@ export default function DigitalEngineeringPage() {
         </p>
       </section>
 
-      {/* SECTION 3: FEATURED CASE STUDY SHOWCASE */}
+      {/* SECTION 3: FEATURED SUCCESS STORY SHOWCASE */}
       <section id="case-studies" className={styles.sectionCaseStudyCard}>
         <div className={styles.container}>
           <div className={styles.csCardBorder}>
             <div className={styles.csHeaderRow}>
-              <div className={styles.eyebrowGreen}>FEATURED CASE STUDY</div>
+              <div className={styles.eyebrowGreen}>FEATURED SUCCESS STORY</div>
               <h3 className={styles.csHeaderTitle}>
                 Digital Transformation of the RFQ Management Process in D365 Business Central
               </h3>
@@ -149,7 +149,7 @@ export default function DigitalEngineeringPage() {
                     className={styles.btnPrimary}
                     style={{ textDecoration: 'none' }}
                   >
-                    Read the Full Case Study →
+                    Read the Full Success Story →
                   </Link>
                 </div>
               </div>
@@ -158,11 +158,11 @@ export default function DigitalEngineeringPage() {
         </div>
       </section>
 
-      {/* SECTION 4: DIGITAL ENGINEERING CASE STUDIES GRID */}
+      {/* SECTION 4: DIGITAL ENGINEERING SUCCESS STORIES GRID */}
       <section className={styles.sectionCaseStudyBanner}>
         <div className={styles.container}>
           <div className={styles.eyebrowGreen} style={{ textAlign: 'center' }}>
-            MORE DIGITAL ENGINEERING CASE STUDIES
+            MORE DIGITAL ENGINEERING SUCCESS STORIES
           </div>
           <h2 className={styles.sectionTitle} style={{ textAlign: 'center', marginBottom: '36px' }}>
             Proven Digital Solutions in Action
@@ -217,7 +217,7 @@ export default function DigitalEngineeringPage() {
               Talk to a Digital Engineering Expert
             </Link>
             <Link href="/case-studies" className={styles.btnSecondaryDark}>
-              Explore All Case Studies
+              Explore All Success Stories
             </Link>
           </div>
         </div>

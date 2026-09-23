@@ -44,7 +44,7 @@ const defaultNav: NavItem[] = [
       { label: 'Healthcare', href: '/contact' },
     ],
   },
-  { label: 'Case Studies', href: '/case-studies' },
+  { label: 'Success Stories', href: '/case-studies' },
   { label: 'About', href: '/about' },
   { label: 'Contact', href: '/contact' },
   { label: 'Blogs & News', href: '/blogs-and-news' },

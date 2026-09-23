@@ -3,12 +3,12 @@ import type { CollectionConfig } from 'payload'
 export const CaseStudies: CollectionConfig = {
   slug: 'case-studies',
   labels: {
-    singular: 'Case Study',
-    plural: 'Case Studies',
+    singular: 'Success Story',
+    plural: 'Success Stories',
   },
   admin: {
     useAsTitle: 'title',
-    group: 'Case Studies',
+    group: 'Success Stories',
     defaultColumns: ['title', 'category', 'status', 'displayOrder'],
     preview: (doc) => {
       const slug = (doc?.slug as string) || 'manufacturing-data-platform'

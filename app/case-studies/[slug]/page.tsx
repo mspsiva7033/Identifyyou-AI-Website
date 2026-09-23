@@ -302,7 +302,7 @@ export default async function CaseStudyDetailPage({ params }: { params: Promise<
       {cs.more && cs.more.length > 0 && (
         <section className={styles.moreSection}>
           <div className={styles.moreInner}>
-            <h2 className={styles.moreTitle}>More Case Studies</h2>
+            <h2 className={styles.moreTitle}>More Success Stories</h2>
             <div className={styles.moreGrid}>
               {cs.more.map((m) => (
                 <CaseStudyCard key={m.slug} slug={m.slug} title={m.title} />

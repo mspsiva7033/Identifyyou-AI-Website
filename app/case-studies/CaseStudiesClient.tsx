@@ -64,7 +64,7 @@ export function CaseStudiesClient({ caseStudies }: Props) {
         <h1 className={styles.heroTitle}>
           Deep Tech in the <span className={styles.heroTitleGreen}>Real World</span>
         </h1>
-        <p className={styles.heroSub}>Illustrative examples below — pending verified case studies from confirmed engagements.</p>
+        <p className={styles.heroSub}>Illustrative examples below — pending verified success stories from confirmed engagements.</p>
       </section>
 
       <section className={styles.content}>
@@ -97,7 +97,7 @@ export function CaseStudiesClient({ caseStudies }: Props) {
         </div>
 
         {visible.length === 0 && (
-          <div className={styles.noResults}>No case studies found for &ldquo;{filter}&rdquo;.</div>
+          <div className={styles.noResults}>No success stories found for &ldquo;{filter}&rdquo;.</div>
         )}
       </section>
     </div>

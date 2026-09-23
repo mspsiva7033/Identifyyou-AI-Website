@@ -3,12 +3,12 @@ import type { CollectionConfig } from 'payload'
 export const CaseStudyCategories: CollectionConfig = {
   slug: 'case-study-categories',
   labels: {
-    singular: 'Case Study Category',
-    plural: 'Case Study Categories',
+    singular: 'Success Story Category',
+    plural: 'Success Story Categories',
   },
   admin: {
     useAsTitle: 'name',
-    group: 'Case Studies',
+    group: 'Success Stories',
     defaultColumns: ['name', 'slug', 'displayOrder'],
   },
   access: {

@@ -526,7 +526,7 @@ export default function HomePage() {
                 Delivering a 3.5x boost in high-intent account engagement and unified automated data pipelines.
               </p>
               <Link href="/case-studies/precision-abm-snowflake-cortex" className={styles.bannerBtnOutline}>
-                Explore ABM Snowflake Cortex Case Study →
+                Explore ABM Snowflake Cortex Success Story →
               </Link>
             </div>
           </div>
@@ -552,7 +552,7 @@ export default function HomePage() {
                 Achieving 99.4% equipment uptime, continuous 24/7 thermal assurance, and zero unpredicted critical failures.
               </p>
               <Link href="/case-studies/fluke-t40" className={styles.bannerBtnPrimary}>
-                Explore Fluke T40 Case Study →
+                Explore Fluke T40 Success Story →
               </Link>
             </div>
             <div className={styles.bannerImgWrapDark}>
@@ -568,11 +568,11 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 4. CASE STUDIES IN INTELLIGENT BUSINESS (2 Featured Large Cards + 3 Small Cards Below, White BG) */}
+      {/* 4. SUCCESS STORIES IN INTELLIGENT BUSINESS (2 Featured Large Cards + 3 Small Cards Below, White BG) */}
       <section id="case-studies" className={styles.sectionSolutions}>
         <div className={styles.container}>
           <div className={styles.eyebrowGreen}>AI &amp; INTELLIGENT BUSINESS</div>
-          <h2 className={styles.h2SolutionsTitle}>Case Studies in Intelligent Business</h2>
+          <h2 className={styles.h2SolutionsTitle}>Success Stories in Intelligent Business</h2>
 
           {/* Top Row: 2 Featured Large Cards */}
           <div className={styles.featuredTwoGrid}>

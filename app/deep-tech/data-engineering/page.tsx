@@ -99,7 +99,7 @@ export default function DataEngineeringPage() {
                   href="/case-studies/precision-abm-snowflake-cortex"
                   className={styles.btnPrimary}
                 >
-                  View the ABM Case Study
+                  View the ABM Success Story
                 </Link>
                 <Link href="/contact" className={styles.btnSecondaryDark}>
                   Talk to a Snowflake Expert
@@ -133,7 +133,7 @@ export default function DataEngineeringPage() {
         </div>
       </section>
 
-      {/* 5. FEATURED CASE STUDY SECTION (<Case Study>) */}
+      {/* 5. FEATURED SUCCESS STORY SECTION (<Success Story>) */}
       <section className={styles.sectionCaseStudies}>
         <div className={styles.featuredCaseStudyCard}>
           <div className={styles.csVisualContainer}>
@@ -145,7 +145,7 @@ export default function DataEngineeringPage() {
           </div>
 
           <div>
-            <div className={styles.csFeaturedTag}>FEATURED CASE STUDY</div>
+            <div className={styles.csFeaturedTag}>FEATURED SUCCESS STORY</div>
             <h2 className={styles.csFeaturedTitle}>
               Revolutionizing Inventory Optimization with Snowflake
             </h2>
@@ -170,12 +170,12 @@ export default function DataEngineeringPage() {
               href="/case-studies/revolutionizing-inventory-optimization"
               className={styles.csLink}
             >
-              Read the full case study →
+              Read the full success story →
             </Link>
           </div>
         </div>
 
-        {/* 4 Additional Case Studies Grid */}
+        {/* 4 Additional Success Stories Grid */}
         <div className={styles.csFourGrid}>
           {fourCaseStudies.map((cs) => (
             <Link key={cs.title} href={cs.href} className={styles.csGridCard}>
@@ -188,7 +188,7 @@ export default function DataEngineeringPage() {
         </div>
       </section>
 
-      {/* 6. SNOWFLAKE PARTNER BANNER (<Case Study> <Banner>) */}
+      {/* 6. SNOWFLAKE PARTNER BANNER (<Success Story> <Banner>) */}
       <section className={styles.sectionPartnerStats}>
         <div className={styles.partnerStatsCard}>
           <div>
@@ -242,7 +242,7 @@ export default function DataEngineeringPage() {
               Talk to a Snowflake Expert
             </Link>
             <Link href="/case-studies" className={styles.btnSecondary}>
-              Explore All Case Studies
+              Explore All Success Stories
             </Link>
           </div>
         </div>

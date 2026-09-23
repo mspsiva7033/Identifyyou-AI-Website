@@ -200,13 +200,13 @@ export default function IndustryAutomationPage() {
         </p>
       </section>
 
-      {/* SECTION 3: CONNECTED OPERATIONS CASE STUDIES */}
+      {/* SECTION 3: CONNECTED OPERATIONS SUCCESS STORIES */}
       <section className={styles.sectionConnectedCaseStudies}>
         <div className={styles.connectedHeaderRow}>
           <div className={styles.eyebrowGreen}>CONNECTED OPERATIONS</div>
-          <h2 className={styles.connectedSectionTitle}>Pillar Case Studies &amp; Architecture</h2>
+          <h2 className={styles.connectedSectionTitle}>Pillar Success Stories &amp; Architecture</h2>
           <p className={styles.connectedSectionSub}>
-            Real-world case studies demonstrating connected operations, edge device engineering, and zero inventory variance execution.
+            Real-world success stories demonstrating connected operations, edge device engineering, and zero inventory variance execution.
           </p>
         </div>
 
@@ -228,7 +228,7 @@ export default function IndustryAutomationPage() {
       {/* SECTION 4: THREE FEATURED USE CASE CARDS */}
       <section className={styles.sectionThreeUseCases}>
         <div className={styles.useCaseHeaderRow}>
-          <div className={styles.eyebrowGreen}>CASE STUDIES &amp; HARDWARE PLATFORMS</div>
+          <div className={styles.eyebrowGreen}>SUCCESS STORIES &amp; HARDWARE PLATFORMS</div>
           <h2 className={styles.useCaseTitle}>Featured Industrial Automation Solutions</h2>
 
           <div className={styles.useCaseNavTabs}>

@@ -89,7 +89,7 @@ export default async function ManufacturingPage() {
         </div>
 
         <div className={styles.caseStudiesLink}>
-          <Link href="/case-studies" className={styles.caseStudiesBtn}>See Manufacturing Case Studies</Link>
+          <Link href="/case-studies" className={styles.caseStudiesBtn}>See Manufacturing Success Stories</Link>
         </div>
       </section>
 

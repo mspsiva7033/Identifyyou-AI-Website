@@ -47,7 +47,7 @@ const defaultColumns: FooterColumn[] = [
   {
     title: 'Resources',
     links: [
-      { label: 'Case Studies', href: '/case-studies' },
+      { label: 'Success Stories', href: '/case-studies' },
       { label: 'Blogs & News', href: '/blogs-and-news' },
     ],
   },
