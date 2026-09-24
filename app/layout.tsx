@@ -1,5 +1,7 @@
 import type { Metadata } from 'next'
 import { Manrope, IBM_Plex_Sans } from 'next/font/google'
+import { Suspense } from 'react'
+import { PageTransitionLoader } from '@/components/ui/PageTransitionLoader'
 import { WhatsAppButton } from '@/components/ui/WhatsAppButton'
 import './globals.css'
 
@@ -47,6 +49,9 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body suppressHydrationWarning className={`${manrope.variable} ${ibmPlexSans.variable}`}>
+        <Suspense fallback={null}>
+          <PageTransitionLoader />
+        </Suspense>
         {children}
         <WhatsAppButton />
       </body>

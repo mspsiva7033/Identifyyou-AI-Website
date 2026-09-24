@@ -350,55 +350,89 @@
 }
 
 .tableBlock {
-  margin-bottom: 56px;
+  margin: 36px 0 48px;
 }
 
 .tableWrapper {
   overflow-x: auto;
-  border: 1px solid #E2E8F0;
+  border: 1px solid #cbd5e1;
   border-radius: 12px;
-  background: #FFFFFF;
-  box-shadow: 0 4px 14px rgba(0,0,0,0.03);
+  background: #ffffff;
+  box-shadow: 0 4px 20px -4px rgba(15, 23, 42, 0.08), 0 2px 6px -2px rgba(15, 23, 42, 0.04);
 }
 
 .compTable {
   width: 100%;
-  border-collapse: collapse;
+  border-collapse: separate;
+  border-spacing: 0;
   text-align: left;
-  font-size: 14.5px;
+  font-size: 13.5px;
 }
 
 .compTable th {
-  background: #064E3B;
-  color: #FFFFFF;
+  background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+  color: #ffffff;
   font-family: 'Plus Jakarta Sans', sans-serif;
   font-weight: 700;
-  padding: 18px 24px;
-  font-size: 15px;
-  letter-spacing: -0.01em;
+  padding: 12px 18px;
+  font-size: 12px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  border-bottom: 2.5px solid #96c73d;
+  white-space: nowrap;
+}
+
+.compTable th:first-child {
+  border-top-left-radius: 11px;
+}
+
+.compTable th:last-child {
+  border-top-right-radius: 11px;
+}
+
+.compTable tr {
+  transition: background-color 150ms ease;
+}
+
+.compTable tr:nth-child(even) {
+  background-color: #f8fafc;
+}
+
+.compTable tr:hover {
+  background-color: rgba(150, 199, 61, 0.06) !important;
 }
 
 .compTable td {
-  padding: 16px 24px;
-  border-bottom: 1px solid #E2E8F0;
-  vertical-align: top;
-  line-height: 1.55;
-  text-align: justify;
+  padding: 11px 18px;
+  border-bottom: 1px solid #e2e8f0;
+  vertical-align: middle;
+  line-height: 1.5;
+  color: #334155;
+  font-size: 13.5px;
 }
 
 .compTable tr:last-child td {
   border-bottom: none;
 }
 
+.compTable tr:last-child td:first-child {
+  border-bottom-left-radius: 11px;
+}
+
+.compTable tr:last-child td:last-child {
+  border-bottom-right-radius: 11px;
+}
+
 .tradCol {
-  color: #64748B;
-  background: #FAFAF8;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-weight: 700;
+  color: #0f172a;
 }
 
 .aiCol {
-  color: #54751e;
-  font-weight: 600;
-  background: #ECFDF5;
+  color: #15803d !important;
+  font-weight: 700;
+  background: rgba(150, 199, 61, 0.08) !important;
 }
 
 .sectionsList {
