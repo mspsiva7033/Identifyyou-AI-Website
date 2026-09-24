@@ -417,7 +417,9 @@ export default function HomePage() {
       {/* 3. AI THAT SEES, THINKS, ACTS & DEEP TECH CAPABILITIES */}
       <section className={styles.sectionDark}>
         <div className={styles.containerNarrow}>
-          <h2 className={styles.h2Dark}>AI that SEES, AI that THINKS and AI that ACTS</h2>
+          <h2 className={styles.h2Dark}>
+            AI <span className={styles.wordThat}>that</span> <span className={styles.wordSees}>SEES</span>, AI <span className={styles.wordThat}>that</span> <span className={styles.wordThinks}>THINKS</span> <span className={styles.wordAnd}>and</span> AI <span className={styles.wordThat}>that</span> <span className={styles.wordActs}>ACTS</span>
+          </h2>
 
           {/* Row 1: Vision AI and AI & Intelligent Business (2 Bigger Boxes) */}
           <div className={styles.aiRowTopGrid}>

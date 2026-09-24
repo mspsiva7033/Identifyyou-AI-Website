@@ -12,6 +12,7 @@ interface ArticleDetail {
   date: string
   readTime: string
   overview: string
+  image?: string
   sections: { title: string; content: string }[]
   takeaways: string[]
   topics: string
@@ -23,6 +24,7 @@ const sampleArticles: Record<string, ArticleDetail> = {
     category: 'Vision AI & Quality',
     date: 'August 28, 2026',
     readTime: '6 min read',
+    image: '/images/vision_ai_hero_new.png',
     overview:
       'Integrating high-speed industrial cameras with deep learning networks eliminates visual defect bottlenecks on automotive assembly lines. Sub-millimeter part measurements and micro-crack detection can now happen at full line speed.',
     sections: [
@@ -54,6 +56,7 @@ const sampleArticles: Record<string, ArticleDetail> = {
     category: 'Industrial Automation',
     date: 'August 14, 2026',
     readTime: '8 min read',
+    image: '/images/end_to_end_inspection_cell.png',
     overview:
       'A comprehensive guide for factory managers on unifying legacy PLC signals, edge buffering, and real-time cloud data pipelines without disrupting ongoing plant operations.',
     sections: [
@@ -80,6 +83,7 @@ const sampleArticles: Record<string, ArticleDetail> = {
     category: 'Data Engineering',
     date: 'July 30, 2026',
     readTime: '5 min read',
+    image: '/images/snowflake_cortex_architecture.png',
     overview:
       'How enterprise manufacturing teams use native Snowflake Cortex AI applications to forecast raw material pricing and mitigate stock-out risks.',
     sections: [
@@ -106,6 +110,7 @@ const sampleArticles: Record<string, ArticleDetail> = {
     category: 'Digital Engineering',
     date: 'July 12, 2026',
     readTime: '7 min read',
+    image: '/images/ai_no_code_hero.png',
     overview:
       'Empowering plant engineers and floor supervisors to create custom tracking apps and workflow automations without traditional software development delays.',
     sections: [
@@ -127,6 +132,7 @@ const sampleArticles: Record<string, ArticleDetail> = {
     category: 'Vision AI & Quality',
     date: 'June 25, 2026',
     readTime: '6 min read',
+    image: '/images/vision_ai_hero_production_line.png',
     overview:
       'Exploring multi-camera vision synchronization and high-speed edge hardware to verify assembly accuracy on fast-moving conveyors.',
     sections: [
@@ -148,6 +154,7 @@ const sampleArticles: Record<string, ArticleDetail> = {
     category: 'Industrial Automation',
     date: 'June 10, 2026',
     readTime: '7 min read',
+    image: '/images/industry_automation_hero.png',
     overview:
       'Fusing thermal telemetry, vibration metrics, and current draw sensors to predict equipment failure before catastrophic downtime occurs.',
     sections: [
@@ -183,6 +190,7 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ slu
     category: 'Deep Tech & AI Insights',
     date: 'September 2026',
     readTime: '5 min read',
+    image: '/images/digital_engineering_hero.png',
     overview: 'Empowering enterprise operations with automated visual workflows, connected systems, and intelligent decision platforms.',
     sections: [
       {
@@ -213,7 +221,9 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ slu
           <span>{article.date}</span> • <span>{article.readTime}</span>
         </div>
 
-        <div className={styles.heroImg} />
+        <div className={styles.heroImgWrapper}>
+          <img src={article.image || '/images/digital_engineering_hero.png'} alt={article.title} className={styles.heroImg} />
+        </div>
 
         <h2 className={styles.h2}>Overview</h2>
         <p className={styles.overview}>{article.overview}</p>

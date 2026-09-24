@@ -442,9 +442,144 @@ export const FALLBACK_CASE_STUDIES: CaseStudySummary[] = [
     integration: 'Upstream Annealing Lehr PLC + 4 Relay Outputs + Local DBMS + Cloud MLOps',
     outcome: 'Zero-miss micro (<50 µm) & macro detection, 98% reduction in false positives, sub-10ms edge inference latencies.',
   },
+  {
+    slug: 'streamlining-shipment-planning-and-carrier-selection',
+    title: 'Streamlining Shipment Planning and Carrier Selection',
+    tag: 'Supply Chain · Carrier Intelligence · Logistics Planning',
+    categories: ['Data Engineering', 'Supply Chain', 'Automation'],
+    challenge: 'Manual carrier allocation and unoptimized shipment consolidation led to elevated freight costs and missed SLAs.',
+    objective: 'Automate carrier selection, route optimization, and shipment tender workflows using data analytics.',
+    solution: 'IdentifYou engineered a dynamic logistics planning module analyzing carrier reliability, rate cards, and delivery timelines in real time.',
+    deepTech: 'Carrier Selection Matrix + Dynamic Rate Card Engine + Real-Time Tender Orchestration',
+    tech: 'Snowflake + Python + PostgreSQL + REST APIs',
+    integration: 'Enterprise WMS + Carrier Portals + SAP ERP',
+    outcome: '18% reduction in freight expenditure and 99.4% SLA delivery compliance.',
+  },
+  {
+    slug: 'migrating-hadoop-and-hana-to-snowflake',
+    title: 'Migrating Hadoop and HANA to Snowflake for Manufacturing',
+    tag: 'Manufacturing · Cloud Migration · Data Engineering',
+    categories: ['Data Engineering', 'Data', 'Manufacturing'],
+    challenge: 'Legacy Hadoop clusters and SAP HANA instances suffered from high maintenance costs and bottlenecked queries.',
+    objective: 'Migrate legacy enterprise data warehouses to Snowflake AI Data Cloud with zero downtime.',
+    solution: 'End-to-end data pipeline migration strategy converting legacy MapReduce and HANA CALC views to dbt and Snowflake Snowpark.',
+    deepTech: 'Automated SQL Translation + Snowpark Parallel Execution + Zero-Downtime Data Cutover',
+    tech: 'Snowflake + Snowpark + dbt + Python + Apache Airflow',
+    integration: 'SAP HANA + Hadoop HDFS + SAP ERP + Cloud Data Lakes',
+    outcome: '60% TCO reduction, 10x faster analytical query speeds, and zero business interruption.',
+  },
+  {
+    slug: 'optimizing-retail-demand-forecasting',
+    title: 'Optimizing Retail Demand Forecasting and Peak Season',
+    tag: 'Retail · Data Engineering · Predictive Analytics',
+    categories: ['Data Engineering', 'Data', 'Supply Chain'],
+    challenge: 'Inaccurate demand forecasts during peak retail seasons caused inventory stock-outs and excess holding costs.',
+    objective: 'Deploy machine learning replenishment models for store-level SKU demand forecasting.',
+    solution: 'Real-time retail inventory intelligence platform integrating POS telemetry, promotional calendars, and local demand trends into Snowflake.',
+    deepTech: 'Time-Series Demand Forecasting + Store-Level SKU Replenishment Engine',
+    tech: 'Snowflake + PySpark + Python + Streamlit + PostgreSQL',
+    integration: 'POS Terminals + Inventory Management Systems + ERP',
+    outcome: '35% drop in peak season out-of-stock events and 15% inventory buffer optimization.',
+  },
 ]
 
 export const FALLBACK_CASE_STUDIES_MAP: Record<string, CaseStudyDetail> = {
+  "streamlining-shipment-planning-and-carrier-selection": {
+    "title": "Streamlining Shipment Planning and Carrier Selection",
+    "breadcrumb": "Streamlining Shipment Planning and Carrier Selection",
+    "tag": "Industry: Supply Chain · Function: Carrier Intelligence · Focus: Planning & Selection",
+    "overview": "Automated logistics framework integrating carrier performance metrics, dynamic rate matrix evaluation, and AI-driven shipment allocation to optimize freight costs.",
+    "docItems": [
+      { "type": "p", "text": "Streamlining Shipment Planning and Carrier Selection — Carrier Intelligence" },
+      { "type": "p", "text": "Industry: Supply Chain · Function: Carrier Intelligence · Focus: Planning & Selection" },
+      { "type": "h2", "text": "The Challenge" },
+      { "type": "p", "text": "Manual carrier allocation and unoptimized shipment consolidation led to elevated freight costs and missed SLAs across multi-regional distribution networks." },
+      { "type": "bullet", "text": "Siloed carrier rate cards prevented real-time cost benchmarking." },
+      { "type": "bullet", "text": "Lack of automated tender workflows caused delivery schedule delays." },
+      { "type": "h2", "text": "The Solution" },
+      { "type": "p", "text": "IdentifYou engineered a dynamic logistics planning module analyzing carrier reliability, rate cards, and delivery timelines in real time." },
+      { "type": "bullet", "text": "Automated carrier selection matrix evaluating lowest-cost, highest-reliability carriers." },
+      { "type": "bullet", "text": "Direct API integration with enterprise WMS and carrier dispatch portals." },
+      { "type": "h2", "text": "Business Outcomes" },
+      { "type": "bullet", "text": "18% reduction in total freight expenditure." },
+      { "type": "bullet", "text": "99.4% SLA delivery compliance across regional freight lanes." }
+    ],
+    "results": [
+      { "stat": "18%", "label": "Freight Cost Reduction" },
+      { "stat": "99.4%", "label": "SLA Delivery Compliance" },
+      { "stat": "Automated", "label": "Real-Time Carrier Selection" }
+    ],
+    "technologyUsed": "Snowflake, Python, PostgreSQL, REST APIs, WMS Connectors",
+    "more": [
+      { "tag": "Supply Chain · Logistics", "title": "Optimizing Logistics, Shipment & Fleet Operations with Snowflake", "slug": "optimizing-shipment-fleet-snowflake" },
+      { "tag": "Supply Chain · Inventory", "title": "Revolutionizing Enterprise Inventory Optimization with Snowflake", "slug": "revolutionizing-inventory-optimization" }
+    ]
+  },
+
+  "migrating-hadoop-and-hana-to-snowflake": {
+    "title": "Migrating Hadoop and HANA to Snowflake for Manufacturing",
+    "breadcrumb": "Migrating Hadoop and HANA to Snowflake for Manufacturing",
+    "tag": "Industry: Manufacturing · Function: Data Modernization · Focus: Legacy Cloud Migration",
+    "overview": "Enterprise migration architecture transitioning legacy Hadoop clusters and SAP HANA data warehouses to Snowflake AI Data Cloud with zero operational downtime.",
+    "docItems": [
+      { "type": "p", "text": "Migrating Hadoop and HANA to Snowflake for Manufacturing — Modern Lakehouse Data Platform" },
+      { "type": "p", "text": "Industry: Manufacturing · Function: Data Modernization · Focus: Legacy Cloud Migration" },
+      { "type": "h2", "text": "The Challenge" },
+      { "type": "p", "text": "Legacy Hadoop clusters and SAP HANA instances suffered from high hardware maintenance costs and bottlenecked analytics queries." },
+      { "type": "bullet", "text": "High infrastructure maintenance costs for legacy Hadoop nodes." },
+      { "type": "bullet", "text": "Siloed SAP HANA reporting prevented unified manufacturing analytics." },
+      { "type": "h2", "text": "The Solution" },
+      { "type": "p", "text": "IdentifYou executed an end-to-end data pipeline migration converting legacy MapReduce jobs and HANA CALC views into clean dbt models on Snowflake." },
+      { "type": "bullet", "text": "Automated schema and SQL translation layer converting legacy logic into Snowpark Python." },
+      { "type": "bullet", "text": "Parallel validation engine ensuring 100% data integrity during cutover." },
+      { "type": "h2", "text": "Business Outcomes" },
+      { "type": "bullet", "text": "60% reduction in total cost of ownership (TCO)." },
+      { "type": "bullet", "text": "10x faster query execution for manufacturing analytics." }
+    ],
+    "results": [
+      { "stat": "60%", "label": "TCO Reduction" },
+      { "stat": "10x", "label": "Query Velocity Boost" },
+      { "stat": "Zero", "label": "Downtime Cutover" }
+    ],
+    "technologyUsed": "Snowflake, Snowpark, dbt, Python, Apache Airflow, SAP HANA APIs",
+    "more": [
+      { "tag": "Data Engineering · Cortex AI", "title": "Precision ABM & Demand Intelligence with Snowflake Cortex AI", "slug": "precision-abm-snowflake-cortex" },
+      { "tag": "Supply Chain · Inventory", "title": "Revolutionizing Enterprise Inventory Optimization with Snowflake", "slug": "revolutionizing-inventory-optimization" }
+    ]
+  },
+
+  "optimizing-retail-demand-forecasting": {
+    "title": "Optimizing Retail Demand Forecasting and Peak Season",
+    "breadcrumb": "Optimizing Retail Demand Forecasting and Peak Season",
+    "tag": "Industry: Retail · Function: Demand Intelligence · Focus: Peak Season Planning",
+    "overview": "Machine learning demand forecasting platform built on Snowflake to predict store-level SKU replenishment and eliminate peak season stock-outs.",
+    "docItems": [
+      { "type": "p", "text": "Optimizing Retail Demand Forecasting and Peak Season — Predictive Demand Intelligence" },
+      { "type": "p", "text": "Industry: Retail · Function: Demand Intelligence · Focus: Peak Season Planning" },
+      { "type": "h2", "text": "The Challenge" },
+      { "type": "p", "text": "Inaccurate demand forecasts during peak retail seasons caused severe store-level stock-outs and excess warehouse holding costs." },
+      { "type": "bullet", "text": "Legacy spreadsheet-based forecasting failed to capture localized demand spikes." },
+      { "type": "bullet", "text": "Uncoordinated inventory allocation led to high markdowns post-season." },
+      { "type": "h2", "text": "The Solution" },
+      { "type": "p", "text": "IdentifYou deployed a real-time retail demand intelligence platform on Snowflake integrating POS telemetry, promotional events, and time-series ML models." },
+      { "type": "bullet", "text": "Automated store-level SKU replenishment triggers." },
+      { "type": "bullet", "text": "Dynamic safety stock optimization reducing excess buffer inventory." },
+      { "type": "h2", "text": "Business Outcomes" },
+      { "type": "bullet", "text": "35% drop in peak season out-of-stock incidents." },
+      { "type": "bullet", "text": "15% inventory buffer optimization across regional distribution centers." }
+    ],
+    "results": [
+      { "stat": "-35%", "label": "Peak Out-of-Stock Events" },
+      { "stat": "15%", "label": "Buffer Optimization" },
+      { "stat": "Store-Level", "label": "Predictive SKU Replenishment" }
+    ],
+    "technologyUsed": "Snowflake, PySpark, Python, Streamlit, PostgreSQL, POS Connectors",
+    "more": [
+      { "tag": "Supply Chain · Inventory", "title": "Revolutionizing Enterprise Inventory Optimization with Snowflake", "slug": "revolutionizing-inventory-optimization" },
+      { "tag": "Supply Chain · Logistics", "title": "Optimizing Logistics, Shipment & Fleet Operations with Snowflake", "slug": "optimizing-shipment-fleet-snowflake" }
+    ]
+  },
+
   "optimizing-shipment-fleet-snowflake": {
     "title": "Optimizing Logistics, Shipment & Fleet Operations with Snowflake",
     "breadcrumb": "Optimizing Logistics, Shipment & Fleet Operations with Snowflake",
@@ -5149,11 +5284,7 @@ export async function getCaseStudies(): Promise<CaseStudySummary[]> {
 export async function getCaseStudyBySlug(slug: string): Promise<CaseStudyDetail> {
   const slugAliases: Record<string, string> = {
     'optimizing-shipment-and-fleet-operations': 'optimizing-shipment-fleet-snowflake',
-    'streamlining-shipment-planning-and-carrier-selection': 'optimizing-shipment-fleet-snowflake',
-    'migrating-hadoop-and-hana-to-snowflake': 'precision-abm-snowflake-cortex',
     'ai-powered-procurement': 'procurement-operations-intelligence',
-    'manufacturing-data-platform': 'precision-abm-snowflake-cortex',
-    'tailored-enterprise-solutions': 'procurement-operations-intelligence',
   }
 
   const normalizedSlug = slugAliases[slug] || slug
