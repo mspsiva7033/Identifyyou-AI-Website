@@ -248,47 +248,6 @@ export default function DataEngineeringPage() {
         </div>
       </section>
 
-      {/* 9. NEWS & BLOGS SECTION (<News> <Blogs>) */}
-      <section className={styles.sectionNews}>
-        <div className={styles.newsContainer}>
-          <div className={styles.eyebrowGreen}>NEWS &amp; BLOGS</div>
-          <h2 className={styles.newsMainTitle}>From the IdentifYou Team</h2>
-          <div className={styles.newsGrid}>
-            <Link href="/blogs-and-news" className={styles.newsCard}>
-              <div className={styles.newsImgBox}>
-                <img
-                  src="/images/enterprise_data_platform_diagram.png"
-                  alt="Modern Data Architecture with Snowflake"
-                  className={styles.realNewsImg}
-                />
-              </div>
-              <div className={styles.newsBody}>
-                <div className={styles.newsTag}>BLOG</div>
-                <h3 className={styles.newsTitle}>
-                  Building AI-Ready Enterprise Data Foundations on Snowflake
-                </h3>
-              </div>
-            </Link>
-
-            <Link href="/blogs-and-news" className={styles.newsCard}>
-              <div className={styles.newsImgBox}>
-                <img
-                  src="/images/precision_abm_dashboard.png"
-                  alt="Precision ABM Cortex AI Integration"
-                  className={styles.realNewsImg}
-                />
-              </div>
-              <div className={styles.newsBody}>
-                <div className={styles.newsTag}>NEWS</div>
-                <h3 className={styles.newsTitle}>
-                  IdentifYou Launches Precision ABM Natively on Snowflake Marketplace
-                </h3>
-              </div>
-            </Link>
-          </div>
-        </div>
-      </section>
-
       <Footer />
     </div>
   )

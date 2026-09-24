@@ -37,7 +37,6 @@ const defaultNav: NavItem[] = [
   { label: 'Success Stories', href: '/case-studies' },
   { label: 'About', href: '/about' },
   { label: 'Contact', href: '/contact' },
-  { label: 'Blogs & News', href: '/blogs-and-news' },
 ]
 
 const megaMenuData: Record<

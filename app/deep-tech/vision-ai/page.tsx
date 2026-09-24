@@ -348,7 +348,7 @@ export default function VisionAIPage() {
                   and dimensional characteristics that conventional 2D vision may not reliably capture.
                 </p>
               </div>
-              <Link href="/blogs-and-news" className={styles.csLink}>
+              <Link href="/case-studies" className={styles.csLink}>
                 Read the POV →
               </Link>
             </div>
@@ -359,7 +359,7 @@ export default function VisionAIPage() {
                 <h3 className={styles.povTitle}>[Future Vision AI POV]</h3>
                 <p className={styles.povDesc}>[Teaser pending]</p>
               </div>
-              <Link href="/blogs-and-news" className={styles.csLink}>
+              <Link href="/case-studies" className={styles.csLink}>
                 Read the POV →
               </Link>
             </div>
@@ -370,7 +370,7 @@ export default function VisionAIPage() {
                 <h3 className={styles.povTitle}>[Future Vision AI POV]</h3>
                 <p className={styles.povDesc}>[Teaser pending]</p>
               </div>
-              <Link href="/blogs-and-news" className={styles.csLink}>
+              <Link href="/case-studies" className={styles.csLink}>
                 Read the POV →
               </Link>
             </div>
@@ -421,47 +421,7 @@ export default function VisionAIPage() {
         </div>
       </section>
 
-      {/* 11. LATEST NEWS & INSIGHTS (PDF Page 5 Top) */}
-      <section className={styles.sectionNews}>
-        <div className={styles.eyebrowGreen}>LATEST NEWS &amp; INSIGHTS</div>
-
-        <div className={styles.newsGrid}>
-          <div className={styles.newsCard}>
-            <div>
-              <div className={styles.newsTag}>NEWS</div>
-              <h3 className={styles.newsTitle}>[News Article]</h3>
-              <p className={styles.newsDesc}>[Short description]</p>
-            </div>
-            <Link href="/blogs-and-news" className={styles.csLink}>
-              Read More →
-            </Link>
-          </div>
-
-          <div className={styles.newsCard}>
-            <div>
-              <div className={styles.newsTag}>BLOG</div>
-              <h3 className={styles.newsTitle}>[Vision AI Blog]</h3>
-              <p className={styles.newsDesc}>[Short description]</p>
-            </div>
-            <Link href="/blogs-and-news" className={styles.csLink}>
-              Read More →
-            </Link>
-          </div>
-
-          <div className={styles.newsCard}>
-            <div>
-              <div className={styles.newsTag}>INSIGHT</div>
-              <h3 className={styles.newsTitle}>[Industry Insight]</h3>
-              <p className={styles.newsDesc}>[Short description]</p>
-            </div>
-            <Link href="/blogs-and-news" className={styles.csLink}>
-              Read More →
-            </Link>
-          </div>
-        </div>
-      </section>
-
-      {/* 12. FOOTER (PDF Page 5 Bottom) */}
+      {/* FOOTER */}
       <Footer />
     </div>
   )

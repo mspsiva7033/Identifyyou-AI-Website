@@ -218,52 +218,6 @@ export default function AIIntelligentBusinessPage() {
           </div>
         </div>
       </section>
-
-      {/* 8. NEWS & BLOGS */}
-      <section className={styles.sectionNews}>
-        <div className={styles.sectionHeaderLight}>
-          <div className={styles.csTagGreen}>NEWS &amp; BLOGS</div>
-          <h2 className={styles.introTitle} style={{ textAlign: 'left', margin: '8px 0 0' }}>
-            From the IdentifYou Team.
-          </h2>
-        </div>
-
-        <div className={styles.newsGrid}>
-          <Link href="/blogs-and-news" className={styles.newsCard}>
-            <div className={styles.newsImgBox}>
-              <img
-                src="/images/enterprise_data_platform_diagram.png"
-                alt="Why inventory variance is a data-reconciliation problem"
-                className={styles.realImg}
-              />
-            </div>
-            <div className={styles.newsBody}>
-              <div className={styles.csTagGreen}>BLOG</div>
-              <h3 className={styles.newsTitle}>
-                Why inventory variance is a data-reconciliation problem, not a counting problem
-              </h3>
-            </div>
-          </Link>
-
-          <Link href="/blogs-and-news" className={styles.newsCard}>
-            <div className={styles.newsImgBox}>
-              <img
-                src="/images/snowflake_cortex_architecture.png"
-                alt="IdentifYou expands intelligence practice into finance risk analytics"
-                className={styles.realImg}
-              />
-            </div>
-            <div className={styles.newsBody}>
-              <div className={styles.csTagGreen}>NEWS</div>
-              <h3 className={styles.newsTitle}>
-                IdentifYou expands intelligence practice into finance risk analytics
-              </h3>
-            </div>
-          </Link>
-        </div>
-      </section>
-
-      {/* 9. FOOTER */}
       <Footer />
     </div>
   )
