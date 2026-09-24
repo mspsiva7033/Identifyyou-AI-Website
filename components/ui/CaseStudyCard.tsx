@@ -81,7 +81,16 @@ export function CaseStudyCard({
   const cardContent = (
     <>
       <div className={styles.imageWrapper}>
-        <img src={imageSrc} alt={title} className={styles.image} loading="lazy" />
+        <img
+          src={imageSrc}
+          alt={title}
+          className={styles.image}
+          loading="lazy"
+          onError={(e) => {
+            e.currentTarget.onerror = null
+            e.currentTarget.src = '/images/case-studies/placeholder.png'
+          }}
+        />
         <div
           className={styles.colorTintLayer}
           style={{ backgroundColor: theme.tintColor, opacity: theme.overlayOpacity }}

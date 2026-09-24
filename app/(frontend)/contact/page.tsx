@@ -15,14 +15,43 @@ const paths = [
   { id: 'not-sure', label: "I'm not sure — need guidance", icon: '❓' },
 ]
 
+// Common free/personal email domains to block for work email validation
+const freeEmailDomains = [
+  'gmail.com', 'yahoo.com', 'yahoo.co.uk', 'yahoo.in', 'hotmail.com', 'hotmail.co.uk',
+  'outlook.com', 'live.com', 'icloud.com', 'me.com', 'aol.com', 'mail.com',
+  'protonmail.com', 'proton.me', 'tutanota.com', 'zohomail.com', 'yandex.com',
+  'rediffmail.com', 'gmx.com', 'inbox.com', 'fastmail.com', 'msn.com',
+]
+
+function isWorkEmail(email: string): boolean {
+  const domain = email.split('@')[1]?.toLowerCase()
+  if (!domain) return false
+  return !freeEmailDomains.includes(domain)
+}
+
 export default function ContactPage() {
   const [selectedPath, setSelectedPath] = useState<string | null>(null)
   const [submitted, setSubmitted] = useState(false)
   const [loading, setLoading] = useState(false)
+  const [emailError, setEmailError] = useState('')
   const [form, setForm] = useState({ name: '', email: '', company: '', message: '' })
+
+  const handleEmailChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const val = e.target.value
+    setForm((f) => ({ ...f, email: val }))
+    if (val && val.includes('@') && !isWorkEmail(val)) {
+      setEmailError('Please use your work email address (not Gmail, Yahoo, Hotmail, etc.)')
+    } else {
+      setEmailError('')
+    }
+  }
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
+    if (!isWorkEmail(form.email)) {
+      setEmailError('Please use your work email address (not Gmail, Yahoo, Hotmail, etc.)')
+      return
+    }
     setLoading(true)
     try {
       await fetch('/api/contact', {
@@ -70,7 +99,7 @@ export default function ContactPage() {
 
           <div className={styles.contactInfo}>
             <div className={styles.contactInfoTitle}>Contact</div>
-            <p className={styles.contactInfoText}>Support@identifyou.in</p>
+            <p className={styles.contactInfoText}>support@identifyou.in</p>
             <p className={styles.contactInfoText}>+91 9597046682</p>
             <p className={styles.contactInfoText}>Pandi Kovil Ring Road, Madurai, Tamil Nadu 625107</p>
             <p className={styles.contactInfoText}>3 Northwood Avenue, Purley, London CR8 2ER</p>
@@ -84,12 +113,18 @@ export default function ContactPage() {
               <div className={styles.successIcon}>✓</div>
               <h2 className={styles.successTitle}>Message Sent!</h2>
               <p className={styles.successDesc}>
-                Thank you for reaching out. A member of our team will be in touch shortly.
+                Thank you for reaching out. A member of our team will be in touch shortly at your work email.
+              </p>
+              <p className={styles.successDesc} style={{ fontSize: '13px', opacity: 0.7, marginTop: '8px' }}>
+                Our team monitors <strong>support@identifyou.in</strong> and will respond within 1 business day.
               </p>
             </div>
           ) : (
             <form id="contact-form" onSubmit={handleSubmit} className={styles.form}>
               <h2 className={styles.formTitle}>Talk to a Deep Tech Expert</h2>
+              <p className={styles.formSubtitle}>
+                Your message will be sent to <strong>support@identifyou.in</strong>
+              </p>
               {selectedPath && (
                 <div className={styles.selectedPathBadge}>
                   Re: {paths.find((p) => p.id === selectedPath)?.label}
@@ -112,10 +147,14 @@ export default function ContactPage() {
                   id="contact-email"
                   type="email"
                   required
-                  className={styles.input}
+                  className={`${styles.input} ${emailError ? styles.inputError : ''}`}
                   value={form.email}
-                  onChange={(e) => setForm((f) => ({ ...f, email: e.target.value }))}
+                  onChange={handleEmailChange}
+                  placeholder="you@yourcompany.com"
                 />
+                {emailError && (
+                  <p className={styles.fieldError}>{emailError}</p>
+                )}
               </div>
               <div className={styles.field}>
                 <label htmlFor="contact-company" className={styles.label}>Company</label>
@@ -140,7 +179,7 @@ export default function ContactPage() {
               <button
                 id="contact-submit"
                 type="submit"
-                disabled={loading}
+                disabled={loading || !!emailError}
                 className={styles.submitBtn}
               >
                 {loading ? 'Sending...' : 'Send Message'}

@@ -33,6 +33,7 @@
 .brand {
   grid-column: span 1;
   min-width: 220px;
+  padding-bottom: 12px;
 }
 
 .brandName {

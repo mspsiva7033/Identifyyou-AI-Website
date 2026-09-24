@@ -276,7 +276,6 @@
   padding: 4px 10px;
   border-radius: 20px;
   letter-spacing: 0.05em;
-  text-transform: uppercase;
   backdrop-filter: blur(4px);
 }
 
@@ -1048,6 +1047,7 @@
 
 .bannerBtnPrimary:hover {
   background: #82b032;
+  color: #FFFFFF;
   transform: translateY(-2px);
   box-shadow: 0 6px 20px rgba(150, 199, 61, 0.45);
 }
@@ -1530,6 +1530,7 @@
 
 .ctaGreenBtn:hover {
   background: #82b032;
+  color: #FFFFFF;
   transform: translateY(-2px);
   box-shadow: 0 8px 24px rgba(150, 199, 61, 0.5);
 }

@@ -170,7 +170,7 @@ const aiBottomRowPillars = [
   },
   {
     type: 'digital-engineering',
-    badge: 'ENTERPRISE SAAS',
+    badge: 'ENTERPRISE SaaS',
     eyebrow: 'AI That Acts',
     title: 'Digital Engineering',
     subtext: 'Engineer Digital Products That Solve Real Business Problems.',
@@ -663,7 +663,7 @@ export default function HomePage() {
 
       {/* 7. CASE STUDIES ACROSS DEEP TECH PILLARS */}
       <section className={styles.sectionSolutions}>
-        <div className={styles.container}>``
+        <div className={styles.container}>
           <div className={styles.eyebrowGreen}>DEEP TECH IN PRACTICE</div>
           <h2 className={styles.h2SolutionsTitle}>Case Studies Across Deep Tech</h2>
 

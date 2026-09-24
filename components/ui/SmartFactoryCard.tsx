@@ -28,12 +28,13 @@ export function SmartFactoryCard({
       {/* Wrapper intercepts click and opens video modal */}
       <div
         style={{ position: 'relative', cursor: 'pointer' }}
+        data-smart-factory-card
         onClick={(e) => {
           e.preventDefault()
           setIsModalOpen(true)
         }}
       >
-        {/* Play badge — visible on hover via CSS */}
+        {/* Play badge — always visible centered */}
         <div style={{
           position: 'absolute',
           top: '50%',
@@ -54,6 +55,8 @@ export function SmartFactoryCard({
             <polygon points="5,3 19,12 5,21" />
           </svg>
         </div>
+        {/* Hide "Read Case Study" overlay — play button takes precedence */}
+        <style>{`[data-smart-factory-card] a > div[class*="centerContent"] { display: none !important; }`}</style>
         <CaseStudyCard
           title={title}
           industry={industry}

@@ -93,11 +93,263 @@ export async function seed() {
     },
   })
 
+  const noCodeCat = await payload.create({
+    collection: 'case-study-categories',
+    data: {
+      name: 'AI-Powered No-Code Platform',
+      slug: 'ai-no-code',
+      description: 'Business-owned software, NLP prompt-to-app, and data connectors.',
+      displayOrder: 6,
+    },
+  })
+
+  const dataEngineeringCat = await payload.create({
+    collection: 'case-study-categories',
+    data: {
+      name: 'Data Engineering',
+      slug: 'data-engineering',
+      description: 'Snowflake lakehouse, telemetry, Cortex AI, and Power BI apps.',
+      displayOrder: 7,
+    },
+  })
+
+  const digitalEngineeringCat = await payload.create({
+    collection: 'case-study-categories',
+    data: {
+      name: 'Digital Engineering',
+      slug: 'digital-engineering',
+      description: 'Simulation models, enterprise portals, CRM extension, and microservices.',
+      displayOrder: 8,
+    },
+  })
+
   const FULL_DOCX_MAP: Record<string, any> = {
-  "procurement-operations-intelligence": {
-    "title": "Transforming Routine Procurement from Manual Processing to Intelligent Automation",
-    "breadcrumb": "Transforming Routine Procurement from Manual Processing to Intelligent Automation",
-    "tag": "Industry: Automotive & Engineering ManufacturingFunction: Procurement OperationsFocus: Standard Items • Routine Purchases • Replenishment",
+    "precision-vision-ai-setup": {
+      "title": "Precision Vision AI Setup",
+      "breadcrumb": "Precision Vision AI Setup",
+      "tag": "VISION AI · PRECISION INSPECTION",
+      "technologyUsed": "Basler Industrial Cameras, UV/RGB LED Illumination, 3D Laser Profilers, TensorRT, Industrial PC, Pick-and-Place Robotics",
+      "docItems": [
+        { "type": "p", "text": "Precision Vision AI Setup — Engineering Micron-Level Inspection" },
+        { "type": "p", "text": "Industry: Industrial Manufacturing · Function: Quality Control · Focus: Micron-Level Production Inspection" },
+        { "type": "h2", "text": "The Challenge" },
+        { "type": "h3", "text": "Engineering Challenges at Micron-Level Tolerances" },
+        { "type": "p", "text": "At micron-level tolerances (6–16 microns), even small variations in imaging geometry, camera distance or lighting angle influence measurements. Systems cannot achieve precision by simply slowing down line speed—accuracy and throughput must coexist." },
+        { "type": "bullet", "text": "Measurement Precision: Small positional variations alter high-magnification measurements." },
+        { "type": "bullet", "text": "Illumination Control: Unstable lighting introduces reflections, shadows and false edge readings." },
+        { "type": "bullet", "text": "Repeatable Presentation: Part presentation must be mechanically stabilized before image capture." },
+        { "type": "bullet", "text": "Production Speed: High-precision inspection must match continuous manufacturing line rates." },
+        { "type": "h2", "text": "The Objective" },
+        { "type": "h3", "text": "Measurement Accuracy & Production-Ready Precision Inspection" },
+        { "type": "p", "text": "For micron-level production inspection, success is determined by multiple variables working together: Mechanical Repeatability, Optical Stability, Illumination Control, AI / Vision Intelligence, Cycle Time, Throughput, and Handling Reliability." },
+        { "type": "h2", "text": "IdentifYou's Engineering Approach" },
+        { "type": "h3", "text": "The Complete Inspection Cell Architecture" },
+        { "type": "bullet", "text": "Feeding & Part Presentation: Belt conveyors and escapements minimize positional variation." },
+        { "type": "bullet", "text": "Precision Optics & UV Illumination: Multi-angle UV/RGB lighting creates crisp contrast for metallic micro-features." },
+        { "type": "bullet", "text": "Vision AI & Industrial Computing: Sub-millisecond TensorRT inferences deliver real-time Pass/Fail decisions." },
+        { "type": "bullet", "text": "Robotic Handling & Segregation: Automated pick-and-place robotics isolate defective parts into quarantine." },
+        { "type": "h2", "text": "A Production-Ready Vision AI System" },
+        { "type": "p", "text": "IdentifYou designs and deploys Vision AI systems where 6–16 micron tolerance levels meet real production conditions—maintaining reliability, consistency, cycle time, and throughput demanded by modern manufacturing." }
+      ],
+      "results": [
+        { "stat": "6–16 µm", "label": "Tolerance Measurement Precision" },
+        { "stat": "100%", "label": "Inline Production Speed Inspection" },
+        { "stat": "Sub-Second", "label": "Robotic Defect Segregation Cycle" }
+      ]
+    },
+    "end-to-end-inspection-cell": {
+      "title": "End-to-End Inspection Cell Engineering",
+      "breadcrumb": "End-to-End Inspection Cell Engineering",
+      "tag": "VISION AI · PRODUCTION ENGINEERING",
+      "technologyUsed": "Vibratory/Step Feeders, Indexing Conveyors, Vision AI, Industrial Robotics, PLC Integration, TensorRT",
+      "docItems": [
+        { "type": "p", "text": "End-to-End Inspection Cell Engineering — From Part Feeding to Intelligent Production" },
+        { "type": "p", "text": "Industry: Industrial Manufacturing · Function: Cell Engineering · Focus: Complete Automation System" },
+        { "type": "h2", "text": "From Part Feeding to Intelligent Production" },
+        { "type": "p", "text": "In modern manufacturing, automated inspection cannot be treated as an isolated camera-and-software problem. A vision system can identify a defect, but neither delivers value unless the part is presented correctly, inspected reliably, handled at speed, and moved to the next process." },
+        { "type": "h2", "text": "The Challenge" },
+        { "type": "p", "text": "Production requirements extend beyond simple inspection to complex cell automation: feeder design, singulation, part orientation, conveyancing, optical clearance, cycle time constraints, robot reach, reject handling, and safety." },
+        { "type": "h2", "text": "The IdentifYou Approach" },
+        { "type": "h3", "text": "Feed → Present → See → Understand → Decide → Act → Continue" },
+        { "type": "bullet", "text": "Feeder Design: Vibratory bowls, step feeders, and flexible feeders matched to part geometry." },
+        { "type": "bullet", "text": "Singulation & Escapements: Controlled separation ensuring 100% repeatable part positioning." },
+        { "type": "bullet", "text": "Precision Fixtures: Datum references designed around camera field-of-view and lighting angles." },
+        { "type": "bullet", "text": "Robotic Handling & Segregation: High-speed pick-and-place sorting synchronized with AI decisions." },
+        { "type": "h2", "text": "Production System Excellence" },
+        { "type": "p", "text": "IdentifYou delivers a complete production cell where mechanical engineering, machine vision, AI, robotics, and industrial automation operate as one connected, high-throughput system." }
+      ],
+      "results": [
+        { "stat": "100%", "label": "Automated Part Presentation & Inspection" },
+        { "stat": "Zero", "label": "Manual Escapement Overrides" },
+        { "stat": "Turnkey", "label": "Factory-Floor Cell Integration" }
+      ]
+    },
+    "power-bi-abm": {
+      "title": "Account Based Marketing — Power BI ABM",
+      "breadcrumb": "Account Based Marketing — Power BI ABM",
+      "tag": "DATA ENGINEERING · POWER BI & SNOWFLAKE · ABM",
+      "technologyUsed": "Microsoft Power BI, Snowflake AI Data Cloud, SQL, Basic Authentication",
+      "docItems": [
+        { "type": "p", "text": "Account Based Marketing — Power BI ABM Framework & Snowflake Engine" },
+        { "type": "p", "text": "Industry: Financial Services & Enterprise · Function: Revenue Analytics · Focus: ABM Intelligence" },
+        { "type": "h2", "text": "Strategic Foundation: Turning Account Intelligence into Revenue Growth" },
+        { "type": "p", "text": "Empowering data-driven sales and marketing decisions, the Account Based Marketing framework unifies ICP Analysis, Account Fit Scoring, Engagement Intelligence, Deal Analytics, and Revenue Insights into a single analytical framework on Snowflake." },
+        { "type": "h2", "text": "The Four-Phase ABM Framework" },
+        { "type": "bullet", "text": "Sales Foundation: ICP analysis, account fit evaluation, and intent identification." },
+        { "type": "bullet", "text": "Pre-Sales Engagement: Engagement monitoring and contact activity analysis." },
+        { "type": "bullet", "text": "Deals & Activities: Deal velocity, pipeline visibility, and opportunity tracking." },
+        { "type": "bullet", "text": "Sales Closure: Close-rate analysis and revenue optimization." },
+        { "type": "h2", "text": "The ABM & Visualization Engine — Power BI & Snowflake" },
+        { "type": "p", "text": "Interactive Power BI dashboards connected natively to Snowflake data warehouses via Basic Authentication provide executive-level visibility and operational agility across all account touchpoints." }
+      ],
+      "results": [
+        { "stat": "Unified", "label": "ICP & Intent Account Scoring" },
+        { "stat": "Real-Time", "label": "Power BI & Snowflake Ingestion" },
+        { "stat": "AppSource", "label": "Certified Microsoft Marketplace App" }
+      ]
+    },
+    "business-driven-software-system": {
+      "title": "Business Driven Software System",
+      "breadcrumb": "Business Driven Software System",
+      "tag": "Enterprise Operations · Business Architecture · Business-Owned Software",
+      "technologyUsed": "IdentifYou Business Engine + React.js + Python + Node.js + REST APIs",
+      "docItems": [
+        { "type": "p", "text": "Business Driven Software System — Business-Owned No-Code Platform" },
+        { "type": "p", "text": "Industry: Enterprise Operations · Function: Application Engineering · Focus: No-Code Platform" },
+        { "type": "h2", "text": "The Challenge" },
+        { "type": "p", "text": "Traditional software development requires translating business requirements to IT teams, creating bottlenecks where simple functional updates take weeks or months." },
+        { "type": "h2", "text": "The Solution" },
+        { "type": "p", "text": "IdentifYou engineered a Business-Owned No-Code Platform that understands business context (plants, materials, suppliers, approval rules) to build business-driven software without code." }
+      ],
+      "results": [
+        { "stat": "100%", "label": "Business Rule Ownership" },
+        { "stat": "Zero", "label": "Developer Dependencies for Rule Updates" }
+      ]
+    },
+    "nlp-text-to-business-application": {
+      "title": "NLP based Text-to-Business Application",
+      "breadcrumb": "NLP based Text-to-Business Application",
+      "tag": "Operational Automation · NLP Engine · Text-to-Application",
+      "technologyUsed": "IdentifYou NLP Engine + Reusable Knowledge Base + React.js + PostgreSQL",
+      "docItems": [
+        { "type": "p", "text": "NLP based Text-to-Business Application" },
+        { "type": "h2", "text": "The Challenge" },
+        { "type": "p", "text": "Converting business requirements into software requires multiple stages of analysis, design, development, and testing, often duplicating existing logic." },
+        { "type": "h2", "text": "The Solution" },
+        { "type": "p", "text": "IdentifYou’s NLP-based No-Code Platform interprets natural language prompts to automatically generate UIs, business rules, workflows, validations, and actions." }
+      ],
+      "results": [
+        { "stat": "Instant", "label": "Text-to-App Generation" },
+        { "stat": "Zero", "label": "Logic Duplication" }
+      ]
+    },
+    "data-to-application-development": {
+      "title": "Data to Application Development",
+      "breadcrumb": "Data to Application Development",
+      "tag": "Enterprise Data · Data-to-Application · Schema Integration",
+      "technologyUsed": "IdentifYou Data Connectors + SQL Server + Snowflake + Excel Engine + React.js",
+      "docItems": [
+        { "type": "p", "text": "Data to Application Development" },
+        { "type": "h2", "text": "The Challenge" },
+        { "type": "p", "text": "Business data exists across databases and spreadsheets, but converting it into functional applications requires heavy development effort." },
+        { "type": "h2", "text": "The Solution" },
+        { "type": "p", "text": "Built-in data connectors allow users to build applications directly from databases, Excel sheets, UI interfaces, and business requirements across 4 flexible starting points." }
+      ],
+      "results": [
+        { "stat": "4", "label": "Flexible Starting Points" },
+        { "stat": "Direct", "label": "Database-to-UI Mapping" }
+      ]
+    },
+    "business-portals-around-existing-erp": {
+      "title": "Business Portals Around Existing ERP",
+      "breadcrumb": "Business Portals Around Existing ERP",
+      "tag": "Enterprise ERP · SAP & MES Extension · Portal Layer",
+      "technologyUsed": "IdentifYou Connectors + SAP RFC / OData + MES APIs + Node.js + React.js",
+      "docItems": [
+        { "type": "p", "text": "Business Portals Around Existing ERP" },
+        { "type": "h2", "text": "The Challenge" },
+        { "type": "p", "text": "ERP and MES systems support standard processes but lack custom operational workflows, causing reliance on spreadsheets, emails, and manual steps." },
+        { "type": "h2", "text": "The Solution" },
+        { "type": "p", "text": "IdentifYou provides an application layer with built-in connectors to build Production, Inventory, Supplier, and Quality Portals around existing ERP/MES systems without core modifications." }
+      ],
+      "results": [
+        { "stat": "100%", "label": "Digitized Spreadsheet Tasks" },
+        { "stat": "Non-Invasive", "label": "ERP & MES Connectivity" }
+      ]
+    },
+    "deployment-management": {
+      "title": "Deployment Management",
+      "breadcrumb": "Deployment Management",
+      "tag": "Cloud Runtime · Application Lifecycle · Revision Control",
+      "technologyUsed": "IdentifYou Lifecycle Manager + Revision Engine + Docker + Azure/AWS Cloud",
+      "docItems": [
+        { "type": "p", "text": "Deployment Management" },
+        { "type": "h2", "text": "The Challenge" },
+        { "type": "p", "text": "Traditional application deployment introduces technical dependencies and prevents business teams from controlling versions and environment promotions." },
+        { "type": "h2", "text": "The Solution" },
+        { "type": "p", "text": "IdentifYou No-Code Platform configures Development, Staging, and Production environments with built-in Revision Management and feature pushing under business control." }
+      ],
+      "results": [
+        { "stat": "3-Stage", "label": "Controlled Environment Promotion" },
+        { "stat": "Complete", "label": "Revision Control & Feature Push" }
+      ]
+    },
+    "streamlining-shipment-planning-and-carrier-selection": {
+      "title": "Streamlining Shipment Planning and Carrier Selection",
+      "breadcrumb": "Streamlining Shipment Planning and Carrier Selection",
+      "tag": "Supply Chain · Carrier Intelligence · Logistics Planning",
+      "technologyUsed": "Snowflake, Python, PostgreSQL, REST APIs",
+      "docItems": [
+        { "type": "p", "text": "Streamlining Shipment Planning and Carrier Selection" },
+        { "type": "h2", "text": "The Challenge" },
+        { "type": "p", "text": "Manual carrier allocation and unoptimized shipment consolidation led to elevated freight costs and missed SLAs." },
+        { "type": "h2", "text": "The Solution" },
+        { "type": "p", "text": "IdentifYou engineered a dynamic logistics planning module analyzing carrier reliability, rate cards, and delivery timelines in real time." }
+      ],
+      "results": [
+        { "stat": "18%", "label": "Freight Cost Reduction" },
+        { "stat": "99.4%", "label": "SLA Delivery Compliance" }
+      ]
+    },
+    "migrating-hadoop-and-hana-to-snowflake": {
+      "title": "Migrating Hadoop and HANA to Snowflake for Manufacturing",
+      "breadcrumb": "Migrating Hadoop and HANA to Snowflake for Manufacturing",
+      "tag": "Manufacturing · Cloud Migration · Data Engineering",
+      "technologyUsed": "Snowflake, Snowpark, dbt, Python, Apache Airflow",
+      "docItems": [
+        { "type": "p", "text": "Migrating Hadoop and HANA to Snowflake for Manufacturing" },
+        { "type": "h2", "text": "The Challenge" },
+        { "type": "p", "text": "Legacy Hadoop clusters and SAP HANA instances suffered from high maintenance costs and bottlenecked queries." },
+        { "type": "h2", "text": "The Solution" },
+        { "type": "p", "text": "End-to-end data pipeline migration strategy converting legacy MapReduce and HANA CALC views to dbt and Snowflake Snowpark." }
+      ],
+      "results": [
+        { "stat": "60%", "label": "TCO Reduction" },
+        { "stat": "10x", "label": "Query Acceleration" }
+      ]
+    },
+    "optimizing-retail-demand-forecasting": {
+      "title": "Optimizing Retail Demand Forecasting and Peak Season",
+      "breadcrumb": "Optimizing Retail Demand Forecasting and Peak Season",
+      "tag": "Retail · Data Engineering · Predictive Analytics",
+      "technologyUsed": "Snowflake, PySpark, Python, Streamlit, PostgreSQL",
+      "docItems": [
+        { "type": "p", "text": "Optimizing Retail Demand Forecasting and Peak Season" },
+        { "type": "h2", "text": "The Challenge" },
+        { "type": "p", "text": "Inaccurate demand forecasts during peak retail seasons caused inventory stock-outs and excess holding costs." },
+        { "type": "h2", "text": "The Solution" },
+        { "type": "p", "text": "Real-time retail inventory intelligence platform integrating POS telemetry, promotional calendars, and local demand trends into Snowflake." }
+      ],
+      "results": [
+        { "stat": "35%", "label": "Stock-out Incident Reduction" },
+        { "stat": "15%", "label": "Inventory Buffer Optimization" }
+      ]
+    },
+    "procurement-operations-intelligence": {
+      "title": "Transforming Routine Procurement from Manual Processing to Intelligent Automation",
+      "breadcrumb": "Transforming Routine Procurement from Manual Processing to Intelligent Automation",
+      "tag": "Industry: Automotive & Engineering ManufacturingFunction: Procurement OperationsFocus: Standard Items • Routine Purchases • Replenishment",
+
     "docItems": [
       {
         "type": "p",
@@ -4230,29 +4482,51 @@ export async function seed() {
 }
 
   const caseStudiesList = [
-    { slug: 'procurement-operations-intelligence', categoryId: supplyChainCat.id, filter: [{ category: 'AI & Intelligent Business' }, { category: 'AI' }, { category: 'Manufacturing' }, { category: 'Supply Chain' }] },
+    // Vision AI
+    { slug: 'precision-vision-ai-setup', categoryId: visionCat.id, filter: [{ category: 'Vision AI' }, { category: 'AI' }, { category: 'Manufacturing' }, { category: 'Automation' }] },
+    { slug: 'end-to-end-inspection-cell', categoryId: visionCat.id, filter: [{ category: 'Vision AI' }, { category: 'AI' }, { category: 'Manufacturing' }, { category: 'Automation' }] },
+    { slug: 'advanced-vision-inspection-surface', categoryId: visionCat.id, filter: [{ category: 'Vision AI' }, { category: 'AI' }, { category: 'Manufacturing' }] },
+    { slug: 'vision-ai-bore-measurement', categoryId: visionCat.id, filter: [{ category: 'Vision AI' }, { category: 'AI' }, { category: 'Manufacturing' }] },
+    { slug: 'vision-ai-complex-dimension', categoryId: visionCat.id, filter: [{ category: 'Vision AI' }, { category: 'AI' }, { category: 'Manufacturing' }] },
+    { slug: 'zebra-line-inspection', categoryId: visionCat.id, filter: [{ category: 'Vision AI' }, { category: 'AI' }, { category: 'Manufacturing' }] },
+    { slug: 'machine-vision', categoryId: visionCat.id, filter: [{ category: 'Vision AI' }, { category: 'AI' }, { category: 'Manufacturing' }] },
+
+    // Data Engineering
+    { slug: 'power-bi-abm', categoryId: dataEngineeringCat.id, filter: [{ category: 'Data Engineering' }, { category: 'Data' }, { category: 'AI' }, { category: 'Financial Services' }] },
+    { slug: 'precision-abm-snowflake-cortex', categoryId: dataEngineeringCat.id, filter: [{ category: 'Data Engineering' }, { category: 'Data' }, { category: 'AI' }] },
+    { slug: 'revolutionizing-inventory-optimization', categoryId: dataEngineeringCat.id, filter: [{ category: 'Data Engineering' }, { category: 'Data' }, { category: 'Manufacturing' }, { category: 'Supply Chain' }] },
+    { slug: 'optimizing-shipment-fleet-snowflake', categoryId: dataEngineeringCat.id, filter: [{ category: 'Data Engineering' }, { category: 'Data' }, { category: 'Supply Chain' }] },
+    { slug: 'streamlining-shipment-planning-and-carrier-selection', categoryId: dataEngineeringCat.id, filter: [{ category: 'Data Engineering' }, { category: 'Supply Chain' }, { category: 'Automation' }] },
+    { slug: 'migrating-hadoop-and-hana-to-snowflake', categoryId: dataEngineeringCat.id, filter: [{ category: 'Data Engineering' }, { category: 'Data' }, { category: 'Manufacturing' }] },
+    { slug: 'optimizing-retail-demand-forecasting', categoryId: dataEngineeringCat.id, filter: [{ category: 'Data Engineering' }, { category: 'Data' }, { category: 'Supply Chain' }] },
+
+    // AI & Intelligent Business
+    { slug: 'procurement-operations-intelligence', categoryId: aiCat.id, filter: [{ category: 'AI & Intelligent Business' }, { category: 'AI' }, { category: 'Manufacturing' }, { category: 'Supply Chain' }] },
     { slug: 'risk-insights-finance', categoryId: aiCat.id, filter: [{ category: 'AI & Intelligent Business' }, { category: 'AI' }, { category: 'Financial Services' }] },
-    { slug: 'strategic-procurement-intelligence', categoryId: supplyChainCat.id, filter: [{ category: 'AI & Intelligent Business' }, { category: 'AI' }, { category: 'Manufacturing' }, { category: 'Supply Chain' }] },
-    { slug: 'towards-zero-inventory-variance-ai', categoryId: manufacturingCat.id, filter: [{ category: 'AI & Intelligent Business' }, { category: 'AI' }, { category: 'Manufacturing' }, { category: 'Supply Chain' }] },
-    { slug: 'precision-abm-snowflake-cortex', categoryId: supplyChainCat.id, filter: [{ category: 'Data Engineering' }, { category: 'Data' }, { category: 'AI' }] },
-    { slug: 'revolutionizing-inventory-optimization', categoryId: supplyChainCat.id, filter: [{ category: 'Data Engineering' }, { category: 'Data' }, { category: 'Manufacturing' }, { category: 'Supply Chain' }] },
-    { slug: 'optimizing-shipment-fleet-snowflake', categoryId: supplyChainCat.id, filter: [{ category: 'Data Engineering' }, { category: 'Data' }, { category: 'Supply Chain' }] },
-    { slug: 'cost-model-simulation', categoryId: manufacturingCat.id, filter: [{ category: 'Digital Engineering' }, { category: 'Automation' }, { category: 'Manufacturing' }] },
-    { slug: 'enhancing-support-efficiency-with-integrated-order-management', categoryId: manufacturingCat.id, filter: [{ category: 'Digital Engineering' }, { category: 'Automation' }, { category: 'Customer Support' }] },
-    { slug: 'overcoming-data-access-challenges-in-a-multi-business-environment-for-streamlined-decision-making', categoryId: manufacturingCat.id, filter: [{ category: 'Digital Engineering' }, { category: 'Data' }, { category: 'Automation' }] },
-    { slug: 'enhancing-the-rfq-process-in-d365-business-central', categoryId: manufacturingCat.id, filter: [{ category: 'Digital Engineering' }, { category: 'Manufacturing' }, { category: 'Supply Chain' }] },
-    { slug: 'tailored-enterprise-solutions', categoryId: manufacturingCat.id, filter: [{ category: 'Digital Engineering' }, { category: 'Automation' }, { category: 'Manufacturing' }] },
+    { slug: 'strategic-procurement-intelligence', categoryId: aiCat.id, filter: [{ category: 'AI & Intelligent Business' }, { category: 'AI' }, { category: 'Manufacturing' }, { category: 'Supply Chain' }] },
+    { slug: 'towards-zero-inventory-variance-ai', categoryId: aiCat.id, filter: [{ category: 'AI & Intelligent Business' }, { category: 'AI' }, { category: 'Manufacturing' }, { category: 'Supply Chain' }] },
+
+    // AI-Powered No-Code Platform
+    { slug: 'business-driven-software-system', categoryId: noCodeCat.id, filter: [{ category: 'AI-Powered No-Code Platform' }, { category: 'AI' }, { category: 'Enterprise' }] },
+    { slug: 'nlp-text-to-business-application', categoryId: noCodeCat.id, filter: [{ category: 'AI-Powered No-Code Platform' }, { category: 'AI' }, { category: 'Automation' }] },
+    { slug: 'data-to-application-development', categoryId: noCodeCat.id, filter: [{ category: 'AI-Powered No-Code Platform' }, { category: 'Data Engineering' }, { category: 'Enterprise' }] },
+    { slug: 'business-portals-around-existing-erp', categoryId: noCodeCat.id, filter: [{ category: 'AI-Powered No-Code Platform' }, { category: 'Digital Engineering' }, { category: 'Manufacturing' }] },
+    { slug: 'deployment-management', categoryId: noCodeCat.id, filter: [{ category: 'AI-Powered No-Code Platform' }, { category: 'Digital Engineering' }, { category: 'Cloud' }] },
+
+    // Digital Engineering
+    { slug: 'cost-model-simulation', categoryId: digitalEngineeringCat.id, filter: [{ category: 'Digital Engineering' }, { category: 'Automation' }, { category: 'Manufacturing' }] },
+    { slug: 'enhancing-support-efficiency-with-integrated-order-management', categoryId: digitalEngineeringCat.id, filter: [{ category: 'Digital Engineering' }, { category: 'Automation' }, { category: 'Customer Support' }] },
+    { slug: 'overcoming-data-access-challenges-in-a-multi-business-environment-for-streamlined-decision-making', categoryId: digitalEngineeringCat.id, filter: [{ category: 'Digital Engineering' }, { category: 'Data' }, { category: 'Automation' }] },
+    { slug: 'enhancing-the-rfq-process-in-d365-business-central', categoryId: digitalEngineeringCat.id, filter: [{ category: 'Digital Engineering' }, { category: 'Manufacturing' }, { category: 'Supply Chain' }] },
+    { slug: 'tailored-enterprise-solutions', categoryId: digitalEngineeringCat.id, filter: [{ category: 'Digital Engineering' }, { category: 'Automation' }, { category: 'Manufacturing' }] },
+
+    // Industry Automation
     { slug: 'fluke-t40', categoryId: automationCat.id, filter: [{ category: 'Industry Automation' }, { category: 'Automation' }, { category: 'Manufacturing' }] },
     { slug: 'fluke-tv30', categoryId: automationCat.id, filter: [{ category: 'Industry Automation' }, { category: 'Automation' }, { category: 'Manufacturing' }] },
     { slug: 'industrial-edge-device-engineering', categoryId: automationCat.id, filter: [{ category: 'Industry Automation' }, { category: 'Automation' }, { category: 'Manufacturing' }] },
     { slug: 'industrial-edge-intelligence', categoryId: automationCat.id, filter: [{ category: 'Industry Automation' }, { category: 'Automation' }, { category: 'AI' }] },
     { slug: 'towards-zero-inventory-variance-automation', categoryId: automationCat.id, filter: [{ category: 'Industry Automation' }, { category: 'Automation' }, { category: 'Manufacturing' }, { category: 'Supply Chain' }] },
     { slug: 'connected-intelligent-plant', categoryId: automationCat.id, filter: [{ category: 'Industry Automation' }, { category: 'Automation' }, { category: 'Manufacturing' }] },
-    { slug: 'advanced-vision-inspection-surface', categoryId: visionCat.id, filter: [{ category: 'Vision AI' }, { category: 'AI' }, { category: 'Manufacturing' }] },
-    { slug: 'vision-ai-bore-measurement', categoryId: visionCat.id, filter: [{ category: 'Vision AI' }, { category: 'AI' }, { category: 'Manufacturing' }] },
-    { slug: 'vision-ai-complex-dimension', categoryId: visionCat.id, filter: [{ category: 'Vision AI' }, { category: 'AI' }, { category: 'Manufacturing' }] },
-    { slug: 'zebra-line-inspection', categoryId: visionCat.id, filter: [{ category: 'Vision AI' }, { category: 'AI' }, { category: 'Manufacturing' }] },
-    { slug: 'machine-vision', categoryId: visionCat.id, filter: [{ category: 'Vision AI' }, { category: 'AI' }, { category: 'Manufacturing' }] },
   ]
 
   let count = 0
@@ -4274,9 +4548,17 @@ export async function seed() {
         filterCategories: item.filter,
         docItems: docData.docItems || [],
         comparisonTable: docData.comparisonTable || null,
+        tableBlock: docData.tableBlock || null,
+        customCTA: docData.customCTA || null,
+        summary: {
+          challenge: docData.docItems?.find((d: any) => d.type === 'p')?.text || '',
+          solution: docData.docItems?.find((d: any) => d.type === 'p' && d.text?.includes('IdentifYou'))?.text || '',
+          tech: docData.technologyUsed || '',
+        },
         detail: {
           shortDescription: docData.docItems?.[0]?.text || docData.title,
           technologyUsed: docData.technologyUsed || '',
+          results: docData.results || [],
         },
       },
     })
@@ -4291,3 +4573,4 @@ if (process.argv[2] === '--run') {
     process.exit(1)
   })
 }
+
