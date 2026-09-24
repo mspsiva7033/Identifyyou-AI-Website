@@ -19,7 +19,13 @@ export async function GET() {
       return NextResponse.json({ message: 'Already exists', doc: existing.docs[0] })
     }
 
-    const doc = await (payload as any).create({
+    const categories = await payload.find({
+      collection: 'case-study-categories',
+      limit: 1,
+    })
+    const categoryId = categories.docs[0]?.id
+
+    const doc = await payload.create({
       collection: 'case-studies',
       draft: false,
       data: {
@@ -27,6 +33,7 @@ export async function GET() {
         slug: 'precision-abm-snowflake-cortex',
         status: 'published',
         template: 'classic',
+        category: categoryId as any,
         docItems: [
           { type: 'h2', text: 'Strategic Foundation' },
           { type: 'p', text: 'Empowering data-driven sales and marketing decisions, the Account Based Marketing solution unifies ICP Analysis, Account Fit Scoring, Engagement Intelligence, Deal Analytics, and Revenue Insights into a single analytical framework. By identifying high-value accounts, measuring engagement effectiveness, and tracking opportunity progression, organizations can prioritize efforts that drive measurable business outcomes.' },
@@ -66,7 +73,8 @@ export async function GET() {
     })
 
     return NextResponse.json({ message: 'Successfully seeded', doc })
-  } catch (error: any) {
-    return NextResponse.json({ error: error.message }, { status: 500 })
+  } catch (error: unknown) {
+    const message = error instanceof Error ? error.message : String(error)
+    return NextResponse.json({ error: message }, { status: 500 })
   }
 }

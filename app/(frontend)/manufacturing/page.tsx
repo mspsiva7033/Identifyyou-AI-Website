@@ -81,7 +81,7 @@ export default async function ManufacturingPage() {
         {/* Solutions */}
         <h2 className={styles.h2Center}>Manufacturing Solutions</h2>
         <div className={styles.solGrid}>
-          {manufacturingSolutions.map((m: any) => {
+          {manufacturingSolutions.map((m: { title: string; tagline: string; href?: string }) => {
             const extra = mfgSolutionsImages[m.title] || { img: '/images/industry_automation_hero.png', href: m.href || '/case-studies' }
             return (
               <div key={m.title} className={styles.solCard}>
