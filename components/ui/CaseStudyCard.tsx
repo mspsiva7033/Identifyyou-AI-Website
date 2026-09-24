@@ -41,6 +41,11 @@ export function CaseStudyCard({
     'advanced-vision-inspection-surface',
     'vision-ai-bore-measurement',
     'vision-ai-complex-dimension',
+    'business-driven-software-system',
+    'nlp-text-to-business-application',
+    'data-to-application-development',
+    'business-portals-around-existing-erp',
+    'deployment-management',
   ]
   const ext = slug && svgSlugs.includes(slug) ? 'svg' : 'png'
   const imageSrc =

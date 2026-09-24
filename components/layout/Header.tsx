@@ -34,16 +34,6 @@ const defaultNav: NavItem[] = [
       { label: 'Digital Engineering', href: '/deep-tech/digital-engineering' },
     ],
   },
-  {
-    label: 'Industries',
-    href: '/manufacturing',
-    subItems: [
-      { label: 'Manufacturing', href: '/manufacturing' },
-      { label: 'Industrial Robots', href: '/industrial-robots' },
-      { label: 'Financial Services & FinTech', href: '/contact' },
-      { label: 'Healthcare', href: '/contact' },
-    ],
-  },
   { label: 'Success Stories', href: '/case-studies' },
   { label: 'About', href: '/about' },
   { label: 'Contact', href: '/contact' },
@@ -54,19 +44,12 @@ const megaMenuData: Record<
   string,
   { title: string; description: string; ctaText: string; ctaHref: string }
 > = {
-  'Deep Tech': {
-    title: 'About Deep Tech',
+  'Deep Tech Offerings': {
+    title: 'Deep Tech Offerings',
     description:
-      'We deliver excellence and create value for enterprise business and connected industries — turning complexity into opportunities and creating meaningful change with AI, Automation, Data, and Digital Engineering.',
+      'Discover enterprise-grade deep tech solutions built around business.',
     ctaText: 'Discover the difference →',
     ctaHref: '/deep-tech',
-  },
-  Industries: {
-    title: 'Industry Solutions',
-    description:
-      'Domain-tailored deep tech solutions engineered for intelligent manufacturing, robotics, financial risk intelligence, and healthcare digital transformation.',
-    ctaText: 'Explore industry solutions →',
-    ctaHref: '/manufacturing',
   },
 }
 
@@ -181,6 +164,41 @@ export function Header({ logo, navItems = defaultNav, ctaButton }: HeaderProps) 
               >
                 {megaMenuData[openDropdown!]?.ctaText || 'Discover the difference →'}
               </Link>
+
+              {openDropdown === 'Deep Tech Offerings' && (
+                <div className={styles.megaIndustriesSection}>
+                  <div className={styles.megaIndustriesHeading}>Industries</div>
+                  <ul className={styles.megaIndustriesList}>
+                    <li>
+                      <Link
+                        href="/manufacturing"
+                        className={styles.megaIndustryLink}
+                        onClick={() => setOpenDropdown(null)}
+                      >
+                        Manufacturing
+                      </Link>
+                    </li>
+                    <li>
+                      <Link
+                        href="/industrial-robots"
+                        className={styles.megaIndustryLink}
+                        onClick={() => setOpenDropdown(null)}
+                      >
+                        Robotics
+                      </Link>
+                    </li>
+                    <li>
+                      <Link
+                        href="/contact"
+                        className={styles.megaIndustryLink}
+                        onClick={() => setOpenDropdown(null)}
+                      >
+                        Healthcare
+                      </Link>
+                    </li>
+                  </ul>
+                </div>
+              )}
             </div>
 
             <div className={styles.megaColRight}>

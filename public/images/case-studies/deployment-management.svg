@@ -1,0 +1,96 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bgGrad5" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0F172A"/>
+      <stop offset="50%" stop-color="#1E293B"/>
+      <stop offset="100%" stop-color="#0B132B"/>
+    </linearGradient>
+    <filter id="glow5" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="6" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+  </defs>
+
+  <rect width="1200" height="675" fill="url(#bgGrad5)"/>
+
+  <g stroke="#334155" stroke-width="1.5" stroke-opacity="0.35" fill="none">
+    <path d="M 0,135 L 1200,135 M 0,270 L 1200,270 M 0,405 L 1200,405 M 0,540 L 1200,540" />
+    <path d="M 240,0 L 240,675 M 480,0 L 480,675 M 720,0 L 720,675 M 960,0 L 960,675" />
+  </g>
+
+  <!-- 3 Lifecycle Environment Columns -->
+  <!-- Column 1: Development -->
+  <g transform="translate(100, 160)">
+    <rect width="280" height="360" rx="14" fill="#1E293B" stroke="#38BDF8" stroke-width="2" filter="url(#glow5)"/>
+    <rect width="280" height="45" rx="14" fill="#0F172A"/>
+    <text x="20" y="28" fill="#38BDF8" font-family="'Plus Jakarta Sans', sans-serif" font-size="13" font-weight="800">1. DEVELOPMENT ENV</text>
+
+    <rect x="20" y="65" width="240" height="60" rx="8" fill="#0F172A" stroke="#334155"/>
+    <text x="35" y="90" fill="#E2E8F0" font-size="11" font-weight="700" font-family="sans-serif">No-Code App Builder</text>
+    <text x="35" y="110" fill="#94A3B8" font-size="10" font-family="sans-serif">UI &amp; Rules Configuration</text>
+
+    <rect x="20" y="140" width="240" height="60" rx="8" fill="#0F172A" stroke="#334155"/>
+    <text x="35" y="165" fill="#E2E8F0" font-size="11" font-weight="700" font-family="sans-serif">Revision v1.4 Created</text>
+    <text x="35" y="185" fill="#94A3B8" font-size="10" font-family="sans-serif">Feature Tagging &amp; Commits</text>
+  </g>
+
+  <!-- Arrow Dev to Stage -->
+  <path d="M 380,340 L 460,340" stroke="#38BDF8" stroke-width="3" stroke-dasharray="6 4" filter="url(#glow5)"/>
+
+  <!-- Column 2: Staging & Test -->
+  <g transform="translate(460, 160)">
+    <rect width="280" height="360" rx="14" fill="#1E293B" stroke="#F59E0B" stroke-width="2" filter="url(#glow5)"/>
+    <rect width="280" height="45" rx="14" fill="#0F172A"/>
+    <text x="20" y="28" fill="#F59E0B" font-family="'Plus Jakarta Sans', sans-serif" font-size="13" font-weight="800">2. STAGING &amp; TEST ENV</text>
+
+    <rect x="20" y="65" width="240" height="60" rx="8" fill="#0F172A" stroke="#334155"/>
+    <text x="35" y="90" fill="#E2E8F0" font-size="11" font-weight="700" font-family="sans-serif">Validation &amp; Testing</text>
+    <text x="35" y="110" fill="#94A3B8" font-size="10" font-family="sans-serif">Business Rule Verification</text>
+
+    <rect x="20" y="140" width="240" height="60" rx="8" fill="#0F172A" stroke="#334155"/>
+    <text x="35" y="165" fill="#E2E8F0" font-size="11" font-weight="700" font-family="sans-serif">Feature Pushing Gate</text>
+    <text x="35" y="185" fill="#94A3B8" font-size="10" font-family="sans-serif">Controlled Approval Required</text>
+  </g>
+
+  <!-- Arrow Stage to Prod -->
+  <path d="M 740,340 L 820,340" stroke="#10B981" stroke-width="3" filter="url(#glow5)"/>
+
+  <!-- Column 3: Production -->
+  <g transform="translate(820, 160)">
+    <rect width="280" height="360" rx="14" fill="#1E293B" stroke="#10B981" stroke-width="2" filter="url(#glow5)"/>
+    <rect width="280" height="45" rx="14" fill="#0F172A"/>
+    <text x="20" y="28" fill="#10B981" font-family="'Plus Jakarta Sans', sans-serif" font-size="13" font-weight="800">3. PRODUCTION DEPLOY</text>
+
+    <rect x="20" y="65" width="240" height="60" rx="8" fill="#0F172A" stroke="#334155"/>
+    <text x="35" y="90" fill="#10B981" font-size="11" font-weight="800" font-family="sans-serif">LIVE DEPLOYMENT</text>
+    <text x="35" y="110" fill="#94A3B8" font-size="10" font-family="sans-serif">Zero-Downtime Rollout</text>
+
+    <rect x="20" y="140" width="240" height="60" rx="8" fill="#0F172A" stroke="#334155"/>
+    <text x="35" y="165" fill="#E2E8F0" font-size="11" font-weight="700" font-family="sans-serif">Enterprise Governance</text>
+    <text x="35" y="185" fill="#94A3B8" font-size="10" font-family="sans-serif">Audit Trail &amp; Version History</text>
+  </g>
+
+  <!-- Bottom Flow Bar -->
+  <g transform="translate(100, 560)">
+    <rect width="1000" height="50" rx="10" fill="#0F172A" stroke="#10B981" stroke-width="1.5"/>
+    <text x="500" y="30" fill="#FFFFFF" font-family="'Plus Jakarta Sans', sans-serif" font-size="12" font-weight="800" text-anchor="middle">
+      DEVELOP → REVISE → TEST → STAGE → APPROVE → DEPLOY → PRODUCTION
+    </text>
+  </g>
+
+  <!-- Left Stats HUD Card -->
+  <g transform="translate(60, 60)">
+    <rect width="250" height="90" rx="10" fill="#1E293B" fill-opacity="0.9" stroke="#334155" stroke-width="2"/>
+    <text x="20" y="32" fill="#94A3B8" font-family="'Plus Jakarta Sans', sans-serif" font-size="12" font-weight="700">APPLICATION LIFECYCLE</text>
+    <text x="20" y="58" fill="#10B981" font-family="'Plus Jakarta Sans', sans-serif" font-size="20" font-weight="800">DEV → STAGE → PROD</text>
+    <text x="20" y="78" fill="#38BDF8" font-family="'Plus Jakarta Sans', sans-serif" font-size="12" font-weight="600">FULL REVISION CONTROL</text>
+  </g>
+
+  <!-- Right Stats HUD Card -->
+  <g transform="translate(890, 60)">
+    <rect width="250" height="90" rx="10" fill="#1E293B" fill-opacity="0.9" stroke="#334155" stroke-width="2"/>
+    <text x="20" y="32" fill="#94A3B8" font-family="'Plus Jakarta Sans', sans-serif" font-size="12" font-weight="700">FEATURE PUSHING</text>
+    <text x="20" y="58" fill="#38BDF8" font-family="'Plus Jakarta Sans', sans-serif" font-size="20" font-weight="800">CONTROLLED</text>
+    <text x="20" y="78" fill="#96c73d" font-family="'Plus Jakarta Sans', sans-serif" font-size="12" font-weight="600">BUSINESS GOVERNANCE</text>
+  </g>
+</svg>

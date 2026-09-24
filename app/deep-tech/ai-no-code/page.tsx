@@ -12,14 +12,18 @@ export const metadata: Metadata = {
     'Build business applications from natural language and enterprise data—with seamless system integration.',
 }
 
-const journey = [
-  'Business User',
-  'Describe Business Requirement',
-  'AI Engine Parses Intent',
-  'Schema & Workflow Generated',
-  'Validate & Connect Data',
-  'Deploy to Enterprise Cloud',
-  'Run as Business Application',
+const textToAppFlow = [
+  'Business Language',
+  'AI / Natural Language',
+  'Application Generation',
+  'Enterprise Data & Systems',
+  'Working Business Application',
+]
+
+const dataToAppFlow = [
+  'Enterprise Data',
+  'Data-to-Application',
+  'Business / Industrial Application',
 ]
 
 const highlights = [
@@ -181,14 +185,27 @@ export default function AINoCodePage() {
       <section className={styles.sectionJourney}>
         <div className={styles.container}>
           <div className={styles.centerHeader}>
-            <div className={styles.eyebrowGreen}>CONCEPTUAL WORKFLOW</div>
-            <h2 className={styles.sectionTitleDark}>From Natural Language &amp; Data to Live Application</h2>
+            <div className={styles.eyebrowGreen}>CONCEPTUAL WORKFLOW ARCHITECTURE</div>
+            <h2 className={styles.sectionTitleDark}>From Business Language &amp; Enterprise Data to Live Applications</h2>
             <p className={styles.sectionDescLight}>
               Eliminate traditional software development bottlenecks. Our AI engine parses business intent and enterprise schemas to generate production-ready applications.
             </p>
           </div>
-          <div className={styles.journeyBox}>
-            <FlowChain nodes={journey} variant="dark" />
+
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '28px' }}>
+            <div className={styles.journeyBox}>
+              <div style={{ color: '#96c73d', fontSize: '12px', fontWeight: 800, letterSpacing: '0.08em', textTransform: 'uppercase', marginBottom: '16px' }}>
+                TEXT-TO-APPLICATION ARCHITECTURE
+              </div>
+              <FlowChain nodes={textToAppFlow} variant="dark" />
+            </div>
+
+            <div className={styles.journeyBox}>
+              <div style={{ color: '#96c73d', fontSize: '12px', fontWeight: 800, letterSpacing: '0.08em', textTransform: 'uppercase', marginBottom: '16px' }}>
+                DATA-TO-APPLICATION ARCHITECTURE
+              </div>
+              <FlowChain nodes={dataToAppFlow} variant="dark" />
+            </div>
           </div>
         </div>
       </section>
@@ -252,7 +269,7 @@ export default function AINoCodePage() {
                 <div className={styles.csGrid}>
                   <div className={styles.csImgBox}>
                     <img
-                      src={`/images/case-studies/${cs.slug}.png`}
+                      src={`/images/case-studies/${cs.slug}.svg`}
                       alt={cs.title}
                       className={styles.csImg}
                     />

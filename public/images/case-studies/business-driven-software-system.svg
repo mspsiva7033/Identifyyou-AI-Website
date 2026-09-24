@@ -1,0 +1,113 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bgGrad1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0F172A"/>
+      <stop offset="50%" stop-color="#1E293B"/>
+      <stop offset="100%" stop-color="#0B132B"/>
+    </linearGradient>
+    <linearGradient id="accentGrad1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#06B6D4"/>
+      <stop offset="100%" stop-color="#38BDF8"/>
+    </linearGradient>
+    <filter id="glow1" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="6" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="675" fill="url(#bgGrad1)"/>
+
+  <!-- Tech Grid Background -->
+  <g stroke="#334155" stroke-width="1.5" stroke-opacity="0.35" fill="none">
+    <path d="M 0,135 L 1200,135 M 0,270 L 1200,270 M 0,405 L 1200,405 M 0,540 L 1200,540" />
+    <path d="M 240,0 L 240,675 M 480,0 L 480,675 M 720,0 L 720,675 M 960,0 L 960,675" />
+  </g>
+
+  <!-- Connection Beams -->
+  <path d="M 360,337 L 540,337" stroke="#06B6D4" stroke-width="3" stroke-dasharray="6 4" filter="url(#glow1)"/>
+  <path d="M 660,337 L 840,337" stroke="#96c73d" stroke-width="3" filter="url(#glow1)"/>
+
+  <!-- Left Box: Business Language & Domain Rules -->
+  <g transform="translate(100, 180)">
+    <rect width="280" height="315" rx="14" fill="#1E293B" stroke="#06B6D4" stroke-width="2" filter="url(#glow1)"/>
+    <rect width="280" height="45" rx="14" fill="#0F172A"/>
+    <text x="20" y="28" fill="#06B6D4" font-family="'Plus Jakarta Sans', sans-serif" font-size="13" font-weight="800" letter-spacing="1">BUSINESS DOMAIN INTENT</text>
+    
+    <!-- Rule Cards -->
+    <rect x="20" y="65" width="240" height="55" rx="8" fill="#0F172A" stroke="#334155" stroke-width="1.5"/>
+    <text x="35" y="88" fill="#E2E8F0" font-family="'Plus Jakarta Sans', sans-serif" font-size="12" font-weight="700">Procurement Policy &amp; Rules</text>
+    <text x="35" y="106" fill="#94A3B8" font-family="'Plus Jakarta Sans', sans-serif" font-size="10">Multi-Plant Requirement Aggregation</text>
+
+    <rect x="20" y="135" width="240" height="55" rx="8" fill="#0F172A" stroke="#334155" stroke-width="1.5"/>
+    <text x="35" y="158" fill="#E2E8F0" font-family="'Plus Jakarta Sans', sans-serif" font-size="12" font-weight="700">Approval Hierarchy &amp; Limits</text>
+    <text x="35" y="176" fill="#94A3B8" font-family="'Plus Jakarta Sans', sans-serif" font-size="10">Threshold Based Escalation Paths</text>
+
+    <rect x="20" y="205" width="240" height="55" rx="8" fill="#0F172A" stroke="#334155" stroke-width="1.5"/>
+    <text x="35" y="228" fill="#E2E8F0" font-family="'Plus Jakarta Sans', sans-serif" font-size="12" font-weight="700">Supplier Allocation Logic</text>
+    <text x="35" y="246" fill="#94A3B8" font-family="'Plus Jakarta Sans', sans-serif" font-size="10">Single Enterprise to Clusters</text>
+  </g>
+
+  <!-- Center Engine Node -->
+  <g transform="translate(480, 237)">
+    <circle cx="120" cy="100" r="75" fill="#0F172A" stroke="url(#accentGrad1)" stroke-width="4" filter="url(#glow1)"/>
+    <circle cx="120" cy="100" r="55" fill="none" stroke="#96c73d" stroke-width="2" stroke-dasharray="8 6"/>
+    <text x="120" y="93" fill="#FFFFFF" font-family="'Plus Jakarta Sans', sans-serif" font-size="14" font-weight="800" text-anchor="middle">NO-CODE</text>
+    <text x="120" y="113" fill="#06B6D4" font-family="'Plus Jakarta Sans', sans-serif" font-size="12" font-weight="700" text-anchor="middle">COMPILER</text>
+  </g>
+
+  <!-- Right Box: Generated Application UI -->
+  <g transform="translate(760, 180)">
+    <rect width="340" height="315" rx="14" fill="#1E293B" stroke="#96c73d" stroke-width="2" filter="url(#glow1)"/>
+    <!-- App Header Bar -->
+    <rect width="340" height="45" rx="14" fill="#0F172A"/>
+    <circle cx="25" cy="22" r="5" fill="#EF4444"/>
+    <circle cx="40" cy="22" r="5" fill="#F59E0B"/>
+    <circle cx="55" cy="22" r="5" fill="#10B981"/>
+    <text x="80" y="27" fill="#96c73d" font-family="'Plus Jakarta Sans', sans-serif" font-size="12" font-weight="800">GENERATED BUSINESS SYSTEM</text>
+
+    <!-- UI Mockup Content -->
+    <rect x="20" y="65" width="300" height="40" rx="6" fill="#0F172A"/>
+    <text x="35" y="90" fill="#38BDF8" font-family="'Plus Jakarta Sans', sans-serif" font-size="11" font-weight="700">Procurement Operations App v1.0</text>
+    
+    <!-- Table Grid Simulation -->
+    <rect x="20" y="120" width="300" height="110" rx="6" fill="#0F172A" stroke="#334155"/>
+    <line x1="20" y1="150" x2="320" y2="150" stroke="#334155" stroke-width="1"/>
+    <text x="35" y="140" fill="#94A3B8" font-size="10" font-family="sans-serif">REQ ID</text>
+    <text x="100" y="140" fill="#94A3B8" font-size="10" font-family="sans-serif">PLANT</text>
+    <text x="180" y="140" fill="#94A3B8" font-size="10" font-family="sans-serif">STATUS</text>
+    <text x="260" y="140" fill="#94A3B8" font-size="10" font-family="sans-serif">ACTION</text>
+
+    <text x="35" y="170" fill="#E2E8F0" font-size="10" font-family="sans-serif">#PR-8841</text>
+    <text x="100" y="170" fill="#E2E8F0" font-size="10" font-family="sans-serif">Plant A</text>
+    <text x="180" y="170" fill="#96c73d" font-size="10" font-weight="700" font-family="sans-serif">APPROVED</text>
+    <rect x="255" y="158" width="50" height="18" rx="4" fill="#06B6D4"/>
+    <text x="280" y="171" fill="#FFFFFF" font-size="9" font-weight="800" text-anchor="middle" font-family="sans-serif">EXECUTE</text>
+
+    <text x="35" y="195" fill="#E2E8F0" font-size="10" font-family="sans-serif">#PR-8842</text>
+    <text x="100" y="195" fill="#E2E8F0" font-size="10" font-family="sans-serif">Plant B</text>
+    <text x="180" y="195" fill="#F59E0B" font-size="10" font-weight="700" font-family="sans-serif">PENDING</text>
+    <rect x="255" y="183" width="50" height="18" rx="4" fill="#334155"/>
+    <text x="280" y="196" fill="#94A3B8" font-size="9" font-weight="800" text-anchor="middle" font-family="sans-serif">REVIEW</text>
+
+    <!-- Action Button -->
+    <rect x="20" y="245" width="300" height="40" rx="8" fill="#96c73d"/>
+    <text x="170" y="270" fill="#0F172A" font-family="'Plus Jakarta Sans', sans-serif" font-size="12" font-weight="800" text-anchor="middle">LIVE BUSINESS APPLICATION</text>
+  </g>
+
+  <!-- Left Stats HUD Card -->
+  <g transform="translate(60, 60)">
+    <rect width="250" height="90" rx="10" fill="#1E293B" fill-opacity="0.9" stroke="#334155" stroke-width="2"/>
+    <text x="20" y="32" fill="#94A3B8" font-family="'Plus Jakarta Sans', sans-serif" font-size="12" font-weight="700">BUSINESS PARADIGM</text>
+    <text x="20" y="58" fill="#96c73d" font-family="'Plus Jakarta Sans', sans-serif" font-size="20" font-weight="800">BUSINESS OWNED</text>
+    <text x="20" y="78" fill="#38BDF8" font-family="'Plus Jakarta Sans', sans-serif" font-size="12" font-weight="600">ZERO DEVELOPER FRICTION</text>
+  </g>
+
+  <!-- Right Stats HUD Card -->
+  <g transform="translate(890, 60)">
+    <rect width="250" height="90" rx="10" fill="#1E293B" fill-opacity="0.9" stroke="#334155" stroke-width="2"/>
+    <text x="20" y="32" fill="#94A3B8" font-family="'Plus Jakarta Sans', sans-serif" font-size="12" font-weight="700">ENTERPRISE SCALING</text>
+    <text x="20" y="58" fill="#38BDF8" font-family="'Plus Jakarta Sans', sans-serif" font-size="20" font-weight="800">MULTI-PLANT</text>
+    <text x="20" y="78" fill="#96c73d" font-family="'Plus Jakarta Sans', sans-serif" font-size="12" font-weight="600">SINGLE TO CLUSTERS</text>
+  </g>
+</svg>

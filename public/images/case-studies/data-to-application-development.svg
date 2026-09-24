@@ -1,0 +1,91 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bgGrad3" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0F172A"/>
+      <stop offset="50%" stop-color="#1E293B"/>
+      <stop offset="100%" stop-color="#0B132B"/>
+    </linearGradient>
+    <linearGradient id="blueGrad3" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#3B82F6"/>
+      <stop offset="100%" stop-color="#60A5FA"/>
+    </linearGradient>
+    <filter id="glow3" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="6" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+  </defs>
+
+  <rect width="1200" height="675" fill="url(#bgGrad3)"/>
+
+  <g stroke="#334155" stroke-width="1.5" stroke-opacity="0.35" fill="none">
+    <path d="M 0,135 L 1200,135 M 0,270 L 1200,270 M 0,405 L 1200,405 M 0,540 L 1200,540" />
+    <path d="M 240,0 L 240,675 M 480,0 L 480,675 M 720,0 L 720,675 M 960,0 L 960,675" />
+  </g>
+
+  <!-- 4 Data Ingestion Boxes -->
+  <g transform="translate(80, 140)">
+    <rect width="220" height="60" rx="8" fill="#1E293B" stroke="#38BDF8" stroke-width="2"/>
+    <text x="20" y="35" fill="#38BDF8" font-family="'Plus Jakarta Sans', sans-serif" font-size="12" font-weight="700">Excel Spreadsheets</text>
+
+    <rect y="85" width="220" height="60" rx="8" fill="#1E293B" stroke="#3B82F6" stroke-width="2"/>
+    <text x="20" y="120" fill="#60A5FA" font-family="'Plus Jakarta Sans', sans-serif" font-size="12" font-weight="700">Relational SQL Databases</text>
+
+    <rect y="170" width="220" height="60" rx="8" fill="#1E293B" stroke="#96c73d" stroke-width="2"/>
+    <text x="20" y="205" fill="#96c73d" font-family="'Plus Jakarta Sans', sans-serif" font-size="12" font-weight="700">UI Form Interfaces</text>
+
+    <rect y="255" width="220" height="60" rx="8" fill="#1E293B" stroke="#F59E0B" stroke-width="2"/>
+    <text x="20" y="290" fill="#F59E0B" font-family="'Plus Jakarta Sans', sans-serif" font-size="12" font-weight="700">Business Requirements</text>
+  </g>
+
+  <!-- Connectors to Center -->
+  <path d="M 300,170 L 480,310" stroke="#38BDF8" stroke-width="2" stroke-dasharray="4 4"/>
+  <path d="M 300,255 L 480,325" stroke="#3B82F6" stroke-width="2"/>
+  <path d="M 300,340 L 480,340" stroke="#96c73d" stroke-width="2"/>
+  <path d="M 300,425 L 480,355" stroke="#F59E0B" stroke-width="2" stroke-dasharray="4 4"/>
+
+  <!-- Center Data App Compiler -->
+  <g transform="translate(480, 240)">
+    <circle cx="100" cy="95" r="70" fill="#0F172A" stroke="url(#blueGrad3)" stroke-width="4" filter="url(#glow3)"/>
+    <text x="100" y="88" fill="#FFFFFF" font-family="'Plus Jakarta Sans', sans-serif" font-size="13" font-weight="800" text-anchor="middle">DATA-TO-APP</text>
+    <text x="100" y="108" fill="#60A5FA" font-family="'Plus Jakarta Sans', sans-serif" font-size="11" font-weight="700" text-anchor="middle">MAPPER &amp; BUILDER</text>
+  </g>
+
+  <!-- Right App Representation -->
+  <g transform="translate(760, 160)">
+    <rect width="360" height="355" rx="14" fill="#1E293B" stroke="#96c73d" stroke-width="2" filter="url(#glow3)"/>
+    <rect width="360" height="45" rx="14" fill="#0F172A"/>
+    <text x="20" y="28" fill="#96c73d" font-family="'Plus Jakarta Sans', sans-serif" font-size="13" font-weight="800">DATA-DRIVEN BUSINESS APP</text>
+
+    <rect x="20" y="65" width="320" height="265" rx="8" fill="#0F172A" stroke="#334155"/>
+    <text x="35" y="95" fill="#38BDF8" font-size="12" font-weight="700" font-family="sans-serif">Live Data Grid &amp; Write-Back</text>
+    
+    <rect x="35" y="115" width="290" height="30" rx="4" fill="#1E293B"/>
+    <text x="45" y="134" fill="#94A3B8" font-size="10" font-family="sans-serif">Search data points, filter columns...</text>
+
+    <!-- Table Rows -->
+    <rect x="35" y="160" width="290" height="35" rx="4" fill="#1E293B"/>
+    <text x="45" y="181" fill="#E2E8F0" font-size="10" font-family="sans-serif">SKU-992 | Stock: 4,200 | Reorder: Auto</text>
+
+    <rect x="35" y="205" width="290" height="35" rx="4" fill="#1E293B"/>
+    <text x="45" y="226" fill="#E2E8F0" font-size="10" font-family="sans-serif">SKU-993 | Stock: 1,150 | Reorder: Manual</text>
+
+    <rect x="35" y="250" width="290" height="35" rx="4" fill="#1E293B"/>
+    <text x="45" y="271" fill="#E2E8F0" font-size="10" font-family="sans-serif">SKU-994 | Stock: 8,900 | Reorder: Auto</text>
+  </g>
+
+  <!-- Left Stats HUD Card -->
+  <g transform="translate(60, 60)">
+    <rect width="250" height="90" rx="10" fill="#1E293B" fill-opacity="0.9" stroke="#334155" stroke-width="2"/>
+    <text x="20" y="32" fill="#94A3B8" font-family="'Plus Jakarta Sans', sans-serif" font-size="12" font-weight="700">INGESTION PATHS</text>
+    <text x="20" y="58" fill="#38BDF8" font-family="'Plus Jakarta Sans', sans-serif" font-size="20" font-weight="800">4 STARTING POINTS</text>
+    <text x="20" y="78" fill="#96c73d" font-family="'Plus Jakarta Sans', sans-serif" font-size="12" font-weight="600">EXCEL, DB, UI &amp; REQ</text>
+  </g>
+
+  <!-- Right Stats HUD Card -->
+  <g transform="translate(890, 60)">
+    <rect width="250" height="90" rx="10" fill="#1E293B" fill-opacity="0.9" stroke="#334155" stroke-width="2"/>
+    <text x="20" y="32" fill="#94A3B8" font-family="'Plus Jakarta Sans', sans-serif" font-size="12" font-weight="700">BUSINESS DATA REUSE</text>
+    <text x="20" y="58" fill="#96c73d" font-family="'Plus Jakarta Sans', sans-serif" font-size="20" font-weight="800">100% INTEGRATED</text>
+    <text x="20" y="78" fill="#38BDF8" font-family="'Plus Jakarta Sans', sans-serif" font-size="12" font-weight="600">YOUR DATA. YOUR APP.</text>
+  </g>
+</svg>
