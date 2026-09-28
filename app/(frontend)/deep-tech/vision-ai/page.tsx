@@ -348,7 +348,7 @@ export default function VisionAIPage() {
                   and dimensional characteristics that conventional 2D vision may not reliably capture.
                 </p>
               </div>
-              <Link href="/case-studies" className={styles.csLink}>
+              <Link href="/deep-tech/vision-ai/identifyou-visionai-intro" className={styles.csLink}>
                 Read the POV →
               </Link>
             </div>

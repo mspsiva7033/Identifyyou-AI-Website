@@ -23,8 +23,15 @@ const freeEmailDomains = [
   'rediffmail.com', 'gmx.com', 'inbox.com', 'fastmail.com', 'msn.com',
 ]
 
+const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+
+function isValidEmailFormat(email: string): boolean {
+  return EMAIL_REGEX.test(email.trim())
+}
+
 function isWorkEmail(email: string): boolean {
-  const domain = email.split('@')[1]?.toLowerCase()
+  if (!isValidEmailFormat(email)) return false
+  const domain = email.split('@')[1]?.toLowerCase().trim()
   if (!domain) return false
   return !freeEmailDomains.includes(domain)
 }
@@ -39,7 +46,11 @@ export default function ContactPage() {
   const handleEmailChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const val = e.target.value
     setForm((f) => ({ ...f, email: val }))
-    if (val && val.includes('@') && !isWorkEmail(val)) {
+    if (!val) {
+      setEmailError('')
+    } else if (!isValidEmailFormat(val)) {
+      setEmailError('Please enter a valid email address (e.g. name@company.com)')
+    } else if (!isWorkEmail(val)) {
       setEmailError('Please use your work email address (not Gmail, Yahoo, Hotmail, etc.)')
     } else {
       setEmailError('')
@@ -48,6 +59,10 @@ export default function ContactPage() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
+    if (!isValidEmailFormat(form.email)) {
+      setEmailError('Please enter a valid email address (e.g. name@company.com)')
+      return
+    }
     if (!isWorkEmail(form.email)) {
       setEmailError('Please use your work email address (not Gmail, Yahoo, Hotmail, etc.)')
       return

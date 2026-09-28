@@ -1047,7 +1047,7 @@
 
 .bannerBtnPrimary:hover {
   background: #82b032;
-  color: #FFFFFF;
+  color: #FFFFFF !important;
   transform: translateY(-2px);
   box-shadow: 0 6px 20px rgba(150, 199, 61, 0.45);
 }
@@ -1070,7 +1070,8 @@
 
 .bannerBtnOutline:hover {
   border-color: #96c73d;
-  color: #96c73d;
+  color: #0F172A !important;
+  background: rgba(150, 199, 61, 0.15);
   transform: translateY(-2px);
 }
 

@@ -91,8 +91,17 @@ export default async function CaseStudyDetailPage({ params }: { params: Promise<
         <Link href="/" className={styles.breadcrumbLink}>Home</Link>
         {' / '}
         <Link href="/deep-tech" className={styles.breadcrumbLink}>Deep Tech</Link>
-        {' / '}
-        <Link href={`/deep-tech/${theme.key}`} className={styles.breadcrumbLink}>{theme.name}</Link>
+        {theme.key !== 'default' && theme.name !== 'Deep Tech' && (
+          <>
+            {' / '}
+            <Link
+              href={theme.key === 'manufacturing' ? '/manufacturing' : `/deep-tech/${theme.key}`}
+              className={styles.breadcrumbLink}
+            >
+              {theme.name}
+            </Link>
+          </>
+        )}
         {' / '}
         {cleanHeadingText(cs.breadcrumb)}
       </div>

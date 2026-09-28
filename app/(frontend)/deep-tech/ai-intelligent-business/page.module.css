@@ -576,3 +576,36 @@
     padding-bottom: 48px;
   }
 }
+
+/* ---------------------------------------------------------------------- */
+/* JOURNEY / ARCHITECTURE SECTION */
+/* ---------------------------------------------------------------------- */
+.sectionJourney {
+  padding: 64px 0;
+  background: #FAFAF8;
+}
+
+.centerHeader {
+  text-align: center;
+  max-width: 780px;
+  margin: 0 auto 40px;
+}
+
+.sectionTitleDark {
+  font-family: 'Manrope', sans-serif;
+  font-size: clamp(26px, 2.8vw, 36px);
+  font-weight: 800;
+  color: #12181B;
+  margin: 0 0 14px;
+  letter-spacing: -0.01em;
+}
+
+.journeyBox {
+  background: #0D1612;
+  border: 1px solid rgba(150, 199, 61, 0.25);
+  border-radius: 16px;
+  padding: 36px 24px;
+  overflow-x: auto;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.15);
+}
+

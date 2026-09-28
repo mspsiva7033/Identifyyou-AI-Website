@@ -1,9 +1,15 @@
 import Link from 'next/link'
 import styles from './Footer.module.css'
 
+type FooterItem = {
+  label: string
+  href?: string
+  isText?: boolean
+}
+
 type FooterColumn = {
   title: string
-  links: { label: string; href: string }[]
+  links: FooterItem[]
 }
 
 type FooterProps = {
@@ -40,8 +46,8 @@ const defaultColumns: FooterColumn[] = [
     links: [
       { label: 'Manufacturing', href: '/manufacturing' },
       { label: 'Industrial Robots', href: '/industrial-robots' },
-      { label: 'Financial Services & FinTech', href: '/contact' },
-      { label: 'Healthcare', href: '/contact' },
+      { label: 'Financial Services & FinTech', isText: true },
+      { label: 'Healthcare', isText: true },
     ],
   },
   {
@@ -82,11 +88,17 @@ export function Footer({
             <div key={col.title} className={styles.column}>
               <div className={styles.colTitle}>{col.title}</div>
               <div className={styles.colLinks}>
-                {col.links.map((link) => (
-                  <Link key={link.label} href={link.href} className={styles.colLink}>
-                    {link.label}
-                  </Link>
-                ))}
+                {col.links.map((link) =>
+                  link.isText || !link.href ? (
+                    <span key={link.label} className={styles.colText}>
+                      {link.label}
+                    </span>
+                  ) : (
+                    <Link key={link.label} href={link.href} className={styles.colLink}>
+                      {link.label}
+                    </Link>
+                  )
+                )}
               </div>
             </div>
           ))}

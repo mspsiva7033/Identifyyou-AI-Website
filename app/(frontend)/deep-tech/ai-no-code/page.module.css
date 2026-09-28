@@ -395,6 +395,9 @@
   border-radius: 12px;
   overflow: hidden;
   border: 1px solid rgba(150, 199, 61, 0.3);
+  width: 100%;
+  aspect-ratio: 16 / 11;
+  background: rgba(15, 28, 22, 0.6);
 }
 
 .csImg {

@@ -56,7 +56,7 @@ export function SmartFactoryCard({
           </svg>
         </div>
         {/* Hide "Read Case Study" overlay — play button takes precedence */}
-        <style>{`[data-smart-factory-card] a > div[class*="centerContent"] { display: none !important; }`}</style>
+        <style>{`[data-smart-factory-card] div[class*="centerContent"] { display: none !important; }`}</style>
         <CaseStudyCard
           title={title}
           industry={industry}

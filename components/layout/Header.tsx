@@ -187,13 +187,14 @@ export function Header({ logo, navItems = defaultNav, ctaButton }: HeaderProps) 
                       </Link>
                     </li>
                     <li>
-                      <Link
-                        href="/contact"
-                        className={styles.megaIndustryLink}
-                        onClick={() => setOpenDropdown(null)}
-                      >
+                      <span className={styles.megaIndustryText}>
+                        Financial Services &amp; FinTech
+                      </span>
+                    </li>
+                    <li>
+                      <span className={styles.megaIndustryText}>
                         Healthcare
-                      </Link>
+                      </span>
                     </li>
                   </ul>
                 </div>

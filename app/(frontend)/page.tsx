@@ -170,7 +170,7 @@ const aiBottomRowPillars = [
   },
   {
     type: 'digital-engineering',
-    badge: 'ENTERPRISE SaaS',
+    badge: 'Enterprise SaaS',
     eyebrow: 'AI That Acts',
     title: 'Digital Engineering',
     subtext: 'Engineer Digital Products That Solve Real Business Problems.',
@@ -718,7 +718,7 @@ export default function HomePage() {
                 <Link href="/deep-tech/ai-no-code" className={styles.noCodePrimaryBtn}>
                   Explore No-Code Platform →
                 </Link>
-                <Link href="/contact" className={styles.noCodeSecondaryBtn}>
+                <Link href="/contact?type=demo" className={styles.noCodeSecondaryBtn}>
                   Schedule a Demo
                 </Link>
               </div>
