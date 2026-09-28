@@ -114,7 +114,7 @@ export default function ContactPage() {
 
           <div className={styles.contactInfo}>
             <div className={styles.contactInfoTitle}>Contact</div>
-            <p className={styles.contactInfoText}>support@identifyou.in</p>
+            <p className={styles.contactInfoText}>Support@identifyyou.in</p>
             <p className={styles.contactInfoText}>+91 9597046682</p>
             <p className={styles.contactInfoText}>Pandi Kovil Ring Road, Madurai, Tamil Nadu 625107</p>
             <p className={styles.contactInfoText}>3 Northwood Avenue, Purley, London CR8 2ER</p>
@@ -131,14 +131,14 @@ export default function ContactPage() {
                 Thank you for reaching out. A member of our team will be in touch shortly at your work email.
               </p>
               <p className={styles.successDesc} style={{ fontSize: '13px', opacity: 0.7, marginTop: '8px' }}>
-                Our team monitors <strong>support@identifyou.in</strong> and will respond within 1 business day.
+                Our team monitors <strong>Support@identifyyou.in</strong> and will respond within 1 business day.
               </p>
             </div>
           ) : (
             <form id="contact-form" onSubmit={handleSubmit} className={styles.form}>
               <h2 className={styles.formTitle}>Talk to a Deep Tech Expert</h2>
               <p className={styles.formSubtitle}>
-                Your message will be sent to <strong>support@identifyou.in</strong>
+                Your message will be sent to <strong>Support@identifyyou.in</strong>
               </p>
               {selectedPath && (
                 <div className={styles.selectedPathBadge}>

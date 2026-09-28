@@ -178,13 +178,9 @@ export function Header({ logo, navItems = defaultNav, ctaButton }: HeaderProps) 
                       </Link>
                     </li>
                     <li>
-                      <Link
-                        href="/industrial-robots"
-                        className={styles.megaIndustryLink}
-                        onClick={() => setOpenDropdown(null)}
-                      >
+                      <span className={styles.megaIndustryLink} style={{ cursor: 'default' }}>
                         Robotics
-                      </Link>
+                      </span>
                     </li>
                     <li>
                       <span className={styles.megaIndustryText}>

@@ -36,7 +36,7 @@ const defaultColumns: FooterColumn[] = [
     title: 'Manufacturing',
     links: [
       { label: 'Manufacturing', href: '/manufacturing' },
-      { label: 'Industrial Robots', href: '/industrial-robots' },
+      { label: 'Industrial Robots', isText: true },
       { label: 'Smart Factory', href: '/case-studies' },
       { label: 'Vision Inspection', href: '/case-studies' },
     ],
@@ -45,7 +45,7 @@ const defaultColumns: FooterColumn[] = [
     title: 'Industries',
     links: [
       { label: 'Manufacturing', href: '/manufacturing' },
-      { label: 'Industrial Robots', href: '/industrial-robots' },
+      { label: 'Industrial Robots', isText: true },
       { label: 'Financial Services & FinTech', isText: true },
       { label: 'Healthcare', isText: true },
     ],
@@ -72,7 +72,7 @@ export function Footer({
   copyright,
 }: FooterProps) {
   const b = brand || { name: 'IdentifYou Technologies', tagline: 'Deep Tech. Built Around Business.' }
-  const c = contact || { email: 'support@identifyou.in', phone: '+91 9597046682' }
+  const c = contact || { email: 'Support@identifyyou.in', phone: '+91 9597046682' }
   const copy = copyright || '© 2026 IdentifYou Technologies. All rights reserved.'
 
   return (

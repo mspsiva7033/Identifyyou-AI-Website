@@ -15,7 +15,7 @@ export const SiteSettings: GlobalConfig = {
     { name: 'defaultSEODescription', type: 'textarea', label: 'Default SEO Description', defaultValue: 'AI-powered solutions for intelligent manufacturing, connected industries and smarter businesses. Vision AI, Industry Automation, Data Engineering and Digital Engineering.' },
     { name: 'favicon', type: 'upload', relationTo: 'media', label: 'Favicon' },
     { name: 'socialImage', type: 'upload', relationTo: 'media', label: 'Default Social Sharing Image' },
-    { name: 'contactEmail', type: 'email', defaultValue: 'Support@identifyou.in' },
+    { name: 'contactEmail', type: 'email', defaultValue: 'Support@identifyyou.in' },
     { name: 'contactPhone', type: 'text', defaultValue: '+91 9597046682' },
     {
       name: 'socialLinks',
