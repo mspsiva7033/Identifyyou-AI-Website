@@ -274,7 +274,7 @@ export default async function CaseStudyDetailPage({ params }: { params: Promise<
                 alignItems: 'center',
                 gap: '8px',
                 padding: '12px 24px',
-                background: '#96c73d',
+                background: '#94C640',
                 color: '#FFFFFF',
                 borderRadius: '8px',
                 fontWeight: 700,

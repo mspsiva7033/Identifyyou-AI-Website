@@ -169,16 +169,12 @@ export function Header({ logo, navItems = defaultNav, ctaButton }: HeaderProps) 
                   <div className={styles.megaIndustriesHeading}>Industries</div>
                   <ul className={styles.megaIndustriesList}>
                     <li>
-                      <Link
-                        href="/manufacturing"
-                        className={styles.megaIndustryLink}
-                        onClick={() => setOpenDropdown(null)}
-                      >
+                      <span className={styles.megaIndustryText}>
                         Manufacturing
-                      </Link>
+                      </span>
                     </li>
                     <li>
-                      <span className={styles.megaIndustryLink} style={{ cursor: 'default' }}>
+                      <span className={styles.megaIndustryText}>
                         Robotics
                       </span>
                     </li>

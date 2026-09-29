@@ -18,7 +18,7 @@
 
 .modal {
   background: #0d1612;
-  border: 1px solid rgba(150, 199, 61, 0.25);
+  border: 1px solid rgba(148, 198, 64, 0.25);
   border-radius: 16px;
   width: 100%;
   max-width: 960px;
@@ -51,8 +51,8 @@
   width: 8px;
   height: 8px;
   border-radius: 50%;
-  background: #96c73d;
-  box-shadow: 0 0 8px rgba(150, 199, 61, 0.6);
+  background: #94C640;
+  box-shadow: 0 0 8px rgba(148, 198, 64, 0.6);
   flex-shrink: 0;
 }
 

@@ -75,12 +75,12 @@
 }
 
 .navLink:hover {
-  color: #96c73d !important;
-  background: rgba(150, 199, 61, 0.08);
+  color: #94C640 !important;
+  background: rgba(148, 198, 64, 0.08);
 }
 
 .navLinkOpen {
-  color: #96c73d !important;
+  color: #94C640 !important;
   background: transparent !important;
 }
 
@@ -91,11 +91,11 @@
 }
 
 .chevronRotated {
-  color: #96c73d !important;
+  color: #94C640 !important;
 }
 
 .ctaBtn {
-  background: #96c73d;
+  background: #94C640;
   color: #ffffff;
   padding: 10px 22px;
   border-radius: 8px;
@@ -104,16 +104,16 @@
   font-weight: 600;
   text-decoration: none;
   white-space: nowrap;
-  box-shadow: 0 4px 14px rgba(150, 199, 61, 0.3);
+  box-shadow: 0 4px 14px rgba(148, 198, 64, 0.3);
   transition: transform 150ms ease, box-shadow 150ms ease, background-color 150ms ease;
   flex-shrink: 0;
 }
 
 .ctaBtn:hover {
-  background: #82b032;
+  background: #94C640;
   color: #ffffff;
   transform: translateY(-1px);
-  box-shadow: 0 6px 20px rgba(150, 199, 61, 0.45);
+  box-shadow: 0 6px 20px rgba(148, 198, 64, 0.45);
 }
 
 /* Floating Mega Menu Dropdown Overlay */
@@ -189,7 +189,7 @@
 }
 
 .megaCtaLink:hover {
-  color: #96c73d;
+  color: #94C640;
   transform: translateX(4px);
 }
 
@@ -239,7 +239,7 @@
 }
 
 .megaIndustryLink:hover {
-  color: #96c73d !important;
+  color: #94C640 !important;
   transform: translateX(3px);
 }
 
@@ -287,7 +287,7 @@
 }
 
 .megaLink:hover {
-  color: #96c73d;
+  color: #94C640;
   padding-left: 8px;
 }
 
@@ -338,12 +338,12 @@
 }
 
 .mobileSubLink:hover {
-  color: #96c73d;
-  border-left-color: #96c73d;
+  color: #94C640;
+  border-left-color: #94C640;
 }
 
 .mobileCta {
-  background: #96c73d;
+  background: #94C640;
   color: #ffffff;
   padding: 12px;
   border-radius: 8px;

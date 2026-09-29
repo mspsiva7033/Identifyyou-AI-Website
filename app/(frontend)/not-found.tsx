@@ -7,7 +7,7 @@ export default function NotFound() {
     <div style={{ fontFamily: 'IBM Plex Sans, sans-serif', background: '#FAFAF8', minHeight: '100vh', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
       <Header />
       <div style={{ maxWidth: '600px', margin: '80px auto', padding: '0 32px', textAlign: 'center' }}>
-        <div style={{ fontFamily: 'Manrope, sans-serif', fontWeight: 800, fontSize: '72px', color: '#96c73d', lineHeight: 1 }}>404</div>
+        <div style={{ fontFamily: 'Manrope, sans-serif', fontWeight: 800, fontSize: '72px', color: '#94C640', lineHeight: 1 }}>404</div>
         <h1 style={{ fontFamily: 'Manrope, sans-serif', fontWeight: 800, fontSize: '28px', margin: '16px 0 12px', color: '#12181B' }}>Page Not Found</h1>
         <p style={{ fontSize: '16px', color: '#5B6862', marginBottom: '32px' }}>
           The page you are looking for does not exist or has been moved.
@@ -16,7 +16,7 @@ export default function NotFound() {
           href="/"
           style={{
             display: 'inline-block',
-            background: '#96c73d',
+            background: '#94C640',
             color: '#FFFFFF',
             padding: '12px 24px',
             borderRadius: '5px',

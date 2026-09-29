@@ -30,7 +30,7 @@
   font-size: 12px;
   font-weight: 700;
   letter-spacing: 0.08em;
-  color: #96c73d;
+  color: #94C640;
   text-transform: uppercase;
   margin-bottom: 12px;
 }
@@ -39,7 +39,7 @@
   font-size: 12px;
   font-weight: 700;
   letter-spacing: 0.08em;
-  color: #96c73d;
+  color: #94C640;
   text-transform: uppercase;
   text-align: center;
   margin-bottom: 12px;
@@ -89,7 +89,7 @@
   width: 80px;
   height: 3px;
   margin: 0 auto 28px;
-  background: linear-gradient(90deg, rgba(150,199,61,0.1) 0%, #96c73d 50%, rgba(150,199,61,0.1) 100%);
+  background: linear-gradient(90deg, rgba(148, 198, 64,0.1) 0%, #94C640 50%, rgba(148, 198, 64,0.1) 100%);
   border-radius: 2px;
 }
 
@@ -161,7 +161,7 @@
   justify-content: space-between;
   height: 380px;
   background: #090E0C;
-  border: 1px solid rgba(150, 199, 61, 0.2);
+  border: 1px solid rgba(148, 198, 64, 0.2);
   text-decoration: none;
   color: #FFFFFF;
   padding: 36px;
@@ -170,8 +170,8 @@
 
 .aiCardFullCoverBig:hover {
   transform: translateY(-6px);
-  border-color: #96c73d;
-  box-shadow: 0 20px 48px rgba(0, 0, 0, 0.5), 0 0 25px rgba(150, 199, 61, 0.2);
+  border-color: #94C640;
+  box-shadow: 0 20px 48px rgba(0, 0, 0, 0.5), 0 0 25px rgba(148, 198, 64, 0.2);
 }
 
 .aiCardFullCoverBig:hover .aiCardBgImg {
@@ -192,7 +192,7 @@
 .aiSubtextFullBig {
   font-size: 16px;
   font-weight: 600;
-  color: #a6d64c;
+  color: #94C640;
   margin: 0;
   line-height: 1.45;
 }
@@ -206,7 +206,7 @@
   justify-content: space-between;
   height: 300px;
   background: #090E0C;
-  border: 1px solid rgba(150, 199, 61, 0.2);
+  border: 1px solid rgba(148, 198, 64, 0.2);
   text-decoration: none;
   color: #FFFFFF;
   padding: 22px;
@@ -215,8 +215,8 @@
 
 .aiCardFullCover:hover {
   transform: translateY(-6px);
-  border-color: #96c73d;
-  box-shadow: 0 20px 48px rgba(0, 0, 0, 0.5), 0 0 25px rgba(150, 199, 61, 0.2);
+  border-color: #94C640;
+  box-shadow: 0 20px 48px rgba(0, 0, 0, 0.5), 0 0 25px rgba(148, 198, 64, 0.2);
 }
 
 .aiCardBgVisual {
@@ -257,9 +257,9 @@
 .aiCardPillBadge {
   font-size: 11px;
   font-weight: 800;
-  color: #96c73d;
-  background: rgba(150, 199, 61, 0.12);
-  border: 1px solid rgba(150, 199, 61, 0.3);
+  color: #94C640;
+  background: rgba(148, 198, 64, 0.12);
+  border: 1px solid rgba(148, 198, 64, 0.3);
   padding: 5px 12px;
   border-radius: 20px;
   letter-spacing: 0.06em;
@@ -270,9 +270,9 @@
 .aiCardPillBadgeSmall {
   font-size: 10px;
   font-weight: 800;
-  color: #96c73d;
-  background: rgba(150, 199, 61, 0.12);
-  border: 1px solid rgba(150, 199, 61, 0.3);
+  color: #94C640;
+  background: rgba(148, 198, 64, 0.12);
+  border: 1px solid rgba(148, 198, 64, 0.3);
   padding: 4px 10px;
   border-radius: 20px;
   letter-spacing: 0.05em;
@@ -281,7 +281,7 @@
 
 .aiCardIconBox {
   background: rgba(15, 28, 22, 0.75);
-  border: 1px solid rgba(150, 199, 61, 0.2);
+  border: 1px solid rgba(148, 198, 64, 0.2);
   width: 40px;
   height: 40px;
   border-radius: 10px;
@@ -295,7 +295,7 @@
 
 .aiCardIconBoxSmall {
   background: rgba(15, 28, 22, 0.75);
-  border: 1px solid rgba(150, 199, 61, 0.2);
+  border: 1px solid rgba(148, 198, 64, 0.2);
   width: 34px;
   height: 34px;
   border-radius: 8px;
@@ -309,18 +309,18 @@
 
 .aiCardFullCoverBig:hover .aiCardIconBox,
 .aiCardFullCover:hover .aiCardIconBoxSmall {
-  background: rgba(150, 199, 61, 0.2);
-  border-color: #96c73d;
+  background: rgba(148, 198, 64, 0.2);
+  border-color: #94C640;
   transform: scale(1.15) rotate(4deg);
-  box-shadow: 0 0 16px rgba(150, 199, 61, 0.2);
+  box-shadow: 0 0 16px rgba(148, 198, 64, 0.2);
 }
 
 .aiFlowChip {
   font-size: 11.5px;
   font-family: monospace;
-  color: #A5D6BB;
+  color: #94C640;
   background: rgba(0, 0, 0, 0.5);
-  border: 1px solid rgba(150, 199, 61, 0.2);
+  border: 1px solid rgba(148, 198, 64, 0.2);
   padding: 6px 10px;
   border-radius: 6px;
   margin-top: 14px;
@@ -339,7 +339,7 @@
 .aiEyebrowFull {
   font-size: 11.5px;
   font-weight: 700;
-  color: #96c73d;
+  color: #94C640;
   letter-spacing: 0.08em;
   margin-bottom: 6px;
 }
@@ -360,7 +360,7 @@
 .aiSubtextFull {
   font-size: 14px;
   font-weight: 600;
-  color: #a6d64c;
+  color: #94C640;
   margin: 0;
   line-height: 1.45;
   min-height: 42px;
@@ -377,7 +377,7 @@
   padding: 12px 14px;
   border-radius: 8px;
   line-height: 1.5;
-  border: 1px solid rgba(150, 199, 61, 0.2);
+  border: 1px solid rgba(148, 198, 64, 0.2);
 }
 
 /* 5. PROCESS SECTION (Horizontal) - Black Background */
@@ -385,8 +385,8 @@
   background: #000000;
   color: #FFFFFF;
   padding: 96px 32px;
-  border-top: 1px solid rgba(150, 199, 61, 0.2);
-  border-bottom: 1px solid rgba(150, 199, 61, 0.2);
+  border-top: 1px solid rgba(148, 198, 64, 0.2);
+  border-bottom: 1px solid rgba(148, 198, 64, 0.2);
 }
 
 .h2DarkProcess {
@@ -427,7 +427,7 @@
   font-family: 'Manrope', sans-serif;
   font-size: 16px;
   font-weight: 800;
-  color: #96c73d;
+  color: #94C640;
   margin-bottom: 8px;
 }
 
@@ -448,7 +448,7 @@
 }
 
 .stepArrowHoriz {
-  color: #96c73d;
+  color: #94C640;
   font-size: 22px;
   font-weight: bold;
   flex-shrink: 0;
@@ -460,7 +460,7 @@
   background: #090E0C;
   color: #FFFFFF;
   padding: 96px 32px;
-  border-bottom: 1px solid rgba(150, 199, 61, 0.2);
+  border-bottom: 1px solid rgba(148, 198, 64, 0.2);
 }
 
 .visionCaseStudyBox {
@@ -474,7 +474,7 @@
 .visionCaseStudyTag {
   font-size: 12px;
   font-weight: 700;
-  color: #96c73d;
+  color: #94C640;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   margin-bottom: 12px;
@@ -511,7 +511,7 @@
   min-height: 340px;
   border-radius: 16px;
   overflow: hidden;
-  border: 1px solid rgba(150, 199, 61, 0.2);
+  border: 1px solid rgba(148, 198, 64, 0.2);
   box-shadow: 0 16px 40px rgba(0, 0, 0, 0.4);
 }
 
@@ -526,7 +526,7 @@
 .sectionNoCodeBanner {
   background: #090E0C;
   padding: 96px 32px;
-  border-bottom: 1px solid rgba(150, 199, 61, 0.3);
+  border-bottom: 1px solid rgba(148, 198, 64, 0.3);
 }
 
 .noCodeBannerFrame {
@@ -552,9 +552,9 @@
 
 .noCodeBadgeBox {
   display: inline-block;
-  background: rgba(150, 199, 61, 0.15);
-  border: 1px solid rgba(150, 199, 61, 0.35);
-  color: #96c73d;
+  background: rgba(148, 198, 64, 0.15);
+  border: 1px solid rgba(148, 198, 64, 0.35);
+  color: #94C640;
   font-size: 12.5px;
   font-weight: 700;
   padding: 6px 16px;
@@ -575,7 +575,7 @@
 }
 
 .noCodeHeadlineGreen {
-  color: #96c73d;
+  color: #94C640;
   display: block;
 }
 
@@ -612,7 +612,7 @@
 }
 
 .noCodePrimaryBtn {
-  background: #96c73d;
+  background: #94C640;
   color: #FFFFFF;
   padding: 14px 30px;
   border-radius: 6px;
@@ -620,13 +620,13 @@
   font-weight: 700;
   text-decoration: none;
   transition: all 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
-  box-shadow: 0 4px 16px rgba(150, 199, 61, 0.35);
+  box-shadow: 0 4px 16px rgba(148, 198, 64, 0.35);
 }
 
 .noCodePrimaryBtn:hover {
-  background: #82b032;
+  background: #94C640;
   transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(150, 199, 61, 0.5);
+  box-shadow: 0 8px 24px rgba(148, 198, 64, 0.5);
   color: #FFFFFF;
 }
 
@@ -642,9 +642,9 @@
 }
 
 .noCodeSecondaryBtn:hover {
-  border-color: #96c73d;
-  color: #96c73d;
-  background: rgba(150, 199, 61, 0.2);
+  border-color: #94C640;
+  color: #94C640;
+  background: rgba(148, 198, 64, 0.2);
   transform: translateY(-2px);
 }
 
@@ -708,10 +708,10 @@
 
 .visionGraphicCard {
   background: linear-gradient(145deg, #111A16 0%, #060908 100%);
-  border: 2px solid rgba(150, 199, 61, 0.2);
+  border: 2px solid rgba(148, 198, 64, 0.2);
   border-radius: 20px;
   overflow: hidden;
-  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.45), 0 0 35px rgba(150, 199, 61, 0.2);
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.45), 0 0 35px rgba(148, 198, 64, 0.2);
   height: 390px;
   position: relative;
   transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.35s ease, border-color 0.35s ease;
@@ -719,8 +719,8 @@
 
 .visionGraphicCard:hover {
   transform: translateY(-4px) scale(1.01);
-  border-color: #96c73d;
-  box-shadow: 0 32px 72px rgba(0, 0, 0, 0.55), 0 0 45px rgba(150, 199, 61, 0.2);
+  border-color: #94C640;
+  box-shadow: 0 32px 72px rgba(0, 0, 0, 0.55), 0 0 45px rgba(148, 198, 64, 0.2);
 }
 
 .visionRealImgClean {
@@ -790,7 +790,7 @@
 .cardBadgeTag {
   font-size: 12px;
   font-weight: 700;
-  color: #96c73d;
+  color: #94C640;
   letter-spacing: 0.08em;
   margin-bottom: 12px;
 }
@@ -866,8 +866,8 @@
   background: #080D0A;
   color: #FFFFFF;
   padding: 96px 32px;
-  border-top: 1px solid rgba(150, 199, 61, 0.2);
-  border-bottom: 1px solid rgba(150, 199, 61, 0.2);
+  border-top: 1px solid rgba(148, 198, 64, 0.2);
+  border-bottom: 1px solid rgba(148, 198, 64, 0.2);
 }
 
 .h2DarkArch {
@@ -894,7 +894,7 @@
 
 .archLayerRow {
   background: #111A16;
-  border: 1px solid rgba(150, 199, 61, 0.2);
+  border: 1px solid rgba(148, 198, 64, 0.2);
   border-radius: 10px;
   padding: 18px 24px;
   display: grid;
@@ -907,7 +907,7 @@
   font-family: 'Manrope', sans-serif;
   font-weight: 800;
   font-size: 14px;
-  color: #96c73d;
+  color: #94C640;
   letter-spacing: 0.05em;
 }
 
@@ -982,7 +982,7 @@
 .bannerTag {
   font-size: 12px;
   font-weight: 800;
-  color: #96c73d;
+  color: #94C640;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   margin-bottom: 14px;
@@ -1033,7 +1033,7 @@
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  background: #96c73d;
+  background: #94C640;
   color: #FFFFFF;
   padding: 13px 28px;
   border-radius: 6px;
@@ -1042,14 +1042,14 @@
   text-decoration: none;
   margin-top: 12px;
   transition: all 0.2s ease;
-  box-shadow: 0 4px 14px rgba(150, 199, 61, 0.3);
+  box-shadow: 0 4px 14px rgba(148, 198, 64, 0.3);
 }
 
 .bannerBtnPrimary:hover {
-  background: #82b032;
+  background: #94C640;
   color: #FFFFFF !important;
   transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(150, 199, 61, 0.45);
+  box-shadow: 0 6px 20px rgba(148, 198, 64, 0.45);
 }
 
 .bannerBtnOutline {
@@ -1069,9 +1069,9 @@
 }
 
 .bannerBtnOutline:hover {
-  border-color: #96c73d;
+  border-color: #94C640;
   color: #0F172A !important;
-  background: rgba(150, 199, 61, 0.15);
+  background: rgba(148, 198, 64, 0.15);
   transform: translateY(-2px);
 }
 
@@ -1097,7 +1097,7 @@
   border-radius: 14px;
   overflow: hidden;
   box-shadow: 0 16px 36px rgba(0, 0, 0, 0.45);
-  border: 1px solid rgba(150, 199, 61, 0.3);
+  border: 1px solid rgba(148, 198, 64, 0.3);
   background: #090E0C;
 }
 
@@ -1153,7 +1153,7 @@
   justify-content: flex-end;
   min-height: 290px;
   background: #090E0C;
-  border: 1px solid rgba(150, 199, 61, 0.2);
+  border: 1px solid rgba(148, 198, 64, 0.2);
   text-decoration: none;
   color: #FFFFFF;
   transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1), border-color 0.3s ease, box-shadow 0.3s ease;
@@ -1165,8 +1165,8 @@
 
 .solutionCardFull:hover, .solutionCardFullMed:hover {
   transform: translateY(-6px);
-  border-color: #96c73d;
-  box-shadow: 0 20px 48px rgba(0, 0, 0, 0.45), 0 0 25px rgba(150, 199, 61, 0.2);
+  border-color: #94C640;
+  box-shadow: 0 20px 48px rgba(0, 0, 0, 0.45), 0 0 25px rgba(148, 198, 64, 0.2);
 }
 
 .solutionBgVisual {
@@ -1249,7 +1249,7 @@
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  background: #96c73d;
+  background: #94C640;
   color: #FFFFFF;
   padding: 10px 20px;
   border-radius: 6px;
@@ -1259,7 +1259,7 @@
   opacity: 0;
   transform: translateY(12px);
   transition: opacity 0.25s ease, transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1), background 0.2s ease;
-  box-shadow: 0 4px 14px rgba(150, 199, 61, 0.4);
+  box-shadow: 0 4px 14px rgba(148, 198, 64, 0.4);
 }
 
 .solutionCardFull:hover .knowMoreHoverBtn,
@@ -1269,18 +1269,18 @@
 }
 
 .knowMoreHoverBtn:hover, .knowMoreHoverBtnSm:hover {
-  background: #82b032;
+  background: #94C640;
 }
 
 .knowMoreBtnSm {
-  color: #96c73d;
+  color: #94C640;
   font-size: 13.5px;
   font-weight: 700;
   text-decoration: none;
 }
 
 .knowMoreBtnSm:hover {
-  color: #a6d64c;
+  color: #94C640;
 }
 
 .bottomTwoGrid {
@@ -1342,7 +1342,7 @@
   font-family: 'Manrope', sans-serif;
   font-weight: 800;
   font-size: 13px;
-  color: #96c73d;
+  color: #94C640;
   letter-spacing: 0.06em;
   padding: 26px;
   border-right: 1px solid #E5E9E4;
@@ -1370,7 +1370,7 @@
 
 .productStatus {
   font-size: 12.5px;
-  color: #96c73d;
+  color: #94C640;
   background: #E8F4EE;
   padding: 4px 12px;
   border-radius: 4px;
@@ -1381,8 +1381,8 @@
 .sectionMetrics {
   background: #0B130F;
   color: #FFFFFF;
-  border-top: 1px solid rgba(150, 199, 61, 0.3);
-  border-bottom: 1px solid rgba(150, 199, 61, 0.3);
+  border-top: 1px solid rgba(148, 198, 64, 0.3);
+  border-bottom: 1px solid rgba(148, 198, 64, 0.3);
   padding: 96px 32px;
 }
 
@@ -1398,7 +1398,7 @@
   font-size: clamp(40px, 4.5vw, 58px);
   font-weight: 800;
   color: #FFFFFF;
-  text-shadow: 0 0 20px rgba(150, 199, 61, 0.2);
+  text-shadow: 0 0 20px rgba(148, 198, 64, 0.2);
   line-height: 1;
   margin-bottom: 8px;
   letter-spacing: -0.02em;
@@ -1407,7 +1407,7 @@
 .metricLabel {
   font-size: 12.5px;
   font-weight: 700;
-  color: #96c73d;
+  color: #94C640;
   letter-spacing: 0.08em;
 }
 
@@ -1465,7 +1465,7 @@
 .phaseTag {
   font-size: 11.5px;
   font-weight: 700;
-  color: #96c73d;
+  color: #94C640;
   background: #E8F4EE;
   padding: 6px 12px;
   border-radius: 4px;
@@ -1518,7 +1518,7 @@
 
 .ctaGreenBtn {
   display: inline-block;
-  background: #96c73d;
+  background: #94C640;
   color: #FFFFFF;
   padding: 16px 36px;
   border-radius: 6px;
@@ -1526,14 +1526,14 @@
   font-weight: 700;
   text-decoration: none;
   transition: all 0.2s ease;
-  box-shadow: 0 4px 16px rgba(150, 199, 61, 0.35);
+  box-shadow: 0 4px 16px rgba(148, 198, 64, 0.35);
 }
 
 .ctaGreenBtn:hover {
-  background: #82b032;
+  background: #94C640;
   color: #FFFFFF;
   transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(150, 199, 61, 0.5);
+  box-shadow: 0 8px 24px rgba(148, 198, 64, 0.5);
 }
 
 /* 14. PARTNERSHIPS */
@@ -1634,7 +1634,7 @@
 
 .whyCard:hover {
   transform: translateY(-4px);
-  border-color: #96c73d;
+  border-color: #94C640;
   box-shadow: 0 12px 32px rgba(18,24,27,0.08);
 }
 
@@ -1718,7 +1718,7 @@
   font-family: 'Manrope', sans-serif;
   font-weight: 800;
   font-size: 15px;
-  color: #96c73d;
+  color: #94C640;
 }
 
 /* RESPONSIVE MEDIA QUERIES */
@@ -1744,7 +1744,7 @@
     width: 100px;
     height: 3px;
     min-height: 3px;
-    background: linear-gradient(90deg, rgba(150, 199, 61, 0.2) 0%, #96c73d 50%, rgba(150, 199, 61, 0.2) 100%);
+    background: linear-gradient(90deg, rgba(148, 198, 64, 0.2) 0%, #94C640 50%, rgba(148, 198, 64, 0.2) 100%);
     margin: 8px 0;
   }
 

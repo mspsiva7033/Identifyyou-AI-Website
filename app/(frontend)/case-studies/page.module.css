@@ -24,7 +24,7 @@
 }
 
 .heroTitleGreen {
-  color: #96c73d;
+  color: #94C640;
 }
 
 .heroSub {
@@ -65,18 +65,18 @@
 }
 
 .filterBtn:hover {
-  border-color: #96c73d;
-  color: #96c73d;
+  border-color: #94C640;
+  color: #94C640;
   background: #f8fafc;
   transform: translateY(-1px);
 }
 
 .filterActive {
-  background: #96c73d !important;
+  background: #94C640 !important;
   color: #ffffff !important;
-  border-color: #96c73d !important;
+  border-color: #94C640 !important;
   font-weight: 700 !important;
-  box-shadow: 0 4px 14px rgba(150, 199, 61, 0.35) !important;
+  box-shadow: 0 4px 14px rgba(148, 198, 64, 0.35) !important;
 }
 
 .grid {

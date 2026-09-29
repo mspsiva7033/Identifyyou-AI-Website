@@ -7,7 +7,7 @@
 
 .hero {
   padding: 100px 32px 70px;
-  background: radial-gradient(circle at 50% 0%, rgba(150, 199, 61, 0.2) 0%, rgba(9,14,12,0.98) 70%), #0D1612;
+  background: radial-gradient(circle at 50% 0%, rgba(148, 198, 64, 0.2) 0%, rgba(9,14,12,0.98) 70%), #0D1612;
   border-bottom: 1px solid rgba(255,255,255,0.08);
   text-align: center;
 }
@@ -19,9 +19,9 @@
 
 .badge {
   display: inline-block;
-  background: rgba(150, 199, 61, 0.2);
-  border: 1px solid #96c73d;
-  color: #96c73d;
+  background: rgba(148, 198, 64, 0.2);
+  border: 1px solid #94C640;
+  color: #94C640;
   font-size: 13px;
   font-weight: 700;
   padding: 6px 16px;
@@ -74,7 +74,7 @@
 
 .card:hover {
   transform: translateY(-4px);
-  border-color: #96c73d;
+  border-color: #94C640;
 }
 
 .cardHeader {
@@ -85,7 +85,7 @@
   display: inline-block;
   font-size: 12px;
   font-weight: 700;
-  color: #96c73d;
+  color: #94C640;
   text-transform: uppercase;
   letter-spacing: 0.06em;
   margin-bottom: 8px;
@@ -118,7 +118,7 @@
 }
 
 .readMore {
-  color: #96c73d;
+  color: #94C640;
   font-weight: 700;
   font-size: 14px;
   text-decoration: none;
@@ -126,12 +126,12 @@
 }
 
 .readMore:hover {
-  color: #a6d64c;
+  color: #94C640;
 }
 
 .ctaBanner {
   background: #0D1612;
-  border-top: 1px solid rgba(150, 199, 61, 0.2);
+  border-top: 1px solid rgba(148, 198, 64, 0.2);
   padding: 80px 32px;
   text-align: center;
 }
@@ -156,16 +156,20 @@
 }
 
 .btnPrimary {
-  background: #96c73d;
-  color: #FFFFFF;
+  background: #94C640;
+  color: #0D1612;
   padding: 14px 28px;
   border-radius: 6px;
   font-weight: 700;
   text-decoration: none;
   display: inline-block;
   transition: background 0.2s ease;
+  box-shadow: 0 4px 16px rgba(148, 198, 64, 0.3);
 }
 
 .btnPrimary:hover {
-  background: #82b032;
+  background: #94C640;
+  color: #FFFFFF;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(148, 198, 64, 0.45);
 }

@@ -253,7 +253,7 @@ export default function IndustryAutomationPage() {
               <h3 className={styles.csTitle}>{currentUseCase.title}</h3>
               <p className={styles.csDesc}>{currentUseCase.desc1}</p>
               <p className={styles.csDesc}>{currentUseCase.desc2}</p>
-              <p className={styles.csDesc} style={{ color: '#96c73d', fontWeight: '700' }}>
+              <p className={styles.csDesc} style={{ color: '#94C640', fontWeight: '700' }}>
                 {currentUseCase.highlight}
               </p>
               <div style={{ marginTop: '24px' }}>
@@ -371,9 +371,6 @@ export default function IndustryAutomationPage() {
           <div className={styles.btnGroup} style={{ justifyContent: 'center' }}>
             <Link href="/contact" className={styles.btnPrimary}>
               Talk to an Automation Expert
-            </Link>
-            <Link href="/contact" className={styles.btnSecondary}>
-              Explore an Opportunity
             </Link>
           </div>
         </div>

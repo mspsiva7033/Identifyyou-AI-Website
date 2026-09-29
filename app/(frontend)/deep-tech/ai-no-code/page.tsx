@@ -194,14 +194,14 @@ export default function AINoCodePage() {
 
           <div style={{ display: 'flex', flexDirection: 'column', gap: '28px' }}>
             <div className={styles.journeyBox}>
-              <div style={{ color: '#96c73d', fontSize: '12px', fontWeight: 800, letterSpacing: '0.08em', textTransform: 'uppercase', marginBottom: '16px' }}>
+              <div style={{ color: '#94C640', fontSize: '12px', fontWeight: 800, letterSpacing: '0.08em', textTransform: 'uppercase', marginBottom: '16px' }}>
                 TEXT-TO-APPLICATION ARCHITECTURE
               </div>
               <FlowChain nodes={textToAppFlow} variant="dark" />
             </div>
 
             <div className={styles.journeyBox}>
-              <div style={{ color: '#96c73d', fontSize: '12px', fontWeight: 800, letterSpacing: '0.08em', textTransform: 'uppercase', marginBottom: '16px' }}>
+              <div style={{ color: '#94C640', fontSize: '12px', fontWeight: 800, letterSpacing: '0.08em', textTransform: 'uppercase', marginBottom: '16px' }}>
                 DATA-TO-APPLICATION ARCHITECTURE
               </div>
               <FlowChain nodes={dataToAppFlow} variant="dark" />

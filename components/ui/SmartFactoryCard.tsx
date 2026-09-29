@@ -44,11 +44,11 @@ export function SmartFactoryCard({
           width: 64,
           height: 64,
           borderRadius: '50%',
-          background: 'rgba(150, 199, 61, 0.92)',
+          background: 'rgba(148, 198, 64, 0.92)',
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
-          boxShadow: '0 0 0 8px rgba(150, 199, 61, 0.2)',
+          boxShadow: '0 0 0 8px rgba(148, 198, 64, 0.2)',
           pointerEvents: 'none',
         }}>
           <svg width="22" height="22" viewBox="0 0 24 24" fill="white">

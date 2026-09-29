@@ -27,7 +27,7 @@ type Props = {
 const filterLabels = [
   'All',
   'AI & Intelligent Business',
-  'AI-Powered No-Code',
+  'AI & No-Code Platform',
   'Data Engineering',
   'Digital Engineering',
   'Industry Automation',

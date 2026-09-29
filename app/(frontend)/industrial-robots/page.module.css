@@ -8,9 +8,9 @@
 .hero {
   position: relative;
   padding: 120px 32px 90px;
-  background: radial-gradient(circle at 70% 30%, rgba(150, 199, 61, 0.2) 0%, rgba(9,14,12,0.98) 70%),
+  background: radial-gradient(circle at 70% 30%, rgba(148, 198, 64, 0.2) 0%, rgba(9,14,12,0.98) 70%),
               linear-gradient(180deg, #060908 0%, #0D1612 100%);
-  border-bottom: 1px solid rgba(150, 199, 61, 0.2);
+  border-bottom: 1px solid rgba(148, 198, 64, 0.2);
   overflow: hidden;
 }
 
@@ -27,9 +27,9 @@
 
 .badge {
   display: inline-block;
-  background: rgba(150, 199, 61, 0.2);
-  border: 1px solid #96c73d;
-  color: #96c73d;
+  background: rgba(148, 198, 64, 0.2);
+  border: 1px solid #94C640;
+  color: #94C640;
   font-size: 13px;
   font-weight: 700;
   padding: 6px 16px;
@@ -49,7 +49,7 @@
 }
 
 .accentText {
-  color: #96c73d;
+  color: #94C640;
 }
 
 .heroSub {
@@ -67,18 +67,22 @@
 }
 
 .btnPrimary {
-  background: #96c73d;
-  color: #FFFFFF;
+  background: #94C640;
+  color: #0D1612;
   padding: 14px 28px;
   border-radius: 6px;
   font-weight: 700;
   text-decoration: none;
   transition: background 0.2s ease;
   font-size: 15px;
+  box-shadow: 0 4px 16px rgba(148, 198, 64, 0.3);
 }
 
 .btnPrimary:hover {
-  background: #82b032;
+  background: #94C640;
+  color: #FFFFFF;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(148, 198, 64, 0.45);
 }
 
 .btnSecondary {
@@ -93,9 +97,9 @@
 }
 
 .btnSecondary:hover {
-  border-color: #96c73d;
-  color: #96c73d;
-  background: rgba(150, 199, 61, 0.2);
+  border-color: #94C640;
+  color: #94C640;
+  background: rgba(148, 198, 64, 0.2);
 }
 
 .container {
@@ -118,7 +122,7 @@
 
 .robotGraphicBox {
   background: #060A08;
-  border: 1px solid #96c73d;
+  border: 1px solid #94C640;
   border-radius: 12px;
   padding: 36px;
   position: relative;
@@ -126,15 +130,15 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  box-shadow: 0 12px 40px rgba(0,0,0,0.5), inset 0 0 30px rgba(150, 199, 61, 0.2);
+  box-shadow: 0 12px 40px rgba(0,0,0,0.5), inset 0 0 30px rgba(148, 198, 64, 0.2);
   overflow: hidden;
 }
 
 .gridOverlay {
   position: absolute;
   inset: 0;
-  background-image: linear-gradient(rgba(150, 199, 61, 0.2) 1px, transparent 1px),
-                    linear-gradient(90deg, rgba(150, 199, 61, 0.2) 1px, transparent 1px);
+  background-image: linear-gradient(rgba(148, 198, 64, 0.2) 1px, transparent 1px),
+                    linear-gradient(90deg, rgba(148, 198, 64, 0.2) 1px, transparent 1px);
   background-size: 20px 20px;
 }
 
@@ -159,9 +163,9 @@
   left: 30px;
   width: 80px;
   height: 24px;
-  background: #96c73d;
+  background: #94C640;
   border-radius: 4px;
-  box-shadow: 0 0 15px #96c73d;
+  box-shadow: 0 0 15px #94C640;
 }
 
 .armJoint1 {
@@ -181,7 +185,7 @@
   left: 68px;
   width: 10px;
   height: 80px;
-  background: #96c73d;
+  background: #94C640;
   transform: rotate(35deg);
   transform-origin: bottom center;
 }
@@ -202,7 +206,7 @@
   left: 115px;
   width: 8px;
   height: 70px;
-  background: #a6d64c;
+  background: #94C640;
   transform: rotate(-60deg);
   transform-origin: top center;
 }
@@ -229,7 +233,7 @@
   right: 10px;
   width: 40px;
   height: 30px;
-  border: 2px dashed #96c73d;
+  border: 2px dashed #94C640;
   border-radius: 4px;
 }
 
@@ -237,17 +241,17 @@
   position: relative;
   z-index: 2;
   background: rgba(9,14,12,0.85);
-  border-top: 1px solid rgba(150, 199, 61, 0.2);
+  border-top: 1px solid rgba(148, 198, 64, 0.2);
   padding: 12px 16px;
   border-radius: 6px;
   font-family: monospace;
   font-size: 11px;
-  color: #96c73d;
+  color: #94C640;
 }
 
 .hudLine { font-weight: bold; margin-bottom: 2px; color: #FFFFFF; }
-.hudStat { color: #a6d64c; }
-.hudStatus { color: #96c73d; font-weight: bold; }
+.hudStat { color: #94C640; }
+.hudStatus { color: #94C640; font-weight: bold; }
 
 .showcaseContent {
   display: flex;
@@ -256,7 +260,7 @@
 }
 
 .eyebrow {
-  color: #96c73d;
+  color: #94C640;
   font-size: 13px;
   font-weight: 700;
   text-transform: uppercase;
@@ -337,7 +341,7 @@
 
 .capCard:hover {
   transform: translateY(-4px);
-  border-color: #96c73d;
+  border-color: #94C640;
 }
 
 .capIcon {
@@ -363,8 +367,8 @@
 .capSpec {
   font-size: 12.5px;
   font-weight: 700;
-  color: #96c73d;
-  background: rgba(150, 199, 61, 0.2);
+  color: #94C640;
+  background: rgba(148, 198, 64, 0.2);
   padding: 6px 12px;
   border-radius: 4px;
   display: inline-block;
@@ -383,7 +387,7 @@
 
 .solCard {
   background: #0F1714;
-  border: 1px solid rgba(150, 199, 61, 0.2);
+  border: 1px solid rgba(148, 198, 64, 0.2);
   border-radius: 10px;
   padding: 32px;
   display: flex;
@@ -394,7 +398,7 @@
 .solCategory {
   font-size: 12px;
   font-weight: 700;
-  color: #96c73d;
+  color: #94C640;
   text-transform: uppercase;
   letter-spacing: 0.06em;
   margin-bottom: 12px;
@@ -431,7 +435,7 @@
 
 .ctaBanner {
   background: linear-gradient(135deg, #0F1A15 0%, #060A08 100%);
-  border-top: 1px solid #96c73d;
+  border-top: 1px solid #94C640;
   padding: 80px 32px;
   text-align: center;
 }
@@ -466,7 +470,7 @@
 .contactPhone {
   font-size: 16px;
   font-weight: 700;
-  color: #96c73d;
+  color: #94C640;
 }
 
 @media (max-width: 900px) {

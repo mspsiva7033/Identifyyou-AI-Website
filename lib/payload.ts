@@ -74,7 +74,7 @@ export const FALLBACK_CASE_STUDIES: CaseStudySummary[] = [
     slug: 'business-driven-software-system',
     title: 'Business Driven Software System',
     tag: 'Enterprise Operations · Business Architecture · Business-Owned Software',
-    categories: ['AI-Powered No-Code Platform', 'AI', 'Enterprise'],
+    categories: ['AI & No-Code Platform', 'AI', 'Enterprise'],
     challenge: 'Traditional software development requires translating business requirements to IT teams, creating bottlenecks where simple functional updates take weeks or months.',
     objective: 'Enable business teams to express requirements in business terms and build, change, and control their own business functions without writing code.',
     solution: 'IdentifYou engineered a Business-Owned No-Code Platform that understands business context (plants, materials, suppliers, approval rules) to build business-driven software.',
@@ -87,7 +87,7 @@ export const FALLBACK_CASE_STUDIES: CaseStudySummary[] = [
     slug: 'nlp-text-to-business-application',
     title: 'NLP based Text-to-Business Application',
     tag: 'Operational Automation · NLP Engine · Text-to-Application',
-    categories: ['AI-Powered No-Code Platform', 'AI', 'Automation'],
+    categories: ['AI & No-Code Platform', 'AI', 'Automation'],
     challenge: 'Converting business requirements into software requires multiple stages of analysis, design, development, and testing, often duplicating existing logic.',
     objective: 'Translate natural language business requirements directly into business applications while intelligently leveraging existing business rules.',
     solution: 'IdentifYou’s NLP-based No-Code Platform interprets natural language prompts to automatically generate UIs, business rules, workflows, validations, and actions.',
@@ -100,7 +100,7 @@ export const FALLBACK_CASE_STUDIES: CaseStudySummary[] = [
     slug: 'data-to-application-development',
     title: 'Data to Application Development',
     tag: 'Enterprise Data · Data-to-Application · Schema Integration',
-    categories: ['AI-Powered No-Code Platform', 'Data Engineering', 'Enterprise'],
+    categories: ['AI & No-Code Platform', 'Data Engineering', 'Enterprise'],
     challenge: 'Business data exists across databases and spreadsheets, but converting it into functional applications requires heavy development effort.',
     objective: 'Turn existing business data into structured, operational web applications without rebuilding data or depending on developers.',
     solution: 'Built-in data connectors allow users to build applications directly from databases, Excel sheets, UI interfaces, and business requirements.',
@@ -113,7 +113,7 @@ export const FALLBACK_CASE_STUDIES: CaseStudySummary[] = [
     slug: 'business-portals-around-existing-erp',
     title: 'Business Portals Around Existing ERP',
     tag: 'Enterprise ERP · SAP & MES Extension · Portal Layer',
-    categories: ['AI-Powered No-Code Platform', 'Digital Engineering', 'Manufacturing'],
+    categories: ['AI & No-Code Platform', 'Digital Engineering', 'Manufacturing'],
     challenge: 'ERP and MES systems support standard processes but lack custom operational workflows, causing reliance on spreadsheets, emails, and manual steps.',
     objective: 'Build purpose-built business portals around existing ERP and MES systems to extend investments without costly core modifications.',
     solution: 'IdentifYou provides an application layer with built-in connectors to build Production, Inventory, Supplier, and Quality Portals around existing ERP/MES.',
@@ -126,7 +126,7 @@ export const FALLBACK_CASE_STUDIES: CaseStudySummary[] = [
     slug: 'deployment-management',
     title: 'Deployment Management',
     tag: 'Cloud Runtime · Application Lifecycle · Revision Control',
-    categories: ['AI-Powered No-Code Platform', 'Digital Engineering', 'Cloud'],
+    categories: ['AI & No-Code Platform', 'Digital Engineering', 'Cloud'],
     challenge: 'Traditional application deployment introduces technical dependencies and prevents business teams from controlling versions and environment promotions.',
     objective: 'Provide an end-to-end, business-controlled application lifecycle from development and revision management to production deployment.',
     solution: 'IdentifYou No-Code Platform configures Development, Staging, and Production environments with built-in Revision Management and feature pushing.',
@@ -5259,7 +5259,10 @@ export async function getCaseStudies(): Promise<CaseStudySummary[]> {
       const doc: any = cmsMap.get(slug)
       const fallback = FALLBACK_CASE_STUDIES.find(c => c.slug === slug)
 
-      const categoriesFromDoc = (doc?.filterCategories || []).map((c: any) => typeof c === 'string' ? c : c?.category || c?.name).filter(Boolean)
+      const categoriesFromDoc = (doc?.filterCategories || [])
+        .map((c: any) => typeof c === 'string' ? c : c?.category || c?.name)
+        .filter(Boolean)
+        .map((c: string) => c === 'AI-Powered No-Code Platform' || c === 'AI-Powered No-Code' ? 'AI & No-Code Platform' : c)
 
       return {
         slug,

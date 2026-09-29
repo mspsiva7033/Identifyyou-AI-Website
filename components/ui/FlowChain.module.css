@@ -28,7 +28,7 @@
 }
 
 .arrowDark {
-  color: #96c73d;
+  color: #94C640;
 }
 
 .vertical .arrow {
@@ -52,7 +52,7 @@
 
 .dark {
   background: #14221C;
-  border: 1px solid rgba(150, 199, 61, 0.3);
+  border: 1px solid rgba(148, 198, 64, 0.3);
   color: #FAFAF8;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
 }

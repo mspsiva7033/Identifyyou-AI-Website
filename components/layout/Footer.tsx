@@ -26,25 +26,16 @@ const defaultColumns: FooterColumn[] = [
       { label: 'Vision AI', href: '/deep-tech/vision-ai' },
       { label: 'AI & Intelligent Business', href: '/deep-tech/ai-intelligent-business' },
       { label: 'AI-Powered No-Code', href: '/deep-tech/ai-no-code' },
-      { label: 'Smart Factory', href: '/case-studies' },
       { label: 'Industry Automation', href: '/deep-tech/industry-automation' },
       { label: 'Data Engineering', href: '/deep-tech/data-engineering' },
       { label: 'Digital Engineering', href: '/deep-tech/digital-engineering' },
     ],
   },
-  {
-    title: 'Manufacturing',
-    links: [
-      { label: 'Manufacturing', href: '/manufacturing' },
-      { label: 'Industrial Robots', isText: true },
-      { label: 'Smart Factory', href: '/case-studies' },
-      { label: 'Vision Inspection', href: '/case-studies' },
-    ],
-  },
+
   {
     title: 'Industries',
     links: [
-      { label: 'Manufacturing', href: '/manufacturing' },
+      { label: 'Manufacturing', isText: true },
       { label: 'Industrial Robots', isText: true },
       { label: 'Financial Services & FinTech', isText: true },
       { label: 'Healthcare', isText: true },

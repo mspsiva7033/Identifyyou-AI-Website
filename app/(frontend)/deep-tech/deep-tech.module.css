@@ -22,7 +22,7 @@
 }
 
 .heroAccent {
-  color: #96c73d;
+  color: #94C640;
 }
 
 .heroDesc {
@@ -57,7 +57,7 @@
   font-family: 'Manrope', sans-serif;
   font-weight: 800;
   font-size: 13px;
-  color: #96c73d;
+  color: #94C640;
   margin-bottom: 6px;
 }
 
@@ -72,13 +72,13 @@
 .capLink {
   font-size: 13.5px;
   font-weight: 600;
-  color: #96c73d;
+  color: #94C640;
   text-decoration: none;
   transition: color 150ms ease;
 }
 
 .capLink:hover {
-  color: #96c73d;
+  color: #94C640;
 }
 
 .capRight {
@@ -111,7 +111,7 @@
 }
 
 .capTech {
-  color: #96c73d;
+  color: #94C640;
   font-family: monospace;
   font-size: 13px;
 }

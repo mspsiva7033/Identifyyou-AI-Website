@@ -269,7 +269,7 @@ export default function ThinkingFactoryCaseStudyPage() {
             </h3>
             
             <div style={{ display: 'inline-block', margin: '40px auto 0', padding: '32px 48px', background: '#0f172a', borderRadius: '12px' }}>
-              <p style={{ color: '#96c73d', textTransform: 'uppercase', letterSpacing: '0.05em', fontWeight: 'bold', fontSize: '14px', marginBottom: '8px' }}>
+              <p style={{ color: '#94C640', textTransform: 'uppercase', letterSpacing: '0.05em', fontWeight: 'bold', fontSize: '14px', marginBottom: '8px' }}>
                 FROM AN EXISTING FACTORY
               </p>
               <h2 style={{ color: '#ffffff', fontSize: '28px', fontWeight: 'bold', margin: '0 0 24px 0' }}>

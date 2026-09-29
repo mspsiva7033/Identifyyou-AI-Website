@@ -58,9 +58,9 @@ export const CATEGORY_THEMES: Record<CategoryKey, CategoryTheme> = {
   'industry-automation': {
     key: 'industry-automation',
     name: 'Industry Automation',
-    tintColor: '#10b981',
+    tintColor: '#94C640',
     tintRgb: '16, 185, 129',
-    tagColor: '#34d399',
+    tagColor: '#94C640',
     gradientCss: 'linear-gradient(135deg, rgba(16, 185, 129, 0.12) 0%, rgba(5, 150, 105, 0.04) 100%)',
     overlayOpacity: 0.12,
     hoverGlow: 'rgba(16, 185, 129, 0.25)',

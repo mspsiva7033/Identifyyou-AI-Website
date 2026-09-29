@@ -13,7 +13,7 @@
   left: 0;
   right: 0;
   height: 1px;
-  background: linear-gradient(90deg, transparent, #96c73d, #06B6D4, transparent);
+  background: linear-gradient(90deg, transparent, #94C640, #06B6D4, transparent);
   opacity: 0.6;
 }
 
@@ -32,7 +32,7 @@
 
 .brand {
   grid-column: span 1;
-  min-width: 220px;
+  min-width: 250px;
   margin-bottom: 24px;
   padding-bottom: 12px;
 }
@@ -48,8 +48,9 @@
 
 .brandTag {
   font-size: 13.5px;
-  color: #96c73d;
+  color: #94C640;
   font-weight: 600;
+  white-space: nowrap;
 }
 
 .column {
@@ -81,7 +82,7 @@
 }
 
 .colLink:hover {
-  color: #96c73d;
+  color: #94C640;
   transform: translateX(2px);
 }
 

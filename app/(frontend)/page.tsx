@@ -90,7 +90,7 @@ const aiTopRowPillars = [
     href: '/deep-tech/vision-ai',
     image: 'https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?q=80&w=800&auto=format&fit=crop',
     iconSvg: (
-      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#96c73d" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#94C640" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
         <path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7z"></path>
         <circle cx="12" cy="12" r="3"></circle>
       </svg>
@@ -106,7 +106,7 @@ const aiTopRowPillars = [
     href: '/deep-tech/ai-intelligent-business',
     image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=800&auto=format&fit=crop',
     iconSvg: (
-      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#96c73d" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#94C640" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
         <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
         <line x1="8" y1="21" x2="16" y2="21"></line>
         <line x1="12" y1="17" x2="12" y2="21"></line>
@@ -127,7 +127,7 @@ const aiBottomRowPillars = [
     href: '/deep-tech/ai-no-code',
     image: '/images/deep-tech-chip.jpg',
     iconSvg: (
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#96c73d" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#94C640" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
         <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
       </svg>
     ),
@@ -142,7 +142,7 @@ const aiBottomRowPillars = [
     href: '/deep-tech/industry-automation',
     image: 'https://images.unsplash.com/photo-1616401784845-180882ba9ba8?q=80&w=800&auto=format&fit=crop',
     iconSvg: (
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#96c73d" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#94C640" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
         <rect x="3" y="11" width="18" height="10" rx="2"></rect>
         <circle cx="12" cy="5" r="2"></circle>
         <path d="M12 7v4"></path>
@@ -161,7 +161,7 @@ const aiBottomRowPillars = [
     href: '/deep-tech/data-engineering',
     image: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?q=80&w=800&auto=format&fit=crop',
     iconSvg: (
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#96c73d" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#94C640" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
         <ellipse cx="12" cy="5" rx="9" ry="3"></ellipse>
         <path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"></path>
         <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path>
@@ -178,7 +178,7 @@ const aiBottomRowPillars = [
     href: '/deep-tech/digital-engineering',
     image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=800&auto=format&fit=crop',
     iconSvg: (
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#96c73d" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#94C640" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
         <polyline points="16 18 22 12 16 6"></polyline>
         <polyline points="8 6 2 12 8 18"></polyline>
       </svg>
@@ -342,7 +342,7 @@ const partnerships = [
     name: 'Basler',
     desc: 'Industrial cameras, 2D/3D vision hardware and sensor integration.',
     icon: (
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#96c73d" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#94C640" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
         <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z" />
         <circle cx="12" cy="13" r="4" />
       </svg>
@@ -352,7 +352,7 @@ const partnerships = [
     name: 'Vision hardware & software vendors',
     desc: '2D CAMERA, 3D PROFILER, VISION AI SOFTWARE',
     icon: (
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#96c73d" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#94C640" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
         <circle cx="12" cy="12" r="10" />
         <line x1="14.31" y1="8" x2="20.05" y2="17.94" />
         <line x1="9.69" y1="8" x2="21.17" y2="8" />
@@ -701,15 +701,15 @@ export default function HomePage() {
 
               <div className={styles.noCodeFeaturesInline}>
                 <div className={styles.noCodeFeatureItem}>
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#96c73d" strokeWidth="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#94C640" strokeWidth="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
                   <span>Visual Drag &amp; Drop Workflows</span>
                 </div>
                 <div className={styles.noCodeFeatureItem}>
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#96c73d" strokeWidth="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#94C640" strokeWidth="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
                   <span>Native AI Agent Integrations</span>
                 </div>
                 <div className={styles.noCodeFeatureItem}>
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#96c73d" strokeWidth="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#94C640" strokeWidth="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
                   <span>Enterprise ERP &amp; MES Connectors</span>
                 </div>
               </div>
