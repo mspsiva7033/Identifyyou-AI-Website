@@ -165,9 +165,9 @@ export default function IndustryAutomationPage() {
               <Link href="/contact" className={styles.btnPrimary}>
                 Talk to an Automation Expert
               </Link>
-              <a href="#capabilities" className={styles.btnSecondary}>
+              {/* <a href="#capabilities" className={styles.btnSecondary}>
                 Explore Capabilities
-              </a>
+              </a> */}
             </div>
           </div>
 

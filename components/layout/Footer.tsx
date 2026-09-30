@@ -71,8 +71,12 @@ export function Footer({
       <div className={styles.inner}>
         <div className={styles.grid}>
           <div className={styles.brand}>
-            <img src="/images/identifYou_logo.png" alt="IdentifYou" style={{ height: '44px', width: 'auto', marginBottom: '8px' }} />
-            <div className={styles.brandTag}>{b.tagline}</div>
+            <img src="/images/identifYou_logo.png" alt="IdentifYou" style={{ height: '44px', width: 'auto', marginBottom: '16px' }} />
+            <div className={styles.brandTag}>
+              Deep Tech.
+              <br />
+              Built Around Business.
+            </div>
           </div>
 
           {columns.map((col) => (

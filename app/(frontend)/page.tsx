@@ -170,7 +170,7 @@ const aiBottomRowPillars = [
   },
   {
     type: 'digital-engineering',
-    badge: 'Enterprise SaaS',
+    badge: 'ENTERPRISE SaaS',
     eyebrow: 'AI That Acts',
     title: 'Digital Engineering',
     subtext: 'Engineer Digital Products That Solve Real Business Problems.',

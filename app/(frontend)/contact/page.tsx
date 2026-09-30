@@ -126,20 +126,17 @@ export default function ContactPage() {
           {submitted ? (
             <div className={styles.successBox}>
               <div className={styles.successIcon}>✓</div>
-              <h2 className={styles.successTitle}>Message Sent!</h2>
+              <h2 className={styles.successTitle}>Request Received!</h2>
               <p className={styles.successDesc}>
-                Thank you for reaching out. A member of our team will be in touch shortly at your work email.
-              </p>
-              <p className={styles.successDesc} style={{ fontSize: '13px', opacity: 0.7, marginTop: '8px' }}>
-                Our team monitors <strong>Support@identifyyou.in</strong> and will respond within 1 business day.
+                We have received your inquiry. An expert from our team will contact you within 24 hours at your provided email.
               </p>
             </div>
           ) : (
             <form id="contact-form" onSubmit={handleSubmit} className={styles.form}>
               <h2 className={styles.formTitle}>Talk to a Deep Tech Expert</h2>
-              <p className={styles.formSubtitle}>
+              {/* <p className={styles.formSubtitle}>
                 Your message will be sent to <strong>Support@identifyyou.in</strong>
-              </p>
+              </p> */}
               {selectedPath && (
                 <div className={styles.selectedPathBadge}>
                   Re: {paths.find((p) => p.id === selectedPath)?.label}

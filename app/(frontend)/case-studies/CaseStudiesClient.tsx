@@ -51,12 +51,7 @@ export function CaseStudiesClient({ caseStudies }: Props) {
   const visible = filter === 'All'
     ? caseStudies
     : caseStudies.filter((c) => {
-        if (Array.isArray(c.categories) && c.categories.includes(filter)) return true
-        const f = filter.toLowerCase()
-        if (c.tag && c.tag.toLowerCase().includes(f)) return true
-        if (c.title && c.title.toLowerCase().includes(f)) return true
-        if (c.deepTech && c.deepTech.toLowerCase().includes(f)) return true
-        return false
+        return Array.isArray(c.categories) && c.categories.length > 0 && c.categories[0] === filter
       })
 
   return (

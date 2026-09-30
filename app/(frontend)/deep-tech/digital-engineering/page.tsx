@@ -73,9 +73,9 @@ export default function DigitalEngineeringPage() {
               <Link href="/contact" className={styles.btnPrimary}>
                 Talk to a Digital Engineering Expert
               </Link>
-              <a href="#case-studies" className={styles.btnSecondaryDark}>
+              <Link href="/case-studies?filter=Digital+Engineering" className={styles.btnSecondaryDark}>
                 Explore Success Stories
-              </a>
+              </Link>
             </div>
           </div>
         </div>
