@@ -132,99 +132,96 @@ export function getCategoryTheme(params: {
   href?: string
 }): CategoryTheme {
   const { slug = '', categories = [], tag = '', industry = '', title = '', href = '' } = params
-  const combined = `${slug} ${tag} ${industry} ${title} ${href} ${categories.join(' ')}`.toLowerCase()
+  const catStr = categories.join(' ').toLowerCase()
+  const tagStr = tag.toLowerCase()
 
-  // 1. Check explicit categories array
-  if (categories && categories.length > 0) {
-    const catStr = categories.join(' ').toLowerCase()
-    if (catStr.includes('no-code') || catStr.includes('no code') || catStr.includes('text-to-application') || catStr.includes('data-to-application')) return CATEGORY_THEMES['ai-no-code']
-    if (catStr.includes('vision')) return CATEGORY_THEMES['vision-ai']
-    if (catStr.includes('data engineering') || catStr.includes('data platform')) return CATEGORY_THEMES['data-engineering']
-    if (catStr.includes('digital engineering')) return CATEGORY_THEMES['digital-engineering']
-    if (catStr.includes('industry automation') || catStr.includes('automation')) return CATEGORY_THEMES['industry-automation']
-    if (catStr.includes('ai & intelligent') || catStr.includes('intelligent business') || (catStr.includes('ai') && !catStr.includes('vision'))) return CATEGORY_THEMES['ai-intelligent-business']
-    if (catStr.includes('supply chain')) return CATEGORY_THEMES['supply-chain']
-    if (catStr.includes('manufacturing')) return CATEGORY_THEMES['manufacturing']
-  }
-
-  // 2. Slugs & Hrefs mapping
+  // 1. Direct Slug Exact Mapping (Highest Priority & Single Source of Truth for static case studies)
   if (
-    slug.includes('business-driven-software') ||
-    slug.includes('nlp-text-to-business') ||
-    slug.includes('data-to-application') ||
-    slug.includes('business-portals-around-existing-erp') ||
-    slug.includes('deployment-management') ||
-    slug.includes('ai-no-code') ||
-    slug.includes('no-code') ||
-    href.includes('ai-no-code')
+    slug === 'business-driven-software-system' ||
+    slug === 'nlp-text-to-business-application' ||
+    slug === 'data-to-application-development' ||
+    slug === 'business-portals-around-existing-erp' ||
+    slug === 'deployment-management'
   ) {
     return CATEGORY_THEMES['ai-no-code']
   }
+
   if (
-    slug.includes('vision') ||
-    slug.includes('surface') ||
-    slug.includes('bore') ||
-    slug.includes('dimension') ||
-    slug.includes('inspection') ||
-    slug.includes('metrology') ||
-    href.includes('vision') ||
-    href.includes('inspection')
+    slug === 'procurement-operations-intelligence' ||
+    slug === 'risk-insights-finance' ||
+    slug === 'strategic-procurement-intelligence' ||
+    slug === 'towards-zero-inventory-variance-ai'
   ) {
-    return CATEGORY_THEMES['vision-ai']
+    return CATEGORY_THEMES['ai-intelligent-business']
   }
 
   if (
-    slug.includes('snowflake') ||
-    slug.includes('data') ||
-    slug.includes('abm') ||
-    slug.includes('analytics') ||
-    slug.includes('hadoop') ||
-    href.includes('snowflake') ||
-    href.includes('data')
+    slug === 'precision-abm-snowflake-cortex' ||
+    slug === 'revolutionizing-inventory-optimization' ||
+    slug === 'optimizing-shipment-fleet-snowflake' ||
+    slug === 'streamlining-shipment-planning-and-carrier-selection' ||
+    slug === 'migrating-hadoop-and-hana-to-snowflake' ||
+    slug === 'optimizing-retail-demand-forecasting' ||
+    slug === 'power-bi-abm'
   ) {
     return CATEGORY_THEMES['data-engineering']
   }
 
   if (
-    slug.includes('fluke') ||
-    slug.includes('pyrometer') ||
-    slug.includes('edge-device') ||
-    slug.includes('edge-intelligence') ||
-    slug.includes('automation') ||
-    href.includes('fluke')
-  ) {
-    return CATEGORY_THEMES['industry-automation']
-  }
-
-  if (
-    slug.includes('tailored-enterprise') ||
-    slug.includes('digital-engineering') ||
-    combined.includes('digital engineering')
+    slug === 'cost-model-simulation' ||
+    slug === 'enhancing-support-efficiency-with-integrated-order-management' ||
+    slug === 'overcoming-data-access-challenges-in-a-multi-business-environment-for-streamlined-decision-making' ||
+    slug === 'enhancing-the-rfq-process-in-d365-business-central' ||
+    slug === 'tailored-enterprise-solutions'
   ) {
     return CATEGORY_THEMES['digital-engineering']
   }
 
   if (
-    slug.includes('procurement') ||
-    slug.includes('risk-insights') ||
-    slug.includes('intelligent') ||
-    combined.includes('ai & intelligent')
+    slug === 'fluke-t40' ||
+    slug === 'fluke-tv30' ||
+    slug === 'industrial-edge-device-engineering' ||
+    slug === 'industrial-edge-intelligence' ||
+    slug === 'towards-zero-inventory-variance-automation' ||
+    slug === 'connected-intelligent-plant'
   ) {
-    return CATEGORY_THEMES['ai-intelligent-business']
+    return CATEGORY_THEMES['industry-automation']
   }
 
-  if (slug.includes('fleet') || slug.includes('logistics') || combined.includes('supply chain')) {
-    return CATEGORY_THEMES['supply-chain']
+  if (
+    slug === 'advanced-vision-inspection-surface' ||
+    slug === 'vision-ai-bore-measurement' ||
+    slug === 'machine-vision' ||
+    slug === 'vision-ai-complex-dimension' ||
+    slug === 'zebra-line-inspection' ||
+    slug === 'precision-vision-ai-setup' ||
+    slug === 'end-to-end-inspection-cell'
+  ) {
+    return CATEGORY_THEMES['vision-ai']
   }
 
-  // 3. Fallback string searching
-  if (combined.includes('vision')) return CATEGORY_THEMES['vision-ai']
-  if (combined.includes('data engineering') || combined.includes('snowflake') || combined.includes('data')) return CATEGORY_THEMES['data-engineering']
-  if (combined.includes('digital engineering')) return CATEGORY_THEMES['digital-engineering']
-  if (combined.includes('industry automation') || combined.includes('pyrometer') || combined.includes('edge')) return CATEGORY_THEMES['industry-automation']
-  if (combined.includes('ai & intelligent') || combined.includes('intelligent business') || combined.includes('procurement') || combined.includes('risk')) return CATEGORY_THEMES['ai-intelligent-business']
-  if (combined.includes('supply chain') || combined.includes('inventory') || combined.includes('fleet')) return CATEGORY_THEMES['supply-chain']
-  if (combined.includes('manufacturing')) return CATEGORY_THEMES['manufacturing']
+  // 2. Explicit Categories Array Match (From Payload / Database)
+  if (categories && categories.length > 0) {
+    const primaryCat = categories[0].toLowerCase()
+    if (primaryCat.includes('no-code') || primaryCat.includes('no code') || primaryCat.includes('text-to-application')) return CATEGORY_THEMES['ai-no-code']
+    if (primaryCat.includes('intelligent business') || primaryCat.includes('ai & intelligent')) return CATEGORY_THEMES['ai-intelligent-business']
+    if (primaryCat.includes('vision')) return CATEGORY_THEMES['vision-ai']
+    if (primaryCat.includes('data engineering')) return CATEGORY_THEMES['data-engineering']
+    if (primaryCat.includes('digital engineering')) return CATEGORY_THEMES['digital-engineering']
+    if (primaryCat.includes('industry automation') || primaryCat.includes('automation')) return CATEGORY_THEMES['industry-automation']
+    if (primaryCat.includes('supply chain')) return CATEGORY_THEMES['supply-chain']
+    if (primaryCat.includes('manufacturing')) return CATEGORY_THEMES['manufacturing']
+  }
+
+  // 3. Fallback Tag / Keyword Matching
+  if (tagStr.includes('no-code') || catStr.includes('no-code') || href.includes('ai-no-code')) return CATEGORY_THEMES['ai-no-code']
+  if (tagStr.includes('intelligent business') || catStr.includes('intelligent business')) return CATEGORY_THEMES['ai-intelligent-business']
+  if (tagStr.includes('vision ai') || catStr.includes('vision') || href.includes('vision')) return CATEGORY_THEMES['vision-ai']
+  if (tagStr.includes('data engineering') || catStr.includes('data engineering') || href.includes('snowflake')) return CATEGORY_THEMES['data-engineering']
+  if (tagStr.includes('digital engineering') || catStr.includes('digital engineering')) return CATEGORY_THEMES['digital-engineering']
+  if (tagStr.includes('industry automation') || catStr.includes('industry automation')) return CATEGORY_THEMES['industry-automation']
+  if (tagStr.includes('supply chain') || catStr.includes('supply chain')) return CATEGORY_THEMES['supply-chain']
+  if (tagStr.includes('manufacturing') || catStr.includes('manufacturing')) return CATEGORY_THEMES['manufacturing']
 
   return CATEGORY_THEMES.default
 }

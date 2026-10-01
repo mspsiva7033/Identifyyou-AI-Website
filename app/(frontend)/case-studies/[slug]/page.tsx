@@ -87,7 +87,8 @@ export default async function CaseStudyDetailPage({ params }: { params: Promise<
 
   if (!cs) notFound()
 
-  const theme = getCategoryTheme({ slug, tag: cs.tag, title: cs.title })
+  const summary = (await getCaseStudies()).find((item) => item.slug === slug)
+  const theme = getCategoryTheme({ slug, tag: cs.tag, title: cs.title, categories: summary?.categories })
 
   return (
     <div className={styles.page}>
