@@ -37,9 +37,9 @@ import { HomePageData } from './payload/globals/HomePageData'
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
 
-const serverURL = 
-  process.env.NEXT_PUBLIC_SERVER_URL || 
-  process.env.PAYLOAD_PUBLIC_SERVER_URL || 
+const serverURL =
+  process.env.NEXT_PUBLIC_SERVER_URL ||
+  process.env.PAYLOAD_PUBLIC_SERVER_URL ||
   (process.env.VERCEL_PROJECT_PRODUCTION_URL ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}` : '') ||
   (process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : '') ||
   'http://localhost:3000'
@@ -122,38 +122,38 @@ export default buildConfig({
   sharp,
   email: process.env.SMTP_HOST
     ? nodemailerAdapter({
-        defaultFromAddress: process.env.SMTP_FROM || 'noreply@identifyyou.com',
-        defaultFromName: 'IdentifYou Technologies',
-        transportOptions: {
-          host: process.env.SMTP_HOST,
-          port: parseInt(process.env.SMTP_PORT || '587', 10),
-          secure: process.env.SMTP_SECURE === 'true',
-          auth: {
-            user: process.env.SMTP_USER,
-            pass: process.env.SMTP_PASS,
-          },
-        } as any, // Cast to any to fix TS2353 'auth' does not exist on SMTPConnectionOptions
-      })
+      defaultFromAddress: process.env.SMTP_FROM || 'noreply@identifyyou.com',
+      defaultFromName: 'IdentifYou Technologies',
+      transportOptions: {
+        host: process.env.SMTP_HOST,
+        port: parseInt(process.env.SMTP_PORT || '587', 10),
+        secure: process.env.SMTP_SECURE === 'true',
+        auth: {
+          user: process.env.SMTP_USER,
+          pass: process.env.SMTP_PASS,
+        },
+      } as any, // Cast to any to fix TS2353 'auth' does not exist on SMTPConnectionOptions
+    })
     : undefined,
   plugins: [
     ...(process.env.S3_BUCKET
       ? [
-          s3Storage({
-            collections: {
-              media: true,
+        s3Storage({
+          collections: {
+            media: true,
+          },
+          bucket: process.env.S3_BUCKET,
+          config: {
+            credentials: {
+              accessKeyId: process.env.S3_ACCESS_KEY_ID || '',
+              secretAccessKey: process.env.S3_SECRET_ACCESS_KEY || '',
             },
-            bucket: process.env.S3_BUCKET,
-            config: {
-              credentials: {
-                accessKeyId: process.env.S3_ACCESS_KEY_ID || '',
-                secretAccessKey: process.env.S3_SECRET_ACCESS_KEY || '',
-              },
-              region: process.env.S3_REGION || 'us-east-1',
-              endpoint: process.env.S3_ENDPOINT,
-              forcePathStyle: true,
-            },
-          }),
-        ]
+            region: process.env.S3_REGION || 'us-east-1',
+            endpoint: process.env.S3_ENDPOINT,
+            forcePathStyle: true,
+          },
+        }),
+      ]
       : []),
   ],
 })
