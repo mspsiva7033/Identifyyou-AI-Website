@@ -328,7 +328,7 @@ export default function VisionAIPage() {
       </section>
 
       {/* 8. VISION AI POINT OF VIEW (PDF Page 4 Top) */}
-      <section className={styles.sectionPov}>
+      {/* <section className={styles.sectionPov}>
         <div className={styles.container}>
           <div className={styles.eyebrowGreen}>VISION AI POINT OF VIEW</div>
 
@@ -376,7 +376,7 @@ export default function VisionAIPage() {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* 9. TECHNOLOGY & PARTNERSHIP ECOSYSTEM (PDF Page 4 Middle) */}
       <section className={styles.sectionPartners}>

@@ -4,21 +4,22 @@
   right: 28px;
   width: 58px;
   height: 58px;
-  background-color: #0D1612;
+  background-color: #25D366;
   color: #FFFFFF;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 6px 24px rgba(37, 211, 102, 0.4), 0 2px 8px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 6px 24px rgba(37, 211, 102, 0.45), 0 2px 8px rgba(0, 0, 0, 0.2);
   z-index: 9999;
   transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.25s ease;
   text-decoration: none;
 }
 
 .whatsappFloat:hover {
+  color: #FFFFFF !important;
   transform: scale(1.1) translateY(-2px);
-  box-shadow: 0 10px 30px rgba(37, 211, 102, 0.55), 0 4px 12px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 10px 32px rgba(37, 211, 102, 0.6), 0 4px 12px rgba(0, 0, 0, 0.25);
 }
 
 .icon {
@@ -29,7 +30,7 @@
 .tooltip {
   position: absolute;
   right: 70px;
-  background: #090E0C;
+  background: #111111;
   color: #FFFFFF;
   padding: 6px 14px;
   border-radius: 6px;
@@ -40,8 +41,7 @@
   pointer-events: none;
   transition: opacity 0.2s ease, transform 0.2s ease;
   transform: translateX(8px);
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  box-shadow: 0 4px 16px rgba(0,0,0,0.3);
+  box-shadow: 0 4px 14px rgba(0,0,0,0.35);
 }
 
 .whatsappFloat:hover .tooltip {
@@ -66,3 +66,4 @@
     display: none;
   }
 }
+

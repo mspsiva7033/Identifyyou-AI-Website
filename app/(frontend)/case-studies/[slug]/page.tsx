@@ -95,8 +95,12 @@ export default async function CaseStudyDetailPage({ params }: { params: Promise<
 
       <div className={styles.breadcrumb}>
         <Link href="/" className={styles.breadcrumbLink}>Home</Link>
-        {' / '}
-        <Link href="/deep-tech" className={styles.breadcrumbLink}>Deep Tech</Link>
+        {theme.key !== 'manufacturing' && (
+          <>
+            {' / '}
+            <span>Deep Tech</span>
+          </>
+        )}
         {theme.key !== 'default' && theme.name !== 'Deep Tech' && (
           <>
             {' / '}

@@ -159,13 +159,14 @@ export default function AINoCodePage() {
             <div className={styles.heroAccentGreen}>
               Text-to-Application &amp; Data-to-Application for Enterprise Operations
             </div>
+            {/* no code section */}
             <div className={styles.btnGroup}>
-              <Link href="/contact" className={styles.btnPrimary}>
+              {/* <Link href="" className={styles.btnPrimary}>
                 Explore No-Code Platform
-              </Link>
-              <Link href="/contact" className={styles.btnSecondaryDark}>
+              </Link> */}
+              {/* <Link href="/contact" className={styles.btnSecondaryDark}>
                 Schedule a Demo
-              </Link>
+              </Link> */}
             </div>
           </div>
         </div>
@@ -275,7 +276,11 @@ export default function AINoCodePage() {
                     />
                   </div>
                   <div className={styles.csContent}>
-                    <div className={styles.csTagGreen}>{cs.tag}</div>
+                    <div className={styles.csTagRow}>
+                      {cs.tag.split('·').map((t) => (
+                        <span key={t.trim()} className={styles.csTagGreen}>{t.trim()}</span>
+                      ))}
+                    </div>
                     <h3 className={styles.csTitle}>{cs.title}</h3>
                     <p className={styles.csSection}>{cs.desc}</p>
 
@@ -292,14 +297,6 @@ export default function AINoCodePage() {
                       <div className={styles.metricItem}>
                         <span className={styles.metricVal}>{cs.metricVal}</span>
                         <span className={styles.metricLbl}>{cs.metricLbl}</span>
-                      </div>
-                      <div className={styles.metricItem}>
-                        <span className={styles.metricVal}>100%</span>
-                        <span className={styles.metricLbl}>ERP &amp; System Integration</span>
-                      </div>
-                      <div className={styles.metricItem}>
-                        <span className={styles.metricVal}>No Code</span>
-                        <span className={styles.metricLbl}>Domain Leader Autonomy</span>
                       </div>
                     </div>
 
@@ -328,9 +325,9 @@ export default function AINoCodePage() {
               <Link href="/contact" className={styles.btnPrimary}>
                 Talk to a No-Code Expert
               </Link>
-              <Link href="/contact" className={styles.btnSecondaryDark}>
+              {/* <Link href="/contact" className={styles.btnSecondaryDark}>
                 Schedule a Demo
-              </Link>
+              </Link> */}
             </div>
           </div>
         </div>

@@ -1,7 +1,7 @@
 'use client'
 
-import { useState, useEffect } from 'react'
-import { useSearchParams } from 'next/navigation'
+import { useState, useEffect, useCallback } from 'react'
+import { useSearchParams, useRouter, usePathname } from 'next/navigation'
 import { CaseStudyCard } from '@/components/ui/CaseStudyCard'
 import styles from './page.module.css'
 
@@ -35,24 +35,42 @@ const filterLabels = [
 ]
 
 export function CaseStudiesClient({ caseStudies }: Props) {
+  const router = useRouter()
+  const pathname = usePathname()
   const searchParams = useSearchParams()
-  const [filter, setFilter] = useState(() => {
+
+  // Read active filter from URL — persists across back navigation
+  const getFilterFromUrl = useCallback(() => {
     const param = searchParams.get('filter')
     return param && filterLabels.includes(param) ? param : 'All'
-  })
-
-  useEffect(() => {
-    const param = searchParams.get('filter')
-    if (param && filterLabels.includes(param)) {
-      setFilter(param)
-    }
   }, [searchParams])
 
-  const visible = filter === 'All'
-    ? caseStudies
-    : caseStudies.filter((c) => {
-        return Array.isArray(c.categories) && c.categories.length > 0 && c.categories[0] === filter
-      })
+  const [filter, setFilter] = useState(getFilterFromUrl)
+
+  // Sync state when URL changes (e.g. back button)
+  useEffect(() => {
+    setFilter(getFilterFromUrl())
+  }, [searchParams, getFilterFromUrl])
+
+  // When user clicks a filter, update both state AND URL
+  const handleFilter = (label: string) => {
+    setFilter(label)
+    const params = new URLSearchParams(searchParams.toString())
+    if (label === 'All') {
+      params.delete('filter')
+    } else {
+      params.set('filter', label)
+    }
+    const query = params.toString()
+    router.replace(`${pathname}${query ? `?${query}` : ''}`, { scroll: false })
+  }
+
+  const visible =
+    filter === 'All'
+      ? caseStudies
+      : caseStudies.filter((c) => {
+          return Array.isArray(c.categories) && c.categories.length > 0 && c.categories[0] === filter
+        })
 
   return (
     <div className={styles.mainWrapper}>
@@ -70,7 +88,7 @@ export function CaseStudiesClient({ caseStudies }: Props) {
             <button
               key={label}
               id={`filter-${label.toLowerCase().replace(/\s+/g, '-')}`}
-              onClick={() => setFilter(label)}
+              onClick={() => handleFilter(label)}
               className={`${styles.filterBtn} ${filter === label ? styles.filterActive : ''}`}
             >
               {label}

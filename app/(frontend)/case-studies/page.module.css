@@ -73,10 +73,19 @@
 
 .filterActive {
   background: #94C640 !important;
-  color: #0D1612;
+  color: #0D1612 !important;
   border-color: #94C640 !important;
   font-weight: 700 !important;
-  box-shadow: 0 4px 14px rgba(148, 198, 64, 0.35) !important; transition: all 150ms ease; }
+  box-shadow: 0 4px 14px rgba(148, 198, 64, 0.35) !important;
+  transition: all 150ms ease;
+}
+
+.filterActive:hover {
+  background: #94C640 !important;
+  color: #0D1612 !important;
+  border-color: #94C640 !important;
+  transform: translateY(-1px);
+}
 
 .grid {
   display: grid;
