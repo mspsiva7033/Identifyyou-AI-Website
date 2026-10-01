@@ -2,6 +2,8 @@ import { buildConfig } from 'payload'
 import { postgresAdapter } from '@payloadcms/db-postgres'
 import { lexicalEditor } from '@payloadcms/richtext-lexical'
 import { s3Storage } from '@payloadcms/storage-s3'
+import { nodemailerAdapter } from '@payloadcms/email-nodemailer'
+import sharp from 'sharp'
 import path from 'path'
 import fs from 'fs'
 import { fileURLToPath } from 'url'
@@ -19,7 +21,6 @@ if (!process.env.DATABASE_URI) {
     })
   }
 }
-
 
 import { Media } from './payload/collections/Media'
 import { CaseStudyCategories } from './payload/collections/CaseStudyCategories'
@@ -118,6 +119,22 @@ export default buildConfig({
         : false,
     },
   }),
+  sharp,
+  email: process.env.SMTP_HOST
+    ? nodemailerAdapter({
+        defaultFromAddress: process.env.SMTP_FROM || 'noreply@identifyyou.com',
+        defaultFromName: 'IdentifYou Technologies',
+        transportOptions: {
+          host: process.env.SMTP_HOST,
+          port: parseInt(process.env.SMTP_PORT || '587', 10),
+          secure: process.env.SMTP_SECURE === 'true',
+          auth: {
+            user: process.env.SMTP_USER,
+            pass: process.env.SMTP_PASS,
+          },
+        } as any, // Cast to any to fix TS2353 'auth' does not exist on SMTPConnectionOptions
+      })
+    : undefined,
   plugins: [
     ...(process.env.S3_BUCKET
       ? [
