@@ -36,14 +36,24 @@ import { HomePageData } from './payload/globals/HomePageData'
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
 
+const serverURL = 
+  process.env.NEXT_PUBLIC_SERVER_URL || 
+  process.env.PAYLOAD_PUBLIC_SERVER_URL || 
+  (process.env.VERCEL_PROJECT_PRODUCTION_URL ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}` : '') ||
+  (process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : '') ||
+  'http://localhost:3000'
+
 export default buildConfig({
+  serverURL: serverURL,
+  cors: [serverURL],
+  csrf: [serverURL],
   admin: {
     user: 'users',
     meta: {
       titleSuffix: '— IdentifYou Admin',
     },
     livePreview: {
-      url: 'http://localhost:3000',
+      url: serverURL,
       breakpoints: [
         { label: 'Mobile', name: 'mobile', width: 375, height: 667 },
         { label: 'Tablet', name: 'tablet', width: 768, height: 1024 },
