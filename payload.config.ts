@@ -54,6 +54,23 @@ export default buildConfig({
     importMap: {
       baseDir: path.resolve(dirname),
     },
+    components: {
+      beforeDashboard: [
+        '/components/admin/AnalyticsDashboardWidget#AnalyticsDashboardWidget',
+      ],
+      afterNavLinks: [
+        '/components/admin/AnalyticsNav#AnalyticsNav',
+      ],
+      views: {
+        analytics: {
+          Component: '/components/admin/AnalyticsView#AnalyticsView',
+          path: '/analytics',
+          meta: {
+            title: 'Analytics Dashboard — IdentifYou Admin',
+          },
+        },
+      },
+    },
   },
   collections: [
     {

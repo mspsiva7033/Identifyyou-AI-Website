@@ -1,8 +1,12 @@
 import type { Metadata } from 'next'
 import { Manrope, IBM_Plex_Sans } from 'next/font/google'
 import { Suspense } from 'react'
+import Script from 'next/script'
 import { PageTransitionLoader } from '@/components/ui/PageTransitionLoader'
 import { WhatsAppButton } from '@/components/ui/WhatsAppButton'
+import { CookieConsent } from '@/components/ui/CookieConsent'
+import { JsonLdSchema } from '@/components/seo/JsonLdSchema'
+import { GoogleAnalyticsTracker, GA_MEASUREMENT_ID } from '@/lib/gtag'
 import '../globals.css'
 
 const manrope = Manrope({
@@ -48,13 +52,43 @@ export default function FrontendLayout({
 }) {
   return (
     <html lang="en" suppressHydrationWarning>
+      <head>
+        <JsonLdSchema />
+        {GA_MEASUREMENT_ID && (
+          <>
+            <Script
+              strategy="afterInteractive"
+              src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}
+            />
+            <Script
+              id="google-analytics"
+              strategy="afterInteractive"
+              dangerouslySetInnerHTML={{
+                __html: `
+                  window.dataLayer = window.dataLayer || [];
+                  function gtag(){dataLayer.push(arguments);}
+                  gtag('js', new Date());
+                  gtag('config', '${GA_MEASUREMENT_ID}', {
+                    page_path: window.location.pathname,
+                    send_page_view: true
+                  });
+                `,
+              }}
+            />
+          </>
+        )}
+      </head>
       <body suppressHydrationWarning className={`${manrope.variable} ${ibmPlexSans.variable}`}>
         <Suspense fallback={null}>
           <PageTransitionLoader />
+          <GoogleAnalyticsTracker />
         </Suspense>
         {children}
         <WhatsAppButton />
+        <CookieConsent />
       </body>
     </html>
   )
 }
+
+

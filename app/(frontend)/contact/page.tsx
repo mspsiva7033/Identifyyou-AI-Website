@@ -1,8 +1,9 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useRef } from 'react'
 import { Header } from '@/components/layout/Header'
 import { Footer } from '@/components/layout/Footer'
+import { trackContactFormSubmit, trackGAEvent, getStoredUTMs } from '@/lib/gtag'
 import styles from './page.module.css'
 
 const paths = [
@@ -42,6 +43,14 @@ export default function ContactPage() {
   const [loading, setLoading] = useState(false)
   const [emailError, setEmailError] = useState('')
   const [form, setForm] = useState({ name: '', email: '', company: '', message: '' })
+  const formStarted = useRef(false)
+
+  const handleInputFocus = () => {
+    if (!formStarted.current) {
+      formStarted.current = true
+      trackGAEvent('form_start', { category: 'Contact Form', label: 'Started typing' })
+    }
+  }
 
   const handleEmailChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const val = e.target.value
@@ -68,11 +77,14 @@ export default function ContactPage() {
       return
     }
     setLoading(true)
+    trackContactFormSubmit(selectedPath)
+
+    const utmData = getStoredUTMs()
     try {
       await fetch('/api/contact', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ ...form, selectedPath }),
+        body: JSON.stringify({ ...form, selectedPath, ...utmData }),
       })
       setSubmitted(true)
     } catch {
@@ -82,6 +94,7 @@ export default function ContactPage() {
       setLoading(false)
     }
   }
+
 
   return (
     <div className={styles.page}>
@@ -103,7 +116,10 @@ export default function ContactPage() {
               <button
                 key={p.id}
                 id={`path-${p.id}`}
-                onClick={() => setSelectedPath(p.id)}
+                onClick={() => {
+                  setSelectedPath(p.id)
+                  trackGAEvent('select_interest_path', { category: 'Contact Form', label: p.label })
+                }}
                 className={`${styles.pathBtn} ${selectedPath === p.id ? styles.pathActive : ''}`}
               >
                 <span className={styles.pathIcon}>{p.icon}</span>
@@ -111,6 +127,7 @@ export default function ContactPage() {
               </button>
             ))}
           </div>
+
 
           <div className={styles.contactInfo}>
             <div className={styles.contactInfoTitle}>Contact</div>
@@ -148,6 +165,7 @@ export default function ContactPage() {
                   id="contact-name"
                   type="text"
                   required
+                  onFocus={handleInputFocus}
                   className={styles.input}
                   value={form.name}
                   onChange={(e) => setForm((f) => ({ ...f, name: e.target.value }))}
@@ -159,6 +177,7 @@ export default function ContactPage() {
                   id="contact-email"
                   type="email"
                   required
+                  onFocus={handleInputFocus}
                   className={`${styles.input} ${emailError ? styles.inputError : ''}`}
                   value={form.email}
                   onChange={handleEmailChange}
@@ -173,6 +192,7 @@ export default function ContactPage() {
                 <input
                   id="contact-company"
                   type="text"
+                  onFocus={handleInputFocus}
                   className={styles.input}
                   value={form.company}
                   onChange={(e) => setForm((f) => ({ ...f, company: e.target.value }))}
@@ -183,6 +203,7 @@ export default function ContactPage() {
                 <textarea
                   id="contact-message"
                   rows={4}
+                  onFocus={handleInputFocus}
                   className={styles.textarea}
                   value={form.message}
                   onChange={(e) => setForm((f) => ({ ...f, message: e.target.value }))}

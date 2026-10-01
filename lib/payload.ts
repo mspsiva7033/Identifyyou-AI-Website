@@ -5477,6 +5477,12 @@ export async function saveContactSubmission(submission: {
   company?: string
   selectedPath?: string
   message?: string
+  utmSource?: string
+  utmMedium?: string
+  utmCampaign?: string
+  utmTerm?: string
+  utmContent?: string
+  referrer?: string
 }) {
   try {
     const payload = await getPayloadClient()
@@ -5493,3 +5499,4 @@ export async function saveContactSubmission(submission: {
   }
   return false
 }
+

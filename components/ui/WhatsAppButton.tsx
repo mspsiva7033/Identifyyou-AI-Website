@@ -2,6 +2,7 @@
 
 import React from 'react'
 import { usePathname } from 'next/navigation'
+import { trackWhatsAppClick } from '@/lib/gtag'
 import styles from './WhatsAppButton.module.css'
 
 export function WhatsAppButton() {
@@ -20,6 +21,7 @@ export function WhatsAppButton() {
       href={whatsappUrl}
       target="_blank"
       rel="noopener noreferrer"
+      onClick={() => trackWhatsAppClick(pathname || 'floating_button')}
       className={styles.whatsappFloat}
       aria-label="Chat on WhatsApp with IdentifYou Technologies"
       title="Chat with us on WhatsApp"

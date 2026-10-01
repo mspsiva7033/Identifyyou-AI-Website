@@ -12,6 +12,8 @@
     "seed": "node --import tsx/esm scripts/seed.ts --run"
   },
   "dependencies": {
+    "@google-analytics/data": "^7.2.1",
+    "@next/third-parties": "^16.3.8",
     "@payloadcms/db-postgres": "^3.88.0",
     "@payloadcms/next": "^3.88.0",
     "@payloadcms/richtext-lexical": "^3.88.0",
