@@ -73,16 +73,16 @@
   border-radius: 6px;
   font-weight: 700;
   text-decoration: none;
-  transition: background 0.2s ease;
+  transition: background 0.2s ease, color 0.2s ease;
   font-size: 15px;
   box-shadow: 0 4px 16px rgba(148, 198, 64, 0.3);
 }
 
 .btnPrimary:hover {
   background: #94C640;
-  color: #FFFFFF;
+  color: #FFFFFF !important;
   transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(148, 198, 64, 0.45);
+  box-shadow: 0 8px 24px rgba(148, 198, 64, 0.55), 0 0 14px rgba(148, 198, 64, 0.35);
 }
 
 .btnSecondary {
@@ -165,8 +165,7 @@
   height: 24px;
   background: #94C640;
   border-radius: 4px;
-  box-shadow: 0 0 15px #94C640;
-}
+  box-shadow: 0 0 15px #94C640; color: #0D1612; transition: all 150ms ease; }
 
 .armJoint1 {
   position: absolute;
@@ -187,8 +186,7 @@
   height: 80px;
   background: #94C640;
   transform: rotate(35deg);
-  transform-origin: bottom center;
-}
+  transform-origin: bottom center; color: #0D1612; transition: all 150ms ease; }
 
 .armJoint2 {
   position: absolute;
@@ -208,8 +206,7 @@
   height: 70px;
   background: #94C640;
   transform: rotate(-60deg);
-  transform-origin: top center;
-}
+  transform-origin: top center; color: #0D1612; transition: all 150ms ease; }
 
 .laserBeam {
   position: absolute;

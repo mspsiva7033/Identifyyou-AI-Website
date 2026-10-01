@@ -36,9 +36,8 @@
   display: inline-block;
   width: 8px;
   height: 8px;
-  background-color: #94C640;
-  border-radius: 50%;
-}
+  background-color: #0D1612;
+  border-radius: 50%; transition: all 150ms ease; }
 
 .cardText {
   font-size: 0.95rem;

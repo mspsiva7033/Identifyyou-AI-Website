@@ -100,60 +100,68 @@ export default function ContactPage() {
     <div className={styles.page}>
       <Header />
 
-      <main className={styles.main}>
-        {/* Left: info + path selector */}
-        <div className={styles.leftPanel}>
-          <div className={styles.eyebrow}>Get in Touch</div>
-          <h1 className={styles.title}>Let&apos;s Solve a Business Problem</h1>
-          <p className={styles.desc}>
-            Tell us what you&apos;re trying to improve. We&apos;ll help identify where Deep Tech can create measurable
-            business value.
-          </p>
-
-          <div className={styles.pathLabel}>What area are you interested in?</div>
-          <div className={styles.paths}>
-            {paths.map((p) => (
-              <button
-                key={p.id}
-                id={`path-${p.id}`}
-                onClick={() => {
-                  setSelectedPath(p.id)
-                  trackGAEvent('select_interest_path', { category: 'Contact Form', label: p.label })
-                }}
-                className={`${styles.pathBtn} ${selectedPath === p.id ? styles.pathActive : ''}`}
-              >
-                <span className={styles.pathIcon}>{p.icon}</span>
-                {p.label}
-              </button>
-            ))}
+      {submitted ? (
+        <main className={styles.mainSubmitted}>
+          <div className={styles.successBox}>
+            <div className={styles.successIcon}>✓</div>
+            <h2 className={styles.successTitle}>Request Received!</h2>
+            <p className={styles.successDesc}>
+              Thank you! We have received your inquiry. An expert from our team will contact you within 24 hours at your provided email.
+            </p>
+            <button
+              onClick={() => {
+                setSubmitted(false)
+                setForm({ name: '', email: '', company: '', message: '' })
+                setSelectedPath(null)
+              }}
+              className={styles.resetBtn}
+            >
+              Send Another Message
+            </button>
           </div>
+        </main>
+      ) : (
+        <main className={styles.main}>
+          {/* Left: info + path selector */}
+          <div className={styles.leftPanel}>
+            <div className={styles.eyebrow}>Get in Touch</div>
+            <h1 className={styles.title}>Let&apos;s Solve a Business Problem</h1>
+            <p className={styles.desc}>
+              Tell us what you&apos;re trying to improve. We&apos;ll help identify where Deep Tech can create measurable
+              business value.
+            </p>
 
-
-          <div className={styles.contactInfo}>
-            <div className={styles.contactInfoTitle}>Contact</div>
-            <p className={styles.contactInfoText}>Support@identifyyou.in</p>
-            <p className={styles.contactInfoText}>+91 9597046682</p>
-            <p className={styles.contactInfoText}>Pandi Kovil Ring Road, Madurai, Tamil Nadu 625107</p>
-            <p className={styles.contactInfoText}>3 Northwood Avenue, Purley, London CR8 2ER</p>
-          </div>
-        </div>
-
-        {/* Right: form */}
-        <div className={styles.rightPanel}>
-          {submitted ? (
-            <div className={styles.successBox}>
-              <div className={styles.successIcon}>✓</div>
-              <h2 className={styles.successTitle}>Request Received!</h2>
-              <p className={styles.successDesc}>
-                We have received your inquiry. An expert from our team will contact you within 24 hours at your provided email.
-              </p>
+            <div className={styles.pathLabel}>What area are you interested in?</div>
+            <div className={styles.paths}>
+              {paths.map((p) => (
+                <button
+                  key={p.id}
+                  id={`path-${p.id}`}
+                  onClick={() => {
+                    setSelectedPath(p.id)
+                    trackGAEvent('select_interest_path', { category: 'Contact Form', label: p.label })
+                  }}
+                  className={`${styles.pathBtn} ${selectedPath === p.id ? styles.pathActive : ''}`}
+                >
+                  <span className={styles.pathIcon}>{p.icon}</span>
+                  {p.label}
+                </button>
+              ))}
             </div>
-          ) : (
+
+            <div className={styles.contactInfo}>
+              <div className={styles.contactInfoTitle}>Contact</div>
+              <p className={styles.contactInfoText}>Support@identifyyou.in</p>
+              <p className={styles.contactInfoText}>+91 9597046682</p>
+              <p className={styles.contactInfoText}>Pandi Kovil Ring Road, Madurai, Tamil Nadu 625107</p>
+              <p className={styles.contactInfoText}>3 Northwood Avenue, Purley, London CR8 2ER</p>
+            </div>
+          </div>
+
+          {/* Right: form */}
+          <div className={styles.rightPanel}>
             <form id="contact-form" onSubmit={handleSubmit} className={styles.form}>
               <h2 className={styles.formTitle}>Talk to a Deep Tech Expert</h2>
-              {/* <p className={styles.formSubtitle}>
-                Your message will be sent to <strong>Support@identifyyou.in</strong>
-              </p> */}
               {selectedPath && (
                 <div className={styles.selectedPathBadge}>
                   Re: {paths.find((p) => p.id === selectedPath)?.label}
@@ -218,9 +226,9 @@ export default function ContactPage() {
                 {loading ? 'Sending...' : 'Send Message'}
               </button>
             </form>
-          )}
-        </div>
-      </main>
+          </div>
+        </main>
+      )}
 
       <Footer />
     </div>

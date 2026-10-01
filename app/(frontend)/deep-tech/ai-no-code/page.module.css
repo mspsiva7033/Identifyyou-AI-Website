@@ -114,7 +114,7 @@
   align-items: center;
   justify-content: center;
   background: #94C640;
-  color: #0d1612;
+  color: #0D1612;
   font-weight: 800;
   font-size: 15px;
   padding: 14px 32px;
@@ -127,9 +127,10 @@
 
 .btnPrimary:hover {
   background: #94C640;
-  border-color: #94C640;
+  border-color: #FFFFFF;
+  color: #FFFFFF !important;
   transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(148, 198, 64, 0.45);
+  box-shadow: 0 8px 24px rgba(148, 198, 64, 0.55), 0 0 14px rgba(148, 198, 64, 0.35);
 }
 
 .btnSecondaryDark {
@@ -186,8 +187,8 @@
 .btnPrimary:hover {
   background: #94C640;
   transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(148, 198, 64, 0.45);
-  color: #FFFFFF;
+  box-shadow: 0 8px 24px rgba(148, 198, 64, 0.55), 0 0 14px rgba(148, 198, 64, 0.35);
+  color: #FFFFFF !important;
 }
 
 .btnSecondaryDark {

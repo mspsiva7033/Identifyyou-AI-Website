@@ -130,8 +130,9 @@
 .btnPrimary:hover {
   background: #94C640;
   border-color: #94C640;
+  color: #FFFFFF !important;
   transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(148, 198, 64, 0.45);
+  box-shadow: 0 8px 24px rgba(148, 198, 64, 0.55), 0 0 14px rgba(148, 198, 64, 0.35);
 }
 
 .btnSecondaryDark {
@@ -499,7 +500,7 @@
   .ctaCardDark {
     padding: 40px 20px;
   }
-  
+
   .simpleCsCard {
     padding: 24px;
   }

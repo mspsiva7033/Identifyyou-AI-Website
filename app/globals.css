@@ -114,10 +114,7 @@ a:hover {
   color: var(--color-primary-hover);
 }
 
-a[class*="btn"]:hover,
-a[class*="Btn"]:hover {
-  color: inherit;
-}
+
 
 img {
   max-width: 100%;
@@ -252,10 +249,10 @@ p {
 
 .btn-primary:hover {
   background: #94C640;
-  border-color: #94C640;
-  color: #FFFFFF;
+  border-color: #FFFFFF;
+  color: #FFFFFF !important;
   transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(148, 198, 64, 0.45);
+  box-shadow: 0 8px 24px rgba(148, 198, 64, 0.55), 0 0 14px rgba(148, 198, 64, 0.35);
 }
 
 .btn-primary--lg {
@@ -265,8 +262,7 @@ p {
 
 .btn-primary--green {
   background: #94C640;
-  color: #0D1612;
-}
+  color: #0D1612; transition: all 150ms ease; }
 
 .btn-primary--green:hover {
   background: #94C640;

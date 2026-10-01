@@ -718,9 +718,9 @@ export default function HomePage() {
                 <Link href="/deep-tech/ai-no-code" className={styles.noCodePrimaryBtn}>
                   Explore No-Code Platform →
                 </Link>
-                <Link href="/contact?type=demo" className={styles.noCodeSecondaryBtn}>
+                {/* <Link href="/contact?type=demo" className={styles.noCodeSecondaryBtn}>
                   Schedule a Demo
-                </Link>
+                </Link> */}
               </div>
             </div>
           </div>

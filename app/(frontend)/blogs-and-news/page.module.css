@@ -163,13 +163,13 @@
   font-weight: 700;
   text-decoration: none;
   display: inline-block;
-  transition: background 0.2s ease;
+  transition: background 0.2s ease, color 0.2s ease;
   box-shadow: 0 4px 16px rgba(148, 198, 64, 0.3);
 }
 
 .btnPrimary:hover {
   background: #94C640;
-  color: #FFFFFF;
+  color: #FFFFFF !important;
   transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(148, 198, 64, 0.45);
+  box-shadow: 0 8px 24px rgba(148, 198, 64, 0.55), 0 0 14px rgba(148, 198, 64, 0.35);
 }

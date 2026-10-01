@@ -137,10 +137,10 @@
 
 .btnPrimary:hover {
   background: #94C640;
-  border-color: #94C640;
-  color: #FFFFFF;
+  border-color: #FFFFFF;
+  color: #FFFFFF !important;
   transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(148, 198, 64, 0.45);
+  box-shadow: 0 8px 24px rgba(148, 198, 64, 0.55), 0 0 14px rgba(148, 198, 64, 0.35);
 }
 
 .btnSecondary {
@@ -207,8 +207,7 @@
   text-align: center;
   line-height: 1.2;
   box-shadow: 0 0 30px rgba(148, 198, 64, 0.4);
-  z-index: 2;
-}
+  z-index: 2; transition: all 150ms ease; }
 
 .circleNode {
   position: absolute;
@@ -231,7 +230,7 @@
 
 .circleNode:hover {
   background: #94C640;
-  color: #0D1612;
+  color: #FFFFFF;
   transform: scale(1.1);
 }
 
@@ -556,10 +555,9 @@
 
 .capsPillActive {
   background: #94C640 !important;
-  border-color: #94C640 !important;
+  border-color: #0D1612;
   color: #0D1612 !important;
-  box-shadow: 0 4px 16px rgba(148, 198, 64, 0.4);
-}
+  box-shadow: 0 4px 16px rgba(148, 198, 64, 0.4); transition: all 150ms ease; }
 
 .capDetailPanel {
   background: rgba(255, 255, 255, 0.03);

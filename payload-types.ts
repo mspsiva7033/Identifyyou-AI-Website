@@ -422,6 +422,12 @@ export interface ContactSubmission {
   company?: string | null;
   selectedPath?: string | null;
   message?: string | null;
+  utmSource?: string | null;
+  utmMedium?: string | null;
+  utmCampaign?: string | null;
+  utmTerm?: string | null;
+  utmContent?: string | null;
+  referrer?: string | null;
   updatedAt: string;
   createdAt: string;
 }
@@ -741,6 +747,12 @@ export interface ContactSubmissionsSelect<T extends boolean = true> {
   company?: T;
   selectedPath?: T;
   message?: T;
+  utmSource?: T;
+  utmMedium?: T;
+  utmCampaign?: T;
+  utmTerm?: T;
+  utmContent?: T;
+  referrer?: T;
   updatedAt?: T;
   createdAt?: T;
 }

@@ -73,11 +73,10 @@
 
 .filterActive {
   background: #94C640 !important;
-  color: #ffffff !important;
+  color: #0D1612;
   border-color: #94C640 !important;
   font-weight: 700 !important;
-  box-shadow: 0 4px 14px rgba(148, 198, 64, 0.35) !important;
-}
+  box-shadow: 0 4px 14px rgba(148, 198, 64, 0.35) !important; transition: all 150ms ease; }
 
 .grid {
   display: grid;

@@ -30,6 +30,12 @@ function cleanHeadingText(text: string): string {
   return text.replace(/^(?:0?\d{1,2}\s*[—–\-.:)]\s*|0\d\s+)/, '').trim()
 }
 
+function cleanTableText(text: string): string {
+  if (!text) return text
+  return text.replace(/[\u2190-\u2199\u21D0-\u21D9]|->|-->|=>|&rarr;|&darr;|&uarr;|&larr;/g, '').trim()
+}
+
+
 function renderDocItems(docItems: DocItem[]) {
   const elements: React.ReactNode[] = []
   let currentBullets: string[] = []
@@ -214,15 +220,15 @@ export default async function CaseStudyDetailPage({ params }: { params: Promise<
               <table className={styles.compTable}>
                 <thead>
                   <tr>
-                    <th>{cs.comparisonTable.headers[0]}</th>
-                    <th>{cs.comparisonTable.headers[1]}</th>
+                    <th>{cleanTableText(cs.comparisonTable.headers[0])}</th>
+                    <th>{cleanTableText(cs.comparisonTable.headers[1])}</th>
                   </tr>
                 </thead>
                 <tbody>
                   {cs.comparisonTable.rows.map((row, idx) => (
                     <tr key={idx}>
-                      <td className={styles.tradCol}>{row[0]}</td>
-                      <td className={styles.aiCol}>{row[1]}</td>
+                      <td className={styles.tradCol}>{cleanTableText(row[0])}</td>
+                      <td className={styles.aiCol}>{cleanTableText(row[1])}</td>
                     </tr>
                   ))}
                 </tbody>
@@ -239,7 +245,7 @@ export default async function CaseStudyDetailPage({ params }: { params: Promise<
                 <thead>
                   <tr>
                     {cs.tableBlock.headers.map((header, idx) => (
-                      <th key={idx}>{header}</th>
+                      <th key={idx}>{cleanTableText(header)}</th>
                     ))}
                   </tr>
                 </thead>
@@ -247,7 +253,7 @@ export default async function CaseStudyDetailPage({ params }: { params: Promise<
                   {cs.tableBlock.rows.map((row, idx) => (
                     <tr key={idx}>
                       {row.map((cell, cellIdx) => (
-                        <td key={cellIdx} className={cellIdx === 0 ? styles.tradCol : (cellIdx === row.length - 1 ? styles.aiCol : '')}>{cell}</td>
+                        <td key={cellIdx} className={cellIdx === 0 ? styles.tradCol : (cellIdx === row.length - 1 ? styles.aiCol : '')}>{cleanTableText(cell)}</td>
                       ))}
                     </tr>
                   ))}

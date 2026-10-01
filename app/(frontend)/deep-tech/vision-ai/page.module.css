@@ -135,8 +135,9 @@
 .btnPrimary:hover {
   background: #94C640;
   border-color: #94C640;
+  color: #FFFFFF !important;
   transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(148, 198, 64, 0.45);
+  box-shadow: 0 8px 24px rgba(148, 198, 64, 0.55), 0 0 14px rgba(148, 198, 64, 0.35);
 }
 
 .btnSecondaryDark {
@@ -830,12 +831,14 @@
 /* RESPONSIVE MEDIA QUERIES */
 /* ---------------------------------------------------------------------- */
 @media (max-width: 992px) {
+
   .heroBannerGrid,
   .precisionGrid,
   .featuredCsCard {
     grid-template-columns: 1fr;
     gap: 32px;
   }
+
   .csThreeGrid,
   .povThreeGrid,
   .partnersGrid,
@@ -845,6 +848,7 @@
 }
 
 @media (max-width: 640px) {
+
   .sectionHeroBanner,
   .sectionDarkCell,
   .sectionPrecision,
@@ -857,9 +861,11 @@
     padding-top: 48px;
     padding-bottom: 48px;
   }
+
   .statMetricsGrid {
     grid-template-columns: 1fr;
   }
+
   .ctaCardDark {
     padding: 36px 20px;
   }

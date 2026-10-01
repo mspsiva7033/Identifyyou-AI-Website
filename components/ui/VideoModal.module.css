@@ -53,8 +53,7 @@
   border-radius: 50%;
   background: #94C640;
   box-shadow: 0 0 8px rgba(148, 198, 64, 0.6);
-  flex-shrink: 0;
-}
+  flex-shrink: 0; color: #0D1612; transition: all 150ms ease; }
 
 .title {
   font-family: 'Manrope', 'IBM Plex Sans', sans-serif;
