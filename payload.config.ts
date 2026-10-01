@@ -132,7 +132,7 @@ export default buildConfig({
           user: process.env.SMTP_USER,
           pass: process.env.SMTP_PASS,
         },
-      } as any, // Cast to any to fix TS2353 'auth' does not exist on SMTPConnectionOptions
+      } as any,
     })
     : undefined,
   plugins: [

@@ -40,7 +40,7 @@ const methodologySteps = [
   {
     n: '06 · LEARN & SHARPEN',
     text: 'Outcomes feed back into the model, improving accuracy every cycle.',
-    isHighlight: true,
+    isHighlight: false,
   },
 ]
 
