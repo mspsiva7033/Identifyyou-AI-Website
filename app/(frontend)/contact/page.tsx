@@ -151,7 +151,7 @@ export default function ContactPage() {
 
             <div className={styles.contactInfo}>
               <div className={styles.contactInfoTitle}>Contact</div>
-              <p className={styles.contactInfoText}>support@identifyyou.in</p>
+              <p className={styles.contactInfoText}>ai.support@identifyyou.in</p>
               <p className={styles.contactInfoText}>+91 9597046682</p>
               <p className={styles.contactInfoText}>Pandi Kovil Ring Road, Madurai, Tamil Nadu 625107</p>
               <p className={styles.contactInfoText}>3 Northwood Avenue, Purley, London CR8 2ER</p>
