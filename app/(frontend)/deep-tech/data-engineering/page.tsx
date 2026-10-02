@@ -60,7 +60,7 @@ export default function DataEngineeringPage() {
         <div className={styles.heroDarkOverlay} />
         <div className={styles.heroContainer}>
           <div className={styles.heroCardDark}>
-            <span className={styles.greenPillBadge}>DATA ENGINEERING</span>
+            <div className={styles.eyebrowGreen}>DATA ENGINEERING</div>
             <h1 className={styles.heroBannerTitle}>
               From Enterprise Data to Business Intelligence
             </h1>
