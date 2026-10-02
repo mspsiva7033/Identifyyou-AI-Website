@@ -180,10 +180,4 @@
   position: relative;
 }
 
-.tdTo::before {
-  content: '→';
-  position: absolute;
-  left: -12px;
-  color: #94C640;
-  font-weight: bold;
-}
+

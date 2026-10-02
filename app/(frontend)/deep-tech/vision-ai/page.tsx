@@ -83,7 +83,7 @@ export default function VisionAIPage() {
         <div className={styles.heroDarkOverlay} />
         <div className={styles.heroContainer}>
           <div className={styles.heroCardDark}>
-            <div className={styles.eyebrowGreen}>VISION AI &amp; VISUAL INTELLIGENCE</div>
+            <div className={styles.eyebrowGreen}>VISION AI</div>
             <h1 className={styles.heroTitle}>
               Intelligent Vision for Intelligent Manufacturing
             </h1>
@@ -379,7 +379,7 @@ export default function VisionAIPage() {
       </section> */}
 
       {/* 9. TECHNOLOGY & PARTNERSHIP ECOSYSTEM (PDF Page 4 Middle) */}
-      <section className={styles.sectionPartners}>
+      {/* <section className={styles.sectionPartners}>
         <div className={styles.eyebrowGreen}>TECHNOLOGY &amp; PARTNERSHIP ECOSYSTEM</div>
         <h2 className={styles.csMainTitle}>Powered by the Right Technology Ecosystem</h2>
         <p style={{ maxWidth: '720px', margin: '0 auto', fontSize: '15px', color: '#5B6862' }}>
@@ -407,12 +407,12 @@ export default function VisionAIPage() {
             </p>
           </div>
         </div>
-      </section>
+      </section> */}
 
-      {/* 10. FINAL CTA (PDF Page 4 Bottom) */}
+      {/* 10. FINAL CTA (PDF Page 4 Bottom)  */}
       <section className={styles.sectionCta}>
-        <div className={styles.ctaCardDark}>
-          <h2 className={styles.ctaTitle}>
+        <div className={styles.ctaCardLight}>
+          <h2 className={styles.ctaTitleLight}>
             Ready to See What Your Inspection Process Is Missing?
           </h2>
           <Link href="/contact" className={styles.btnPrimary}>

@@ -59,7 +59,7 @@ export default function AIIntelligentBusinessPage() {
         <div className={styles.heroDarkOverlay} />
         <div className={styles.heroContainer}>
           <div className={styles.heroCardDark}>
-            <div className={styles.eyebrowGreen}>DECISION ENGINE</div>
+            <div className={styles.eyebrowGreen}>AI & Intelligent Business</div>
             <h1 className={styles.heroTitle}>
               Intelligence Isn&apos;t a Dashboard. It&apos;s a Decision Made Earlier.
             </h1>
