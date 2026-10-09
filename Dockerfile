@@ -70,6 +70,7 @@ COPY --from=builder /app/payload-types.ts ./payload-types.ts
 COPY --from=builder /app/lib ./lib
 COPY --from=builder /app/components ./components
 COPY --from=builder /app/app ./app
+COPY --from=builder /app/scripts ./scripts
 
 # Expose Next.js port
 EXPOSE 3000

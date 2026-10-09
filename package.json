@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start",
+    "start": "node --import tsx/esm scripts/init_tables.ts && next start",
+    "db:init": "node --import tsx/esm scripts/init_tables.ts",
     "lint": "eslint",
     "generate:importmap": "node --import tsx/esm ./node_modules/payload/bin.js generate:importmap",
     "seed": "node --import tsx/esm scripts/seed.ts --run",
