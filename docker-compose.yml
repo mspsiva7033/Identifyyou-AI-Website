@@ -63,6 +63,7 @@ services:
     environment:
       NODE_ENV: production
       DATABASE_URI: postgresql://${POSTGRES_USER:-identifyyou}:${POSTGRES_PASSWORD}@postgres:5432/identifyyou
+      DATABASE_SSL: ${DATABASE_SSL:-false}
       PAYLOAD_SECRET: ${PAYLOAD_SECRET:?Payload secret required in .env}
       NEXT_PUBLIC_SITE_URL: ${NEXT_PUBLIC_SITE_URL}
       PAYLOAD_PUBLIC_SERVER_URL: ${PAYLOAD_PUBLIC_SERVER_URL:-${NEXT_PUBLIC_SITE_URL}}
@@ -76,6 +77,12 @@ services:
       SMTP_PASS: ${SMTP_PASS}
       SMTP_FROM: ${SMTP_FROM}
       CONTACT_EMAIL_TO: ${CONTACT_EMAIL_TO}
+    healthcheck:
+      test: ["CMD-SHELL", "curl -f http://127.0.0.1:3000/api/health/live || exit 1"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 30s
     volumes:
       # Persistent volume for uploaded Payload CMS media
       - media_uploads:/app/public/media

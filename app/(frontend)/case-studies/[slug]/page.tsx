@@ -4,6 +4,7 @@ import { notFound } from 'next/navigation'
 import { Header } from '@/components/layout/Header'
 import { Footer } from '@/components/layout/Footer'
 import { CaseStudyCard } from '@/components/ui/CaseStudyCard'
+import { CaseStudyTracker } from '@/components/analytics/CaseStudyTracker'
 import { getCaseStudyBySlug, getCaseStudies, DocItem } from '@/lib/payload'
 import { getCategoryTheme } from '@/lib/caseStudyCategories'
 import styles from './page.module.css'
@@ -92,6 +93,7 @@ export default async function CaseStudyDetailPage({ params }: { params: Promise<
 
   return (
     <div className={styles.page}>
+      <CaseStudyTracker slug={slug} title={cs.title} category={theme.name || cs.tag} />
       <Header />
 
       <div className={styles.breadcrumb}>

@@ -48,3 +48,6 @@ next-env.d.ts
 /public/media/*
 !/public/media/.gitkeep
 /media
+
+# standalone umami analytics instance
+/umami/

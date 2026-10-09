@@ -67,6 +67,7 @@ COPY --from=builder /app/public ./public
 COPY --from=builder /app/payload.config.ts ./payload.config.ts
 COPY --from=builder /app/payload ./payload
 COPY --from=builder /app/payload-types.ts ./payload-types.ts
+COPY --from=builder /app/migrations ./migrations
 COPY --from=builder /app/lib ./lib
 COPY --from=builder /app/components ./components
 COPY --from=builder /app/app ./app
@@ -74,5 +75,8 @@ COPY --from=builder /app/scripts ./scripts
 
 # Expose Next.js port
 EXPOSE 3000
+
+HEALTHCHECK --interval=15s --timeout=5s --start-period=30s --retries=3 \
+  CMD curl -f http://127.0.0.1:3000/api/health/live || exit 1
 
 CMD ["npm", "run", "start"]

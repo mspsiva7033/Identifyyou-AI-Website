@@ -444,3 +444,252 @@
   font-style: italic;
   padding: 20px 0;
 }
+
+/* ── Enhanced Realtime & Funnel Styles ────────────────────────── */
+.realtimeBadge {
+  background: #ecfdf5;
+  color: #065f46;
+  border: 1px solid #a7f3d0;
+  padding: 6px 14px;
+  border-radius: 20px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 700;
+  font-size: 0.85rem;
+}
+
+.realtimePulse {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: #10b981;
+  box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7);
+  animation: pulse 2s infinite;
+}
+
+/* Funnel */
+.funnelContainer {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 16px;
+  margin-top: 12px;
+}
+
+.funnelStep {
+  background: var(--theme-elevation-50, #f8fafc);
+  border: 1px solid var(--theme-elevation-150, #e2e8f0);
+  border-radius: 10px;
+  padding: 18px 20px;
+  position: relative;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.funnelStep:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+}
+
+.funnelStepHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.funnelStepNum {
+  font-size: 0.75rem;
+  font-weight: 800;
+  color: #6366f1;
+  background: #e0e7ff;
+  padding: 2px 8px;
+  border-radius: 12px;
+  text-transform: uppercase;
+}
+
+.funnelStepLabel {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--theme-elevation-600, #475569);
+}
+
+.funnelStepValue {
+  font-size: 1.75rem;
+  font-weight: 800;
+  color: var(--theme-elevation-900, #0f172a);
+  margin: 4px 0;
+}
+
+.funnelStepSub {
+  font-size: 0.78rem;
+  color: var(--theme-elevation-500, #64748b);
+}
+
+/* Live Activity Feed */
+.liveFeedList {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.liveFeedItem {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  background: var(--theme-elevation-50, #f8fafc);
+  border: 1px solid var(--theme-elevation-150, #e2e8f0);
+  border-radius: 8px;
+  padding: 12px 16px;
+  transition: background 0.15s ease;
+}
+
+.liveFeedItem:hover {
+  background: var(--theme-elevation-100, #f1f5f9);
+}
+
+.liveFeedLeft {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 0;
+}
+
+.liveEventIcon {
+  font-size: 1.25rem;
+  flex-shrink: 0;
+}
+
+.liveFeedContent {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.liveFeedPath {
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: var(--theme-elevation-900, #0f172a);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 320px;
+}
+
+.liveFeedTitle {
+  font-size: 0.75rem;
+  color: var(--theme-elevation-500, #64748b);
+}
+
+.liveFeedRight {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.8rem;
+  color: var(--theme-elevation-600, #475569);
+  flex-shrink: 0;
+}
+
+.liveFeedBadge {
+  background: #e2e8f0;
+  color: #334155;
+  padding: 3px 8px;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 0.75rem;
+}
+
+.liveFeedTime {
+  font-size: 0.75rem;
+  color: #94a3b8;
+}
+
+/* SVG Chart */
+.svgChartWrap {
+  width: 100%;
+  overflow-x: auto;
+  padding: 10px 0;
+}
+
+.deviceBar {
+  display: flex;
+  height: 12px;
+  border-radius: 6px;
+  overflow: hidden;
+  margin: 12px 0 16px 0;
+  background: #e2e8f0;
+}
+
+.deviceSegment {
+  height: 100%;
+  transition: width 0.3s ease;
+}
+
+.deviceLegend {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  font-size: 0.82rem;
+  font-weight: 600;
+}
+
+/* ── Hardware, Display & Locale Specs ───────────────────────── */
+.specGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 16px;
+  margin-top: 12px;
+}
+
+.specCard {
+  background: var(--theme-elevation-50, #f8fafc);
+  border: 1px solid var(--theme-elevation-150, #e2e8f0);
+  border-radius: 8px;
+  padding: 16px;
+}
+
+.specCardTitle {
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: #1e293b;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.specItem {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 6px 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.04);
+  font-size: 0.82rem;
+}
+
+.specItem:last-child {
+  border-bottom: none;
+}
+
+.specItemKey {
+  font-weight: 600;
+  color: #475569;
+}
+
+.specItemVal {
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.themeBar {
+  display: flex;
+  height: 10px;
+  border-radius: 5px;
+  overflow: hidden;
+  margin: 10px 0 6px 0;
+  background: #e2e8f0;
+}
+
+

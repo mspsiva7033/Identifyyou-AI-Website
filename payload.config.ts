@@ -8,17 +8,23 @@ import path from 'path'
 import fs from 'fs'
 import { fileURLToPath } from 'url'
 
-// Read .env.local if DATABASE_URI is not set
+import { getPoolConfig } from './lib/db-config'
+import { migrations } from './migrations'
+
+// Read .env or .env.local if DATABASE_URI is not set
 if (!process.env.DATABASE_URI) {
-  const envPath = path.resolve(process.cwd(), '.env.local')
-  if (fs.existsSync(envPath)) {
-    const envContent = fs.readFileSync(envPath, 'utf8')
-    envContent.split(/\r?\n/).forEach((line) => {
-      const match = line.match(/^\s*([^#=]+)\s*=\s*(.*)$/)
-      if (match) {
-        process.env[match[1].trim()] = match[2].trim()
-      }
-    })
+  for (const envFile of ['.env', '.env.local']) {
+    const envPath = path.resolve(process.cwd(), envFile)
+    if (fs.existsSync(envPath)) {
+      const envContent = fs.readFileSync(envPath, 'utf8')
+      envContent.split(/\r?\n/).forEach((line) => {
+        const match = line.match(/^\s*([^#=]+)\s*=\s*(.*)$/)
+        if (match && !process.env[match[1].trim()]) {
+          process.env[match[1].trim()] = match[2].trim()
+        }
+      })
+      break
+    }
   }
 }
 
@@ -114,29 +120,42 @@ export default buildConfig({
     outputFile: path.resolve(dirname, 'payload-types.ts'),
   },
   db: postgresAdapter({
-    pool: {
-      connectionString: process.env.DATABASE_URI || 'postgresql://postgres:password@localhost:5432/identifyyou',
-      ssl: process.env.DATABASE_URI?.includes('supabase') || process.env.DATABASE_URI?.includes('neon')
-        ? { rejectUnauthorized: false }
-        : false,
-    },
+    pool: getPoolConfig(),
+    prodMigrations: migrations,
+    migrationDir: path.resolve(dirname, 'migrations'),
   }),
   sharp,
-  email: process.env.SMTP_HOST
-    ? nodemailerAdapter({
+  email: (() => {
+    const host = process.env.SMTP_HOST
+    const user = process.env.SMTP_USER
+    const pass = process.env.SMTP_PASS
+    const isConfigured = Boolean(
+      host &&
+      user &&
+      pass &&
+      !user.includes('your-email') &&
+      !pass.includes('your-email-password')
+    )
+
+    if (!isConfigured) {
+      return undefined
+    }
+
+    return nodemailerAdapter({
       defaultFromAddress: process.env.SMTP_FROM || 'noreply@identifyyou.com',
       defaultFromName: 'IdentifYou Technologies',
+      skipVerify: process.env.SMTP_SKIP_VERIFY === 'true',
       transportOptions: {
-        host: process.env.SMTP_HOST,
-        port: parseInt(process.env.SMTP_PORT || '587', 10),
+        host,
+        port: parseInt(process.env.SMTP_PORT || '465', 10),
         secure: process.env.SMTP_SECURE === 'true',
         auth: {
-          user: process.env.SMTP_USER,
-          pass: process.env.SMTP_PASS,
+          user,
+          pass,
         },
       } as any,
     })
-    : undefined,
+  })(),
   plugins: [
     ...(process.env.USE_S3 === 'true' && process.env.S3_BUCKET
       ? [

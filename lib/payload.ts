@@ -5232,7 +5232,9 @@ export const FALLBACK_DEEP_TECH_CAPABILITIES: DeepTechCapabilityItem[] = [
 export async function getPayloadClient() {
   try {
     return await getPayload({ config })
-  } catch {
+  } catch (err: unknown) {
+    const message = err instanceof Error ? err.message : String(err)
+    console.error('[Payload Client Initialization Error]:', message)
     return null
   }
 }

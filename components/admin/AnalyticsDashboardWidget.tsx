@@ -7,7 +7,8 @@ export function AnalyticsDashboardWidget() {
   const [stats, setStats] = useState<{
     activeUsers: number
     pageViews: number
-    sessions: number
+    leadsGenerated: number
+    activeNow: number
     status: string
   } | null>(null)
 
@@ -19,7 +20,8 @@ export function AnalyticsDashboardWidget() {
           setStats({
             activeUsers: data.summary.activeUsers,
             pageViews: data.summary.pageViews,
-            sessions: data.summary.sessions,
+            leadsGenerated: data.funnel?.leadsGenerated || 0,
+            activeNow: data.realtime?.activeVisitorsNow || 0,
             status: data.status,
           })
         }
@@ -49,11 +51,41 @@ export function AnalyticsDashboardWidget() {
         }}
       >
         <div>
-          <h2 style={{ fontSize: '1.2rem', fontWeight: 800, margin: 0, display: 'flex', alignItems: 'center', gap: '8px' }}>
-            📊 Website Traffic & Analytics (Last 30 Days)
+          <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '4px' }}>
+            <span
+              style={{
+                fontSize: '0.75rem',
+                fontWeight: 700,
+                textTransform: 'uppercase',
+                background: '#dcfce7',
+                color: '#15803d',
+                padding: '2px 8px',
+                borderRadius: '4px',
+              }}
+            >
+              PostgreSQL In-App Engine
+            </span>
+            <span
+              style={{
+                fontSize: '0.75rem',
+                fontWeight: 700,
+                background: '#ecfdf5',
+                color: '#065f46',
+                padding: '2px 8px',
+                borderRadius: '12px',
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: '4px',
+              }}
+            >
+              🟢 {stats?.activeNow || 0} online now
+            </span>
+          </div>
+          <h2 style={{ fontSize: '1.25rem', fontWeight: 800, margin: 0, display: 'flex', alignItems: 'center', gap: '8px' }}>
+            📊 Website Traffic & Client Analytics
           </h2>
           <p style={{ margin: '4px 0 0 0', fontSize: '0.85rem', color: 'var(--theme-elevation-500, #64748b)' }}>
-            Track visitors, locations, case study views, and user interactions.
+            Real-time prospect traffic, technical case study reads, and lead inquiries stored in your database.
           </p>
         </div>
         <Link
@@ -71,7 +103,7 @@ export function AnalyticsDashboardWidget() {
             textDecoration: 'none',
           }}
         >
-          View Full Analytics Dashboard →
+          Open Analytics Dashboard &rarr;
         </Link>
       </div>
 
@@ -79,7 +111,7 @@ export function AnalyticsDashboardWidget() {
         <div
           style={{
             display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(140px, 1fr))',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(130px, 1fr))',
             gap: '12px',
             paddingTop: '12px',
             borderTop: '1px solid var(--theme-elevation-100, #f1f5f9)',
@@ -87,7 +119,7 @@ export function AnalyticsDashboardWidget() {
         >
           <div style={{ background: 'var(--theme-elevation-50, #f8fafc)', padding: '12px', borderRadius: '6px' }}>
             <div style={{ fontSize: '0.75rem', fontWeight: 600, color: '#64748b', textTransform: 'uppercase' }}>
-              Active Users
+              Active Visitors
             </div>
             <div style={{ fontSize: '1.4rem', fontWeight: 800, color: '#0f172a' }}>
               {stats.activeUsers.toLocaleString()}
@@ -102,19 +134,19 @@ export function AnalyticsDashboardWidget() {
             </div>
           </div>
           <div style={{ background: 'var(--theme-elevation-50, #f8fafc)', padding: '12px', borderRadius: '6px' }}>
-            <div style={{ fontSize: '0.75rem', fontWeight: 600, color: '#64748b', textTransform: 'uppercase' }}>
-              Total Sessions
+            <div style={{ fontSize: '0.75rem', fontWeight: 600, color: '#16a34a', textTransform: 'uppercase' }}>
+              Leads Acquired
             </div>
-            <div style={{ fontSize: '1.4rem', fontWeight: 800, color: '#0f172a' }}>
-              {stats.sessions.toLocaleString()}
+            <div style={{ fontSize: '1.4rem', fontWeight: 800, color: '#15803d' }}>
+              {stats.leadsGenerated.toLocaleString()}
             </div>
           </div>
           <div style={{ background: 'var(--theme-elevation-50, #f8fafc)', padding: '12px', borderRadius: '6px' }}>
             <div style={{ fontSize: '0.75rem', fontWeight: 600, color: '#64748b', textTransform: 'uppercase' }}>
-              GA4 Status
+              Engine Status
             </div>
-            <div style={{ fontSize: '0.9rem', fontWeight: 700, color: stats.status === 'live' ? '#16a34a' : '#d97706', marginTop: '4px' }}>
-              {stats.status === 'live' ? '🟢 Live Connected' : 'ℹ Demo Mode'}
+            <div style={{ fontSize: '0.9rem', fontWeight: 700, color: '#16a34a', marginTop: '6px' }}>
+              🟢 Live Active
             </div>
           </div>
         </div>

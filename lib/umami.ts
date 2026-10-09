@@ -70,18 +70,88 @@ const parseAndStoreUTMs = (searchParams: URLSearchParams | null) => {
 }
 
 /**
- * Track custom event in Umami
+ * Dispatches an event to the internal PostgreSQL In-App Analytics engine
+ */
+const sendNativeAnalyticsEvent = (eventName: string, data?: Record<string, any>) => {
+  if (typeof window === 'undefined') return
+
+  try {
+    // Generate or retrieve persistent browser session ID (session-only)
+    let sessionId = sessionStorage.getItem('iy_sess_id')
+    if (!sessionId) {
+      sessionId = Math.random().toString(36).substring(2) + Date.now().toString(36)
+      sessionStorage.setItem('iy_sess_id', sessionId)
+    }
+
+    // Retrieve or set first landing page in this session
+    let landingPage = sessionStorage.getItem('iy_landing_page')
+    if (!landingPage) {
+      landingPage = window.location.pathname || '/'
+      sessionStorage.setItem('iy_landing_page', landingPage)
+    }
+
+    // Capture standard browser client specs (100% free web APIs)
+    const screen = `${window.screen.width}x${window.screen.height}`
+    const language = navigator.language || 'en'
+    const timezone = Intl.DateTimeFormat().resolvedOptions().timeZone || 'UTC'
+    const colorTheme = window.matchMedia?.('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
+
+    const utms = getStoredUTMs()
+    const payload = JSON.stringify({
+      eventName,
+      path: window.location.pathname || '/',
+      title: document.title || '',
+      referrer: document.referrer || '',
+      sessionId,
+      screen,
+      language,
+      timezone,
+      colorTheme,
+      landingPage,
+      metadata: data || {},
+      utms: {
+        source: utms.utmSource,
+        medium: utms.utmMedium,
+        campaign: utms.utmCampaign,
+        term: utms.utmTerm,
+        content: utms.utmContent,
+      },
+    })
+
+    if (navigator.sendBeacon) {
+      const blob = new Blob([payload], { type: 'application/json' })
+      navigator.sendBeacon('/api/analytics/track', blob)
+    } else {
+      fetch('/api/analytics/track', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: payload,
+        keepalive: true,
+      }).catch(() => {})
+    }
+  } catch {
+    // Fail silently on client
+  }
+}
+
+/**
+ * Track custom event in both Native In-App Analytics and Umami (if enabled)
  */
 export const trackEvent = (eventName: string, data?: Record<string, any>) => {
+  // 1. Dispatch to Native PostgreSQL In-App Analytics (100% inside Next.js)
+  sendNativeAnalyticsEvent(eventName, data)
+
+  // 2. Dispatch to Umami if present on window
   if (typeof window !== 'undefined' && window.umami?.track) {
     window.umami.track(eventName, data)
   } else if (process.env.NODE_ENV === 'development') {
-    console.log(`[Umami Event - ${eventName}]:`, data)
+    console.log(`[In-App Analytics Event - ${eventName}]:`, data)
   }
 }
 
 // Backward-compatible alias
 export const trackGAEvent = trackEvent
+
 
 /**
  * Specific Trackers for Website Features
@@ -143,11 +213,14 @@ export function UmamiAnalyticsTracker() {
   const searchParams = useSearchParams()
   const pageStartTime = useRef<number>(Date.now())
 
-  // 1. Route change & UTM tracking
+  // 1. Route change, pageview & UTM tracking
   useEffect(() => {
     if (!pathname) return
     parseAndStoreUTMs(searchParams)
     pageStartTime.current = Date.now()
+
+    // Record pageview event in Native In-App Analytics
+    trackEvent('pageview', { path: pathname, title: typeof document !== 'undefined' ? document.title : '' })
 
     return () => {
       const timeSpentSec = Math.round((Date.now() - pageStartTime.current) / 1000)
@@ -198,12 +271,28 @@ export function UmamiAnalyticsTracker() {
       }
     }
 
+    const handleCopy = () => {
+      try {
+        const selection = window.getSelection()?.toString() || ''
+        if (selection.includes('@') || /\+?\d[\d -]{7,}\d/.test(selection)) {
+          trackEvent('copy_contact_info', {
+            snippet: selection.slice(0, 60),
+            page: pathname,
+          })
+        }
+      } catch {
+        // ignore
+      }
+    }
+
     window.addEventListener('scroll', handleScroll, { passive: true })
     document.addEventListener('click', handleClick)
+    document.addEventListener('copy', handleCopy)
 
     return () => {
       window.removeEventListener('scroll', handleScroll)
       document.removeEventListener('click', handleClick)
+      document.removeEventListener('copy', handleCopy)
     }
   }, [pathname])
 

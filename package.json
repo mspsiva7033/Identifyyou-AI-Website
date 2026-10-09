@@ -13,7 +13,14 @@
     "seed": "node --import tsx/esm scripts/seed.ts --run",
     "db:backup": "node --import tsx/esm scripts/backup_db.ts",
     "db:restore": "node --import tsx/esm scripts/restore_db.ts",
-    "storage:export": "node --import tsx/esm scripts/export_storage.ts"
+    "storage:export": "node --import tsx/esm scripts/export_storage.ts",
+    "umami:setup": "node --import tsx/esm scripts/setup_umami.ts",
+    "db:migrate": "node --import tsx/esm ./node_modules/payload/bin.js migrate",
+    "db:migrate:create": "node --import tsx/esm ./node_modules/payload/bin.js migrate:create",
+    "db:migrate:down": "node --import tsx/esm ./node_modules/payload/bin.js migrate:down",
+    "test": "node --import tsx/esm scripts/test_production_readiness.ts",
+    "test:prod": "node --import tsx/esm scripts/test_production_readiness.ts",
+    "test:e2e": "node --env-file=.env.local --import tsx/esm scripts/verify_full_system.ts"
   },
   "dependencies": {
     "@google-analytics/data": "^7.2.1",
