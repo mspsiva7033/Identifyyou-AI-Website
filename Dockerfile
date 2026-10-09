@@ -14,10 +14,8 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 
 WORKDIR /app
 
-# Set production environment variables
-ENV NODE_ENV=production
+# Disable Next.js telemetry during builds and runtime
 ENV NEXT_TELEMETRY_DISABLED=1
-ENV PORT=3000
 
 # ----------------------------------------------------------------------
 # Dependencies Layer
@@ -26,8 +24,8 @@ FROM base AS deps
 WORKDIR /app
 
 COPY package.json package-lock.json ./
-# Install all dependencies (including devDependencies needed for build)
-RUN npm ci --include=dev
+# Install dependencies cleanly using lockfile
+RUN npm ci
 
 # ----------------------------------------------------------------------
 # Builder Layer
@@ -54,6 +52,9 @@ RUN npm run build
 # ----------------------------------------------------------------------
 FROM base AS runner
 WORKDIR /app
+
+ENV NODE_ENV=production
+ENV PORT=3000
 
 # Ensure public/media directory exists for local Payload media uploads
 RUN mkdir -p /app/public/media
