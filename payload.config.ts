@@ -116,7 +116,7 @@ export default buildConfig({
   db: postgresAdapter({
     pool: {
       connectionString: process.env.DATABASE_URI || 'postgresql://postgres:password@localhost:5432/identifyyou',
-      ssl: process.env.DATABASE_URI?.includes('supabase') || process.env.DATABASE_URI?.includes('neon') || process.env.NODE_ENV === 'production'
+      ssl: process.env.DATABASE_URI?.includes('supabase') || process.env.DATABASE_URI?.includes('neon')
         ? { rejectUnauthorized: false }
         : false,
     },

@@ -20,7 +20,7 @@ if (!process.env.DATABASE_URI) {
 }
 
 // Temporarily set NODE_ENV to development so Payload pushes database schema and tables
-process.env.NODE_ENV = 'development'
+;(process.env as Record<string, string | undefined>).NODE_ENV = 'development'
 process.env.PAYLOAD_FORCE_DRIZZLE_PUSH = 'true'
 
 import { getPayload } from 'payload'
