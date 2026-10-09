@@ -4919,7 +4919,7 @@ export const FALLBACK_CASE_STUDIES_MAP: Record<string, CaseStudyDetail> = {
       title: "Sub-Case Study: Power BI ABM Analytics & Installation Guide",
       desc: "Access the complete Power BI ABM framework, deployment guide, Snowflake connection parameters, configuration options, validation steps, troubleshooting, and user guide below.",
       linkLabel: "POWER BI ABM →",
-      linkHref: "/case-studies/data-engineering/power-bi-abm"
+      linkHref: "/case-studies/power-bi-abm"
     },
     technologyUsed: "",
     more: []
@@ -5276,7 +5276,10 @@ export async function getCaseStudies(): Promise<CaseStudySummary[]> {
         tech: doc?.summary?.tech || fallback?.tech || '',
         integration: doc?.summary?.integration || fallback?.integration || '',
         outcome: doc?.summary?.outcome || fallback?.outcome || '',
-        illustration: getCaseStudyIllustration(slug),
+        illustration:
+          (typeof doc?.detail?.thumbnail === 'object' && doc?.detail?.thumbnail?.url) ||
+          (typeof doc?.detail?.heroImage === 'object' && doc?.detail?.heroImage?.url) ||
+          getCaseStudyIllustration(slug),
       }
     })
   } catch (error) {
@@ -5380,11 +5383,16 @@ export async function getCaseStudyBySlug(slug: string): Promise<CaseStudyDetail>
       return { ...fallback, illustration: getCaseStudyIllustration(normalizedSlug) }
     }
 
+    const uploadedIllustration =
+      (typeof doc.detail?.heroImage === 'object' && doc.detail?.heroImage?.url) ||
+      (typeof doc.detail?.thumbnail === 'object' && doc.detail?.thumbnail?.url) ||
+      null
+
     return {
       title: doc.title || fallback.title,
       breadcrumb: doc.breadcrumb || doc.title || fallback.breadcrumb,
       tag: doc.tags?.[0]?.tag || fallback.tag,
-      illustration: getCaseStudyIllustration(doc.slug || normalizedSlug),
+      illustration: uploadedIllustration || getCaseStudyIllustration(doc.slug || normalizedSlug),
       docItems: doc.docItems || fallback.docItems,
       comparisonTable: doc.comparisonTable || fallback.comparisonTable,
       overview: doc.detail?.shortDescription || doc.summary?.solution || fallback.overview,
@@ -5500,3 +5508,88 @@ export async function saveContactSubmission(submission: {
   return false
 }
 
+export interface BlogArticleSummary {
+  slug: string
+  category: string
+  date: string
+  readTime: string
+  title: string
+  excerpt: string
+  image?: string
+}
+
+export interface BlogArticleDetail extends BlogArticleSummary {
+  overview?: string
+  sections?: { title: string; content: string }[]
+  takeaways?: string[]
+  topics?: string
+}
+
+export async function getBlogsAndNews(): Promise<BlogArticleSummary[]> {
+  try {
+    const payload = await getPayloadClient()
+    if (!payload) return []
+
+    const result = await payload.find({
+      collection: 'blogs-and-news' as any,
+      where: {
+        status: { equals: 'published' },
+      },
+      sort: '-publishedAt',
+    })
+
+    if (result.docs && result.docs.length > 0) {
+      return result.docs.map((doc: any) => ({
+        slug: doc.slug,
+        title: doc.title,
+        category: doc.category || 'Industry Insights',
+        date: doc.publishedAt
+          ? new Date(doc.publishedAt).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })
+          : '',
+        readTime: doc.readTime || '5 min read',
+        excerpt: doc.excerpt || '',
+        image: doc.featuredImage?.url || undefined,
+      }))
+    }
+  } catch (error) {
+    console.warn('Failed to fetch blogs and news from Payload CMS:', error)
+  }
+  return []
+}
+
+export async function getBlogBySlug(slug: string): Promise<BlogArticleDetail | null> {
+  try {
+    const payload = await getPayloadClient()
+    if (!payload) return null
+
+    const result = await payload.find({
+      collection: 'blogs-and-news' as any,
+      where: {
+        slug: { equals: slug },
+      },
+      limit: 1,
+    })
+
+    if (result.docs && result.docs.length > 0) {
+      const doc: any = result.docs[0]
+      return {
+        slug: doc.slug,
+        title: doc.title,
+        category: doc.category || 'Industry Insights',
+        date: doc.publishedAt
+          ? new Date(doc.publishedAt).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })
+          : '',
+        readTime: doc.readTime || '5 min read',
+        excerpt: doc.excerpt || '',
+        image: doc.featuredImage?.url || undefined,
+        overview: doc.overview || doc.excerpt || '',
+        sections: doc.sections || [],
+        takeaways: (doc.takeaways || []).map((t: any) => typeof t === 'string' ? t : t.point || ''),
+        topics: doc.topics || '',
+      }
+    }
+  } catch (error) {
+    console.warn(`Failed to fetch blog post ${slug} from Payload CMS:`, error)
+  }
+  return null
+}

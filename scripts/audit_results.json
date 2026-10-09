@@ -1,0 +1,15 @@
+{
+  "frontend": [
+    "Route /manufacturing returned status 408",
+    "Route /case-studies/connected-intelligent-plant returned status 408",
+    "Route /case-studies/towards-zero-inventory-variance-automation returned status 408"
+  ],
+  "navigation": [
+    "Broken internal link found: /case-studies/enhancing-the-rfq-process-in-d365-business-central (Status: 408)",
+    "Broken internal link found: /case-studies/optimizing-shipment-and-fleet-operations (Status: 408)"
+  ],
+  "caseStudies": [],
+  "cms": [],
+  "backend": [],
+  "assets": []
+}

@@ -183,15 +183,13 @@ export function AnalyticsView() {
         <div className={styles.configNotice}>
           <div className={styles.noticeIcon}>⚙️</div>
           <div className={styles.noticeText}>
-            <strong>Setup Live Google Analytics Data API Reporting:</strong>
+            <strong>Setup Live Umami Analytics Reporting:</strong>
             <p>
-              To stream real-time reporting data from your GA4 property directly into this panel, add the following environment variables to your <code>.env.local</code>:
+              To enable 100% open-source, privacy-first analytics, add your Umami Website ID to your <code>.env.local</code>:
             </p>
             <pre className={styles.envCode}>
-              NEXT_PUBLIC_GA_MEASUREMENT_ID=G-XXXXXXXXXX{"\n"}
-              GA_PROPERTY_ID=123456789{"\n"}
-              GA_CLIENT_EMAIL=your-service-account@project.iam.gserviceaccount.com{"\n"}
-              GA_PRIVATE_KEY=&quot;-----BEGIN PRIVATE KEY-----\n...-----END PRIVATE KEY-----\n&quot;
+              NEXT_PUBLIC_UMAMI_WEBSITE_ID=your-umami-website-id{"\n"}
+              NEXT_PUBLIC_UMAMI_HOST_URL=http://YOUR_VPS_IP:3001
             </pre>
           </div>
         </div>

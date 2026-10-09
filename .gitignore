@@ -39,3 +39,11 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# database backups (local SQL dumps - never commit)
+/backups
+
+# uploaded media files
+/public/media/*
+!/public/media/.gitkeep
+/media

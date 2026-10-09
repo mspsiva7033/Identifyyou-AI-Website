@@ -41,7 +41,7 @@ async function run() {
     '/case-studies',
     '/case-studies/precision-vision-ai-setup',
     '/case-studies/end-to-end-inspection-cell',
-    '/case-studies/data-engineering/power-bi-abm',
+    '/case-studies/power-bi-abm',
     '/deep-tech',
     '/deep-tech/vision-ai',
     '/deep-tech/ai-intelligent-business',

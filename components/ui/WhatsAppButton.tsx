@@ -2,7 +2,7 @@
 
 import React from 'react'
 import { usePathname } from 'next/navigation'
-import { trackWhatsAppClick } from '@/lib/gtag'
+import { trackWhatsAppClick } from '@/lib/umami'
 import styles from './WhatsAppButton.module.css'
 
 export function WhatsAppButton() {

@@ -9,7 +9,10 @@
     "start": "next start",
     "lint": "eslint",
     "generate:importmap": "node --import tsx/esm ./node_modules/payload/bin.js generate:importmap",
-    "seed": "node --import tsx/esm scripts/seed.ts --run"
+    "seed": "node --import tsx/esm scripts/seed.ts --run",
+    "db:backup": "node --import tsx/esm scripts/backup_db.ts",
+    "db:restore": "node --import tsx/esm scripts/restore_db.ts",
+    "storage:export": "node --import tsx/esm scripts/export_storage.ts"
   },
   "dependencies": {
     "@google-analytics/data": "^7.2.1",

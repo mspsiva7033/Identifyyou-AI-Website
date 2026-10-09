@@ -2,7 +2,10 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import { Header } from '@/components/layout/Header'
 import { Footer } from '@/components/layout/Footer'
+import { getBlogsAndNews, BlogArticleSummary } from '@/lib/payload'
 import styles from './page.module.css'
+
+export const dynamic = 'force-dynamic'
 
 export const metadata: Metadata = {
   title: 'Blogs & News — IdentifYou Technologies',
@@ -10,7 +13,7 @@ export const metadata: Metadata = {
     'Insights, articles, and industry updates on Vision AI, Industrial Automation, Manufacturing Data Platforms, and Enterprise Deep Tech.',
 }
 
-const articles = [
+const articles: BlogArticleSummary[] = [
   {
     slug: 'ai-in-manufacturing-quality-inspection-2026',
     category: 'Vision AI & Quality',
@@ -67,7 +70,13 @@ const articles = [
   },
 ]
 
-export default function BlogsAndNewsPage() {
+export default async function BlogsAndNewsPage() {
+  const cmsArticles = await getBlogsAndNews()
+  const displayArticles =
+    cmsArticles.length > 0
+      ? [...cmsArticles, ...articles.filter((a) => !cmsArticles.some((c) => c.slug === a.slug))]
+      : articles
+
   return (
     <div className={styles.page}>
       <Header />
@@ -85,8 +94,17 @@ export default function BlogsAndNewsPage() {
       <section className={styles.articlesSection}>
         <div className={styles.container}>
           <div className={styles.grid}>
-            {articles.map((article) => (
+            {displayArticles.map((article) => (
               <article key={article.slug} className={styles.card}>
+                {article.image && (
+                  <div style={{ width: '100%', height: '180px', borderRadius: '8px', overflow: 'hidden', marginBottom: '16px' }}>
+                    <img
+                      src={article.image}
+                      alt={article.title}
+                      style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                    />
+                  </div>
+                )}
                 <div className={styles.cardHeader}>
                   <span className={styles.category}>{article.category}</span>
                   <div className={styles.meta}>

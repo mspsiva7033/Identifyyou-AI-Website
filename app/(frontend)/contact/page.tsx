@@ -3,7 +3,7 @@
 import { useState, useRef } from 'react'
 import { Header } from '@/components/layout/Header'
 import { Footer } from '@/components/layout/Footer'
-import { trackContactFormSubmit, trackGAEvent, getStoredUTMs } from '@/lib/gtag'
+import { trackContactFormSubmit, trackEvent as trackGAEvent, getStoredUTMs } from '@/lib/umami'
 import styles from './page.module.css'
 
 const paths = [

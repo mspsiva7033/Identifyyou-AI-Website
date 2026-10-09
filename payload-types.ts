@@ -74,6 +74,7 @@ export interface Config {
     'manufacturing-solutions': ManufacturingSolution;
     'deep-tech-capabilities': DeepTechCapability;
     'contact-submissions': ContactSubmission;
+    'blogs-and-news': BlogsAndNew;
     'payload-kv': PayloadKv;
     'payload-locked-documents': PayloadLockedDocument;
     'payload-preferences': PayloadPreference;
@@ -88,6 +89,7 @@ export interface Config {
     'manufacturing-solutions': ManufacturingSolutionsSelect<false> | ManufacturingSolutionsSelect<true>;
     'deep-tech-capabilities': DeepTechCapabilitiesSelect<false> | DeepTechCapabilitiesSelect<true>;
     'contact-submissions': ContactSubmissionsSelect<false> | ContactSubmissionsSelect<true>;
+    'blogs-and-news': BlogsAndNewsSelect<false> | BlogsAndNewsSelect<true>;
     'payload-kv': PayloadKvSelect<false> | PayloadKvSelect<true>;
     'payload-locked-documents': PayloadLockedDocumentsSelect<false> | PayloadLockedDocumentsSelect<true>;
     'payload-preferences': PayloadPreferencesSelect<false> | PayloadPreferencesSelect<true>;
@@ -168,7 +170,7 @@ export interface User {
  */
 export interface Media {
   id: number;
-  alt: string;
+  alt?: string | null;
   updatedAt: string;
   createdAt: string;
   url?: string | null;
@@ -433,6 +435,46 @@ export interface ContactSubmission {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "blogs-and-news".
+ */
+export interface BlogsAndNew {
+  id: number;
+  status: 'draft' | 'published';
+  publishedAt?: string | null;
+  readTime?: string | null;
+  title: string;
+  /**
+   * e.g. ai-in-manufacturing-quality-inspection-2026
+   */
+  slug: string;
+  category:
+    'Vision AI & Quality' | 'Industrial Automation' | 'Data Engineering' | 'Digital Engineering' | 'Industry Insights';
+  excerpt: string;
+  /**
+   * Upload cover image. Saved directly to the media folder on VPS.
+   */
+  featuredImage?: (number | null) | Media;
+  overview?: string | null;
+  sections?:
+    | {
+        title: string;
+        content: string;
+        id?: string | null;
+      }[]
+    | null;
+  takeaways?:
+    | {
+        point: string;
+        id?: string | null;
+      }[]
+    | null;
+  topics?: string | null;
+  updatedAt: string;
+  createdAt: string;
+  _status?: ('draft' | 'published') | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "payload-kv".
  */
 export interface PayloadKv {
@@ -482,6 +524,10 @@ export interface PayloadLockedDocument {
     | ({
         relationTo: 'contact-submissions';
         value: number | ContactSubmission;
+      } | null)
+    | ({
+        relationTo: 'blogs-and-news';
+        value: number | BlogsAndNew;
       } | null);
   globalSlug?: string | null;
   user: {
@@ -755,6 +801,38 @@ export interface ContactSubmissionsSelect<T extends boolean = true> {
   referrer?: T;
   updatedAt?: T;
   createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "blogs-and-news_select".
+ */
+export interface BlogsAndNewsSelect<T extends boolean = true> {
+  status?: T;
+  publishedAt?: T;
+  readTime?: T;
+  title?: T;
+  slug?: T;
+  category?: T;
+  excerpt?: T;
+  featuredImage?: T;
+  overview?: T;
+  sections?:
+    | T
+    | {
+        title?: T;
+        content?: T;
+        id?: T;
+      };
+  takeaways?:
+    | T
+    | {
+        point?: T;
+        id?: T;
+      };
+  topics?: T;
+  updatedAt?: T;
+  createdAt?: T;
+  _status?: T;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema

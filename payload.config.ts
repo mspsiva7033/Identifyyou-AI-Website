@@ -28,6 +28,7 @@ import { CaseStudies } from './payload/collections/CaseStudies'
 import { ManufacturingSolutions } from './payload/collections/ManufacturingSolutions'
 import { DeepTechCapabilities } from './payload/collections/DeepTechCapabilities'
 import { ContactSubmissions } from './payload/collections/ContactSubmissions'
+import { BlogsAndNews } from './payload/collections/BlogsAndNews'
 
 import { HeaderGlobal } from './payload/globals/Header'
 import { FooterGlobal } from './payload/globals/Footer'
@@ -99,6 +100,7 @@ export default buildConfig({
     ManufacturingSolutions,
     DeepTechCapabilities,
     ContactSubmissions,
+    BlogsAndNews,
   ],
   globals: [
     HeaderGlobal,
@@ -136,7 +138,7 @@ export default buildConfig({
     })
     : undefined,
   plugins: [
-    ...(process.env.S3_BUCKET
+    ...(process.env.USE_S3 === 'true' && process.env.S3_BUCKET
       ? [
         s3Storage({
           collections: {

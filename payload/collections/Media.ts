@@ -1,4 +1,9 @@
 import type { CollectionConfig } from 'payload'
+import path from 'path'
+import { fileURLToPath } from 'url'
+
+const filename = fileURLToPath(import.meta.url)
+const dirname = path.dirname(filename)
 
 export const Media: CollectionConfig = {
   slug: 'media',
@@ -14,7 +19,7 @@ export const Media: CollectionConfig = {
     read: () => true,
   },
   upload: {
-    staticDir: 'media',
+    staticDir: path.resolve(dirname, '../../public/media'),
     imageSizes: [
       { name: 'thumbnail', width: 400, height: 300, position: 'centre' },
       { name: 'card', width: 800, height: 500, position: 'centre' },
@@ -28,7 +33,8 @@ export const Media: CollectionConfig = {
       name: 'alt',
       type: 'text',
       label: 'Alt Text',
-      required: true,
+      required: false,
     },
   ],
 }
+

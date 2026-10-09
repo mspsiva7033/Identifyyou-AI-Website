@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import { Header } from '@/components/layout/Header'
 import { Footer } from '@/components/layout/Footer'
+import { getBlogBySlug } from '@/lib/payload'
 import styles from './page.module.css'
 
 export const dynamic = 'force-dynamic'
@@ -175,7 +176,7 @@ const sampleArticles: Record<string, ArticleDetail> = {
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
   const { slug } = await params
-  const article = sampleArticles[slug]
+  const article = (await getBlogBySlug(slug)) || sampleArticles[slug]
   if (!article) return { title: 'Blog Post — IdentifYou Insights' }
   return {
     title: `${article.title} — IdentifYou Insights`,
@@ -185,7 +186,8 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
 
 export default async function BlogDetailPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params
-  const article = sampleArticles[slug] || {
+  const cmsArticle = await getBlogBySlug(slug)
+  const article = cmsArticle || sampleArticles[slug] || {
     title: slug.replace(/-/g, ' ').replace(/\b\w/g, (l) => l.toUpperCase()),
     category: 'Deep Tech & AI Insights',
     date: 'September 2026',
