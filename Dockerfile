@@ -24,8 +24,8 @@ FROM base AS deps
 WORKDIR /app
 
 COPY package.json package-lock.json ./
-# Install dependencies cleanly using lockfile
-RUN npm ci
+# Install dependencies cleanly
+RUN npm install --no-audit --no-fund
 
 # ----------------------------------------------------------------------
 # Builder Layer
