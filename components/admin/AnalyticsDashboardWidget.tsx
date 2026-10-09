@@ -94,13 +94,14 @@ export function AnalyticsDashboardWidget() {
             display: 'inline-flex',
             alignItems: 'center',
             gap: '6px',
-            padding: '8px 16px',
-            background: '#2563eb',
-            color: '#ffffff',
-            borderRadius: '6px',
-            fontWeight: 600,
+            padding: '9px 18px',
+            background: 'linear-gradient(135deg, #96c73d 0%, #82b032 100%)',
+            color: '#090E0C',
+            borderRadius: '8px',
+            fontWeight: 800,
             fontSize: '0.85rem',
             textDecoration: 'none',
+            boxShadow: '0 4px 14px rgba(150, 199, 61, 0.25)',
           }}
         >
           Open Analytics Dashboard &rarr;
@@ -111,41 +112,41 @@ export function AnalyticsDashboardWidget() {
         <div
           style={{
             display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(130px, 1fr))',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(170px, 1fr))',
             gap: '12px',
-            paddingTop: '12px',
-            borderTop: '1px solid var(--theme-elevation-100, #f1f5f9)',
+            paddingTop: '16px',
+            borderTop: '1px solid rgba(150, 199, 61, 0.2)',
           }}
         >
-          <div style={{ background: 'var(--theme-elevation-50, #f8fafc)', padding: '12px', borderRadius: '6px' }}>
-            <div style={{ fontSize: '0.75rem', fontWeight: 600, color: '#64748b', textTransform: 'uppercase' }}>
+          <div style={{ background: '#141F1B', border: '1px solid rgba(150, 199, 61, 0.2)', padding: '14px 16px', borderRadius: '10px' }}>
+            <div style={{ fontSize: '0.72rem', fontWeight: 700, color: '#A6B4AD', textTransform: 'uppercase', letterSpacing: '0.05em', whiteSpace: 'nowrap' }}>
               Active Visitors
             </div>
-            <div style={{ fontSize: '1.4rem', fontWeight: 800, color: '#0f172a' }}>
+            <div style={{ fontSize: '1.6rem', fontWeight: 800, color: '#F0F5F2', marginTop: '4px' }}>
               {stats.activeUsers.toLocaleString()}
             </div>
           </div>
-          <div style={{ background: 'var(--theme-elevation-50, #f8fafc)', padding: '12px', borderRadius: '6px' }}>
-            <div style={{ fontSize: '0.75rem', fontWeight: 600, color: '#64748b', textTransform: 'uppercase' }}>
+          <div style={{ background: '#141F1B', border: '1px solid rgba(150, 199, 61, 0.2)', padding: '14px 16px', borderRadius: '10px' }}>
+            <div style={{ fontSize: '0.72rem', fontWeight: 700, color: '#A6B4AD', textTransform: 'uppercase', letterSpacing: '0.05em', whiteSpace: 'nowrap' }}>
               Page Views
             </div>
-            <div style={{ fontSize: '1.4rem', fontWeight: 800, color: '#0f172a' }}>
+            <div style={{ fontSize: '1.6rem', fontWeight: 800, color: '#F0F5F2', marginTop: '4px' }}>
               {stats.pageViews.toLocaleString()}
             </div>
           </div>
-          <div style={{ background: 'var(--theme-elevation-50, #f8fafc)', padding: '12px', borderRadius: '6px' }}>
-            <div style={{ fontSize: '0.75rem', fontWeight: 600, color: '#16a34a', textTransform: 'uppercase' }}>
+          <div style={{ background: '#141F1B', border: '1px solid rgba(150, 199, 61, 0.2)', padding: '14px 16px', borderRadius: '10px' }}>
+            <div style={{ fontSize: '0.72rem', fontWeight: 700, color: '#96c73d', textTransform: 'uppercase', letterSpacing: '0.05em', whiteSpace: 'nowrap' }}>
               Leads Acquired
             </div>
-            <div style={{ fontSize: '1.4rem', fontWeight: 800, color: '#15803d' }}>
+            <div style={{ fontSize: '1.6rem', fontWeight: 800, color: '#96c73d', marginTop: '4px' }}>
               {stats.leadsGenerated.toLocaleString()}
             </div>
           </div>
-          <div style={{ background: 'var(--theme-elevation-50, #f8fafc)', padding: '12px', borderRadius: '6px' }}>
-            <div style={{ fontSize: '0.75rem', fontWeight: 600, color: '#64748b', textTransform: 'uppercase' }}>
+          <div style={{ background: '#141F1B', border: '1px solid rgba(150, 199, 61, 0.2)', padding: '14px 16px', borderRadius: '10px' }}>
+            <div style={{ fontSize: '0.72rem', fontWeight: 700, color: '#A6B4AD', textTransform: 'uppercase', letterSpacing: '0.05em', whiteSpace: 'nowrap' }}>
               Engine Status
             </div>
-            <div style={{ fontSize: '0.9rem', fontWeight: 700, color: '#16a34a', marginTop: '6px' }}>
+            <div style={{ fontSize: '0.95rem', fontWeight: 700, color: '#96c73d', marginTop: '10px', display: 'flex', alignItems: 'center', gap: '6px' }}>
               🟢 Live Active
             </div>
           </div>

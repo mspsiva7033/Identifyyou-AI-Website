@@ -84,7 +84,7 @@ export default buildConfig({
           Component: '/components/admin/AnalyticsView#AnalyticsView',
           path: '/analytics',
           meta: {
-            title: 'Analytics Dashboard — IdentifYou Admin',
+            title: 'Analytics Dashboard',
           },
         },
       },
