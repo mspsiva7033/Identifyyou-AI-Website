@@ -1,0 +1,100 @@
+services:
+  # ----------------------------------------------------------------------
+  # 1. PostgreSQL Database (Hosts both 'identifyyou' and 'umami_db')
+  # ----------------------------------------------------------------------
+  postgres:
+    image: postgres:16-alpine
+    container_name: identifyyou_db
+    restart: always
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER:-identifyyou}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?Database password required in .env}
+      POSTGRES_DB: identifyyou
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./docker/init-db.sql:/docker-entrypoint-initdb.d/init-db.sql:ro
+    ports:
+      # Expose locally to host only for administration/backups
+      - "127.0.0.1:5432:5432"
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-identifyyou} -d identifyyou"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+    networks:
+      - app_network
+
+  # ----------------------------------------------------------------------
+  # 2. Umami Analytics Engine
+  # ----------------------------------------------------------------------
+  umami:
+    image: ghcr.io/umami-software/umami:postgresql-latest
+    container_name: identifyyou_umami
+    restart: always
+    depends_on:
+      postgres:
+        condition: service_healthy
+    environment:
+      DATABASE_URL: postgresql://${POSTGRES_USER:-identifyyou}:${POSTGRES_PASSWORD}@postgres:5432/umami_db
+      DATABASE_TYPE: postgresql
+      APP_SECRET: ${UMAMI_APP_SECRET:?Umami secret required in .env}
+    ports:
+      # Internal reverse proxy port for analytics.yourdomain.com
+      - "127.0.0.1:3001:3000"
+    networks:
+      - app_network
+
+  # ----------------------------------------------------------------------
+  # 3. IdentifYou Next.js 15 + Payload CMS 3 Application
+  # ----------------------------------------------------------------------
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        NEXT_PUBLIC_SITE_URL: ${NEXT_PUBLIC_SITE_URL:-http://localhost:3000}
+        NEXT_PUBLIC_UMAMI_HOST_URL: ${NEXT_PUBLIC_UMAMI_HOST_URL}
+        NEXT_PUBLIC_UMAMI_WEBSITE_ID: ${NEXT_PUBLIC_UMAMI_WEBSITE_ID}
+    container_name: identifyyou_app
+    restart: always
+    depends_on:
+      postgres:
+        condition: service_healthy
+    environment:
+      NODE_ENV: production
+      DATABASE_URI: postgresql://${POSTGRES_USER:-identifyyou}:${POSTGRES_PASSWORD}@postgres:5432/identifyyou
+      PAYLOAD_SECRET: ${PAYLOAD_SECRET:?Payload secret required in .env}
+      NEXT_PUBLIC_SITE_URL: ${NEXT_PUBLIC_SITE_URL}
+      PAYLOAD_PUBLIC_SERVER_URL: ${PAYLOAD_PUBLIC_SERVER_URL:-${NEXT_PUBLIC_SITE_URL}}
+      NEXT_PUBLIC_SERVER_URL: ${NEXT_PUBLIC_SERVER_URL:-${NEXT_PUBLIC_SITE_URL}}
+      NEXT_PUBLIC_UMAMI_WEBSITE_ID: ${NEXT_PUBLIC_UMAMI_WEBSITE_ID}
+      NEXT_PUBLIC_UMAMI_HOST_URL: ${NEXT_PUBLIC_UMAMI_HOST_URL}
+      SMTP_HOST: ${SMTP_HOST}
+      SMTP_PORT: ${SMTP_PORT:-465}
+      SMTP_SECURE: ${SMTP_SECURE:-true}
+      SMTP_USER: ${SMTP_USER}
+      SMTP_PASS: ${SMTP_PASS}
+      SMTP_FROM: ${SMTP_FROM}
+      CONTACT_EMAIL_TO: ${CONTACT_EMAIL_TO}
+    volumes:
+      # Persistent volume for uploaded Payload CMS media
+      - media_uploads:/app/public/media
+    ports:
+      # Internal reverse proxy port for yourdomain.com
+      - "127.0.0.1:3000:3000"
+    networks:
+      - app_network
+
+# ----------------------------------------------------------------------
+# Volumes & Networks Definitions
+# ----------------------------------------------------------------------
+volumes:
+  postgres_data:
+    name: identifyyou_postgres_data
+  media_uploads:
+    name: identifyyou_media_uploads
+
+networks:
+  app_network:
+    name: identifyyou_network
+    driver: bridge
