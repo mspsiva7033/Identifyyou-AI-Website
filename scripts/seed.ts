@@ -23,104 +23,82 @@ export async function seed() {
 
   console.log('Seeding Payload CMS data...')
 
-  // Clear existing case studies and categories
-  try {
-    const existing = await payload.find({ collection: 'case-studies', limit: 100 })
-    for (const doc of existing.docs) {
-      await payload.delete({ collection: 'case-studies', id: doc.id })
+  async function getOrCreateCategory(data: { name: string; slug: string; description?: string; displayOrder: number }) {
+    try {
+      const existing = await payload.find({
+        collection: 'case-study-categories',
+        where: { slug: { equals: data.slug } },
+        limit: 1,
+      })
+      if (existing.docs.length > 0) {
+        return existing.docs[0]
+      }
+      return await payload.create({
+        collection: 'case-study-categories',
+        data,
+      })
+    } catch (e) {
+      const all = await payload.find({ collection: 'case-study-categories', limit: 100 })
+      const found = all.docs.find((c: any) => c.slug === data.slug || c.name === data.name)
+      if (found) return found
+      throw e
     }
-  } catch (err) {
-    console.log('No previous case studies found to delete.')
   }
 
-  try {
-    const existingCats = await payload.find({ collection: 'case-study-categories', limit: 100 })
-    for (const doc of existingCats.docs) {
-      await payload.delete({ collection: 'case-study-categories', id: doc.id })
-    }
-  } catch (err) {
-    console.log('No previous categories found to delete.')
-  }
-
-  // Seed Categories
-  const manufacturingCat = await payload.create({
-    collection: 'case-study-categories',
-    data: {
-      name: 'Manufacturing',
-      slug: 'manufacturing',
-      description: 'Smart factory, MES, and connected manufacturing case studies.',
-      displayOrder: 1,
-    },
+  const manufacturingCat = await getOrCreateCategory({
+    name: 'Manufacturing',
+    slug: 'manufacturing',
+    description: 'Smart factory, MES, and connected manufacturing case studies.',
+    displayOrder: 1,
   })
 
-  const supplyChainCat = await payload.create({
-    collection: 'case-study-categories',
-    data: {
-      name: 'Supply Chain',
-      slug: 'supply-chain',
-      description: 'Procurement, inventory and logistics case studies.',
-      displayOrder: 2,
-    },
+  const supplyChainCat = await getOrCreateCategory({
+    name: 'Supply Chain',
+    slug: 'supply-chain',
+    description: 'Procurement, inventory and logistics case studies.',
+    displayOrder: 2,
   })
 
-  const aiCat = await payload.create({
-    collection: 'case-study-categories',
-    data: {
-      name: 'AI & Intelligent Business',
-      slug: 'ai-intelligent-business',
-      description: 'AI, ML, decision intelligence and business risk case studies.',
-      displayOrder: 3,
-    },
+  const aiCat = await getOrCreateCategory({
+    name: 'AI & Intelligent Business',
+    slug: 'ai-intelligent-business',
+    description: 'AI, ML, decision intelligence and business risk case studies.',
+    displayOrder: 3,
   })
 
-  const visionCat = await payload.create({
-    collection: 'case-study-categories',
-    data: {
-      name: 'Vision AI',
-      slug: 'vision-ai',
-      description: 'Computer vision, surface inspection, and 3D metrology case studies.',
-      displayOrder: 4,
-    },
+  const visionCat = await getOrCreateCategory({
+    name: 'Vision AI',
+    slug: 'vision-ai',
+    description: 'Computer vision, surface inspection, and 3D metrology case studies.',
+    displayOrder: 4,
   })
 
-  const automationCat = await payload.create({
-    collection: 'case-study-categories',
-    data: {
-      name: 'Industry Automation',
-      slug: 'industry-automation',
-      description: 'Edge gateways, pyrometry, and IIoT automation case studies.',
-      displayOrder: 5,
-    },
+  const automationCat = await getOrCreateCategory({
+    name: 'Industry Automation',
+    slug: 'industry-automation',
+    description: 'Edge gateways, pyrometry, and IIoT automation case studies.',
+    displayOrder: 5,
   })
 
-  const noCodeCat = await payload.create({
-    collection: 'case-study-categories',
-    data: {
-      name: 'AI-Powered No-Code Platform',
-      slug: 'ai-no-code',
-      description: 'Business-owned software, NLP prompt-to-app, and data connectors.',
-      displayOrder: 6,
-    },
+  const noCodeCat = await getOrCreateCategory({
+    name: 'AI-Powered No-Code Platform',
+    slug: 'ai-no-code',
+    description: 'Business-owned software, NLP prompt-to-app, and data connectors.',
+    displayOrder: 6,
   })
 
-  const dataEngineeringCat = await payload.create({
-    collection: 'case-study-categories',
-    data: {
-      name: 'Data Engineering',
-      slug: 'data-engineering',
-      description: 'Snowflake lakehouse, telemetry, Cortex AI, and Power BI apps.',
-      displayOrder: 7,
-    },
+  const dataEngineeringCat = await getOrCreateCategory({
+    name: 'Data Engineering',
+    slug: 'data-engineering',
+    description: 'Snowflake lakehouse, telemetry, Cortex AI, and Power BI apps.',
+    displayOrder: 7,
   })
 
-  const digitalEngineeringCat = await payload.create({
-    collection: 'case-study-categories',
-    data: {
-      name: 'Digital Engineering',
-      slug: 'digital-engineering',
-      description: 'Simulation models, enterprise portals, CRM extension, and microservices.',
-      displayOrder: 8,
-    },
+  const digitalEngineeringCat = await getOrCreateCategory({
+    name: 'Digital Engineering',
+    slug: 'digital-engineering',
+    description: 'Simulation models, enterprise portals, CRM extension, and microservices.',
+    displayOrder: 8,
   })
 
   const FULL_DOCX_MAP: Record<string, any> = {
@@ -4534,34 +4512,54 @@ export async function seed() {
     const docData = FULL_DOCX_MAP[item.slug]
     if (!docData) continue
 
-    await payload.create({
-      collection: 'case-studies',
-      draft: false,
-      data: {
-        title: docData.title,
-        slug: item.slug,
-        category: item.categoryId,
-        template: 'classic',
-        status: 'published',
-        displayOrder: ++count,
-        tags: [{ tag: docData.tag || 'Deep Tech' }],
-        filterCategories: item.filter,
-        docItems: docData.docItems || [],
-        comparisonTable: docData.comparisonTable || null,
-        tableBlock: docData.tableBlock || null,
-        customCTA: docData.customCTA || null,
-        summary: {
-          challenge: docData.docItems?.find((d: any) => d.type === 'p')?.text || '',
-          solution: docData.docItems?.find((d: any) => d.type === 'p' && d.text?.includes('IdentifYou'))?.text || '',
-          tech: docData.technologyUsed || '',
-        },
-        detail: {
-          shortDescription: docData.docItems?.[0]?.text || docData.title,
-          technologyUsed: docData.technologyUsed || '',
-          results: docData.results || [],
-        },
+    const caseStudyData: any = {
+      title: docData.title,
+      slug: item.slug,
+      category: item.categoryId,
+      template: 'classic',
+      status: 'published',
+      displayOrder: ++count,
+      tags: [{ tag: docData.tag || 'Deep Tech' }],
+      filterCategories: item.filter,
+      docItems: docData.docItems || [],
+      comparisonTable: docData.comparisonTable || null,
+      tableBlock: docData.tableBlock || null,
+      customCTA: docData.customCTA || null,
+      summary: {
+        challenge: docData.docItems?.find((d: any) => d.type === 'p')?.text || '',
+        solution: docData.docItems?.find((d: any) => d.type === 'p' && d.text?.includes('IdentifYou'))?.text || '',
+        tech: docData.technologyUsed || '',
       },
-    })
+      detail: {
+        shortDescription: docData.docItems?.[0]?.text || docData.title,
+        technologyUsed: docData.technologyUsed || '',
+        results: docData.results || [],
+      },
+    }
+
+    try {
+      const existing = await payload.find({
+        collection: 'case-studies',
+        where: { slug: { equals: item.slug } },
+        limit: 1,
+      })
+
+      if (existing.docs.length > 0) {
+        await payload.update({
+          collection: 'case-studies',
+          id: existing.docs[0].id,
+          data: caseStudyData,
+        })
+      } else {
+        await payload.create({
+          collection: 'case-studies',
+          draft: false,
+          data: caseStudyData,
+        })
+      }
+    } catch (err) {
+      console.error(`Error saving case study ${item.slug}:`, err)
+    }
   }
 
   console.log(`Successfully seeded ${count} Case Studies into Payload CMS database!`)

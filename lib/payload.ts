@@ -5243,7 +5243,7 @@ export async function getPayloadClient() {
 export async function getCaseStudies(): Promise<CaseStudySummary[]> {
   try {
     const payload = await getPayloadClient()
-    if (!payload) return FALLBACK_CASE_STUDIES.map(cs => ({ ...cs, illustration: getCaseStudyIllustration(cs.slug) }))
+    if (!payload) return []
 
     const result = await payload.find({
       collection: 'case-studies',
@@ -5255,13 +5255,7 @@ export async function getCaseStudies(): Promise<CaseStudySummary[]> {
       (doc: any) => doc.slug && doc.slug !== 'mollitia-fugit-similique-placeat' && doc.title && !doc.title.includes('Mollitia')
     )
 
-    const cmsMap = new Map(validDocs.map((doc: any) => [doc.slug, doc]))
-    const allSlugs = Array.from(new Set([...validDocs.map((d: any) => d.slug), ...FALLBACK_CASE_STUDIES.map(c => c.slug)]))
-
-    return allSlugs.map((slug) => {
-      const doc: any = cmsMap.get(slug)
-      const fallback = FALLBACK_CASE_STUDIES.find(c => c.slug === slug)
-
+    return validDocs.map((doc: any) => {
       const docCategoryName = typeof doc?.category === 'object' ? doc?.category?.name : null
       let categoriesFromDoc = (doc?.filterCategories || [])
         .map((c: any) => typeof c === 'string' ? c : c?.category || c?.name)
@@ -5274,106 +5268,40 @@ export async function getCaseStudies(): Promise<CaseStudySummary[]> {
       }
 
       return {
-        slug,
-        title: doc?.title || fallback?.title || slug,
-        tag: doc?.tags?.[0]?.tag || fallback?.tag || 'Deep Tech',
-        categories: categoriesFromDoc.length > 0 ? categoriesFromDoc : (fallback?.categories || []),
-        challenge: doc?.summary?.challenge || fallback?.challenge || '',
-        objective: doc?.summary?.objective || fallback?.objective || '',
-        solution: doc?.summary?.solution || fallback?.solution || '',
-        deepTech: doc?.summary?.deepTech || fallback?.deepTech || '',
-        tech: doc?.summary?.tech || fallback?.tech || '',
-        integration: doc?.summary?.integration || fallback?.integration || '',
-        outcome: doc?.summary?.outcome || fallback?.outcome || '',
+        slug: doc.slug,
+        title: doc.title || doc.slug,
+        tag: doc.tags?.[0]?.tag || 'Deep Tech',
+        categories: categoriesFromDoc,
+        challenge: doc.summary?.challenge || '',
+        objective: doc.summary?.objective || '',
+        solution: doc.summary?.solution || '',
+        deepTech: doc.summary?.deepTech || '',
+        tech: doc.summary?.tech || '',
+        integration: doc.summary?.integration || '',
+        outcome: doc.summary?.outcome || '',
         illustration:
-          (typeof doc?.detail?.thumbnail === 'object' && doc?.detail?.thumbnail?.url) ||
-          (typeof doc?.detail?.heroImage === 'object' && doc?.detail?.heroImage?.url) ||
-          getCaseStudyIllustration(slug),
+          (typeof doc.detail?.thumbnail === 'object' && doc.detail?.thumbnail?.url) ||
+          (typeof doc.detail?.heroImage === 'object' && doc.detail?.heroImage?.url) ||
+          getCaseStudyIllustration(doc.slug),
       }
     })
   } catch (error) {
-    console.warn('Failed to fetch case studies from Payload, using fallback static data.', error)
-    return FALLBACK_CASE_STUDIES.map(cs => ({ ...cs, illustration: getCaseStudyIllustration(cs.slug) }))
+    console.error('Failed to fetch case studies from Payload CMS:', error)
+    return []
   }
 }
 
-export async function getCaseStudyBySlug(slug: string): Promise<CaseStudyDetail> {
+export async function getCaseStudyBySlug(slug: string): Promise<CaseStudyDetail | null> {
   const slugAliases: Record<string, string> = {
     'optimizing-shipment-and-fleet-operations': 'optimizing-shipment-fleet-snowflake',
     'ai-powered-procurement': 'procurement-operations-intelligence',
   }
 
   const normalizedSlug = slugAliases[slug] || slug
-  let fallback: CaseStudyDetail | null = FALLBACK_CASE_STUDIES_MAP[normalizedSlug] || null
-
-  // If not explicitly in FALLBACK_CASE_STUDIES_MAP, construct fallback from FALLBACK_CASE_STUDIES
-  if (!fallback) {
-    const summary = FALLBACK_CASE_STUDIES.find((cs) => cs.slug === normalizedSlug || cs.slug === slug)
-    if (summary) {
-      fallback = {
-        title: summary.title,
-        breadcrumb: summary.title,
-        tag: summary.tag,
-        illustration: getCaseStudyIllustration(summary.slug),
-        overview: summary.solution || summary.challenge,
-        challenges: [
-          { n: 1, title: 'Operational Challenge', desc: summary.challenge },
-          { n: 2, title: 'Strategic Objective', desc: summary.objective },
-        ],
-        results: [
-          { stat: '100%', label: summary.outcome || 'Production Performance & Scalability' },
-        ],
-        solutionSteps: [
-          { n: 1, title: 'Deep Tech Architecture', solution: summary.deepTech },
-          { n: 2, title: 'Integration & Execution', solution: summary.integration },
-        ],
-        technologyUsed: summary.tech,
-        more: FALLBACK_CASE_STUDIES.filter((cs) => cs.slug !== summary.slug).slice(0, 3).map((c) => ({
-          tag: c.tag,
-          title: c.title,
-          slug: c.slug,
-        })),
-      }
-    }
-  }
-
-  // Guaranteed fallback for any unmatched slug so 404 is never rendered
-  if (!fallback) {
-    const formattedTitle = slug
-      .split('-')
-      .map((w) => w.charAt(0).toUpperCase() + w.slice(1))
-      .join(' ')
-
-    fallback = {
-      title: formattedTitle,
-      breadcrumb: formattedTitle,
-      tag: 'Deep Tech · Case Study',
-      illustration: getCaseStudyIllustration(slug),
-      overview: `Case study breakdown for ${formattedTitle}. IdentifYou delivers production-grade deep tech solutions engineered for enterprise reliability, high availability, and operational velocity.`,
-      challenges: [
-        { n: 1, title: 'Operational Complexity', desc: 'Managing multi-source data and operational workflows with stringent performance SLAs.' },
-        { n: 2, title: 'Enterprise Integration', desc: 'Seamlessly connecting edge intelligence, ERP platforms, and cloud microservices.' },
-      ],
-      results: [
-        { stat: '99.9%', label: 'Uptime & Reliability' },
-        { stat: '<100ms', label: 'Average Response Latency' },
-      ],
-      solutionSteps: [
-        { n: 1, title: 'System Blueprinting', solution: 'Deploying decoupled, cloud-native microservices and intelligent workflows.' },
-        { n: 2, title: 'Continuous Execution', solution: 'Real-time telemetry, automated exception handling, and scalable data pipelines.' },
-      ],
-      technologyUsed: 'Python, TypeScript, Next.js, Cloud Native Infrastructure',
-      more: FALLBACK_CASE_STUDIES.slice(0, 3).map((c) => ({
-        tag: c.tag,
-        title: c.title,
-        slug: c.slug,
-      })),
-    }
-  }
 
   try {
     const payload = await getPayloadClient()
-    if (!payload) return { ...fallback, illustration: getCaseStudyIllustration(normalizedSlug) }
+    if (!payload) return null
 
     const result = await payload.find({
       collection: 'case-studies',
@@ -5384,12 +5312,12 @@ export async function getCaseStudyBySlug(slug: string): Promise<CaseStudyDetail>
     })
 
     if (!result.docs || result.docs.length === 0) {
-      return { ...fallback, illustration: getCaseStudyIllustration(normalizedSlug) }
+      return null
     }
 
     const doc: any = result.docs[0]
     if (doc.slug === 'mollitia-fugit-similique-placeat' || !doc.title || doc.title.includes('Mollitia')) {
-      return { ...fallback, illustration: getCaseStudyIllustration(normalizedSlug) }
+      return null
     }
 
     const uploadedIllustration =
@@ -5397,41 +5325,51 @@ export async function getCaseStudyBySlug(slug: string): Promise<CaseStudyDetail>
       (typeof doc.detail?.thumbnail === 'object' && doc.detail?.thumbnail?.url) ||
       null
 
+    const moreResult = await payload.find({
+      collection: 'case-studies',
+      where: {
+        slug: { not_equals: doc.slug },
+      },
+      limit: 3,
+    })
+
+    const moreFromCms = (moreResult.docs || []).map((m: any) => ({
+      tag: m.tags?.[0]?.tag || 'Deep Tech',
+      title: m.title,
+      slug: m.slug,
+    }))
+
     return {
-      title: doc.title || fallback.title,
-      breadcrumb: doc.breadcrumb || doc.title || fallback.breadcrumb,
-      tag: doc.tags?.[0]?.tag || fallback.tag,
+      title: doc.title,
+      breadcrumb: doc.breadcrumb || doc.title,
+      tag: doc.tags?.[0]?.tag || 'Deep Tech',
       illustration: uploadedIllustration || getCaseStudyIllustration(doc.slug || normalizedSlug),
-      docItems: doc.docItems || fallback.docItems,
-      comparisonTable: doc.comparisonTable || fallback.comparisonTable,
-      overview: doc.detail?.shortDescription || doc.summary?.solution || fallback.overview,
+      docItems: doc.docItems || [],
+      comparisonTable: doc.comparisonTable || null,
+      overview: doc.detail?.shortDescription || doc.summary?.solution || '',
       richTextOverview: doc.detail?.overview || null,
       challenges: doc.detail?.challenges?.map((c: any, index: number) => ({
         n: index + 1,
         title: c.title,
         desc: c.description,
-      })) || fallback.challenges,
+      })) || [],
       results: doc.detail?.results?.map((r: any) => ({
         stat: r.stat,
         label: r.label,
-      })) || fallback.results,
+      })) || [],
       solutionSteps: doc.detail?.solutionSteps?.map((s: any, index: number) => ({
         n: index + 1,
         title: s.title,
         challenge: s.challenge || '',
         solution: s.solution || '',
         outcome: s.outcome || '',
-      })) || fallback.solutionSteps,
-      technologyUsed: doc.detail?.technologyUsed || doc.summary?.tech || fallback.technologyUsed,
-      more: fallback.more || FALLBACK_CASE_STUDIES.slice(0, 3).map((c) => ({
-        tag: c.tag,
-        title: c.title,
-        slug: c.slug,
-      })),
+      })) || [],
+      technologyUsed: doc.detail?.technologyUsed || doc.summary?.tech || '',
+      more: moreFromCms,
     }
   } catch (error) {
-    console.warn(`Failed to fetch case study ${slug} from Payload CMS, using fallback data.`, error)
-    return { ...fallback, illustration: getCaseStudyIllustration(normalizedSlug) }
+    console.error(`Failed to fetch case study ${slug} from Payload CMS:`, error)
+    return null
   }
 }
 
