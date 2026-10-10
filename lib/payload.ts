@@ -28,6 +28,7 @@ export interface CaseStudyDetail {
   title: string
   breadcrumb: string
   overview?: string
+  richTextOverview?: any
   illustration?: string
   metaBlock?: { label: string; value: string }[]
   challenges?: { n: number; title: string; desc: string }[]
@@ -5261,10 +5262,16 @@ export async function getCaseStudies(): Promise<CaseStudySummary[]> {
       const doc: any = cmsMap.get(slug)
       const fallback = FALLBACK_CASE_STUDIES.find(c => c.slug === slug)
 
-      const categoriesFromDoc = (doc?.filterCategories || [])
+      const docCategoryName = typeof doc?.category === 'object' ? doc?.category?.name : null
+      let categoriesFromDoc = (doc?.filterCategories || [])
         .map((c: any) => typeof c === 'string' ? c : c?.category || c?.name)
         .filter(Boolean)
         .map((c: string) => c === 'AI-Powered No-Code Platform' || c === 'AI-Powered No-Code' ? 'AI & No-Code Platform' : c)
+
+      if (categoriesFromDoc.length === 0 && docCategoryName) {
+        const mappedCat = docCategoryName === 'AI-Powered No-Code Platform' || docCategoryName === 'AI-Powered No-Code' ? 'AI & No-Code Platform' : docCategoryName
+        categoriesFromDoc = [mappedCat]
+      }
 
       return {
         slug,
@@ -5398,6 +5405,7 @@ export async function getCaseStudyBySlug(slug: string): Promise<CaseStudyDetail>
       docItems: doc.docItems || fallback.docItems,
       comparisonTable: doc.comparisonTable || fallback.comparisonTable,
       overview: doc.detail?.shortDescription || doc.summary?.solution || fallback.overview,
+      richTextOverview: doc.detail?.overview || null,
       challenges: doc.detail?.challenges?.map((c: any, index: number) => ({
         n: index + 1,
         title: c.title,

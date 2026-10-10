@@ -69,7 +69,7 @@ export function CaseStudiesClient({ caseStudies }: Props) {
     filter === 'All'
       ? caseStudies
       : caseStudies.filter((c) => {
-          return Array.isArray(c.categories) && c.categories.length > 0 && c.categories[0] === filter
+          return Array.isArray(c.categories) && c.categories.includes(filter)
         })
 
   return (

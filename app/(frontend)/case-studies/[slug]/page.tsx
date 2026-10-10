@@ -7,6 +7,7 @@ import { CaseStudyCard } from '@/components/ui/CaseStudyCard'
 import { CaseStudyTracker } from '@/components/analytics/CaseStudyTracker'
 import { getCaseStudyBySlug, getCaseStudies, DocItem } from '@/lib/payload'
 import { getCategoryTheme } from '@/lib/caseStudyCategories'
+import { RichText } from '@payloadcms/richtext-lexical/react'
 import styles from './page.module.css'
 
 export const dynamic = 'force-dynamic'
@@ -155,8 +156,12 @@ export default async function CaseStudyDetailPage({ params }: { params: Promise<
           </div>
         )}
 
-        {/* Render docItems hierarchy if present */}
-        {cs.docItems && cs.docItems.length > 0 ? (
+        {/* Render RichText Lexical editor content if present */}
+        {cs.richTextOverview && cs.richTextOverview?.root?.children?.length > 0 ? (
+          <div className={styles.richTextContainer}>
+            <RichText data={cs.richTextOverview} />
+          </div>
+        ) : cs.docItems && cs.docItems.length > 0 ? (
           <div className={styles.docItemsBlock}>
             {renderDocItems(cs.docItems)}
           </div>
