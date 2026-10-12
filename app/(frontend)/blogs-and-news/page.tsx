@@ -22,6 +22,7 @@ const articles: BlogArticleSummary[] = [
     title: 'How AI-Powered Vision Inspection is Transforming High-Precision Manufacturing',
     excerpt:
       'Discover how integrating high-speed Basler industrial cameras with convolutional neural networks eliminates visual defect bottlenecks on automotive assembly lines.',
+    image: '/images/vision_ai_hero_new.png',
   },
   {
     slug: 'building-connected-factories-opc-ua-mqtt-edge',
@@ -31,6 +32,7 @@ const articles: BlogArticleSummary[] = [
     title: 'Architecting Connected Factories: From OPC-UA & MQTT to Edge Computing',
     excerpt:
       'A comprehensive guide for factory managers on unifying legacy PLC signals, edge buffering, and real-time cloud data pipelines without disrupting ongoing operations.',
+    image: '/images/end_to_end_inspection_cell.png',
   },
   {
     slug: 'snowflake-cortex-ai-manufacturing-data-platform',
@@ -40,6 +42,7 @@ const articles: BlogArticleSummary[] = [
     title: 'Leveraging Snowflake Cortex AI for Intelligent Procurement and Supply Chain Analytics',
     excerpt:
       'How enterprise manufacturing teams use native Snowflake Cortex AI applications to forecast raw material pricing and mitigate stock-out risks.',
+    image: '/images/snowflake_cortex_architecture.png',
   },
   {
     slug: 'no-code-ai-platforms-for-enterprise-workflows',
@@ -49,6 +52,7 @@ const articles: BlogArticleSummary[] = [
     title: 'The Shift Towards No-Code Enterprise Applications in Industrial Operations',
     excerpt:
       'Empowering plant engineers and floor supervisors to create custom tracking apps and workflow automations without traditional software development delays.',
+    image: '/images/ai_no_code_hero.png',
   },
   {
     slug: 'deep-tech-computer-vision-assembly-lines',
@@ -58,6 +62,7 @@ const articles: BlogArticleSummary[] = [
     title: 'Computer Vision & Edge Inferencing on High-Speed Assembly Lines',
     excerpt:
       'Synchronizing multi-angle camera feeds with edge TensorRT inferencing to verify component placement, wiring, and surface finish in sub-50ms cycles.',
+    image: '/images/vision_ai_hero_production_line.png',
   },
   {
     slug: 'predictive-maintenance-iiot-sensor-fusion',
@@ -67,6 +72,7 @@ const articles: BlogArticleSummary[] = [
     title: 'Predictive Maintenance at Scale with IIoT Sensor Fusion & Machine Learning',
     excerpt:
       'Fusing thermal telemetry, vibration metrics, and current draw sensors to predict equipment failure before catastrophic downtime occurs.',
+    image: '/images/industry_automation_hero.png',
   },
 ]
 
@@ -97,11 +103,11 @@ export default async function BlogsAndNewsPage() {
             {displayArticles.map((article) => (
               <article key={article.slug} className={styles.card}>
                 {article.image && (
-                  <div style={{ width: '100%', height: '180px', borderRadius: '8px', overflow: 'hidden', marginBottom: '16px' }}>
+                  <div className={styles.cardImageWrapper}>
                     <img
                       src={article.image}
                       alt={article.title}
-                      style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                      className={styles.cardImage}
                     />
                   </div>
                 )}

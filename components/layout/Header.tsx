@@ -35,6 +35,7 @@ const defaultNav: NavItem[] = [
     ],
   },
   { label: 'Success Stories', href: '/case-studies' },
+  { label: 'Blogs & News', href: '/blogs-and-news' },
   { label: 'About', href: '/about' },
   { label: 'Contact', href: '/contact' },
 ]

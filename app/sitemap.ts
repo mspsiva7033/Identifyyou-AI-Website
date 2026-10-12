@@ -16,6 +16,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/case-studies',
     '/case-studies/revolutionizing-inventory-optimization',
     '/case-studies/ai-powered-procurement',
+    '/blogs-and-news',
     '/about',
     '/contact',
   ]
