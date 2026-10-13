@@ -7,9 +7,12 @@ import { FlowChain } from '@/components/ui/FlowChain'
 import styles from './page.module.css'
 
 export const metadata: Metadata = {
-  title: 'Vision AI for Intelligent, Production-Grade Inspection & Automation — IdentifYou',
+  title: 'Vision AI for Industrial Inspection',
   description:
-    'IdentifYou engineers complete Vision AI inspection systems combining advanced imaging, AI deep learning, precision measurement, custom fixtures, and robotics integration.',
+    'Engineer production-grade Vision AI inspection systems combining high-speed imaging, deep learning, precision measurement, and robotics integration.',
+  alternates: {
+    canonical: '/deep-tech/vision-ai',
+  },
 }
 
 const cellNodes = [
@@ -51,7 +54,7 @@ const threeCaseStudies = [
   {
     title: 'Transforming Wind Turbine Telemetry into Predictive AI Intelligence',
     tag: 'RENEWABLE ENERGY · PREDICTIVE AI',
-    url: '/case-studies?filter=Vision+AI',
+    url: '/case-studies',
     desc: 'Transforming wind turbine telemetry into real-time predictive AI intelligence for failure prevention, gearbox health monitoring, and energy yield optimization.',
   },
   {
@@ -63,7 +66,7 @@ const threeCaseStudies = [
   {
     title: 'Transforming Effluent Treatment Plants (ETP) through AI-Driven Industrial IoT (IIoT)',
     tag: 'PROCESS & ETP · INDUSTRIAL IOT',
-    url: '/case-studies?filter=Vision+AI',
+    url: '/case-studies',
     desc: 'AI-driven IIoT architecture for continuous water quality monitoring, automated chemical dosing optimization, and real-time compliance management in effluent treatment plants.',
   },
 ]
@@ -78,6 +81,8 @@ export default function VisionAIPage() {
         <img
           src="/images/vision_ai_hero_new.png"
           alt="Vision AI Background"
+          width="1920"
+          height="1080"
           className={styles.heroBgImage}
         />
         <div className={styles.heroDarkOverlay} />
@@ -96,7 +101,7 @@ export default function VisionAIPage() {
               <Link href="/contact" className={styles.btnPrimary}>
                 Talk to a Vision AI Expert
               </Link>
-              <Link href="/case-studies?filter=Vision+AI" className={styles.btnSecondaryDark}>
+              <Link href="/case-studies" className={styles.btnSecondaryDark}>
                 Explore Success Stories
               </Link>
             </div>
@@ -125,6 +130,8 @@ export default function VisionAIPage() {
             <img
               src="/images/end_to_end_inspection_cell.png"
               alt="Full inspection cell: part feeder, conveyor, fixture, vision system, robot arm, sorting bins"
+              width="1200"
+              height="600"
               className={styles.realImg}
             />
           </div>
@@ -161,6 +168,8 @@ export default function VisionAIPage() {
             <img
               src="/images/precision_mechanical_measurement.png"
               alt="Precision mechanical component with dimensional measurement overlays"
+              width="800"
+              height="600"
               className={styles.realImg}
             />
           </div>
@@ -214,6 +223,8 @@ export default function VisionAIPage() {
             <img
               src="/images/uv_light_defect_detection.png"
               alt="UV Light-Based Inspection"
+              width="800"
+              height="600"
               className={styles.realImg}
             />
           </div>
@@ -339,6 +350,8 @@ export default function VisionAIPage() {
                   <img
                     src="/images/threed_component_profiling.png"
                     alt="3D-scanned component with dimensional overlays"
+                    width="600"
+                    height="400"
                     className={styles.realImg}
                   />
                 </div>

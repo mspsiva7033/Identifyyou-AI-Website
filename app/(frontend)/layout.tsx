@@ -25,19 +25,24 @@ const ibmPlexSans = IBM_Plex_Sans({
 
 export const metadata: Metadata = {
   title: {
-    default: 'IdentifYou Technologies — Deep Tech. Built Around Business.',
-    template: '%s | IdentifYou Technologies',
+    default: 'IdentifYou — Deep Tech Built Around Business',
+    template: '%s | IdentifYou',
   },
   description:
-    'AI-powered solutions for intelligent manufacturing, connected industries and smarter businesses. Vision AI, Industry Automation, AI-Powered No-Code, Data Engineering and Digital Engineering.',
-  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'https://identifyou.in'),
+    'AI-powered solutions for intelligent manufacturing, connected industries, Vision AI, data engineering, and enterprise operations.',
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'https://identifyyou.ai'),
+  alternates: {
+    canonical: '/',
+  },
   openGraph: {
     type: 'website',
     siteName: 'IdentifYou Technologies',
     locale: 'en_US',
   },
-  twitter: {
-    card: 'summary_large_image',
+  icons: {
+    icon: '/images/identifyou-logo.png',
+    shortcut: '/images/identifyou-logo.png',
+    apple: '/images/identifyou-logo.png',
   },
   robots: {
     index: true,
@@ -52,7 +57,7 @@ export default function FrontendLayout({
 }) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <head>
+      <body suppressHydrationWarning className={`${manrope.variable} ${ibmPlexSans.variable}`}>
         <JsonLdSchema />
         {UMAMI_WEBSITE_ID && (
           <Script
@@ -62,8 +67,6 @@ export default function FrontendLayout({
             strategy="afterInteractive"
           />
         )}
-      </head>
-      <body suppressHydrationWarning className={`${manrope.variable} ${ibmPlexSans.variable}`}>
         <Suspense fallback={null}>
           <PageTransitionLoader />
           <UmamiAnalyticsTracker />

@@ -114,7 +114,7 @@ export const CaseStudies: CollectionConfig = {
       type: 'array',
       label: 'Filter Categories',
       admin: {
-        description: 'Categories used for filtering on the case studies page',
+        description: 'Categories used for filtering on the success stories page',
       },
       fields: [
         {
@@ -201,7 +201,7 @@ export const CaseStudies: CollectionConfig = {
       type: 'json',
       label: 'Custom CTA Box JSON ({ title, desc, linkLabel, linkHref })',
       admin: {
-        description: 'Special call-to-action block for sub-case studies',
+        description: 'Special call-to-action block for sub-success stories',
       },
     },
     {
@@ -275,7 +275,7 @@ export const CaseStudies: CollectionConfig = {
       type: 'relationship',
       relationTo: 'case-studies',
       hasMany: true,
-      label: 'Related Case Studies',
+      label: 'Related Success Stories',
     },
 
     // Client info

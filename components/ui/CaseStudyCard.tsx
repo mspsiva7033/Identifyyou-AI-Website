@@ -47,11 +47,15 @@ export function CaseStudyCard({
     'business-portals-around-existing-erp',
     'deployment-management',
   ]
-  const ext = slug && svgSlugs.includes(slug) ? 'svg' : 'png'
+  const isSvg = slug && svgSlugs.includes(slug)
   const imageSrc =
     illustration ||
     image ||
-    (slug ? `/images/case-studies/${slug}.${ext}` : '/images/case-studies/placeholder.png')
+    (slug
+      ? isSvg
+        ? `/images/case-studies/${slug}.svg`
+        : `/images/case-studies/thumbnails/${slug}.webp`
+      : '/images/case-studies/placeholder.png')
 
   const linkHref = href || (slug ? `/case-studies/${slug}` : '/case-studies')
 
@@ -84,11 +88,17 @@ export function CaseStudyCard({
         <img
           src={imageSrc}
           alt={title}
+          width="600"
+          height="338"
           className={styles.image}
           loading="lazy"
           onError={(e) => {
-            e.currentTarget.onerror = null
-            e.currentTarget.src = '/images/case-studies/placeholder.png'
+            const target = e.currentTarget
+            if (slug && !target.src.endsWith(`/${slug}.png`)) {
+              target.src = `/images/case-studies/${slug}.png`
+            } else {
+              target.src = '/images/case-studies/placeholder.png'
+            }
           }}
         />
         <div

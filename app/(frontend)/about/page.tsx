@@ -5,17 +5,21 @@ import { Footer } from '@/components/layout/Footer'
 import styles from './page.module.css'
 
 export const metadata: Metadata = {
-  title: 'About Us — Deep Tech Built Around Business',
-  description: 'IdentifYou Technologies engineers AI-powered, connected and intelligent solutions across Manufacturing, Supply Chain, Financial Services and Healthcare.',
+  title: 'About Us — Deep Tech Engineering',
+  description:
+    'Learn how IdentifYou engineers AI, Vision AI, industrial automation, and enterprise data systems built around real business problems.',
+  alternates: {
+    canonical: '/about',
+  },
 }
 
 const differentiators = [
-  { title: 'Business First', desc: 'We understand the business before designing technology.' },
-  { title: 'Deep Tech', desc: 'We engineer solutions using AI, Vision AI, IIoT, Edge and Automation.' },
-  { title: 'Manufacturing Expertise', desc: 'We understand real-world factory operations, not just IT systems.' },
-  { title: 'Integrated Supply Chain', desc: 'We connect procurement, inventory, manufacturing, logistics and enterprise systems.' },
-  { title: 'End-to-End Engineering', desc: 'From machine and edge to cloud, data, AI and enterprise applications.' },
-  { title: 'Outcome Driven', desc: 'We measure success through business impact.' },
+  { title: 'Business First', desc: 'We understand the commercial priority before designing any technical solution.' },
+  { title: 'Deep Tech Architecture', desc: 'We engineer solutions with Vision AI, IIoT sensors, edge computing, and real-time models.' },
+  { title: 'Factory Floor Expertise', desc: 'We understand physical assembly lines and machine controls, not just software layers.' },
+  { title: 'Integrated Operations', desc: 'We unify procurement, warehouse stock, shop-floor MES, and enterprise ERP systems.' },
+  { title: 'Full-Stack Delivery', desc: 'From hardware sensors and edge gateways to data lakehouses and user interfaces.' },
+  { title: 'Measurable ROI', desc: 'We measure success through reduced cycle times, lower scrap, and tangible productivity gains.' },
 ]
 
 export default function AboutPage() {
@@ -26,12 +30,21 @@ export default function AboutPage() {
         <h1 className={styles.title}>About IdentifYou Technologies</h1>
         <p className={styles.subtitle}>Deep Tech. Built Around Business.</p>
         <p className={styles.desc}>
-          We don&apos;t start with technology. We start with the business problem, operational challenge or growth opportunity — with deep expertise in Manufacturing and Integrated Supply Chain, and extensive experience across Financial Services, Investment, FinTech and Healthcare — and engineer the right AI-powered solution around it.
+          IdentifYou was founded to solve a simple problem: technology is often built in isolation from the business outcomes it needs to deliver. We bridge that gap by designing industrial intelligence directly around physical operations and enterprise workflows.
         </p>
       </section>
 
       <section className={styles.content}>
-        <h2 className={styles.h2Center}>Why IdentifYou?</h2>
+        <div style={{ maxWidth: '840px', margin: '0 auto 48px', color: '#475569', fontSize: '16px', lineHeight: 1.7 }}>
+          <p style={{ marginBottom: '16px' }}>
+            We work alongside plant managers, operations leaders, and digital transformation teams across manufacturing, supply chain, financial services, and healthcare. Our multidisciplinary engineering team develops custom computer vision cells, edge IoT gateways, automated replenishment algorithms, and cloud analytics.
+          </p>
+          <p style={{ margin: 0 }}>
+            Every deployment begins with clear operational metrics. Whether eliminating inspection bottlenecks on high-speed assembly lines, reconciling inventory in real time, or automating equipment telemetry, our focus remains on reliability, speed, and clear business returns.
+          </p>
+        </div>
+
+        <h2 className={styles.h2Center}>Why Leading Enterprises Partner with IdentifYou</h2>
         <div className={styles.differGrid}>
           {differentiators.map((d) => (
             <div key={d.title} className={styles.differCard}>

@@ -20,10 +20,27 @@ export async function generateStaticParams() {
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
   const { slug } = await params
   const cs = await getCaseStudyBySlug(slug)
-  if (!cs) return { title: 'Case Study Not Found' }
+  if (!cs) return { title: 'Success Story Not Found' }
+
+  const cleanTitle = cleanHeadingText(cs.title)
+  // Ensure title stays under 45 chars so when appended with " | IdentifYou" (14 chars) it remains under 60 chars
+  const seoTitle = cleanTitle.length > 44 ? `${cleanTitle.substring(0, 41)}...` : cleanTitle
+
+  const rawDesc = cs.overview || cs.title
+  let seoDesc = rawDesc.replace(/\s+/g, ' ').trim()
+  if (seoDesc.length > 150) {
+    seoDesc = `${seoDesc.substring(0, 147)}...`
+  } else if (seoDesc.length < 80) {
+    seoDesc = `${seoDesc} Read the enterprise deep tech case study and results from IdentifYou.`
+    if (seoDesc.length > 150) seoDesc = `${seoDesc.substring(0, 147)}...`
+  }
+
   return {
-    title: cs.title,
-    description: cs.overview ? cs.overview.substring(0, 160) : cs.title,
+    title: seoTitle,
+    description: seoDesc,
+    alternates: {
+      canonical: `/case-studies/${slug}`,
+    },
   }
 }
 
@@ -36,7 +53,6 @@ function cleanTableText(text: string): string {
   if (!text) return text
   return text.replace(/[\u2190-\u2199\u21D0-\u21D9]|->|-->|=>|&rarr;|&darr;|&uarr;|&larr;/g, '').trim()
 }
-
 
 function renderDocItems(docItems: DocItem[]) {
   const elements: React.ReactNode[] = []
@@ -61,7 +77,7 @@ function renderDocItems(docItems: DocItem[]) {
     } else {
       flushBullets(`bullets-${idx}`)
       if (item.type === 'h2') {
-        elements.push(<h2 key={idx} className={styles.h2}>{cleanHeadingText(item.text || '')}</h2>)
+        elements.push(<h3 key={idx} className={styles.h2}>{cleanHeadingText(item.text || '')}</h3>)
       } else if (item.type === 'h3') {
         elements.push(<h3 key={idx} className={styles.h3}>{cleanHeadingText(item.text || '')}</h3>)
       } else if (item.type === 'h4') {
@@ -71,7 +87,14 @@ function renderDocItems(docItems: DocItem[]) {
       } else if (item.type === 'image' && item.src) {
         elements.push(
           <div key={idx} className={styles.inlineImageWrapper}>
-            <img src={item.src} alt={item.alt || item.text || 'Case Study Visual'} className={styles.inlineImage} />
+            <img
+              src={item.src}
+              alt={item.alt || item.text || 'Success Story Visual'}
+              width="800"
+              height="450"
+              loading="lazy"
+              className={styles.inlineImage}
+            />
             {item.text && <p className={styles.imageCaption}>{cleanHeadingText(item.text)}</p>}
           </div>
         )
@@ -133,6 +156,8 @@ export default async function CaseStudyDetailPage({ params }: { params: Promise<
           <img
             src={cs.illustration || `/images/case-studies/${slug}.png`}
             alt={cs.title}
+            width="1200"
+            height="630"
             className={styles.heroIllustration}
           />
           <div
@@ -163,6 +188,7 @@ export default async function CaseStudyDetailPage({ params }: { params: Promise<
           </div>
         ) : cs.docItems && cs.docItems.length > 0 ? (
           <div className={styles.docItemsBlock}>
+            <h2 className={styles.h2}>Solution Architecture & Execution Details</h2>
             {renderDocItems(cs.docItems)}
           </div>
         ) : cs.sections && cs.sections.length > 0 ? (

@@ -7,9 +7,12 @@ import { FlowChain } from '@/components/ui/FlowChain'
 import styles from '../ai-intelligent-business/page.module.css'
 
 export const metadata: Metadata = {
-  title: 'Supply Chain & Logistics Intelligence — Deep Tech | IdentifYou',
+  title: 'Supply Chain & Logistics Intelligence',
   description:
     'Real-time fleet tracking, inventory variance reduction, and automated procurement intelligence powered by Snowflake AI Data Cloud and Edge IIoT.',
+  alternates: {
+    canonical: '/deep-tech/supply-chain',
+  },
 }
 
 const supplyChainFlow = [
@@ -52,6 +55,8 @@ export default function SupplyChainDeepTechPage() {
         <img
           src="/images/retail_inventory_dashboard.png"
           alt="Supply Chain Background"
+          width="1920"
+          height="1080"
           className={styles.heroBgImage}
         />
         <div className={styles.heroDarkOverlay} />
@@ -71,9 +76,15 @@ export default function SupplyChainDeepTechPage() {
       {/* INTRO */}
       <section className={styles.sectionIntro}>
         <div className={styles.eyebrowGreen}>REAL-TIME VISIBILITY</div>
-        <h2 className={styles.introTitle}>From Fragmented Logistics Feeds to Unified Fleet &amp; Inventory Control</h2>
+        <h2 className={styles.introTitle}>Unified Fleet &amp; Logistics Control</h2>
         <p className={styles.introParagraph}>
           Modern supply chains require sub-second synchronization across suppliers, warehouses, fleets, and retail networks. IdentifYou engineers cloud data streaming pipelines and edge telemetry layers that convert raw spatial and ERP signals into actionable replenishment, routing, and risk management decisions.
+        </p>
+        <p className={styles.introParagraph} style={{ marginTop: '16px' }}>
+          By integrating GPS tracking, temperature logging, and RFID gate scans into a centralized cloud lakehouse, operations teams receive proactive warnings before delivery delays compromise assembly schedules. Automated dynamic routing models calculate optimal consignment itineraries based on historical traffic congestion, weather disruptions, and dock availability.
+        </p>
+        <p className={styles.introParagraph} style={{ marginTop: '16px' }}>
+          This unified transparency bridges enterprise resource planning with real-world shipping conditions. Supply chain leaders eliminate deadhead miles, safeguard perishable cargo integrity, and maintain minimal working capital while preserving 99.8% customer order fulfillment rates.
         </p>
       </section>
 
@@ -94,8 +105,8 @@ export default function SupplyChainDeepTechPage() {
       <section className={styles.sectionCaseStudy}>
         <div className={styles.container}>
           <div className={styles.centerHeader}>
-            <div className={styles.eyebrowGreen}>CASE STUDIES</div>
-            <h2 className={styles.sectionTitleDark}>Supply Chain Case Studies</h2>
+            <div className={styles.eyebrowGreen}>SUCCESS STORIES</div>
+            <h2 className={styles.sectionTitleDark}>Supply Chain Success Stories</h2>
           </div>
 
           <div style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
@@ -106,7 +117,7 @@ export default function SupplyChainDeepTechPage() {
                 <p className={styles.csSection}>{cs.desc}</p>
                 <div style={{ marginTop: '16px' }}>
                   <Link href={`/case-studies/${cs.slug}`} className={styles.csBtn}>
-                    Explore Case Study →
+                    Explore Success Story →
                   </Link>
                 </div>
               </div>

@@ -6,9 +6,12 @@ import { Footer } from '@/components/layout/Footer'
 import styles from './page.module.css'
 
 export const metadata: Metadata = {
-  title: 'AI Powered Intelligent Business — IdentifYou',
+  title: 'AI & Intelligent Business Systems',
   description:
-    'IdentifYou helps businesses turn complex operational challenges and critical decisions into measurable outcomes through AI, data, engineering, and automation solutions.',
+    'Turn operational complexity into measurable outcomes with predictive decision layers, data models, and automated business workflows.',
+  alternates: {
+    canonical: '/deep-tech/ai-intelligent-business',
+  },
 }
 
 const methodologySteps = [
@@ -54,14 +57,16 @@ export default function AIIntelligentBusinessPage() {
         <img
           src="/images/ai_intelligent_business_hero.png"
           alt="AI & Intelligent Business Background"
+          width="1920"
+          height="1080"
           className={styles.heroBgImage}
         />
         <div className={styles.heroDarkOverlay} />
         <div className={styles.heroContainer}>
           <div className={styles.heroCardDark}>
-            <div className={styles.eyebrowGreen}>AI & Intelligent Business</div>
+            <div className={styles.eyebrowGreen}>AI &amp; Intelligent Business</div>
             <h1 className={styles.heroTitle}>
-              Intelligence Isn&apos;t a Dashboard. It&apos;s a Decision Made Earlier.
+              AI-Powered Intelligent Decision Systems
             </h1>
             <p className={styles.heroDesc}>
               Data creates visibility. Models create foresight. People make the call — earlier, with more evidence, and with
@@ -79,7 +84,7 @@ export default function AIIntelligentBusinessPage() {
 
       {/* 2 & 3. MAIN PAGE TITLE & INTRO POSITIONING CONTENT */}
       <section className={styles.sectionIntro}>
-        <h1 className={styles.introTitle}>AI Powered Intelligent Business</h1>
+        <h2 className={styles.introTitle}>AI Powered Intelligent Business</h2>
         <p className={styles.introParagraph}>
           IdentifYou helps businesses turn complex operational challenges and critical decisions into measurable outcomes
           through intelligent solutions. We combine <span className={styles.introBold}>AI, data, engineering, and automation</span> with
@@ -114,6 +119,9 @@ export default function AIIntelligentBusinessPage() {
               <img
                 src="/images/retail_inventory_dashboard.png"
                 alt="Image: warehouse / inventory reconciliation"
+                width="600"
+                height="400"
+                loading="lazy"
                 className={styles.realImg}
               />
             </div>
@@ -129,6 +137,9 @@ export default function AIIntelligentBusinessPage() {
               <img
                 src="/images/precision_abm_dashboard.png"
                 alt="Image: finance risk / working capital"
+                width="600"
+                height="400"
+                loading="lazy"
                 className={styles.realImg}
               />
             </div>

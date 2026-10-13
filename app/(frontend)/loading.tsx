@@ -8,8 +8,10 @@ export default function Loading() {
           <div className={styles.spinnerRing} />
           <div className={styles.innerPulseRing} />
           <img
-            src="/images/identifYou_logo.png"
+            src="/images/identifyou-logo.png"
             alt="IdentifYou Loading"
+            width="160"
+            height="40"
             className={styles.logoImg}
           />
         </div>

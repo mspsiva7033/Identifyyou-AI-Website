@@ -2104,7 +2104,7 @@ export async function seed() {
   "tailored-enterprise-solutions": {
     "title": "Digital Engineering",
     "breadcrumb": "Digital Engineering",
-    "tag": "https://identifyyou.in/tailored-enterprise-solutions/",
+    "tag": "https://identifyyou.ai/tailored-enterprise-solutions/",
     "docItems": [
       {
         "type": "p",
@@ -2112,7 +2112,7 @@ export async function seed() {
       },
       {
         "type": "p",
-        "text": "https://identifyyou.in/tailored-enterprise-solutions/"
+        "text": "https://identifyyou.ai/tailored-enterprise-solutions/"
       }
     ],
     "technologyUsed": "",
@@ -4388,7 +4388,7 @@ export async function seed() {
     "title": "Overcoming Data Access Challenges in a Multi-Business Environment for Streamlined Decision-Making",
     "breadcrumb": "Overcoming Data Access Challenges in a Multi-Business Environment for Streamlined Decision-Making",
     "tag": "Enterprise · Digital Engineering · Multi-Business Data Access",
-    "illustration": "/images/case-studies/overcoming-data-access-challenges-in-a-multi-business-environment-for-streamlined-decision-making.png",
+    "illustration": "/images/case-studies/overcoming-data-access-challenges.png",
     "overview": "In a multi-business and services environment, accessing decision-critical data spread across multiple enterprise systems poses significant challenges. Identifying the appropriate business functions for assigned tasks and issues is further complicated by tight SLAs and OLAs compliance targets, representing a major pain point for customers.",
     "docItems": [
       {

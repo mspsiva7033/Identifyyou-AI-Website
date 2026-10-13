@@ -49,6 +49,23 @@ export function getCaseStudyIllustration(slug: string): string {
   return `/images/case-studies/${slug}.png`
 }
 
+export function getCaseStudyThumbnail(slug: string): string {
+  const svgSlugs = [
+    'advanced-vision-inspection-surface',
+    'vision-ai-bore-measurement',
+    'vision-ai-complex-dimension',
+    'business-driven-software-system',
+    'nlp-text-to-business-application',
+    'data-to-application-development',
+    'business-portals-around-existing-erp',
+    'deployment-management',
+  ]
+  if (svgSlugs.includes(slug)) {
+    return `/images/case-studies/${slug}.svg`
+  }
+  return `/images/case-studies/thumbnails/${slug}.webp`
+}
+
 export interface ManufacturingSolutionItem {
   title: string
   tagline: string
@@ -2711,7 +2728,7 @@ export const FALLBACK_CASE_STUDIES_MAP: Record<string, CaseStudyDetail> = {
   "tailored-enterprise-solutions": {
     "title": "Digital Engineering",
     "breadcrumb": "Digital Engineering",
-    "tag": "https://identifyyou.in/tailored-enterprise-solutions/",
+    "tag": "https://identifyyou.ai/tailored-enterprise-solutions/",
     "docItems": [
       {
         "type": "p",
@@ -2719,7 +2736,7 @@ export const FALLBACK_CASE_STUDIES_MAP: Record<string, CaseStudyDetail> = {
       },
       {
         "type": "p",
-        "text": "https://identifyyou.in/tailored-enterprise-solutions/"
+        "text": "https://identifyyou.ai/tailored-enterprise-solutions/"
       }
     ],
     "technologyUsed": "",
@@ -5095,7 +5112,7 @@ export const FALLBACK_CASE_STUDIES_MAP: Record<string, CaseStudyDetail> = {
     "title": "Overcoming Data Access Challenges in a Multi-Business Environment for Streamlined Decision-Making",
     "breadcrumb": "Overcoming Data Access Challenges in a Multi-Business Environment for Streamlined Decision-Making",
     "tag": "Enterprise · Digital Engineering · Multi-Business Data Access",
-    "illustration": "/images/case-studies/overcoming-data-access-challenges-in-a-multi-business-environment-for-streamlined-decision-making.png",
+    "illustration": "/images/case-studies/overcoming-data-access-challenges.png",
     "overview": "In a multi-business and services environment, accessing decision-critical data spread across multiple enterprise systems poses significant challenges. Identifying the appropriate business functions for assigned tasks and issues is further complicated by tight SLAs and OLAs compliance targets, representing a major pain point for customers.",
     "docItems": [
       {
@@ -5280,9 +5297,9 @@ export async function getCaseStudies(): Promise<CaseStudySummary[]> {
         integration: doc.summary?.integration || '',
         outcome: doc.summary?.outcome || '',
         illustration:
-          (typeof doc.detail?.thumbnail === 'object' && doc.detail?.thumbnail?.url) ||
-          (typeof doc.detail?.heroImage === 'object' && doc.detail?.heroImage?.url) ||
-          getCaseStudyIllustration(doc.slug),
+          (typeof doc.detail?.thumbnail === 'object' && (doc.detail?.thumbnail?.sizes?.card?.url || doc.detail?.thumbnail?.sizes?.thumbnail?.url || doc.detail?.thumbnail?.url)) ||
+          (typeof doc.detail?.heroImage === 'object' && (doc.detail?.heroImage?.sizes?.card?.url || doc.detail?.heroImage?.sizes?.thumbnail?.url || doc.detail?.heroImage?.url)) ||
+          getCaseStudyThumbnail(doc.slug),
       }
     })
   } catch (error) {

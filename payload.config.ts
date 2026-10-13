@@ -57,6 +57,7 @@ export default buildConfig({
   csrf: [serverURL],
   admin: {
     user: 'users',
+    suppressHydrationWarning: true,
     meta: {
       titleSuffix: '— IdentifYou Admin',
     },

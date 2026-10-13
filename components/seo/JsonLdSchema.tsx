@@ -6,10 +6,10 @@ export function JsonLdSchema() {
     '@graph': [
       {
         '@type': 'Organization',
-        '@id': 'https://identifyou.in/#organization',
+        '@id': 'https://identifyyou.ai/#organization',
         name: 'IdentifYou Technologies',
-        url: 'https://identifyou.in',
-        logo: 'https://identifyou.in/images/logo.png',
+        url: 'https://identifyyou.ai',
+        logo: 'https://identifyyou.ai/images/logo.png',
         description:
           'AI-powered solutions for intelligent manufacturing, connected industries and smarter businesses. Vision AI, Industry Automation, AI-Powered No-Code, Data Engineering and Digital Engineering.',
         address: [
@@ -34,18 +34,18 @@ export function JsonLdSchema() {
             '@type': 'ContactPoint',
             telephone: '+91-9597046682',
             contactType: 'customer support',
-            email: 'Support@identifyou.in',
+            email: 'support@identifyyou.ai',
             availableLanguage: ['English'],
           },
         ],
       },
       {
         '@type': 'WebSite',
-        '@id': 'https://identifyou.in/#website',
-        url: 'https://identifyou.in',
+        '@id': 'https://identifyyou.ai/#website',
+        url: 'https://identifyyou.ai',
         name: 'IdentifYou Technologies',
         publisher: {
-          '@id': 'https://identifyou.in/#organization',
+          '@id': 'https://identifyyou.ai/#organization',
         },
       },
     ],

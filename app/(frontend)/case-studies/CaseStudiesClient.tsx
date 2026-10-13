@@ -82,6 +82,12 @@ export function CaseStudiesClient({ caseStudies }: Props) {
       </section>
 
       <section className={styles.content}>
+        <div style={{ textAlign: 'center', marginBottom: '28px' }}>
+          <h2 style={{ fontSize: '22px', fontWeight: 700, color: '#0f172a', margin: '0 0 8px' }}>
+            Featured Enterprise Case Studies
+          </h2>
+        </div>
+
         {/* Filters */}
         <div className={styles.filters}>
           {filterLabels.map((label) => (

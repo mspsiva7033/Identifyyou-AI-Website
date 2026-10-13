@@ -352,7 +352,7 @@ export function AnalyticsView() {
             </div>
             <div className={styles.funnelStepSub}>
               {data?.funnel?.totalVisitors
-                ? `${Math.round(((data.funnel.caseStudyReaders || 0) / data.funnel.totalVisitors) * 100)}% of visitors read technical case studies`
+                ? `${Math.round(((data.funnel.caseStudyReaders || 0) / data.funnel.totalVisitors) * 100)}% of visitors read technical success stories`
                 : 'High-intent technical evaluations'}
             </div>
           </div>
@@ -429,7 +429,7 @@ export function AnalyticsView() {
           <span style={{ fontSize: '0.8rem', color: '#64748b' }}>Auto-updates every 30s</span>
         </div>
         <p style={{ margin: '0 0 12px 0', fontSize: '0.85rem', color: 'var(--theme-elevation-500, #64748b)' }}>
-          Real-time stream of visitors browsing, reading case studies, and interacting with the website.
+          Real-time stream of visitors browsing, reading success stories, and interacting with the website.
         </p>
 
         {data?.realtime?.recentEvents && data.realtime.recentEvents.length > 0 ? (

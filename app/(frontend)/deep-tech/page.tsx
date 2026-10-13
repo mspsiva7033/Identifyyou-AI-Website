@@ -6,8 +6,12 @@ import { getDeepTechCapabilities } from '@/lib/payload'
 import styles from './deep-tech.module.css'
 
 export const metadata: Metadata = {
-  title: 'Deep Tech — Core Pillars Built Around Business',
-  description: 'Deep Tech pillars — Vision AI & Industry Automation, AI & Intelligent Business, AI-Powered No-Code, Data Engineering and Digital Engineering — each engineered around a real business problem.',
+  title: 'Deep Tech Pillars & Capabilities',
+  description:
+    'Discover IdentifYou deep tech capabilities across Vision AI, industrial automation, AI no-code, and enterprise data platforms.',
+  alternates: {
+    canonical: '/deep-tech',
+  },
 }
 
 export default async function DeepTechPage() {
@@ -21,10 +25,20 @@ export default async function DeepTechPage() {
           Deep Tech. <span className={styles.heroAccent}>Built Around Business.</span>
         </h1>
         <p className={styles.heroDesc}>
-          Core Deep Tech pillars — each engineered around a real business problem, combining visual intelligence, edge automation, data platforms, and enterprise digital solutions.
+          IdentifYou engineers deep technology architectures tailored directly to commercial priorities. We integrate computer vision inspection cells, industrial IoT sensor gateways, modern data lakehouses, and custom no-code enterprise software to turn operational complexity into measurable advantage.
         </p>
       </section>
+
       <section className={styles.capabilitiesSection}>
+        <div style={{ marginBottom: '8px' }}>
+          <h2 style={{ fontFamily: 'Manrope, sans-serif', fontWeight: 800, fontSize: '26px', color: '#12181B', margin: '0 0 8px' }}>
+            Core Deep Tech Architecture &amp; Capabilities
+          </h2>
+          <p style={{ color: '#5B6862', fontSize: '15.5px', margin: '0 0 24px', maxWidth: '780px' }}>
+            Each pillar addresses a specific operational bottleneck, combining physical edge telemetry, automated decision intelligence, and enterprise integrations.
+          </p>
+        </div>
+
         {capabilities.map((c) => (
           <div key={c.title} className={styles.capCard}>
             <div className={styles.capLeft}>

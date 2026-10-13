@@ -12,9 +12,14 @@ import { getCategoryTheme } from '@/lib/caseStudyCategories'
 import styles from './page.module.css'
 
 export const metadata: Metadata = {
-  title: 'IdentifYou Technologies — Deep Tech. Built Around Business.',
+  title: {
+    absolute: 'IdentifYou — Deep Tech Built Around Business',
+  },
   description:
-    'AI-powered solutions for intelligent manufacturing, connected industries and smarter businesses. Vision AI, Industry Automation, AI-Powered No-Code, Data Engineering and Digital Engineering.',
+    'AI-powered solutions for intelligent manufacturing, connected industries, Vision AI, data engineering, and enterprise operations.',
+  alternates: {
+    canonical: '/',
+  },
 }
 
 // ----------------------------------------------------------------------
@@ -295,9 +300,8 @@ const partnerships = [
     name: 'Snowflake',
     desc: 'Partner practice. Certified professionals, Cortex AI, Native Apps.',
     icon: (
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#29B5E8" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-        <line x1="12" y1="2" x2="12" y2="22" /><line x1="20" y1="7" x2="4" y2="17" /><line x1="20" y1="17" x2="4" y2="7" />
-        <polyline points="9 5 12 2 15 5" /><polyline points="9 19 12 22 15 19" />
+      <svg width="24" height="24" viewBox="0 0 64 64" fill="#29B5E8">
+        <path d="M9.86 15.298l13.008 7.8a3.72 3.72 0 0 0 4.589-.601 4.01 4.01 0 0 0 1.227-2.908V3.956a3.81 3.81 0 0 0-1.861-3.42 3.81 3.81 0 0 0-3.893 0 3.81 3.81 0 0 0-1.861 3.42v8.896l-7.387-4.43a3.79 3.79 0 0 0-2.922-.4c-.986.265-1.818.94-2.3 1.844-1.057 1.9-.44 4.28 1.4 5.422m31.27 7.8l13.008-7.8c1.84-1.143 2.458-3.533 1.4-5.424a3.75 3.75 0 0 0-5.22-1.452l-7.3 4.37v-8.84a3.81 3.81 0 1 0-7.615 0v15.323a4.08 4.08 0 0 0 .494 2.367c.482.903 1.314 1.57 2.3 1.844a3.71 3.71 0 0 0 2.922-.4M29.552 31.97c.013-.25.108-.5.272-.68l1.52-1.58a1.06 1.06 0 0 1 .658-.282h.057a1.05 1.05 0 0 1 .656.282l1.52 1.58a1.12 1.12 0 0 1 .272.681v.06a1.13 1.13 0 0 1-.272.683l-1.52 1.58a1.04 1.04 0 0 1-.656.284h-.057c-.246-.014-.48-.115-.658-.284l-1.52-1.58a1.13 1.13 0 0 1-.272-.683zm-4.604-.65v1.364a1.54 1.54 0 0 0 .372.93l5.16 5.357a1.42 1.42 0 0 0 .895.386h1.312a1.42 1.42 0 0 0 .895-.386l5.16-5.357a1.54 1.54 0 0 0 .372-.93V31.32a1.54 1.54 0 0 0-.372-.93l-5.16-5.357a1.42 1.42 0 0 0-.895-.386h-1.312a1.42 1.42 0 0 0-.895.386L25.32 30.4a1.55 1.55 0 0 0-.372.93M3.13 27.62l7.365 4.417L3.13 36.45a4.06 4.06 0 0 0-1.399 5.424 3.75 3.75 0 0 0 2.3 1.844c.986.274 2.042.133 2.922-.392l13.008-7.8c1.2-.762 1.9-2.078 1.9-3.492a4.16 4.16 0 0 0-1.9-3.492l-13.008-7.8a3.79 3.79 0 0 0-2.922-.4c-.986.265-1.818.94-2.3 1.844-1.057 1.9-.44 4.278 1.4 5.422m38.995 4.442a4 4 0 0 0 1.91 3.477l13 7.8c.88.524 1.934.666 2.92.392s1.817-.94 2.3-1.843a4.05 4.05 0 0 0-1.4-5.424L53.5 32.038l7.365-4.417c1.84-1.143 2.457-3.53 1.4-5.422a3.74 3.74 0 0 0-2.3-1.844c-.987-.274-2.042-.134-2.92.4l-13 7.8a4 4 0 0 0-1.91 3.507M25.48 40.508a3.7 3.7 0 0 0-2.611.464l-13.008 7.8c-1.84 1.143-2.456 3.53-1.4 5.422.483.903 1.314 1.57 2.3 1.843a3.75 3.75 0 0 0 2.922-.392l7.387-4.43v8.83a3.81 3.81 0 1 0 7.614 0V44.4a3.91 3.91 0 0 0-3.205-3.903m28.66 8.276l-13.008-7.8a3.75 3.75 0 0 0-2.922-.392 3.74 3.74 0 0 0-2.3 1.843 4.09 4.09 0 0 0-.494 2.37v15.25a3.81 3.81 0 1 0 7.614 0V51.28l7.287 4.37a3.79 3.79 0 0 0 2.922.4c.986-.265 1.818-.94 2.3-1.844 1.057-1.9.44-4.28-1.4-5.422" />
       </svg>
     ),
   },
@@ -316,7 +320,7 @@ const partnerships = [
   {
     name: 'Freshworks',
     desc: 'Marketplace plugins and integration platforms.',
-    icon: <img src="/images/freshworks-logo.webp" alt="Freshworks" style={{ width: '24px', height: '24px', objectFit: 'contain' }} />,
+    icon: <img src="/images/freshworks-logo.webp" alt="Freshworks" width="24" height="24" style={{ width: '24px', height: '24px', objectFit: 'contain' }} />,
   },
   {
     name: 'monday.com',
@@ -426,7 +430,7 @@ export default function HomePage() {
             {aiTopRowPillars.map((item) => (
               <Link key={item.title} href={item.href} className={styles.aiCardFullCoverBig}>
                 <div className={styles.aiCardBgVisual}>
-                  <img src={item.image} alt={item.title} className={styles.aiCardBgImg} loading="lazy" />
+                  <img src={item.image} alt={item.title} width="600" height="340" className={styles.aiCardBgImg} loading="lazy" />
                   <div className={styles.aiCardGradientOverlay} />
                 </div>
                 <div className={styles.aiCardTopHeader}>
@@ -447,7 +451,7 @@ export default function HomePage() {
             {aiBottomRowPillars.map((item) => (
               <Link key={item.title} href={item.href} className={styles.aiCardFullCover}>
                 <div className={styles.aiCardBgVisual}>
-                  <img src={item.image} alt={item.title} className={styles.aiCardBgImg} loading="lazy" />
+                  <img src={item.image} alt={item.title} width="600" height="340" className={styles.aiCardBgImg} loading="lazy" />
                   <div className={styles.aiCardGradientOverlay} />
                 </div>
                 <div className={styles.aiCardTopHeader}>
@@ -470,7 +474,7 @@ export default function HomePage() {
         <div className={styles.bannerContainer}>
           <div className={styles.bannerTag}>VISION AI</div>
           <h2 className={styles.bannerTitleDark}>
-            Transforming Manufacturing Quality with Visual Intelligence — Powered by AI
+            Transforming Manufacturing Quality with Visual AI
           </h2>
           <div className={styles.bannerGrid}>
             <div className={styles.bannerDescDark}>
@@ -484,13 +488,16 @@ export default function HomePage() {
                 By engineering AI-driven visual inspection into the manufacturing process, quality control can move from a reactive cost centre to a proactive capability that improves quality, reduces waste, strengthens process control and drives operational performance.
               </p>
               <Link href="/case-studies/advanced-vision-inspection-surface" className={styles.bannerBtnPrimary}>
-                Explore Vision AI Case Study →
+                Explore Vision AI Success Story →
               </Link>
             </div>
             <div className={styles.bannerImgWrapDark}>
               <img
                 src="/images/vision_ai_hero_production_line.png"
                 alt="Vision AI Automated Inspection"
+                width="600"
+                height="400"
+                loading="lazy"
                 className={styles.bannerImg}
               />
               <div className={styles.colorTintLayer} style={{ backgroundColor: getCategoryTheme({ categories: ['Vision AI'] }).tintColor, opacity: getCategoryTheme({ categories: ['Vision AI'] }).overlayOpacity }} />
@@ -512,6 +519,9 @@ export default function HomePage() {
               <img
                 src="/images/case-studies/precision-abm-snowflake-cortex.png"
                 alt="Precision ABM Snowflake Cortex AI"
+                width="600"
+                height="400"
+                loading="lazy"
                 className={styles.bannerImg}
               />
               <div className={styles.colorTintLayer} style={{ backgroundColor: getCategoryTheme({ categories: ['Data Engineering'] }).tintColor, opacity: getCategoryTheme({ categories: ['Data Engineering'] }).overlayOpacity }} />
@@ -561,6 +571,9 @@ export default function HomePage() {
               <img
                 src="/images/case-studies/fluke-t40.png"
                 alt="Fluke Thermalert T40 Edge Gateway"
+                width="600"
+                height="400"
+                loading="lazy"
                 className={styles.bannerImg}
               />
               <div className={styles.colorTintLayer} style={{ backgroundColor: getCategoryTheme({ categories: ['Industry Automation'] }).tintColor, opacity: getCategoryTheme({ categories: ['Industry Automation'] }).overlayOpacity }} />
@@ -623,6 +636,9 @@ export default function HomePage() {
               <img
                 src="https://images.unsplash.com/photo-1565043589221-1a6fd9ae45c7?q=80&w=1000&auto=format&fit=crop"
                 alt="Manufacturing Industry"
+                width="800"
+                height="500"
+                loading="lazy"
                 className={styles.primaryMfgBgImg}
               />
               <div className={styles.mfgCardOverlay} />
@@ -661,11 +677,11 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 7. CASE STUDIES ACROSS DEEP TECH PILLARS */}
+      {/* 7. SUCCESS STORIES ACROSS DEEP TECH PILLARS */}
       <section className={styles.sectionSolutions}>
         <div className={styles.container}>
           <div className={styles.eyebrowGreen}>DEEP TECH IN PRACTICE</div>
-          <h2 className={styles.h2SolutionsTitle}>Case Studies Across Deep Tech</h2>
+          <h2 className={styles.h2SolutionsTitle}>Success Stories Across Deep Tech</h2>
 
           <div className={styles.solutionsTwoColGrid}>
             {otherPillarCaseStudies.map((cs) => (
@@ -691,8 +707,7 @@ export default function HomePage() {
               </div>
 
               <h2 className={styles.noCodeBannerHeadline}>
-                Describe It. Build It. Run It. <br />
-                <span className={styles.noCodeHeadlineGreen}>No-Code Enterprise Transformation</span>
+                Build &amp; Run with <span className={styles.noCodeHeadlineGreen}>No-Code Enterprise AI</span>
               </h2>
 
               <p className={styles.noCodeBannerSub}>
@@ -718,9 +733,6 @@ export default function HomePage() {
                 <Link href="/deep-tech/ai-no-code" className={styles.noCodePrimaryBtn}>
                   Explore No-Code Platform →
                 </Link>
-                {/* <Link href="/contact?type=demo" className={styles.noCodeSecondaryBtn}>
-                  Schedule a Demo
-                </Link> */}
               </div>
             </div>
           </div>

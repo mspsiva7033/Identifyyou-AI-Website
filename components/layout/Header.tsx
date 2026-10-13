@@ -94,7 +94,7 @@ export function Header({ logo, navItems = defaultNav, ctaButton }: HeaderProps) 
     <header ref={headerRef} className={`${styles.header} ${openDropdown ? styles.headerExpanded : ''}`}>
       <div className={styles.inner}>
         <Link href={brand.href} className={styles.logo} onClick={() => setOpenDropdown(null)}>
-          <img src="/images/identifYou_logo.png" alt="IdentifYou" className={styles.logoImg} />
+          <img src="/images/identifyou-logo.png" alt="IdentifYou" width="160" height="40" className={styles.logoImg} />
         </Link>
 
         {!isMobile && (

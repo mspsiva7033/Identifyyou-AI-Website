@@ -64,7 +64,7 @@ export function Footer({
   copyright,
 }: FooterProps) {
   const b = brand || { name: 'IdentifYou Technologies', tagline: 'Deep Tech. Built Around Business.' }
-  const c = contact || { email: 'ai.support@identifyyou.in', phone: '+91 9597046682' }
+  const c = contact || { email: 'ai.support@identifyyou.ai', phone: '+91 9597046682' }
   const copy = copyright || '© 2026 IdentifYou Technologies. All rights reserved.'
 
   return (
@@ -72,7 +72,7 @@ export function Footer({
       <div className={styles.inner}>
         <div className={styles.grid}>
           <div className={styles.brand}>
-            <img src="/images/identifYou_logo.png" alt="IdentifYou" style={{ height: '44px', width: 'auto', marginBottom: '16px' }} />
+            <img src="/images/identifyou-logo.png" alt="IdentifYou" width="180" height="44" style={{ height: '44px', width: 'auto', marginBottom: '16px' }} />
             <div className={styles.brandTag}>
               Deep Tech.
               <br />

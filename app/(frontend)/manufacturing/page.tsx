@@ -7,8 +7,12 @@ import { getManufacturingSolutions } from '@/lib/payload'
 import styles from './page.module.css'
 
 export const metadata: Metadata = {
-  title: 'Manufacturing — Engineering the Intelligent Factory',
-  description: 'From raw material to finished product, we connect machines, materials, people, processes and enterprise systems to create intelligent, connected manufacturing operations.',
+  title: 'Intelligent Factory & Manufacturing AI',
+  description:
+    'Connect machines, materials, people, and processes with Vision AI, IIoT edge computing, and automated shop floor execution.',
+  alternates: {
+    canonical: '/manufacturing',
+  },
 }
 
 const ecosystemFlow = ['Supplier', 'Procurement', 'Raw Material', 'Warehouse', 'Production', 'Quality', 'WIP', 'Inventory', 'Finished Goods', 'Logistics', 'Customer']
@@ -45,13 +49,21 @@ export default async function ManufacturingPage() {
 
       <section className={styles.hero}>
         <h1 className={styles.heroTitle}>Engineering the Intelligent Factory</h1>
-        <p className={styles.heroDesc}>From raw material to finished product, we connect machines, materials, people, processes and enterprise systems to create intelligent, connected manufacturing operations.</p>
+        <p className={styles.heroDesc}>
+          From raw material to finished product, we connect machines, materials, people, processes and enterprise systems to create intelligent, connected manufacturing operations.
+        </p>
       </section>
 
       <section className={styles.content}>
         {/* Factory Hero Image */}
         <div className={styles.factoryImgWrapper}>
-          <img src="/images/industry_automation_hero.png" alt="Intelligent Factory Banner" className={styles.factoryHeroImg} />
+          <img
+            src="/images/industry_automation_hero.png"
+            alt="Intelligent Factory Banner"
+            width="1200"
+            height="600"
+            className={styles.factoryHeroImg}
+          />
         </div>
 
         {/* Ecosystem */}
@@ -85,7 +97,13 @@ export default async function ManufacturingPage() {
             const extra = mfgSolutionsImages[m.title] || { img: '/images/industry_automation_hero.png', href: m.href || '/case-studies' }
             return (
               <div key={m.title} className={styles.solCard}>
-                <img src={extra.img} alt={m.title} className={styles.solCardImgTag} />
+                <img
+                  src={extra.img}
+                  alt={m.title}
+                  width="600"
+                  height="400"
+                  className={styles.solCardImgTag}
+                />
                 <div className={styles.solCardOverlay}>
                   <div className={styles.solCardTitle}>{m.title}</div>
                   <p className={styles.solCardTagline}>{m.tagline}</p>

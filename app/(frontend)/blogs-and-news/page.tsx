@@ -8,9 +8,12 @@ import styles from './page.module.css'
 export const dynamic = 'force-dynamic'
 
 export const metadata: Metadata = {
-  title: 'Blogs & News — IdentifYou Technologies',
+  title: 'Deep Tech Blogs & Industry Insights',
   description:
     'Insights, articles, and industry updates on Vision AI, Industrial Automation, Manufacturing Data Platforms, and Enterprise Deep Tech.',
+  alternates: {
+    canonical: '/blogs-and-news',
+  },
 }
 
 const articles: BlogArticleSummary[] = [
@@ -107,6 +110,9 @@ export default async function BlogsAndNewsPage() {
                     <img
                       src={article.image}
                       alt={article.title}
+                      width="600"
+                      height="340"
+                      loading="lazy"
                       className={styles.cardImage}
                     />
                   </div>

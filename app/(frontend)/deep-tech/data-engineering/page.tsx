@@ -7,9 +7,12 @@ import { FlowChain } from '@/components/ui/FlowChain'
 import styles from './page.module.css'
 
 export const metadata: Metadata = {
-  title: 'Data Engineering — From Enterprise Data to Business Intelligence | IdentifYou',
+  title: 'Enterprise Data Engineering & Lakehouse',
   description:
     'Connect, engineer and transform enterprise data into trusted, AI-ready intelligence with certified Snowflake experts.',
+  alternates: {
+    canonical: '/deep-tech/data-engineering',
+  },
 }
 
 const platformNodes = [
@@ -55,6 +58,8 @@ export default function DataEngineeringPage() {
         <img
           src="/images/snowflake_cortex_architecture.png"
           alt="Data Engineering Background"
+          width="1920"
+          height="1080"
           className={styles.heroBgImage}
         />
         <div className={styles.heroDarkOverlay} />
@@ -110,6 +115,9 @@ export default function DataEngineeringPage() {
               <img
                 src="/images/precision_abm_dashboard.png"
                 alt="Precision ABM scoring and targeting screen"
+                width="600"
+                height="400"
+                loading="lazy"
                 className={styles.realAbmImg}
               />
             </div>
@@ -140,6 +148,9 @@ export default function DataEngineeringPage() {
             <img
               src="/images/retail_inventory_dashboard.png"
               alt="Retail inventory dashboard powered by Snowflake"
+              width="600"
+              height="400"
+              loading="lazy"
               className={styles.realCsImg}
             />
           </div>
@@ -221,7 +232,10 @@ export default function DataEngineeringPage() {
           <div className={styles.diagramContainer}>
             <img
               src="/images/enterprise_data_platform_diagram.png"
-              alt="Enterprise data platform diagram: source systems, ingestion, Snowflake, transformation, governance, consumption layer"
+              alt="Enterprise data platform complete architecture diagram"
+              width="1200"
+              height="675"
+              loading="lazy"
               className={styles.realDiagramImg}
             />
           </div>

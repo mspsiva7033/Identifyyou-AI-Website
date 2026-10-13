@@ -5,9 +5,12 @@ import { Footer } from '@/components/layout/Footer'
 import styles from './page.module.css'
 
 export const metadata: Metadata = {
-  title: 'Industrial Robotics & Automation — IdentifYou Technologies',
+  title: 'Industrial Robotics & Automation',
   description:
     'Intelligent industrial robotic arms, automated pick-and-place, machine vision integration, and connected factory automation.',
+  alternates: {
+    canonical: '/industrial-robots',
+  },
 }
 
 const robotCapabilities = [

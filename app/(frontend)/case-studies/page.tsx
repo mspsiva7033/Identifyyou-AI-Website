@@ -6,8 +6,12 @@ import { CaseStudiesClient } from './CaseStudiesClient'
 import { getCaseStudies } from '@/lib/payload'
 
 export const metadata: Metadata = {
-  title: 'Success Stories — Deep Tech in the Real World',
-  description: 'Illustrative success stories showing AI-powered, Vision AI, Data Engineering and Industry Automation solutions in manufacturing, financial services and healthcare.',
+  title: 'Deep Tech Case Studies & Client Stories',
+  description:
+    'Explore enterprise case studies across Vision AI, industrial automation, predictive maintenance, and cloud data platforms.',
+  alternates: {
+    canonical: '/case-studies',
+  },
 }
 
 export default async function CaseStudiesPage() {
@@ -16,7 +20,16 @@ export default async function CaseStudiesPage() {
   return (
     <>
       <Header />
-      <Suspense fallback={null}>
+      <Suspense
+        fallback={
+          <div style={{ maxWidth: '960px', margin: '0 auto', padding: '72px 32px 24px', textAlign: 'center' }}>
+            <h1 style={{ fontSize: '42px', fontWeight: 800, color: '#0f172a' }}>
+              Deep Tech in the <span style={{ color: '#94C640' }}>Real World</span>
+            </h1>
+            <p style={{ color: '#64748b' }}>Enterprise case studies and technical success stories.</p>
+          </div>
+        }
+      >
         <CaseStudiesClient caseStudies={caseStudies} />
       </Suspense>
       <Footer />

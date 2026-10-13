@@ -256,7 +256,7 @@ export interface CaseStudy {
       }[]
     | null;
   /**
-   * Categories used for filtering on the case studies page
+   * Categories used for filtering on the success stories page
    */
   filterCategories?:
     | {
@@ -310,7 +310,7 @@ export interface CaseStudy {
     | boolean
     | null;
   /**
-   * Special call-to-action block for sub-case studies
+   * Special call-to-action block for sub-success stories
    */
   customCTA?:
     | {

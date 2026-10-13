@@ -7,9 +7,12 @@ import { CaseStudyCard } from '@/components/ui/CaseStudyCard'
 import styles from './page.module.css'
 
 export const metadata: Metadata = {
-  title: 'Engineering Digital Solutions That Drive Business | IdentifYou',
+  title: 'Enterprise Digital Engineering Solutions',
   description:
-    'We engineer digital solutions that simplify complexity and drive business value. Custom business applications, enterprise integrations, customer platforms, and low-code operational tools.',
+    'Custom business applications, enterprise integrations, customer platforms, and low-code operational tools built for performance.',
+  alternates: {
+    canonical: '/deep-tech/digital-engineering',
+  },
 }
 
 const techEcosystemPills = [
@@ -43,7 +46,7 @@ const digitalCaseStudies = [
     title: 'Overcoming Data Access Challenges in a Multi-Business Environment',
     tag: 'MULTI-BUSINESS DATA · BI ANALYTICS · DECISION MAKING',
     categories: ['Digital Engineering', 'Data'],
-    image: '/images/case-studies/overcoming-data-access-challenges-in-a-multi-business-environment-for-streamlined-decision-making.png',
+    image: '/images/case-studies/overcoming-data-access-challenges.png',
   },
 ]
 
@@ -57,6 +60,8 @@ export default function DigitalEngineeringPage() {
         <img
           src="/images/digital_engineering_hero.png"
           alt="Digital Engineering Background"
+          width="1920"
+          height="1080"
           className={styles.heroBgImage}
         />
         <div className={styles.heroDarkOverlay} />
@@ -73,7 +78,7 @@ export default function DigitalEngineeringPage() {
               <Link href="/contact" className={styles.btnPrimary}>
                 Talk to a Digital Engineering Expert
               </Link>
-              <Link href="/case-studies?filter=Digital+Engineering" className={styles.btnSecondaryDark}>
+              <Link href="/case-studies" className={styles.btnSecondaryDark}>
                 Explore Success Stories
               </Link>
             </div>
@@ -112,6 +117,8 @@ export default function DigitalEngineeringPage() {
                   <img
                     src="/images/case-studies/enhancing-the-rfq-process-in-d365-business-central.png"
                     alt="RFQ management dashboard with vendor comparison view"
+                    width="600"
+                    height="400"
                     className={styles.csImg}
                   />
                 </Link>

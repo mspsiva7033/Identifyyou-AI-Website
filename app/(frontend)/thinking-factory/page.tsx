@@ -6,9 +6,12 @@ import globalStyles from '../case-studies/[slug]/page.module.css'
 import customStyles from './page.module.css'
 
 export const metadata: Metadata = {
-  title: 'Turning an Existing Automotive Components Plant into a Thinking Factory | IdentifYou',
+  title: 'Automotive Thinking Factory Case Study',
   description:
-    'A Tier 2 automotive components group transformed its existing manufacturing environment into an intelligent operating system — connecting machines, materials, processes and enterprise systems.',
+    'How an automotive components plant transformed into an intelligent operating system connecting machines, materials, and enterprise systems.',
+  alternates: {
+    canonical: '/thinking-factory',
+  },
 }
 
 export default function ThinkingFactoryCaseStudyPage() {
@@ -24,12 +27,14 @@ export default function ThinkingFactoryCaseStudyPage() {
 
       <section className={globalStyles.content}>
         <div className={globalStyles.tagBadge}>SMART FACTORY · INDUSTRY AUTOMATION</div>
-        <h1 className={globalStyles.title}>Turning an Existing Automotive Components Plant into a Thinking Factory</h1>
+        <h1 className={globalStyles.title}>Turning Automotive Plants into Thinking Factories</h1>
 
         <div className={globalStyles.heroImgWrapper}>
           <img
             src="/images/industry_automation_hero.png"
             alt="Intelligent Manufacturing and Thinking Factory"
+            width="1200"
+            height="600"
             className={globalStyles.heroIllustration}
           />
         </div>
@@ -45,7 +50,7 @@ export default function ThinkingFactoryCaseStudyPage() {
           </div>
           <div className={globalStyles.metaBlockItem}>
             <span className={globalStyles.metaBlockLabel}>Type: </span>
-            <span className={globalStyles.metaBlockValue}>Transformation Case Study</span>
+            <span className={globalStyles.metaBlockValue}>Transformation Success Story</span>
           </div>
           <div className={globalStyles.metaBlockItem}>
             <span className={globalStyles.metaBlockLabel}>Scope: </span>
@@ -96,7 +101,7 @@ export default function ThinkingFactoryCaseStudyPage() {
               </p>
             </div>
             <div className={customStyles.card}>
-              <h4 className={customStyles.cardTitle}>Every Material & Movement</h4>
+              <h4 className={customStyles.cardTitle}>Every Material &amp; Movement</h4>
               <p className={customStyles.cardText}>
                 Materials, pallets, bins and WIP received digital identities and became traceable across the plant. RFID, QR and location technologies connected physical movement with material, production order, quantity, process and location.
               </p>
@@ -120,7 +125,7 @@ export default function ThinkingFactoryCaseStudyPage() {
               </p>
             </div>
             <div className={customStyles.card}>
-              <h4 className={customStyles.cardTitle}>Every Asset & System</h4>
+              <h4 className={customStyles.cardTitle}>Every Asset &amp; System</h4>
               <p className={customStyles.cardText}>
                 Machine behaviour was continuously observed through the intelligent edge for predictive maintenance. SAP, MES, WMS, QMS, and analytics were connected through a common architecture, creating bi-directional flow between enterprise intent and physical execution.
               </p>
@@ -272,9 +277,9 @@ export default function ThinkingFactoryCaseStudyPage() {
               <p style={{ color: '#94C640', textTransform: 'uppercase', letterSpacing: '0.05em', fontWeight: 'bold', fontSize: '14px', marginBottom: '8px' }}>
                 FROM AN EXISTING FACTORY
               </p>
-              <h2 style={{ color: '#ffffff', fontSize: '28px', fontWeight: 'bold', margin: '0 0 24px 0' }}>
+              <div style={{ color: '#ffffff', fontSize: '28px', fontWeight: 'bold', margin: '0 0 24px 0' }}>
                 TO AN INTELLIGENT THINKING FACTORY
-              </h2>
+              </div>
               <p style={{ color: '#94a3b8', fontSize: '16px', margin: 0 }}>
                 IdentifYou<br />
                 Intelligent Manufacturing. Connected Operations. Smarter Decisions.

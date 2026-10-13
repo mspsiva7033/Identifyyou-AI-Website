@@ -177,10 +177,26 @@ const sampleArticles: Record<string, ArticleDetail> = {
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
   const { slug } = await params
   const article = (await getBlogBySlug(slug)) || sampleArticles[slug]
-  if (!article) return { title: 'Blog Post — IdentifYou Insights' }
+  if (!article) return { title: 'Blog Post' }
+
+  const rawTitle = article.title
+  const seoTitle = rawTitle.length > 44 ? `${rawTitle.substring(0, 41)}...` : rawTitle
+
+  const rawDesc = article.overview || article.title
+  let seoDesc = rawDesc.replace(/\s+/g, ' ').trim()
+  if (seoDesc.length > 150) {
+    seoDesc = `${seoDesc.substring(0, 147)}...`
+  } else if (seoDesc.length < 80) {
+    seoDesc = `${seoDesc} Read full deep tech insights and industrial analysis from IdentifYou.`
+    if (seoDesc.length > 150) seoDesc = `${seoDesc.substring(0, 147)}...`
+  }
+
   return {
-    title: `${article.title} — IdentifYou Insights`,
-    description: article.overview,
+    title: seoTitle,
+    description: seoDesc,
+    alternates: {
+      canonical: `/blogs-and-news/${slug}`,
+    },
   }
 }
 
@@ -224,7 +240,14 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ slu
         </div>
 
         <div className={styles.heroImgWrapper}>
-          <img src={article.image || '/images/digital_engineering_hero.png'} alt={article.title} className={styles.heroImg} />
+          <img
+            src={article.image || '/images/digital_engineering_hero.png'}
+            alt={article.title}
+            width="1200"
+            height="630"
+            loading="lazy"
+            className={styles.heroImg}
+          />
         </div>
 
         <h2 className={styles.h2}>Overview</h2>

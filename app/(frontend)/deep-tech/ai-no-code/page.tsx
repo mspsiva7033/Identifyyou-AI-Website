@@ -7,9 +7,12 @@ import { FlowChain } from '@/components/ui/FlowChain'
 import styles from './page.module.css'
 
 export const metadata: Metadata = {
-  title: 'AI & No-Code Platform — Build Business Applications in Business Language',
+  title: 'AI No-Code Enterprise Platform',
   description:
-    'Build business applications from natural language and enterprise data—with seamless system integration.',
+    'Build production-ready enterprise applications from natural language and business data with automated AI workflows.',
+  alternates: {
+    canonical: '/deep-tech/ai-no-code',
+  },
 }
 
 const textToAppFlow = [
@@ -144,6 +147,8 @@ export default function AINoCodePage() {
         <img
           src="/images/ai_no_code_hero.png"
           alt="AI-Powered No-Code Platform Background"
+          width="1920"
+          height="1080"
           className={styles.heroBgImage}
         />
         <div className={styles.heroDarkOverlay} />
@@ -161,12 +166,6 @@ export default function AINoCodePage() {
             </div>
             {/* no code section */}
             <div className={styles.btnGroup}>
-              {/* <Link href="" className={styles.btnPrimary}>
-                Explore No-Code Platform
-              </Link> */}
-              {/* <Link href="/contact" className={styles.btnSecondaryDark}>
-                Schedule a Demo
-              </Link> */}
             </div>
           </div>
         </div>
@@ -175,7 +174,7 @@ export default function AINoCodePage() {
       {/* 2. MAIN INTRO SECTION */}
       <section className={styles.sectionIntro}>
         <h2 className={styles.introTitle}>
-          AI-Powered No-Code Platform — From Business Language &amp; Data to Applications
+          AI-Powered Enterprise No-Code Platform
         </h2>
         <p className={styles.introParagraph}>
           IdentifYou&apos;s AI-Powered No-Code Platform is an enterprise application platform that transforms business language, natural language and enterprise data into working applications—without traditional software development. With Text-to-Application and Data-to-Application, organizations can rapidly build business and industrial applications that integrate with ERP, MES, databases, APIs and third-party systems.
@@ -187,7 +186,7 @@ export default function AINoCodePage() {
         <div className={styles.container}>
           <div className={styles.centerHeader}>
             <div className={styles.eyebrowGreen}>CONCEPTUAL WORKFLOW ARCHITECTURE</div>
-            <h2 className={styles.sectionTitleDark}>From Business Language &amp; Enterprise Data to Live Applications</h2>
+            <h2 className={styles.sectionTitleDark}>From Business Intent to Live Applications</h2>
             <p className={styles.sectionDescLight}>
               Eliminate traditional software development bottlenecks. Our AI engine parses business intent and enterprise schemas to generate production-ready applications.
             </p>
@@ -272,6 +271,9 @@ export default function AINoCodePage() {
                     <img
                       src={`/images/case-studies/${cs.slug}.svg`}
                       alt={cs.title}
+                      width="600"
+                      height="400"
+                      loading="lazy"
                       className={styles.csImg}
                     />
                   </div>
