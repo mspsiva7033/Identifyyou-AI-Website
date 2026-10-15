@@ -147,15 +147,22 @@ NEXT_PUBLIC_UMAMI_HOST_URL=https://analytics.yourdomain.com
 NEXT_PUBLIC_UMAMI_WEBSITE_ID=
 
 # ----------------------------------------------------------------------
-# 5. HOSTINGER EMAIL / SMTP
+# 5. EMAIL NOTIFICATIONS (Microsoft Graph API & Optional SMTP)
 # ----------------------------------------------------------------------
+MS_GRAPH_TENANT_ID=your_azure_tenant_id_here
+MS_GRAPH_CLIENT_ID=your_azure_client_id_here
+MS_GRAPH_CLIENT_SECRET=your_azure_client_secret_here
+MS_GRAPH_SENDER_EMAIL=notifications@yourdomain.com
+CONTACT_EMAIL_TO=office@yourdomain.com
+MS_GRAPH_SAVE_TO_SENT_ITEMS=true
+
+# Optional: Hostinger SMTP (for Payload admin recovery)
 SMTP_HOST=smtp.hostinger.com
 SMTP_PORT=465
 SMTP_SECURE=true
 SMTP_USER=contact@yourdomain.com
 SMTP_PASS=your_hostinger_mailbox_password
 SMTP_FROM=contact@yourdomain.com
-CONTACT_EMAIL_TO=office@yourdomain.com
 ```
 
 Save and exit (`Ctrl+O`, `Enter`, `Ctrl+X`).

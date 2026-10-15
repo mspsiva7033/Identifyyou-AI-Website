@@ -192,15 +192,22 @@ NEXT_PUBLIC_UMAMI_HOST_URL=https://analytics.yourdomain.com
 NEXT_PUBLIC_UMAMI_WEBSITE_ID=
 
 # ----------------------------------------------------------------------
-# EMAIL / SMTP (Contact Form & Notifications)
+# CONTACT FORM NOTIFICATIONS (Microsoft Graph API)
 # ----------------------------------------------------------------------
+MS_GRAPH_TENANT_ID=your_azure_tenant_id_here
+MS_GRAPH_CLIENT_ID=your_azure_client_id_here
+MS_GRAPH_CLIENT_SECRET=your_azure_client_secret_here
+MS_GRAPH_SENDER_EMAIL=notifications@yourdomain.com
+CONTACT_EMAIL_TO=office@yourdomain.com
+MS_GRAPH_SAVE_TO_SENT_ITEMS=true
+
+# Optional: SMTP for Payload admin account recovery
 SMTP_HOST=smtp.hostinger.com
 SMTP_PORT=465
 SMTP_SECURE=true
 SMTP_USER=contact@yourdomain.com
 SMTP_PASS=your_email_password
 SMTP_FROM=contact@yourdomain.com
-CONTACT_EMAIL_TO=office@yourdomain.com
 
 # ----------------------------------------------------------------------
 # DATABASE BACKUPS

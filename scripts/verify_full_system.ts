@@ -1,3 +1,23 @@
+import fs from 'fs'
+import path from 'path'
+
+// Load .env or .env.local if DATABASE_URI is missing
+if (!process.env.DATABASE_URI) {
+  for (const envFile of ['.env', '.env.local']) {
+    const envPath = path.resolve(process.cwd(), envFile)
+    if (fs.existsSync(envPath)) {
+      const envContent = fs.readFileSync(envPath, 'utf8')
+      envContent.split(/\r?\n/).forEach((line) => {
+        const match = line.match(/^\s*([^#=]+)\s*=\s*(.*)$/)
+        if (match && !process.env[match[1].trim()]) {
+          process.env[match[1].trim()] = match[2].trim()
+        }
+      })
+      break
+    }
+  }
+}
+
 import { getDbPool } from '../lib/db-pool'
 import { getDatabaseConfig } from '../lib/db-config'
 

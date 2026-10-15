@@ -75,6 +75,7 @@ export interface Config {
     'deep-tech-capabilities': DeepTechCapability;
     'contact-submissions': ContactSubmission;
     'blogs-and-news': BlogsAndNew;
+    'leadership-team': LeadershipTeam;
     'payload-kv': PayloadKv;
     'payload-locked-documents': PayloadLockedDocument;
     'payload-preferences': PayloadPreference;
@@ -90,6 +91,7 @@ export interface Config {
     'deep-tech-capabilities': DeepTechCapabilitiesSelect<false> | DeepTechCapabilitiesSelect<true>;
     'contact-submissions': ContactSubmissionsSelect<false> | ContactSubmissionsSelect<true>;
     'blogs-and-news': BlogsAndNewsSelect<false> | BlogsAndNewsSelect<true>;
+    'leadership-team': LeadershipTeamSelect<false> | LeadershipTeamSelect<true>;
     'payload-kv': PayloadKvSelect<false> | PayloadKvSelect<true>;
     'payload-locked-documents': PayloadLockedDocumentsSelect<false> | PayloadLockedDocumentsSelect<true>;
     'payload-preferences': PayloadPreferencesSelect<false> | PayloadPreferencesSelect<true>;
@@ -475,6 +477,40 @@ export interface BlogsAndNew {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "leadership-team".
+ */
+export interface LeadershipTeam {
+  id: number;
+  name: string;
+  role: string;
+  /**
+   * Category / Department for this team member
+   */
+  category?:
+    | (
+        | 'Executive Leadership'
+        | 'Technology & Operations'
+        | 'Data & AI Engineering'
+        | 'Digital Engineering'
+        | 'Industrial Automation & IIOT'
+        | 'Advisory Board'
+      )
+    | null;
+  experience?: string | null;
+  /**
+   * Upload a portrait photo. Recommended aspect ratio 4:5 or 1:1 square.
+   */
+  photo?: (number | null) | Media;
+  /**
+   * Order in which this person appears on the About page (1, 2, 3...)
+   */
+  displayOrder?: number | null;
+  status?: ('published' | 'draft') | null;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "payload-kv".
  */
 export interface PayloadKv {
@@ -528,6 +564,10 @@ export interface PayloadLockedDocument {
     | ({
         relationTo: 'blogs-and-news';
         value: number | BlogsAndNew;
+      } | null)
+    | ({
+        relationTo: 'leadership-team';
+        value: number | LeadershipTeam;
       } | null);
   globalSlug?: string | null;
   user: {
@@ -833,6 +873,21 @@ export interface BlogsAndNewsSelect<T extends boolean = true> {
   updatedAt?: T;
   createdAt?: T;
   _status?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "leadership-team_select".
+ */
+export interface LeadershipTeamSelect<T extends boolean = true> {
+  name?: T;
+  role?: T;
+  category?: T;
+  experience?: T;
+  photo?: T;
+  displayOrder?: T;
+  status?: T;
+  updatedAt?: T;
+  createdAt?: T;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema

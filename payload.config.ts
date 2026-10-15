@@ -35,6 +35,7 @@ import { ManufacturingSolutions } from './payload/collections/ManufacturingSolut
 import { DeepTechCapabilities } from './payload/collections/DeepTechCapabilities'
 import { ContactSubmissions } from './payload/collections/ContactSubmissions'
 import { BlogsAndNews } from './payload/collections/BlogsAndNews'
+import { LeadershipTeam } from './payload/collections/LeadershipTeam'
 
 import { HeaderGlobal } from './payload/globals/Header'
 import { FooterGlobal } from './payload/globals/Footer'
@@ -108,6 +109,7 @@ export default buildConfig({
     DeepTechCapabilities,
     ContactSubmissions,
     BlogsAndNews,
+    LeadershipTeam,
   ],
   globals: [
     HeaderGlobal,
@@ -122,6 +124,7 @@ export default buildConfig({
   },
   db: postgresAdapter({
     pool: getPoolConfig(),
+    push: false,
     prodMigrations: migrations,
     migrationDir: path.resolve(dirname, 'migrations'),
   }),

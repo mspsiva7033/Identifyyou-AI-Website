@@ -1,45 +1,24 @@
 import type { CollectionConfig, CollectionAfterChangeHook } from 'payload'
-import nodemailer from 'nodemailer'
+import { sendContactNotification } from '../../lib/email'
 
 const sendEmailHook: CollectionAfterChangeHook = async ({ doc, operation }) => {
   if (operation === 'create') {
-    const { name, email, company, selectedPath, message } = doc
-
-    if (process.env.SMTP_HOST && process.env.SMTP_USER && process.env.SMTP_PASS && process.env.CONTACT_EMAIL_TO) {
-      try {
-        const transporter = nodemailer.createTransport({
-          host: process.env.SMTP_HOST,
-          port: parseInt(process.env.SMTP_PORT || '587', 10),
-          secure: process.env.SMTP_SECURE === 'true', // true for 465, false for other ports
-          auth: {
-            user: process.env.SMTP_USER,
-            pass: process.env.SMTP_PASS,
-          },
-        })
-
-        const mailOptions = {
-          from: process.env.SMTP_FROM || process.env.SMTP_USER,
-          to: process.env.CONTACT_EMAIL_TO,
-          subject: `New Contact Submission from ${name}`,
-          text: `
-You have received a new contact submission:
-
-Name: ${name}
-Email: ${email}
-Company: ${company || 'N/A'}
-Selected Path: ${selectedPath || 'N/A'}
-Message:
-${message || 'N/A'}
-          `,
-        }
-
-        await transporter.sendMail(mailOptions)
-        console.log(`Email successfully sent for contact submission from ${email}`)
-      } catch (error) {
-        console.error('Error sending contact submission email:', error)
-      }
-    } else {
-      console.warn('SMTP credentials or CONTACT_EMAIL_TO not configured. Skipping email notification.')
+    try {
+      await sendContactNotification({
+        name: doc.name,
+        email: doc.email,
+        company: doc.company,
+        selectedPath: doc.selectedPath,
+        message: doc.message,
+        utmSource: doc.utmSource,
+        utmMedium: doc.utmMedium,
+        utmCampaign: doc.utmCampaign,
+        utmTerm: doc.utmTerm,
+        utmContent: doc.utmContent,
+        referrer: doc.referrer,
+      })
+    } catch (error) {
+      console.error('Error sending contact submission notification via Microsoft Graph API:', error)
     }
   }
 }

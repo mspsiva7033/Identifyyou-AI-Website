@@ -5558,3 +5558,174 @@ export async function getBlogBySlug(slug: string): Promise<BlogArticleDetail | n
   }
   return null
 }
+
+export interface LeadershipTeamMember {
+  id?: string
+  name: string
+  role: string
+  category?: string
+  experience?: string
+  initials: string
+  image?: string
+}
+
+export const FALLBACK_LEADERSHIP_TEAM: LeadershipTeamMember[] = [
+  {
+    name: 'Sathesh (Ram) Seetharaman',
+    role: 'CEO',
+    category: 'Executive Leadership',
+    experience: 'Ex Honeywell, JCI, TCS, Infosys',
+    initials: 'SR',
+  },
+  {
+    name: 'Muthukanaga Lakshmi',
+    role: 'Senior Vice President, Technology & Operations',
+    category: 'Technology & Operations',
+    experience: 'Stanford Certified ML Professional',
+    initials: 'ML',
+  },
+  {
+    name: 'Shenbagaraman Gomathinayagam',
+    role: 'Director, Data & AI Engineering',
+    category: 'Data & AI Engineering',
+    experience: 'Ex Honeywell, Resideo',
+    initials: 'SG',
+  },
+  {
+    name: 'Srivisahanathan Karthikayan',
+    role: 'Director, AI & Digital Engineering',
+    category: 'Digital Engineering',
+    experience: 'Ex Honeywell, Oracle',
+    initials: 'SK',
+  },
+  {
+    name: 'Venkadesan Balasubramanian',
+    role: 'Director, Industrial Automation & IIOT',
+    category: 'Industrial Automation & IIOT',
+    experience: 'Ex Ramco, LML',
+    initials: 'VB',
+  },
+]
+
+export async function getLeadershipTeam(): Promise<LeadershipTeamMember[]> {
+  try {
+    const payload = await getPayloadClient()
+    if (!payload) return FALLBACK_LEADERSHIP_TEAM
+
+    const result = await payload.find({
+      collection: 'leadership-team' as any,
+      where: {
+        status: { equals: 'published' },
+      },
+      sort: 'displayOrder',
+      limit: 50,
+    })
+
+    if (!result.docs || result.docs.length === 0) {
+      return FALLBACK_LEADERSHIP_TEAM
+    }
+
+    const cmsMembers: LeadershipTeamMember[] = result.docs.map((doc: any) => {
+      const nameParts = (doc.name || '').trim().split(' ').filter(Boolean)
+      const initials =
+        nameParts.length >= 2
+          ? `${nameParts[0][0]}${nameParts[nameParts.length - 1][0]}`.toUpperCase()
+          : (doc.name || 'LT').substring(0, 2).toUpperCase()
+
+      let image: string | undefined = undefined
+      if (typeof doc.photo === 'string') {
+        image = doc.photo
+      } else if (doc.photo && typeof doc.photo === 'object') {
+        image = doc.photo.url || (doc.photo.filename ? `/media/${doc.photo.filename}` : undefined)
+      }
+
+      return {
+        id: String(doc.id),
+        name: doc.name,
+        role: doc.role,
+        category: doc.category,
+        experience: doc.experience,
+        initials,
+        image,
+      }
+    })
+
+    // If CMS has fewer than 5 members, fill remaining slots from FALLBACK_LEADERSHIP_TEAM
+    if (cmsMembers.length < FALLBACK_LEADERSHIP_TEAM.length) {
+      const existingNames = new Set(cmsMembers.map((m: any) => m.name.toLowerCase()))
+      for (const fallback of FALLBACK_LEADERSHIP_TEAM) {
+        if (!existingNames.has(fallback.name.toLowerCase())) {
+          cmsMembers.push(fallback)
+        }
+      }
+    }
+
+    return cmsMembers
+  } catch (error) {
+    console.warn('Failed to fetch leadership team from Payload CMS, using fallback data:', error)
+    return FALLBACK_LEADERSHIP_TEAM
+  }
+}
+
+export interface OfficeLocation {
+  country: string
+  label: string
+  lines: string[]
+}
+
+export interface AboutThankYouData {
+  title: string
+  website: string
+  websiteUrl: string
+  email: string
+  phone: string
+  offices: OfficeLocation[]
+}
+
+export const FALLBACK_ABOUT_THANK_YOU: AboutThankYouData = {
+  title: 'Thank You',
+  website: 'www.identifyyou.com',
+  websiteUrl: 'https://www.identifyyou.com',
+  email: 'ai.connect@identifyyou.in',
+  phone: '+91 95009 46929',
+  offices: [
+    {
+      country: 'UK',
+      label: 'UK OFFICE',
+      lines: [
+        'Flat 2, 3 Northwood Avenue, Purely,',
+        'London, UK CR8 2ER',
+      ],
+    },
+    {
+      country: 'India',
+      label: 'INDIA OFFICE',
+      lines: [
+        'B3 Pandikovil Ring Road, near ELCOT IT Park,',
+        'Madurai, Tamil Nadu, India 625107',
+      ],
+    },
+  ],
+}
+
+export async function getAboutThankYouData(): Promise<AboutThankYouData> {
+  try {
+    const payload = await getPayloadClient()
+    if (!payload) return FALLBACK_ABOUT_THANK_YOU
+
+    const footerData = await payload.findGlobal({ slug: 'footer' as any }).catch(() => null)
+    if (footerData && (footerData as any).contact) {
+      const c = (footerData as any).contact
+      const email = c.email && c.email !== 'ai.support@identifyyou.ai' ? c.email : FALLBACK_ABOUT_THANK_YOU.email
+      const phone = c.phone && c.phone !== '+91 9597046682' ? c.phone : FALLBACK_ABOUT_THANK_YOU.phone
+      return {
+        ...FALLBACK_ABOUT_THANK_YOU,
+        email,
+        phone,
+      }
+    }
+  } catch {
+    // Silently fall back to standard data
+  }
+  return FALLBACK_ABOUT_THANK_YOU
+}

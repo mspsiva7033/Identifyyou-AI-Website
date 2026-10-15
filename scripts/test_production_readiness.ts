@@ -219,6 +219,89 @@ test('In-app tracking and admin analytics endpoints exist', () => {
   assert(fs.existsSync(path.resolve(process.cwd(), 'lib/db-pool.ts')), 'Database pool singleton exists')
 })
 
+// ── 6. Microsoft Graph API Email Integration ──────────────────────────────────
+console.log('\n--- 6. Microsoft Graph API Contact Notifications ---')
+
+test('lib/email.ts exists and exports required methods', async () => {
+  const emailModulePath = path.resolve(process.cwd(), 'lib/email.ts')
+  assert(fs.existsSync(emailModulePath), 'lib/email.ts must exist')
+  const emailModule = await import('../lib/email')
+  assert(typeof emailModule.sendContactNotification === 'function', 'sendContactNotification exported')
+  assert(typeof emailModule.sendEmailViaMicrosoftGraph === 'function', 'sendEmailViaMicrosoftGraph exported')
+  assert(typeof emailModule.getMicrosoftGraphConfig === 'function', 'getMicrosoftGraphConfig exported')
+})
+
+test('getMicrosoftGraphConfig parses configuration and comma-separated recipients correctly', async () => {
+  const { getMicrosoftGraphConfig } = await import('../lib/email')
+
+  const originalEnv = { ...process.env }
+  try {
+    delete process.env.MS_GRAPH_TENANT_ID
+    delete process.env.AZURE_TENANT_ID
+    delete process.env.MS_GRAPH_CLIENT_ID
+    delete process.env.AZURE_CLIENT_ID
+    delete process.env.MS_GRAPH_CLIENT_SECRET
+    delete process.env.AZURE_CLIENT_SECRET
+    delete process.env.MS_GRAPH_SENDER_EMAIL
+    delete process.env.CONTACT_EMAIL_TO
+
+    assertEqual(getMicrosoftGraphConfig(), null, 'Should return null when env is unset')
+
+    process.env.MS_GRAPH_TENANT_ID = 'test-tenant-123'
+    process.env.MS_GRAPH_CLIENT_ID = 'test-client-456'
+    process.env.MS_GRAPH_CLIENT_SECRET = 'test-secret-789'
+    process.env.MS_GRAPH_SENDER_EMAIL = 'notifications@identifyyou.com'
+    process.env.CONTACT_EMAIL_TO = 'office@identifyyou.com, team@identifyyou.com'
+
+    const config = getMicrosoftGraphConfig()
+    assert(config !== null, 'Config should not be null when set')
+    assertEqual(config!.tenantId, 'test-tenant-123', 'Tenant ID matches')
+    assertEqual(config!.clientId, 'test-client-456', 'Client ID matches')
+    assertEqual(config!.clientSecret, 'test-secret-789', 'Secret matches')
+    assertEqual(config!.senderEmail, 'notifications@identifyyou.com', 'Sender matches')
+    assertEqual(config!.recipientEmails, ['office@identifyyou.com', 'team@identifyyou.com'], 'Parsed recipients list')
+    assertEqual(config!.saveToSentItems, true, 'Default saveToSentItems is true')
+  } finally {
+    process.env = originalEnv
+  }
+})
+
+test('sendContactNotification fails gracefully without crashing when credentials are not configured', async () => {
+  const { sendContactNotification } = await import('../lib/email')
+  const originalEnv = { ...process.env }
+  try {
+    delete process.env.MS_GRAPH_TENANT_ID
+    delete process.env.AZURE_TENANT_ID
+    delete process.env.MS_GRAPH_CLIENT_ID
+    delete process.env.AZURE_CLIENT_ID
+
+    const result = await sendContactNotification({
+      name: 'Test Lead',
+      email: 'lead@enterprise.com',
+      company: 'Enterprise Inc',
+      message: 'Interested in Vision AI',
+    })
+    assertEqual(result.success, false, 'Result success should be false')
+    assert(Boolean(result.error), 'Error message is returned')
+  } finally {
+    process.env = originalEnv
+  }
+})
+
+test('ContactSubmissions collection uses sendContactNotification instead of nodemailer', () => {
+  const contactCollectionFile = fs.readFileSync(
+    path.resolve(process.cwd(), 'payload/collections/ContactSubmissions.ts'),
+    'utf8'
+  )
+  assert(contactCollectionFile.includes('sendContactNotification'), 'Hook calls sendContactNotification')
+  assert(!contactCollectionFile.includes('nodemailer'), 'Nodemailer removed from ContactSubmissions collection')
+})
+
+test('app/api/contact/route.ts includes fallback sendContactNotification', () => {
+  const routeFile = fs.readFileSync(path.resolve(process.cwd(), 'app/api/contact/route.ts'), 'utf8')
+  assert(routeFile.includes('sendContactNotification'), 'Contact route includes sendContactNotification')
+})
+
 console.log('\n======================================================')
 console.log(`📊 Test Results: ${passedTests} passed, ${failedTests} failed`)
 console.log('======================================================\n')

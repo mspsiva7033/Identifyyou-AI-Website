@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "postinstall": "node scripts/patch-payload-hydration.js",
-    "dev": "next dev",
+    "dev": "next dev --webpack",
     "build": "next build",
     "start": "node --import tsx/esm scripts/init_tables.ts && next start",
     "db:init": "node --import tsx/esm scripts/init_tables.ts",
@@ -21,7 +21,8 @@
     "db:migrate:down": "node --import tsx/esm ./node_modules/payload/bin.js migrate:down",
     "test": "node --import tsx/esm scripts/test_production_readiness.ts",
     "test:prod": "node --import tsx/esm scripts/test_production_readiness.ts",
-    "test:e2e": "node --env-file=.env.local --import tsx/esm scripts/verify_full_system.ts"
+    "test:e2e": "node --env-file=.env.local --import tsx/esm scripts/verify_full_system.ts",
+    "email:test": "node --import tsx/esm scripts/test_email.ts"
   },
   "dependencies": {
     "@google-analytics/data": "^7.2.1",

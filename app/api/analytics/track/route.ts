@@ -65,10 +65,9 @@ export async function POST(req: NextRequest) {
     const utmTerm = utms?.term || null
     const utmContent = utms?.content || null
 
-    // 3. Insert asynchronously into PostgreSQL
+    // 3. Insert into PostgreSQL with transient retry logic
     const pool = getDbPool()
-    await pool.query(
-      `INSERT INTO analytics_events (
+    const insertQuery = `INSERT INTO analytics_events (
         event_name,
         path,
         title,
@@ -85,31 +84,60 @@ export async function POST(req: NextRequest) {
         utm_term,
         utm_content,
         metadata
-      ) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16)`,
-      [
-        eventName.slice(0, 100),
-        path,
-        title ? title.slice(0, 500) : null,
-        referrer ? referrer.slice(0, 500) : null,
-        visitorId,
-        sessionId ? sessionId.slice(0, 64) : null,
-        deviceCategory,
-        browser,
-        os,
-        country,
-        utmSource ? utmSource.slice(0, 100) : null,
-        utmMedium ? utmMedium.slice(0, 100) : null,
-        utmCampaign ? utmCampaign.slice(0, 100) : null,
-        utmTerm ? utmTerm.slice(0, 100) : null,
-        utmContent ? utmContent.slice(0, 100) : null,
-        JSON.stringify(enrichedMetadata),
-      ]
-    )
+      ) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16)`
+
+    const insertValues = [
+      eventName.slice(0, 100),
+      path,
+      title ? title.slice(0, 500) : null,
+      referrer ? referrer.slice(0, 500) : null,
+      visitorId,
+      sessionId ? sessionId.slice(0, 64) : null,
+      deviceCategory,
+      browser,
+      os,
+      country,
+      utmSource ? utmSource.slice(0, 100) : null,
+      utmMedium ? utmMedium.slice(0, 100) : null,
+      utmCampaign ? utmCampaign.slice(0, 100) : null,
+      utmTerm ? utmTerm.slice(0, 100) : null,
+      utmContent ? utmContent.slice(0, 100) : null,
+      JSON.stringify(enrichedMetadata),
+    ]
+
+    try {
+      await pool.query(insertQuery, insertValues)
+    } catch (dbErr: any) {
+      // Check for transient network or DNS failures (e.g. ENOTFOUND, EAI_AGAIN, ECONNRESET, ETIMEDOUT)
+      const isTransient =
+        dbErr?.code === 'ENOTFOUND' ||
+        dbErr?.code === 'EAI_AGAIN' ||
+        dbErr?.code === 'ECONNRESET' ||
+        dbErr?.code === 'ETIMEDOUT' ||
+        dbErr?.message?.includes('ENOTFOUND') ||
+        dbErr?.message?.includes('getaddrinfo')
+
+      if (isTransient) {
+        // Wait 250ms and attempt one quick retry in case of a temporary DNS/Wi-Fi glitch
+        await new Promise((res) => setTimeout(res, 250))
+        try {
+          await pool.query(insertQuery, insertValues)
+          return NextResponse.json({ success: true, retried: true })
+        } catch (retryErr: any) {
+          console.warn('[Analytics Warning] Telemetry event dropped due to network/DNS resolution:', retryErr?.message || retryErr)
+          // Telemetry endpoints should never return 500 or crash browser clients
+          return NextResponse.json({ success: false, dropped: true, reason: 'network_unavailable' }, { status: 200 })
+        }
+      }
+
+      console.warn('[Analytics Warning] Analytics event could not be saved:', dbErr?.message || dbErr)
+      return NextResponse.json({ success: false, dropped: true }, { status: 200 })
+    }
 
     return NextResponse.json({ success: true })
-  } catch (err) {
-    // Analytics endpoints should fail silently without crashing client requests
-    console.error('Analytics tracking error:', err)
-    return NextResponse.json({ success: false, error: 'Failed to record event' }, { status: 500 })
+  } catch (err: any) {
+    // Analytics endpoints should fail gracefully without crashing client requests
+    console.warn('[Analytics Warning] Error processing tracking payload:', err?.message || err)
+    return NextResponse.json({ success: false, dropped: true }, { status: 200 })
   }
 }

@@ -10,18 +10,27 @@ declare global {
  * Returns a singleton pg.Pool instance for direct SQL queries in Next.js
  */
 export function getDbPool(): pg.Pool {
-  if (!globalThis.__pgPool) {
-    const config = getPoolConfig()
+  const config = getPoolConfig()
+  const connStr = config.connectionString || ''
+  const poolKey = `${connStr}::${JSON.stringify(config.ssl)}`
+  
+  if (!globalThis.__pgPool || (globalThis as any).__lastPoolKey !== poolKey) {
+    if (globalThis.__pgPool) {
+      try { globalThis.__pgPool.end() } catch {}
+    }
+    const host = connStr.split('@')[1]?.split('/')[0] || 'localhost'
+    console.log(`[DB Pool] Initializing pool for host: ${host}`)
     globalThis.__pgPool = new pg.Pool({
-      connectionString: config.connectionString,
+      connectionString: connStr,
       ssl: config.ssl,
       max: 10,
       idleTimeoutMillis: 30000,
       connectionTimeoutMillis: 10000,
     })
+    ;(globalThis as any).__lastPoolKey = poolKey
 
     globalThis.__pgPool.on('error', (err) => {
-      console.error('Unexpected error on idle pg client pool:', err)
+      console.warn('[DB Pool Warning] Background idle connection issue:', (err as any)?.message || err)
     })
   }
 
