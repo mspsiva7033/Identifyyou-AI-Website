@@ -104,6 +104,23 @@ async function syncAndInitTables() {
       }
 
       console.log('✅ PostgreSQL database tables and migrations verified successfully!')
+
+      // 5. Automatically seed initial case studies if the database has 0 case studies
+      try {
+        const csCheck = await payload.find({
+          collection: 'case-studies',
+          limit: 1,
+        })
+        if (!csCheck.docs || csCheck.docs.length === 0) {
+          console.log('🌱 No case studies found in database. Automatically seeding initial case studies...')
+          const { seed } = await import('./seed')
+          await seed()
+          console.log('✅ Initial database seed completed successfully!')
+        }
+      } catch (seedErr) {
+        console.warn('⚠️ Notice: Auto-seed skipped or encountered a non-fatal error:', seedErr instanceof Error ? seedErr.message : seedErr)
+      }
+
       process.exit(0)
     } catch (err: unknown) {
       if (client) {

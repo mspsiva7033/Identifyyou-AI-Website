@@ -5260,7 +5260,7 @@ export async function getPayloadClient() {
 export async function getCaseStudies(): Promise<CaseStudySummary[]> {
   try {
     const payload = await getPayloadClient()
-    if (!payload) return []
+    if (!payload) return FALLBACK_CASE_STUDIES
 
     const result = await payload.find({
       collection: 'case-studies',
@@ -5271,6 +5271,10 @@ export async function getCaseStudies(): Promise<CaseStudySummary[]> {
     const validDocs = (result.docs || []).filter(
       (doc: any) => doc.slug && doc.slug !== 'mollitia-fugit-similique-placeat' && doc.title && !doc.title.includes('Mollitia')
     )
+
+    if (validDocs.length === 0) {
+      return FALLBACK_CASE_STUDIES
+    }
 
     return validDocs.map((doc: any) => {
       const docCategoryName = typeof doc?.category === 'object' ? doc?.category?.name : null
@@ -5303,8 +5307,8 @@ export async function getCaseStudies(): Promise<CaseStudySummary[]> {
       }
     })
   } catch (error) {
-    console.error('Failed to fetch case studies from Payload CMS:', error)
-    return []
+    console.warn('Failed to fetch case studies from Payload CMS, using fallback data:', error)
+    return FALLBACK_CASE_STUDIES
   }
 }
 
@@ -5318,7 +5322,7 @@ export async function getCaseStudyBySlug(slug: string): Promise<CaseStudyDetail 
 
   try {
     const payload = await getPayloadClient()
-    if (!payload) return null
+    if (!payload) return FALLBACK_CASE_STUDIES_MAP[normalizedSlug] || null
 
     const result = await payload.find({
       collection: 'case-studies',
@@ -5329,12 +5333,12 @@ export async function getCaseStudyBySlug(slug: string): Promise<CaseStudyDetail 
     })
 
     if (!result.docs || result.docs.length === 0) {
-      return null
+      return FALLBACK_CASE_STUDIES_MAP[normalizedSlug] || null
     }
 
     const doc: any = result.docs[0]
     if (doc.slug === 'mollitia-fugit-similique-placeat' || !doc.title || doc.title.includes('Mollitia')) {
-      return null
+      return FALLBACK_CASE_STUDIES_MAP[normalizedSlug] || null
     }
 
     const uploadedIllustration =
@@ -5382,11 +5386,11 @@ export async function getCaseStudyBySlug(slug: string): Promise<CaseStudyDetail 
         outcome: s.outcome || '',
       })) || [],
       technologyUsed: doc.detail?.technologyUsed || doc.summary?.tech || '',
-      more: moreFromCms,
+      more: moreFromCms.length > 0 ? moreFromCms : (FALLBACK_CASE_STUDIES_MAP[normalizedSlug]?.more || []),
     }
   } catch (error) {
-    console.error(`Failed to fetch case study ${slug} from Payload CMS:`, error)
-    return null
+    console.warn(`Failed to fetch case study ${slug} from Payload CMS, using fallback data:`, error)
+    return FALLBACK_CASE_STUDIES_MAP[normalizedSlug] || null
   }
 }
 
