@@ -24,6 +24,7 @@ FROM base AS deps
 WORKDIR /app
 
 COPY package.json package-lock.json ./
+COPY scripts ./scripts
 # Install dependencies cleanly
 RUN npm install --no-audit --no-fund
 
