@@ -25,8 +25,9 @@ WORKDIR /app
 
 COPY package.json package-lock.json ./
 COPY scripts ./scripts
-# Install dependencies cleanly
-RUN npm install --no-audit --no-fund
+# Install dependencies cleanly without lifecycle script interruptions
+RUN npm install --no-audit --no-fund --ignore-scripts
+RUN node scripts/patch-payload-hydration.js
 
 # ----------------------------------------------------------------------
 # Builder Layer
