@@ -1,0 +1,569 @@
+.page {
+  background-color: #FAFAF8;
+  color: #12181B;
+  min-height: 100vh;
+  font-family: 'IBM Plex Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  line-height: 1.6;
+}
+
+.articleContainer {
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 40px 24px 96px;
+}
+
+.breadcrumb {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  font-size: 13.5px;
+  color: #64748B;
+  margin-bottom: 32px;
+}
+
+.breadcrumbLink {
+  color: #475569;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.breadcrumbLink:hover {
+  color: #94C640;
+}
+
+.breadcrumbCurrent {
+  color: #12181B;
+  font-weight: 600;
+}
+
+.breadcrumbSeparator {
+  color: #CBD5E1;
+  font-size: 12px;
+}
+
+.articleHeader {
+  margin-bottom: 36px;
+}
+
+.badgePill {
+  display: inline-block;
+  font-size: 11.5px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  color: #5B8A1C;
+  background: rgba(148, 198, 64, 0.15);
+  border: 1px solid rgba(148, 198, 64, 0.35);
+  padding: 6px 16px;
+  border-radius: 9999px;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+
+.articleTitle {
+  font-family: 'Manrope', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-weight: 800;
+  font-size: clamp(32px, 4.2vw, 48px);
+  color: #12181B;
+  line-height: 1.18;
+  letter-spacing: -0.02em;
+  margin: 0 0 20px;
+}
+
+.subtitleBox {
+  background: #0D1612;
+  border-left: 4px solid #94C640;
+  border-radius: 0 12px 12px 0;
+  padding: 22px 28px;
+  margin: 24px 0 32px;
+  box-shadow: 0 8px 24px rgba(13, 22, 18, 0.08);
+}
+
+.subtitleText {
+  font-size: clamp(17px, 2vw, 20px);
+  font-weight: 600;
+  color: #E2ECE5;
+  line-height: 1.5;
+  margin: 0;
+}
+
+.metaRow {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
+  font-size: 13.5px;
+  color: #5B6862;
+  padding-bottom: 24px;
+  border-bottom: 1px solid #E3E7E1;
+  margin-bottom: 36px;
+}
+
+.metaItem {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.metaDot {
+  width: 4px;
+  height: 4px;
+  background: #94C640;
+  border-radius: 50%;
+}
+
+.heroVisualBox {
+  width: 100%;
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid #E3E7E1;
+  background: #0D1612;
+  margin-bottom: 48px;
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.07);
+}
+
+.heroImg {
+  width: 100%;
+  height: auto;
+  max-height: 520px;
+  object-fit: cover;
+  display: block;
+}
+
+.heroCaption {
+  padding: 12px 20px;
+  font-size: 13px;
+  color: #A0B0A7;
+  background: #0D1612;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.captionTag {
+  color: #94C640;
+  font-weight: 700;
+}
+
+/* CONTENT SECTIONS */
+.sectionBlock {
+  margin-bottom: 48px;
+}
+
+.sectionHeader {
+  margin-bottom: 20px;
+}
+
+.eyebrow {
+  font-size: 11.5px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  color: #94C640;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+
+.sectionTitle {
+  font-family: 'Manrope', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-weight: 800;
+  font-size: clamp(24px, 3vw, 32px);
+  color: #12181B;
+  letter-spacing: -0.015em;
+  margin: 0;
+}
+
+.overviewCard {
+  background: #FFFFFF;
+  border: 1px solid #E3E7E1;
+  border-radius: 16px;
+  padding: 32px 36px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.02);
+}
+
+.overviewParagraph {
+  font-size: clamp(16.5px, 1.8vw, 18px);
+  line-height: 1.75;
+  color: #2B3530;
+  margin: 0 0 20px;
+}
+
+.overviewParagraph:last-child {
+  margin-bottom: 0;
+}
+
+.snowflakeCallout {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: rgba(148, 198, 64, 0.1);
+  border: 1px solid rgba(148, 198, 64, 0.35);
+  border-radius: 10px;
+  padding: 12px 20px;
+  font-size: 14px;
+  font-weight: 700;
+  color: #2B5718;
+  margin-top: 20px;
+}
+
+/* CARDS & GRIDS */
+.featuresGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+}
+
+.featureCard {
+  background: #FFFFFF;
+  border: 1px solid #E3E7E1;
+  border-radius: 14px;
+  padding: 26px 30px;
+  transition: all 0.25s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
+}
+
+.featureCard:hover {
+  border-color: #94C640;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
+}
+
+.featureCardHeader {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.featureDot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #94C640;
+  flex-shrink: 0;
+}
+
+.featureTitle {
+  font-family: 'Manrope', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-weight: 800;
+  font-size: 19px;
+  color: #12181B;
+  margin: 0;
+}
+
+.featureText {
+  font-size: 15.5px;
+  color: #4A5650;
+  line-height: 1.65;
+  margin: 0;
+}
+
+.featureSublist {
+  margin: 14px 0 0;
+  padding-left: 20px;
+  list-style-type: disc;
+}
+
+.featureSubitem {
+  font-size: 15px;
+  color: #334155;
+  line-height: 1.65;
+  margin-bottom: 8px;
+}
+
+.featureSubitem:last-child {
+  margin-bottom: 0;
+}
+
+.featureSubitem strong {
+  color: #12181B;
+}
+
+/* BENEFITS GRID */
+.benefitsGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 18px;
+}
+
+.benefitItem {
+  background: #FFFFFF;
+  border: 1px solid #E3E7E1;
+  border-radius: 12px;
+  padding: 20px 24px;
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.02);
+}
+
+.benefitIcon {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: rgba(148, 198, 64, 0.2);
+  color: #5B8A1C;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  font-weight: 900;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.benefitText {
+  font-size: 14.5px;
+  line-height: 1.6;
+  color: #4A5650;
+  margin: 0;
+}
+
+.benefitText strong {
+  color: #12181B;
+  font-weight: 800;
+}
+
+/* AUDIENCE GRID */
+.audienceGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+}
+
+.audienceCard {
+  background: #F5F7F4;
+  border: 1px solid #E3E7E1;
+  border-radius: 12px;
+  padding: 20px 24px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  font-size: 15px;
+  font-weight: 700;
+  color: #12181B;
+}
+
+.audienceBadge {
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  background: #0D1612;
+  color: #94C640;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  font-weight: 800;
+  flex-shrink: 0;
+}
+
+/* HOW IT WORKS STEPS */
+.stepsContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.stepRow {
+  background: #FFFFFF;
+  border: 1px solid #E3E7E1;
+  border-radius: 14px;
+  padding: 24px 28px;
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
+}
+
+.stepNumber {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  background: #94C640;
+  color: #0D1612;
+  font-family: 'Manrope', sans-serif;
+  font-size: 18px;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.stepContent {
+  flex: 1;
+}
+
+.stepTitle {
+  font-family: 'Manrope', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-weight: 800;
+  font-size: 17px;
+  color: #12181B;
+  margin: 0 0 6px;
+}
+
+.stepDesc {
+  font-size: 15px;
+  color: #4A5650;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* GET STARTED CTA BANNER */
+.getStartedCard {
+  background: #0D1612;
+  border: 1px solid rgba(148, 198, 64, 0.3);
+  border-radius: 20px;
+  padding: 48px 40px;
+  text-align: center;
+  color: #FFFFFF;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.25);
+  margin-top: 56px;
+}
+
+.getStartedTitle {
+  font-family: 'Manrope', sans-serif;
+  font-weight: 800;
+  font-size: clamp(26px, 3.2vw, 36px);
+  color: #FFFFFF;
+  margin: 0 0 16px;
+}
+
+.getStartedDesc {
+  font-size: 16.5px;
+  color: #A0B0A7;
+  max-width: 680px;
+  margin: 0 auto 28px;
+  line-height: 1.65;
+}
+
+.emailLink {
+  color: #94C640;
+  font-weight: 800;
+  text-decoration: underline;
+  transition: opacity 0.2s ease;
+}
+
+.emailLink:hover {
+  opacity: 0.85;
+}
+
+.btnGroup {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-bottom: 28px;
+}
+
+.btnPrimary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: #94C640;
+  color: #0D1612;
+  font-weight: 800;
+  font-size: 15px;
+  padding: 13px 30px;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: all 0.25s ease;
+  box-shadow: 0 4px 16px rgba(148, 198, 64, 0.3);
+  border: 1px solid #94C640;
+}
+
+.btnPrimary:hover {
+  background: #94C640;
+  border-color: #FFFFFF;
+  color: #FFFFFF !important;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(148, 198, 64, 0.55);
+}
+
+.btnSecondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  color: #FFFFFF;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  font-weight: 700;
+  font-size: 15px;
+  padding: 13px 30px;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.btnSecondary:hover {
+  border-color: #94C640;
+  color: #94C640;
+  background: rgba(148, 198, 64, 0.1);
+}
+
+.disclaimerText {
+  font-size: 13.5px;
+  font-style: italic;
+  color: #8E9F96;
+  max-width: 740px;
+  margin: 0 auto;
+  line-height: 1.6;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding-top: 20px;
+}
+
+/* CROSS-LINK CARD */
+.crossLinkBox {
+  background: #FFFFFF;
+  border: 1px solid #E3E7E1;
+  border-radius: 14px;
+  padding: 24px 30px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-top: 36px;
+}
+
+.crossLinkText {
+  font-size: 15px;
+  color: #4A5650;
+  margin: 0;
+}
+
+.crossLinkText strong {
+  color: #12181B;
+}
+
+.crossLinkBtn {
+  font-size: 14.5px;
+  font-weight: 800;
+  color: #94C640;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: transform 0.2s ease;
+}
+
+.crossLinkBtn:hover {
+  transform: translateX(3px);
+  text-decoration: underline;
+}
+
+/* RESPONSIVE */
+@media (max-width: 840px) {
+  .benefitsGrid,
+  .audienceGrid {
+    grid-template-columns: 1fr;
+  }
+  .articleContainer {
+    padding: 24px 16px 64px;
+  }
+  .getStartedCard {
+    padding: 36px 20px;
+  }
+}

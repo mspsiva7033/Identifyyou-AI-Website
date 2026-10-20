@@ -12,6 +12,8 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     '/deep-tech/ai-intelligent-business',
     '/deep-tech/ai-no-code',
     '/deep-tech/data-engineering',
+    '/deep-tech/data-engineering/kmat-manufacturer-price-model',
+    '/deep-tech/data-engineering/kmat-cost-model-app',
     '/deep-tech/digital-engineering',
     '/deep-tech/industry-automation',
     '/deep-tech/manufacturing',

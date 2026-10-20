@@ -141,6 +141,77 @@ export default function DataEngineeringPage() {
         </div>
       </section>
 
+      {/* 4B. KMAT BLOG-STYLE CONTENT MODELS CARDS */}
+      <section className={styles.sectionNews}>
+        <div className={styles.newsContainer}>
+          <div style={{ textAlign: 'center', marginBottom: '36px' }}>
+            <span className={styles.greenPillBadge}>KMAT APPLICATIONS</span>
+            <h2 className={styles.newsMainTitle} style={{ marginBottom: '14px' }}>
+              KMAT Cost-to-Price Simulation Models
+            </h2>
+            <p style={{ maxWidth: '720px', margin: '0 auto', fontSize: '15.5px', color: '#5B6862', lineHeight: '1.65' }}>
+              Explore our Snowflake-native applications designed to turn complex configuration rules and master data into accurate product costs and policy-governed prices.
+            </p>
+          </div>
+
+          <div className={styles.newsGrid}>
+            {/* Card 1: KMAT Manufacturer Price Model */}
+            <Link
+              href="/deep-tech/data-engineering/kmat-manufacturer-price-model"
+              className={styles.newsCard}
+            >
+              <div className={styles.newsImgBox}>
+                <img
+                  src="/images/kmat_manufacturer_price_model.png"
+                  alt="KMAT Manufacturer Price Model App"
+                  width="600"
+                  height="340"
+                  loading="lazy"
+                  className={styles.realNewsImg}
+                />
+              </div>
+              <div className={styles.newsBody}>
+                <div className={styles.newsTag}>PRICING MODEL · SNOWFLAKE NATIVE</div>
+                <h3 className={styles.newsTitle}>KMAT Manufacturer Price Model</h3>
+                <p className={styles.newsDesc}>
+                  Policy-driven prices, governed approvals, and controlled revenue leakage, powered by your own cost data in Snowflake. Turn simulated costs into policy-driven prices, score quote health, and route approvals.
+                </p>
+                <span className={styles.newsLink}>
+                  Read Article →
+                </span>
+              </div>
+            </Link>
+
+            {/* Card 2: KMAT Cost Model App */}
+            <Link
+              href="/deep-tech/data-engineering/kmat-cost-model-app"
+              className={styles.newsCard}
+            >
+              <div className={styles.newsImgBox}>
+                <img
+                  src="/images/kmat_cost_model_app.png"
+                  alt="KMAT Cost Model App"
+                  width="600"
+                  height="340"
+                  loading="lazy"
+                  className={styles.realNewsImg}
+                />
+              </div>
+              <div className={styles.newsBody}>
+                <div className={styles.newsTag}>COST SIMULATION · RULE-BASED</div>
+                <h3 className={styles.newsTitle}>KMAT Cost Model App</h3>
+                <p className={styles.newsDesc}>
+                  Accurate, explainable manufacturing costs and faster RFQ quotes, powered by your own data in Snowflake. Rule-based cost simulation, built-in scrap and commodity risk adjustments, and quote confidence scoring.
+                </p>
+                <span className={styles.newsLink}>
+                  Read Article →
+                </span>
+              </div>
+            </Link>
+          </div>
+        </div>
+      </section>
+
       {/* 5. FEATURED SUCCESS STORY SECTION (<Success Story>) */}
       <section className={styles.sectionCaseStudies}>
         <div className={styles.featuredCaseStudyCard}>
