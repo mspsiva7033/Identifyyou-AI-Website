@@ -2,7 +2,8 @@ import type { MetadataRoute } from 'next'
 import { getCaseStudies, getBlogsAndNews } from '@/lib/payload'
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://identifyyou.ai'
+  const rawUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://identifyyou.ai'
+  const baseUrl = rawUrl.includes('localhost') || rawUrl.includes('127.0.0.1') ? 'https://identifyyou.ai' : rawUrl
 
   const staticRoutes = [
     '',

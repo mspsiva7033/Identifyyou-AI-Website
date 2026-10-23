@@ -73,14 +73,7 @@ export function CaseStudiesClient({ caseStudies }: Props) {
         })
 
   return (
-    <div className={styles.mainWrapper}>
-      <section className={styles.hero}>
-        <h1 className={styles.heroTitle}>
-          Deep Tech in the <span className={styles.heroTitleGreen}>Real World</span>
-        </h1>
-        <p className={styles.heroSub}>Illustrative examples below — pending verified success stories from confirmed engagements.</p>
-      </section>
-
+    <>
       <section className={styles.content}>
         <div style={{ textAlign: 'center', marginBottom: '28px' }}>
           <h2 style={{ fontSize: '22px', fontWeight: 700, color: '#0f172a', margin: '0 0 8px' }}>
@@ -120,6 +113,6 @@ export function CaseStudiesClient({ caseStudies }: Props) {
           <div className={styles.noResults}>No success stories found for &ldquo;{filter}&rdquo;.</div>
         )}
       </section>
-    </div>
+    </>
   )
 }

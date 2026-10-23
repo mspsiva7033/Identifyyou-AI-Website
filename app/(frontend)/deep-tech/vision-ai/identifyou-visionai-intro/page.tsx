@@ -6,7 +6,7 @@ import { Footer } from '@/components/layout/Footer'
 import styles from '../page.module.css'
 
 export const metadata: Metadata = {
-  title: 'Vision AI Architecture & Intro',
+  title: 'Vision AI Industrial Inspection',
   description:
     'An introduction to IdentifYou VisionAI capabilities, architectural approach, and AI-powered visual inspection solutions for modern manufacturing.',
   alternates: {
@@ -43,13 +43,13 @@ export default function IdentifYouVisionAIIntroPage() {
           <div className={styles.eyebrowGreen}>CORE CAPABILITIES</div>
           <h2 className={styles.precisionTitle}>End-to-End Visual Intelligence Architecture</h2>
           <p className={styles.precisionDesc}>
-            From high-speed camera acquisition and custom optical lighting to edge AI model deployment and closed-loop PLC actuation, IdentifYou engineers production-grade systems built around your line speed and accuracy targets.
+            IdentifYou engineers production-grade vision systems built for demanding factory environments. We handle optical lighting, high-speed camera acquisition, edge neural networks, and closed-loop PLC actuation.
           </p>
           <p className={styles.precisionDesc} style={{ marginTop: '16px' }}>
-            Traditional computer vision depends on brittle rule-based filters that fail when ambient lighting shifts or minor surface scratches appear. Our deep learning vision models learn nuanced defect morphology across thousands of production samples. Sub-millimeter surface scratches, dimensional burrs, pinholes, and assembly misalignment are categorized within milliseconds at full line velocity.
+            Traditional computer vision relies on rigid threshold filters. These systems struggle when ambient light changes or minor surface scratches appear. Our deep learning models learn subtle defect patterns across thousands of samples. They categorize sub-millimeter scratches, dimensional burrs, pinholes, and misalignment in milliseconds.
           </p>
           <p className={styles.precisionDesc} style={{ marginTop: '16px' }}>
-            Edge compute controllers run optimized TensorRT inference engines on local hardware, completely decoupled from internet dependency. When an anomaly is detected, high-speed industrial I/O signals trigger automated reject gates or diverters before defective parts reach downstream assembly steps.
+            Edge controllers run optimized inference engines locally without relying on internet connections. When an anomaly is detected, high-speed industrial I/O signals trigger automated reject gates immediately. Defective parts are diverted before reaching downstream assembly steps.
           </p>
 
           <div className={styles.statMetricsGrid} style={{ marginTop: '32px' }}>
@@ -69,6 +69,15 @@ export default function IdentifYouVisionAIIntroPage() {
               <span className={styles.statMetricVal}>Zero Defect</span>
               <span className={styles.statMetricLabel}>Quality Assurance</span>
             </div>
+          </div>
+
+          <div style={{ marginTop: '40px' }}>
+            <h3 style={{ fontSize: '20px', fontWeight: 700, color: '#12181B', marginBottom: '12px' }}>
+              Four-Phase Vision AI Deployment Methodology
+            </h3>
+            <p className={styles.precisionDesc}>
+              Every Vision AI installation follows a rigorous industrial deployment lifecycle. First, our optical engineers design specialized wavelength lighting and telecentric lens configurations. Second, we curate real production image datasets to train optimized convolutional networks. Third, deep learning models are quantized and compiled onto edge inference hardware such as NVIDIA Jetson or TensorRT runtimes. Finally, hardware I/O lines are wired directly to PLC safety relays to execute sub-second reject triggering.
+            </p>
           </div>
         </div>
       </section>

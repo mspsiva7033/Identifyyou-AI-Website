@@ -50,7 +50,7 @@ export default async function ManufacturingPage() {
       <section className={styles.hero}>
         <h1 className={styles.heroTitle}>Engineering the Intelligent Factory</h1>
         <p className={styles.heroDesc}>
-          From raw material to finished product, we connect machines, materials, people, processes and enterprise systems to create intelligent, connected manufacturing operations.
+          We connect machines, materials, and operational processes across your shop floor. Our solutions unify enterprise systems to deliver intelligent, automated manufacturing.
         </p>
       </section>
 

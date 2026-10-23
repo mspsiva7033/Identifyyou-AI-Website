@@ -16,6 +16,8 @@ export const metadata: Metadata = {
   },
 }
 
+// SAFETY NET DISABLED: All blogs and news are strictly served from the backend Payload CMS database
+/*
 const articles: BlogArticleSummary[] = [
   {
     slug: 'ai-in-manufacturing-quality-inspection-2026',
@@ -78,13 +80,11 @@ const articles: BlogArticleSummary[] = [
     image: '/images/industry_automation_hero.png',
   },
 ]
+*/
 
 export default async function BlogsAndNewsPage() {
-  const cmsArticles = await getBlogsAndNews()
-  const displayArticles =
-    cmsArticles.length > 0
-      ? [...cmsArticles, ...articles.filter((a) => !cmsArticles.some((c) => c.slug === a.slug))]
-      : articles
+  // Strictly fetch from backend database (Payload CMS)
+  const displayArticles = await getBlogsAndNews()
 
   return (
     <div className={styles.page}>

@@ -20,7 +20,7 @@ export async function generateStaticParams() {
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
   const { slug } = await params
   const cs = await getCaseStudyBySlug(slug)
-  if (!cs) return { title: 'Success Story Not Found' }
+  if (!cs) return { title: 'Success Story Not Found — IdentifYou Case Studies' }
 
   const cleanTitle = cleanHeadingText(cs.title)
   // Ensure title stays under 45 chars so when appended with " | IdentifYou" (14 chars) it remains under 60 chars

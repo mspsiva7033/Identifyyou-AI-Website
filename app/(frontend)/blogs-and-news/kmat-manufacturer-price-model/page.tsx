@@ -1,1 +1,5 @@
-export { default, metadata } from '@/app/(frontend)/deep-tech/data-engineering/kmat-manufacturer-price-model/page'
+import { redirect } from 'next/navigation'
+
+export default function KmatManufacturerPriceModelRedirect() {
+  redirect('/deep-tech/data-engineering/kmat-manufacturer-price-model')
+}

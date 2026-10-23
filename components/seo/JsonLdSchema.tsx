@@ -9,7 +9,7 @@ export function JsonLdSchema() {
         '@id': 'https://identifyyou.ai/#organization',
         name: 'IdentifYou Technologies',
         url: 'https://identifyyou.ai',
-        logo: 'https://identifyyou.ai/images/logo.png',
+        logo: 'https://identifyyou.ai/images/identifyou-logo.png',
         description:
           'AI-powered solutions for intelligent manufacturing, connected industries and smarter businesses. Vision AI, Industry Automation, AI-Powered No-Code, Data Engineering and Digital Engineering.',
         address: [

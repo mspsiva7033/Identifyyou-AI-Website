@@ -78,13 +78,13 @@ export default function SupplyChainDeepTechPage() {
         <div className={styles.eyebrowGreen}>REAL-TIME VISIBILITY</div>
         <h2 className={styles.introTitle}>Unified Fleet &amp; Logistics Control</h2>
         <p className={styles.introParagraph}>
-          Modern supply chains require sub-second synchronization across suppliers, warehouses, fleets, and retail networks. IdentifYou engineers cloud data streaming pipelines and edge telemetry layers that convert raw spatial and ERP signals into actionable replenishment, routing, and risk management decisions.
+          Modern supply chains require fast synchronization across suppliers, warehouses, fleets, and retail hubs. IdentifYou engineers cloud data streaming pipelines and edge telemetry layers. Our systems convert raw spatial and ERP signals into actionable replenishment, routing, and risk management decisions.
         </p>
         <p className={styles.introParagraph} style={{ marginTop: '16px' }}>
-          By integrating GPS tracking, temperature logging, and RFID gate scans into a centralized cloud lakehouse, operations teams receive proactive warnings before delivery delays compromise assembly schedules. Automated dynamic routing models calculate optimal consignment itineraries based on historical traffic congestion, weather disruptions, and dock availability.
+          We integrate GPS tracking, temperature sensors, and RFID gate scans into a centralized cloud lakehouse. Operations teams receive proactive alerts before delivery delays compromise assembly schedules. Automated routing models calculate optimal consignment routes using historical traffic patterns, weather updates, and dock availability.
         </p>
         <p className={styles.introParagraph} style={{ marginTop: '16px' }}>
-          This unified transparency bridges enterprise resource planning with real-world shipping conditions. Supply chain leaders eliminate deadhead miles, safeguard perishable cargo integrity, and maintain minimal working capital while preserving 99.8% customer order fulfillment rates.
+          This transparency connects enterprise resource planning with real-world shipping conditions. Supply chain leaders eliminate deadhead miles and protect perishable cargo integrity. Companies maintain minimal working capital while preserving high on-time fulfillment rates.
         </p>
       </section>
 

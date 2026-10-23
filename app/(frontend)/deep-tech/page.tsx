@@ -25,7 +25,7 @@ export default async function DeepTechPage() {
           Deep Tech. <span className={styles.heroAccent}>Built Around Business.</span>
         </h1>
         <p className={styles.heroDesc}>
-          IdentifYou engineers deep technology architectures tailored directly to commercial priorities. We integrate computer vision inspection cells, industrial IoT sensor gateways, modern data lakehouses, and custom no-code enterprise software to turn operational complexity into measurable advantage.
+          IdentifYou engineers deep technology architectures tailored directly to commercial priorities. We integrate computer vision inspection cells with industrial IoT sensor gateways. We build modern data lakehouses and custom enterprise applications. Our solutions turn operational complexity into measurable competitive advantage.
         </p>
       </section>
 
@@ -34,8 +34,14 @@ export default async function DeepTechPage() {
           <h2 style={{ fontFamily: 'Manrope, sans-serif', fontWeight: 800, fontSize: '26px', color: '#12181B', margin: '0 0 8px' }}>
             Core Deep Tech Architecture &amp; Capabilities
           </h2>
-          <p style={{ color: '#5B6862', fontSize: '15.5px', margin: '0 0 24px', maxWidth: '780px' }}>
-            Each pillar addresses a specific operational bottleneck, combining physical edge telemetry, automated decision intelligence, and enterprise integrations.
+          <p style={{ color: '#5B6862', fontSize: '15.5px', margin: '0 0 16px', maxWidth: '780px' }}>
+            Each pillar addresses a specific operational bottleneck. We combine physical edge telemetry with automated decision intelligence and enterprise system integrations.
+          </p>
+          <p style={{ color: '#5B6862', fontSize: '15px', margin: '0 0 16px', maxWidth: '780px' }}>
+            Our engineering methodology bridges shop-floor machinery with corporate IT networks. We deploy hardened edge hardware running local neural networks alongside cloud analytics. Plants gain real-time visibility and automated quality assurance without latency or network disruptions.
+          </p>
+          <p style={{ color: '#5B6862', fontSize: '15px', margin: '0 0 24px', maxWidth: '780px' }}>
+            Across automotive assembly lines, discrete manufacturing facilities, and complex logistics networks, IdentifYou delivers production-tested systems. From micro-defect surface vision classification to Snowflake Cortex predictive pricing models, each implementation guarantees enterprise-grade security, deterministic latency, and auditable business ROI.
           </p>
         </div>
 
