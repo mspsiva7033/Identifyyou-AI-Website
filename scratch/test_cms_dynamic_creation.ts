@@ -39,7 +39,7 @@ async function verifyCmsCreationWorkflow() {
 
   const hasCategory = taxonomy.categories.includes(testCategory)
   const hasTopic = taxonomy.topics.includes(testTopic)
-  const articleUpdated = fetchedArticles.some((a) => a.id === testDoc.id || a.slug === testDoc.slug && a.category === testCategory)
+  const articleUpdated = fetchedArticles.some((a) => a.slug === testDoc.slug && a.category === testCategory)
 
   console.log(`- New Category "${testCategory}" detected dynamically:`, hasCategory ? 'PASS' : 'FAIL')
   console.log(`- New Topic "${testTopic}" detected dynamically:`, hasTopic ? 'PASS' : 'FAIL')
