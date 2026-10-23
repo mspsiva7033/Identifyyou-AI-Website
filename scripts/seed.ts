@@ -45,17 +45,17 @@ export async function seed() {
     }
   }
 
-  const manufacturingCat = await getOrCreateCategory({
-    name: 'Manufacturing',
-    slug: 'manufacturing',
-    description: 'Smart factory, MES, and connected manufacturing case studies.',
+  const visionCat = await getOrCreateCategory({
+    name: 'Vision AI',
+    slug: 'vision-ai',
+    description: 'Computer vision, surface inspection, and 3D metrology case studies.',
     displayOrder: 1,
   })
 
-  const supplyChainCat = await getOrCreateCategory({
-    name: 'Supply Chain',
-    slug: 'supply-chain',
-    description: 'Procurement, inventory and logistics case studies.',
+  const automationCat = await getOrCreateCategory({
+    name: 'Industry Automation',
+    slug: 'industry-automation',
+    description: 'Edge gateways, pyrometry, and IIoT automation case studies.',
     displayOrder: 2,
   })
 
@@ -66,39 +66,25 @@ export async function seed() {
     displayOrder: 3,
   })
 
-  const visionCat = await getOrCreateCategory({
-    name: 'Vision AI',
-    slug: 'vision-ai',
-    description: 'Computer vision, surface inspection, and 3D metrology case studies.',
-    displayOrder: 4,
-  })
-
-  const automationCat = await getOrCreateCategory({
-    name: 'Industry Automation',
-    slug: 'industry-automation',
-    description: 'Edge gateways, pyrometry, and IIoT automation case studies.',
-    displayOrder: 5,
-  })
-
   const noCodeCat = await getOrCreateCategory({
     name: 'AI-Powered No-Code Platform',
     slug: 'ai-no-code',
     description: 'Business-owned software, NLP prompt-to-app, and data connectors.',
-    displayOrder: 6,
+    displayOrder: 4,
   })
 
   const dataEngineeringCat = await getOrCreateCategory({
     name: 'Data Engineering',
     slug: 'data-engineering',
     description: 'Snowflake lakehouse, telemetry, Cortex AI, and Power BI apps.',
-    displayOrder: 7,
+    displayOrder: 5,
   })
 
   const digitalEngineeringCat = await getOrCreateCategory({
     name: 'Digital Engineering',
     slug: 'digital-engineering',
     description: 'Simulation models, enterprise portals, CRM extension, and microservices.',
-    displayOrder: 8,
+    displayOrder: 6,
   })
 
   const FULL_DOCX_MAP: Record<string, any> = {
