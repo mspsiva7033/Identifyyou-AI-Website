@@ -84,8 +84,12 @@ export interface DeepTechCapabilityItem {
   outcome: string
 }
 
-// Fallback Static Data
-export const FALLBACK_CASE_STUDIES: CaseStudySummary[] = [
+// SAFETY NET DISABLED: Case studies and blogs are strictly served from backend Payload CMS
+export const FALLBACK_CASE_STUDIES: CaseStudySummary[] = []
+export const FALLBACK_CASE_STUDIES_MAP: Record<string, CaseStudyDetail> = {}
+
+/*
+const PREVIOUS_FALLBACK_CASE_STUDIES: CaseStudySummary[] = [
   
   // --- AI-Powered No-Code Platform ---
   {
@@ -195,7 +199,7 @@ export const FALLBACK_CASE_STUDIES: CaseStudySummary[] = [
   },
   {
     slug: 'towards-zero-inventory-variance-ai',
-    title: 'Towards Zero Inventory Variance — Digitally Controlled Material Execution',
+    title: 'Towards Zero Inventory Variance — Digital Material Execution',
     tag: 'Automotive · AI & Intelligent Business · Material Execution',
     categories: ['AI & Intelligent Business', 'AI', 'Manufacturing', 'Supply Chain'],
     challenge: 'Physical material movements and digital inventory transactions lack synchronization at point of execution.',
@@ -276,8 +280,8 @@ export const FALLBACK_CASE_STUDIES: CaseStudySummary[] = [
     outcome: '50% reduction in ticket resolution time and unified order tracking.',
   },
   {
-    slug: 'overcoming-data-access-challenges-in-a-multi-business-environment-for-streamlined-decision-making',
-    title: 'Overcoming Data Access Challenges in a Multi-Business Environment for Streamlined Decision-Making',
+    slug: 'overcoming-data-access-challenges',
+    title: 'Overcoming Data Access Challenges for Streamlined Decision-Making',
     tag: 'Enterprise · Digital Engineering · Multi-Business Data Access',
     categories: ['Digital Engineering', 'Data', 'Enterprise'],
     challenge: 'Siloed data access across multiple business units hindering executive decision-making and cross-entity reporting.',
@@ -2728,7 +2732,7 @@ export const FALLBACK_CASE_STUDIES_MAP: Record<string, CaseStudyDetail> = {
   "tailored-enterprise-solutions": {
     "title": "Digital Engineering",
     "breadcrumb": "Digital Engineering",
-    "tag": "https://identifyyou.ai/tailored-enterprise-solutions/",
+    "tag": "Enterprise · Digital Engineering · Modern Architecture",
     "docItems": [
       {
         "type": "p",
@@ -2736,10 +2740,10 @@ export const FALLBACK_CASE_STUDIES_MAP: Record<string, CaseStudyDetail> = {
       },
       {
         "type": "p",
-        "text": "https://identifyyou.ai/tailored-enterprise-solutions/"
+        "text": "IdentifYou engineers microservices-driven enterprise applications tailored to complex operational workflows, converting legacy monoliths into scalable digital products."
       }
     ],
-    "technologyUsed": "",
+    "technologyUsed": "Next.js, React, Node.js, TypeScript, PostgreSQL, Docker, AWS",
     "more": []
   },
   "fluke-t40": {
@@ -5108,9 +5112,9 @@ export const FALLBACK_CASE_STUDIES_MAP: Record<string, CaseStudyDetail> = {
       }
     ]
   },
-  "overcoming-data-access-challenges-in-a-multi-business-environment-for-streamlined-decision-making": {
-    "title": "Overcoming Data Access Challenges in a Multi-Business Environment for Streamlined Decision-Making",
-    "breadcrumb": "Overcoming Data Access Challenges in a Multi-Business Environment for Streamlined Decision-Making",
+  "overcoming-data-access-challenges": {
+    "title": "Overcoming Data Access Challenges for Streamlined Decision-Making",
+    "breadcrumb": "Overcoming Data Access Challenges",
     "tag": "Enterprise · Digital Engineering · Multi-Business Data Access",
     "illustration": "/images/case-studies/overcoming-data-access-challenges.png",
     "overview": "In a multi-business and services environment, accessing decision-critical data spread across multiple enterprise systems poses significant challenges. Identifying the appropriate business functions for assigned tasks and issues is further complicated by tight SLAs and OLAs compliance targets, representing a major pain point for customers.",
@@ -5226,6 +5230,7 @@ export const FALLBACK_CASE_STUDIES_MAP: Record<string, CaseStudyDetail> = {
     ]
   }
 }
+*/
 
 export const FALLBACK_MANUFACTURING_SOLUTIONS: ManufacturingSolutionItem[] = [
   { title: 'Smart Factory', tagline: 'MES, production monitoring and digital shop-floor workflows.', href: '/case-studies' },
@@ -5260,7 +5265,7 @@ export async function getPayloadClient() {
 export async function getCaseStudies(): Promise<CaseStudySummary[]> {
   try {
     const payload = await getPayloadClient()
-    if (!payload) return FALLBACK_CASE_STUDIES
+    if (!payload) return []
 
     const result = await payload.find({
       collection: 'case-studies',
@@ -5273,7 +5278,7 @@ export async function getCaseStudies(): Promise<CaseStudySummary[]> {
     )
 
     if (validDocs.length === 0) {
-      return FALLBACK_CASE_STUDIES
+      return []
     }
 
     return validDocs.map((doc: any) => {
@@ -5307,8 +5312,8 @@ export async function getCaseStudies(): Promise<CaseStudySummary[]> {
       }
     })
   } catch (error) {
-    console.warn('Failed to fetch case studies from Payload CMS, using fallback data:', error)
-    return FALLBACK_CASE_STUDIES
+    console.error('Failed to fetch case studies from Payload CMS:', error)
+    return []
   }
 }
 
@@ -5316,13 +5321,14 @@ export async function getCaseStudyBySlug(slug: string): Promise<CaseStudyDetail 
   const slugAliases: Record<string, string> = {
     'optimizing-shipment-and-fleet-operations': 'optimizing-shipment-fleet-snowflake',
     'ai-powered-procurement': 'procurement-operations-intelligence',
+    'overcoming-data-access-challenges-in-a-multi-business-environment-for-streamlined-decision-making': 'overcoming-data-access-challenges',
   }
 
   const normalizedSlug = slugAliases[slug] || slug
 
   try {
     const payload = await getPayloadClient()
-    if (!payload) return FALLBACK_CASE_STUDIES_MAP[normalizedSlug] || null
+    if (!payload) return null
 
     const result = await payload.find({
       collection: 'case-studies',
@@ -5333,12 +5339,12 @@ export async function getCaseStudyBySlug(slug: string): Promise<CaseStudyDetail 
     })
 
     if (!result.docs || result.docs.length === 0) {
-      return FALLBACK_CASE_STUDIES_MAP[normalizedSlug] || null
+      return null
     }
 
     const doc: any = result.docs[0]
     if (doc.slug === 'mollitia-fugit-similique-placeat' || !doc.title || doc.title.includes('Mollitia')) {
-      return FALLBACK_CASE_STUDIES_MAP[normalizedSlug] || null
+      return null
     }
 
     const uploadedIllustration =
@@ -5386,11 +5392,11 @@ export async function getCaseStudyBySlug(slug: string): Promise<CaseStudyDetail 
         outcome: s.outcome || '',
       })) || [],
       technologyUsed: doc.detail?.technologyUsed || doc.summary?.tech || '',
-      more: moreFromCms.length > 0 ? moreFromCms : (FALLBACK_CASE_STUDIES_MAP[normalizedSlug]?.more || []),
+      more: moreFromCms,
     }
   } catch (error) {
-    console.warn(`Failed to fetch case study ${slug} from Payload CMS, using fallback data:`, error)
-    return FALLBACK_CASE_STUDIES_MAP[normalizedSlug] || null
+    console.error(`Failed to fetch case study ${slug} from Payload CMS:`, error)
+    return null
   }
 }
 
@@ -5688,8 +5694,8 @@ export interface AboutThankYouData {
 
 export const FALLBACK_ABOUT_THANK_YOU: AboutThankYouData = {
   title: 'Thank You',
-  website: 'www.identifyyou.com',
-  websiteUrl: 'https://www.identifyyou.com',
+  website: 'identifyyou.ai',
+  websiteUrl: 'https://identifyyou.ai',
   email: 'ai.connect@identifyyou.in',
   phone: '+91 95009 46929',
   offices: [

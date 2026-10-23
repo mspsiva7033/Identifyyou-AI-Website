@@ -34,17 +34,20 @@ export default async function AboutPage() {
         <h1 className={styles.title}>About IdentifYou Technologies</h1>
         <p className={styles.subtitle}>Deep Tech. Built Around Business.</p>
         <p className={styles.desc}>
-          IdentifYou was founded to solve a simple problem: technology is often built in isolation from the business outcomes it needs to deliver. We bridge that gap by designing industrial intelligence directly around physical operations and enterprise workflows.
+          IdentifYou was founded to solve a fundamental industry problem. Advanced technology is often developed in isolation from real commercial goals. We bridge that gap by designing industrial intelligence directly around physical operations and enterprise workflows.
         </p>
       </section>
 
       <section className={styles.content}>
         <div style={{ maxWidth: '840px', margin: '0 auto 48px', color: '#475569', fontSize: '16px', lineHeight: 1.7 }}>
           <p style={{ marginBottom: '16px' }}>
-            We work alongside plant managers, operations leaders, and digital transformation teams across manufacturing, supply chain, financial services, and healthcare. Our multidisciplinary engineering team develops custom computer vision cells, edge IoT gateways, automated replenishment algorithms, and cloud analytics.
+            We work alongside plant managers, operations leaders, and digital transformation teams. Our focus spans high-precision manufacturing, supply chain logistics, financial services, and healthcare systems. Our multidisciplinary engineering team develops custom computer vision cells, edge IoT gateways, automated replenishment algorithms, and cloud data platforms.
+          </p>
+          <p style={{ marginBottom: '16px' }}>
+            Every deployment begins with clear operational metrics. We eliminate inspection bottlenecks on high-speed assembly lines. We reconcile inventory balances in real time. We automate equipment telemetry across multi-vendor industrial networks. Our engineers prioritize system reliability, sub-second latency, and measurable business returns.
           </p>
           <p style={{ margin: 0 }}>
-            Every deployment begins with clear operational metrics. Whether eliminating inspection bottlenecks on high-speed assembly lines, reconciling inventory in real time, or automating equipment telemetry, our focus remains on reliability, speed, and clear business returns.
+            By fusing operational technology on the shop floor with enterprise cloud systems, we turn routine machine signals into competitive advantages. Our client engagements deliver reduced scrap, faster production cycles, and dependable operational transparency.
           </p>
         </div>
 

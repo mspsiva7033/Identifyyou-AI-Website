@@ -1,6 +1,7 @@
 'use client'
 
 import { useState, useRef } from 'react'
+import Link from 'next/link'
 import { Header } from '@/components/layout/Header'
 import { Footer } from '@/components/layout/Footer'
 import { trackContactFormSubmit, trackEvent as trackGAEvent, getStoredUTMs } from '@/lib/umami'
@@ -149,10 +150,26 @@ export function ContactClient() {
 
             <div className={styles.contactInfo}>
               <div className={styles.contactInfoTitle}>Contact Details</div>
-              <p className={styles.contactInfoText}>support@identifyyou.ai</p>
-              <p className={styles.contactInfoText}>+91 9597046682</p>
+              <p className={styles.contactInfoText}>
+                <a href="mailto:support@identifyyou.ai" style={{ color: '#94C640', textDecoration: 'none' }}>
+                  support@identifyyou.ai
+                </a>
+              </p>
+              <p className={styles.contactInfoText}>
+                <a href="tel:+919597046682" style={{ color: 'inherit', textDecoration: 'none' }}>
+                  +91 9597046682
+                </a>
+              </p>
               <p className={styles.contactInfoText}>Pandi Kovil Ring Road, Madurai, Tamil Nadu 625107, India</p>
               <p className={styles.contactInfoText}>3 Northwood Avenue, Purley, London CR8 2ER, UK</p>
+              <div style={{ marginTop: '16px', display: 'flex', flexDirection: 'column', gap: '8px' }}>
+                <Link href="/case-studies" style={{ color: '#94C640', fontSize: '14px', fontWeight: 600, textDecoration: 'none' }}>
+                  Explore Client Success Stories →
+                </Link>
+                <Link href="/deep-tech" style={{ color: '#94C640', fontSize: '14px', fontWeight: 600, textDecoration: 'none' }}>
+                  Discover Deep Tech Capabilities →
+                </Link>
+              </div>
             </div>
           </div>
 

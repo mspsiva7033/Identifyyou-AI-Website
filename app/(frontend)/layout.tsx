@@ -23,6 +23,13 @@ const ibmPlexSans = IBM_Plex_Sans({
   display: 'swap',
 })
 
+const siteUrl =
+  process.env.NEXT_PUBLIC_SITE_URL &&
+  !process.env.NEXT_PUBLIC_SITE_URL.includes('localhost') &&
+  !process.env.NEXT_PUBLIC_SITE_URL.includes('127.0.0.1')
+    ? process.env.NEXT_PUBLIC_SITE_URL
+    : 'https://identifyyou.ai'
+
 export const metadata: Metadata = {
   title: {
     default: 'IdentifYou — Deep Tech Built Around Business',
@@ -30,7 +37,7 @@ export const metadata: Metadata = {
   },
   description:
     'AI-powered solutions for intelligent manufacturing, connected industries, Vision AI, data engineering, and enterprise operations.',
-  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'https://identifyyou.ai'),
+  metadataBase: new URL(siteUrl),
   alternates: {
     canonical: '/',
   },
@@ -38,6 +45,7 @@ export const metadata: Metadata = {
     type: 'website',
     siteName: 'IdentifYou Technologies',
     locale: 'en_US',
+    url: siteUrl,
   },
   icons: {
     icon: '/images/identifyou-logo.png',

@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
+import { notFound } from 'next/navigation'
 import { Header } from '@/components/layout/Header'
 import { Footer } from '@/components/layout/Footer'
 import { getBlogBySlug } from '@/lib/payload'
@@ -19,9 +20,11 @@ interface ArticleDetail {
   topics: string
 }
 
+// SAFETY NET DISABLED: All blog details are strictly served from the backend Payload CMS database
+/*
 const sampleArticles: Record<string, ArticleDetail> = {
   'ai-in-manufacturing-quality-inspection-2026': {
-    title: 'How AI-Powered Vision Inspection is Transforming High-Precision Manufacturing',
+    title: 'AI-Powered Vision Inspection in High-Precision Manufacturing',
     category: 'Vision AI & Quality',
     date: 'August 28, 2026',
     readTime: '6 min read',
@@ -107,7 +110,7 @@ const sampleArticles: Record<string, ArticleDetail> = {
     topics: 'Snowflake Cortex AI · PySpark · Supply Chain · Procurement · Data Engineering',
   },
   'no-code-ai-platforms-for-enterprise-workflows': {
-    title: 'The Shift Towards No-Code Enterprise Applications in Industrial Operations',
+    title: 'No-Code Enterprise Applications in Industrial Operations',
     category: 'Digital Engineering',
     date: 'July 12, 2026',
     readTime: '7 min read',
@@ -151,7 +154,7 @@ const sampleArticles: Record<string, ArticleDetail> = {
     topics: 'Computer Vision · Edge Inferencing · High-Speed Assembly · Robotics',
   },
   'predictive-maintenance-iiot-sensor-fusion': {
-    title: 'Predictive Maintenance at Scale with IIoT Sensor Fusion & Machine Learning',
+    title: 'Predictive Maintenance at Scale with IIoT Sensor Fusion',
     category: 'Industrial Automation',
     date: 'June 10, 2026',
     readTime: '7 min read',
@@ -173,14 +176,19 @@ const sampleArticles: Record<string, ArticleDetail> = {
     topics: 'Predictive Maintenance · IIoT · Sensor Fusion · Machine Learning · Condition Monitoring',
   },
 }
+*/
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
   const { slug } = await params
-  const article = (await getBlogBySlug(slug)) || sampleArticles[slug]
-  if (!article) return { title: 'Blog Post' }
+  const article = await getBlogBySlug(slug)
+  if (!article) return { title: 'Blog Article Not Found — IdentifYou Insights' }
 
   const rawTitle = article.title
-  const seoTitle = rawTitle.length > 44 ? `${rawTitle.substring(0, 41)}...` : rawTitle
+  let seoTitle = rawTitle.length > 44 ? `${rawTitle.substring(0, 41)}...` : rawTitle
+  if (seoTitle.length < 30) {
+    seoTitle = `${seoTitle} — Deep Tech Insights`
+    if (seoTitle.length > 44) seoTitle = `${seoTitle.substring(0, 41)}...`
+  }
 
   const rawDesc = article.overview || article.title
   let seoDesc = rawDesc.replace(/\s+/g, ' ').trim()
@@ -202,22 +210,10 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
 
 export default async function BlogDetailPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params
-  const cmsArticle = await getBlogBySlug(slug)
-  const article = cmsArticle || sampleArticles[slug] || {
-    title: slug.replace(/-/g, ' ').replace(/\b\w/g, (l) => l.toUpperCase()),
-    category: 'Deep Tech & AI Insights',
-    date: 'September 2026',
-    readTime: '5 min read',
-    image: '/images/digital_engineering_hero.png',
-    overview: 'Empowering enterprise operations with automated visual workflows, connected systems, and intelligent decision platforms.',
-    sections: [
-      {
-        title: 'Deep Tech Innovation',
-        content: 'Building production-grade AI and industrial automation solutions tailored for enterprise requirements.',
-      },
-    ],
-    takeaways: ['Empower operational teams.', 'Drive data-backed decision making.', 'Accelerate digital transformation.'],
-    topics: 'Deep Tech · Artificial Intelligence · Enterprise Solutions',
+  const article = await getBlogBySlug(slug)
+
+  if (!article) {
+    notFound()
   }
 
   return (

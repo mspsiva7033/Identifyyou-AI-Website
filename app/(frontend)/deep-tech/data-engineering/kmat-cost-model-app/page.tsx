@@ -7,7 +7,7 @@ import { Footer } from '@/components/layout/Footer'
 import styles from '../kmat-article.module.css'
 
 export const metadata: Metadata = {
-  title: 'KMAT Manufacturer Cost Model App | Rule-Based Snowflake Native Cost Simulation',
+  title: 'KMAT Manufacturer Cost Model App',
   description:
     'Accurate, explainable manufacturing costs and faster RFQ quotes, powered by your own data in Snowflake. Explore the KMAT Manufacturer Cost Model App.',
   alternates: {

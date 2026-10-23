@@ -7,7 +7,7 @@ import { FlowChain } from '@/components/ui/FlowChain'
 import styles from './page.module.css'
 
 export const metadata: Metadata = {
-  title: 'AI No-Code Enterprise Platform',
+  title: 'AI No-Code Enterprise Platform & Systems',
   description:
     'Build production-ready enterprise applications from natural language and business data with automated AI workflows.',
   alternates: {

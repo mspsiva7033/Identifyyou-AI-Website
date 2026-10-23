@@ -7,9 +7,9 @@ import { Footer } from '@/components/layout/Footer'
 import styles from '../kmat-article.module.css'
 
 export const metadata: Metadata = {
-  title: 'KMAT Manufacturer Price Model App | Snowflake Native Pricing Intelligence',
+  title: 'KMAT Manufacturer Price Model App',
   description:
-    'Policy-driven prices, governed approvals, and controlled revenue leakage, powered by your own cost data in Snowflake. Explore the KMAT Intelligent Pricing Command Center.',
+    'Policy-driven pricing, governed margin approvals, and automated quote generation powered by Snowflake. Explore the KMAT Pricing Command Center.',
   alternates: {
     canonical: '/deep-tech/data-engineering/kmat-manufacturer-price-model',
   },
