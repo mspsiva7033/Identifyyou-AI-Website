@@ -23,8 +23,8 @@ export function getDbPool(): pg.Pool {
     globalThis.__pgPool = new pg.Pool({
       connectionString: connStr,
       ssl: config.ssl,
-      max: 10,
-      idleTimeoutMillis: 30000,
+      max: 3,
+      idleTimeoutMillis: 10000,
       connectionTimeoutMillis: 10000,
     })
     ;(globalThis as any).__lastPoolKey = poolKey

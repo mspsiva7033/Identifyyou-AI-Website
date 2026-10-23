@@ -2,10 +2,23 @@
 import { getPayload } from 'payload'
 import config from '@payload-config'
 
+export interface CaseStudyCategory {
+  id: number | string
+  name: string
+  slug: string
+  description?: string
+  displayOrder?: number
+}
+
 export interface CaseStudySummary {
   slug: string
   title: string
   tag: string
+  category: {
+    id: number | string
+    name: string
+    slug: string
+  }
   categories: string[]
   challenge: string
   objective: string
@@ -5252,13 +5265,67 @@ export const FALLBACK_DEEP_TECH_CAPABILITIES: DeepTechCapabilityItem[] = [
   { n: '06', title: 'Digital Engineering', href: '/deep-tech/digital-engineering', linkLabel: 'Explore Digital Engineering', challenge: 'Legacy systems and manual workflows limit business agility.', solution: 'Engineer intelligent enterprise applications, SaaS platforms, workflows and APIs.', deepTech: 'Cloud-native application engineering.', tech: 'Python + Node.js + React.js + Azure + AWS', outcome: 'Digital products that solve real business problems.' },
 ]
 
+declare global {
+  // eslint-disable-next-line no-var
+  var __payloadClientPromise: Promise<any> | undefined
+}
+
 export async function getPayloadClient() {
   try {
-    return await getPayload({ config })
+    if (!globalThis.__payloadClientPromise) {
+      globalThis.__payloadClientPromise = getPayload({ config })
+    }
+    return await globalThis.__payloadClientPromise
   } catch (err: unknown) {
+    globalThis.__payloadClientPromise = undefined
     const message = err instanceof Error ? err.message : String(err)
     console.error('[Payload Client Initialization Error]:', message)
     return null
+  }
+}
+
+const CATEGORY_ID_MAP: Record<number | string, string> = {
+  57: 'Vision AI',
+  56: 'AI & Intelligent Business',
+  58: 'Industry Automation',
+  59: 'AI & No-Code Platform',
+  60: 'Data Engineering',
+}
+
+function normalizeCategoryName(raw: string): string {
+  const c = (raw || '').trim()
+  if (/^vision\s*ai$/i.test(c) || c.toLowerCase() === 'vision-ai') return 'Vision AI'
+  if (/^ai\s*(&|and)\s*intelligent\s*business$/i.test(c) || c.toLowerCase() === 'ai-intelligent-business') return 'AI & Intelligent Business'
+  if (/^(intelligent\s+)?industry\s*automation$/i.test(c) || c.toLowerCase() === 'industry-automation') return 'Industry Automation'
+  if (/^data\s*engineering$/i.test(c) || c.toLowerCase() === 'data-engineering') return 'Data Engineering'
+  if (/^digital\s*engineering$/i.test(c) || c.toLowerCase() === 'digital-engineering') return 'Digital Engineering'
+  if (/^ai[-\s]*(powered\s*)?no[-\s]*code(\s*platform)?$/i.test(c) || c.toLowerCase() === 'ai-no-code') return 'AI & No-Code Platform'
+  return c
+}
+
+export async function getCaseStudyCategories(): Promise<CaseStudyCategory[]> {
+  try {
+    const payload = await getPayloadClient()
+    if (!payload) return []
+
+    const result = await payload.find({
+      collection: 'case-study-categories',
+      sort: 'displayOrder',
+      limit: 100,
+    })
+
+    return (result.docs || [])
+      .filter((doc: any) => !['manufacturing', 'supply-chain'].includes(doc.slug?.toLowerCase()))
+      .map((doc: any) => ({
+        id: doc.id,
+        name: doc.name === 'AI-Powered No-Code Platform' ? 'AI & No-Code Platform' : doc.name,
+        slug: doc.slug,
+        description: doc.description || '',
+        displayOrder: doc.displayOrder ?? 0,
+      }))
+  } catch (error) {
+    console.error('Failed to fetch case study categories from Payload CMS:', error)
+    return []
   }
 }
 
@@ -5271,6 +5338,7 @@ export async function getCaseStudies(): Promise<CaseStudySummary[]> {
       collection: 'case-studies',
       sort: 'displayOrder',
       limit: 100,
+      depth: 2,
     })
 
     const validDocs = (result.docs || []).filter(
@@ -5282,22 +5350,28 @@ export async function getCaseStudies(): Promise<CaseStudySummary[]> {
     }
 
     return validDocs.map((doc: any) => {
-      const docCategoryName = typeof doc?.category === 'object' ? doc?.category?.name : null
-      let categoriesFromDoc = (doc?.filterCategories || [])
-        .map((c: any) => typeof c === 'string' ? c : c?.category || c?.name)
-        .filter(Boolean)
-        .map((c: string) => c === 'AI-Powered No-Code Platform' || c === 'AI-Powered No-Code' ? 'AI & No-Code Platform' : c)
+      const docCategory = typeof doc?.category === 'object' && doc?.category !== null ? doc.category : null
+      const catId: number | string = docCategory?.id || (typeof doc?.category === 'number' || typeof doc?.category === 'string' ? doc.category : '')
+      let catName: string = docCategory?.name || (typeof catId === 'number' && CATEGORY_ID_MAP[catId]) || 'Deep Tech'
+      let catSlug: string = docCategory?.slug || catName.toLowerCase().replace(/[^a-z0-9]+/g, '-')
 
-      if (categoriesFromDoc.length === 0 && docCategoryName) {
-        const mappedCat = docCategoryName === 'AI-Powered No-Code Platform' || docCategoryName === 'AI-Powered No-Code' ? 'AI & No-Code Platform' : docCategoryName
-        categoriesFromDoc = [mappedCat]
+      if (catName === 'AI-Powered No-Code Platform' || catSlug === 'ai-no-code') {
+        catName = 'AI & No-Code Platform'
+        catSlug = 'ai-no-code'
+      }
+
+      const authoritativeCategory = {
+        id: catId,
+        name: catName,
+        slug: catSlug,
       }
 
       return {
         slug: doc.slug,
         title: doc.title || doc.slug,
-        tag: doc.tags?.[0]?.tag || 'Deep Tech',
-        categories: categoriesFromDoc,
+        tag: catName,
+        category: authoritativeCategory,
+        categories: [catName],
         challenge: doc.summary?.challenge || '',
         objective: doc.summary?.objective || '',
         solution: doc.summary?.solution || '',
@@ -5336,6 +5410,7 @@ export async function getCaseStudyBySlug(slug: string): Promise<CaseStudyDetail 
         slug: { equals: normalizedSlug },
       },
       limit: 1,
+      depth: 2,
     })
 
     if (!result.docs || result.docs.length === 0) {
@@ -5491,13 +5566,47 @@ export interface BlogArticleSummary {
   title: string
   excerpt: string
   image?: string
+  topics?: string[]
 }
 
 export interface BlogArticleDetail extends BlogArticleSummary {
   overview?: string
   sections?: { title: string; content: string }[]
   takeaways?: string[]
-  topics?: string
+  topicsRaw?: string
+}
+
+export interface BlogTaxonomy {
+  categories: string[]
+  topics: string[]
+}
+
+export function parseTopics(topicsRaw?: string): string[] {
+  if (!topicsRaw) return []
+  return topicsRaw
+    .split(/[·,;|]/)
+    .map((t) => t.trim())
+    .filter(Boolean)
+}
+
+function getBlogImageFallback(slug: string, category?: string): string {
+  const slugImageMap: Record<string, string> = {
+    'ai-in-manufacturing-quality-inspection-2026': '/images/vision_ai_hero_new.png',
+    'building-connected-factories-opc-ua-mqtt-edge': '/images/end_to_end_inspection_cell.png',
+    'snowflake-cortex-ai-manufacturing-data-platform': '/images/snowflake_cortex_architecture.png',
+    'no-code-ai-platforms-for-enterprise-workflows': '/images/ai_no_code_hero.png',
+    'deep-tech-computer-vision-assembly-lines': '/images/vision_ai_hero_production_line.png',
+    'predictive-maintenance-iiot-sensor-fusion': '/images/industry_automation_hero.png',
+    'future-of-industrial-vision-ai': '/images/vision_ai_hero_production_line.png',
+    'test-news-website-qa': '/images/digital_engineering_hero.png',
+    'test-blog-website-qa': '/images/vision_ai_hero_new.png',
+  }
+
+  if (slugImageMap[slug]) return slugImageMap[slug]
+  if (category?.includes('Vision')) return '/images/vision_ai_hero_new.png'
+  if (category?.includes('Automation')) return '/images/industry_automation_hero.png'
+  if (category?.includes('Data')) return '/images/enterprise_data_platform_diagram.png'
+  return '/images/digital_engineering_hero.png'
 }
 
 export async function getBlogsAndNews(): Promise<BlogArticleSummary[]> {
@@ -5511,25 +5620,53 @@ export async function getBlogsAndNews(): Promise<BlogArticleSummary[]> {
         status: { equals: 'published' },
       },
       sort: '-publishedAt',
+      limit: 100,
+      depth: 2,
     })
 
     if (result.docs && result.docs.length > 0) {
       return result.docs.map((doc: any) => ({
         slug: doc.slug,
         title: doc.title,
-        category: doc.category || 'Industry Insights',
+        category: doc.category ? doc.category.trim() : '',
         date: doc.publishedAt
           ? new Date(doc.publishedAt).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })
           : '',
         readTime: doc.readTime || '5 min read',
         excerpt: doc.excerpt || '',
-        image: doc.featuredImage?.url || undefined,
+        image:
+          (typeof doc.featuredImage === 'object' && doc.featuredImage?.url) ||
+          (typeof doc.featuredImage === 'string' ? doc.featuredImage : undefined) ||
+          getBlogImageFallback(doc.slug, doc.category),
+        topics: parseTopics(doc.topics),
       }))
     }
   } catch (error) {
     console.warn('Failed to fetch blogs and news from Payload CMS:', error)
   }
   return []
+}
+
+export async function getBlogCategoriesAndTopics(): Promise<BlogTaxonomy> {
+  const articles = await getBlogsAndNews()
+  const categorySet = new Set<string>()
+  const topicSet = new Set<string>()
+
+  articles.forEach((a) => {
+    if (a.category && a.category.trim()) {
+      categorySet.add(a.category.trim())
+    }
+    if (Array.isArray(a.topics)) {
+      a.topics.forEach((t) => {
+        if (t && t.trim()) topicSet.add(t.trim())
+      })
+    }
+  })
+
+  return {
+    categories: Array.from(categorySet).sort(),
+    topics: Array.from(topicSet).sort(),
+  }
 }
 
 export async function getBlogBySlug(slug: string): Promise<BlogArticleDetail | null> {
@@ -5543,6 +5680,7 @@ export async function getBlogBySlug(slug: string): Promise<BlogArticleDetail | n
         slug: { equals: slug },
       },
       limit: 1,
+      depth: 2,
     })
 
     if (result.docs && result.docs.length > 0) {
@@ -5550,17 +5688,21 @@ export async function getBlogBySlug(slug: string): Promise<BlogArticleDetail | n
       return {
         slug: doc.slug,
         title: doc.title,
-        category: doc.category || 'Industry Insights',
+        category: doc.category ? doc.category.trim() : '',
         date: doc.publishedAt
           ? new Date(doc.publishedAt).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })
           : '',
         readTime: doc.readTime || '5 min read',
         excerpt: doc.excerpt || '',
-        image: doc.featuredImage?.url || undefined,
+        image:
+          (typeof doc.featuredImage === 'object' && doc.featuredImage?.url) ||
+          (typeof doc.featuredImage === 'string' ? doc.featuredImage : undefined) ||
+          getBlogImageFallback(doc.slug, doc.category),
         overview: doc.overview || doc.excerpt || '',
         sections: doc.sections || [],
-        takeaways: (doc.takeaways || []).map((t: any) => typeof t === 'string' ? t : t.point || ''),
-        topics: doc.topics || '',
+        takeaways: (doc.takeaways || []).map((t: any) => (typeof t === 'string' ? t : t.point || '')),
+        topicsRaw: doc.topics || '',
+        topics: parseTopics(doc.topics),
       }
     }
   } catch (error) {

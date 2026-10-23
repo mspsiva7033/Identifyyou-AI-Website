@@ -15,6 +15,11 @@ export type CaseStudyCardProps = {
   title: string
   tag?: string
   industry?: string
+  category?: {
+    id: number | string
+    name: string
+    slug: string
+  }
   categories?: string[]
   illustration?: string
   image?: string
@@ -29,6 +34,7 @@ export function CaseStudyCard({
   title,
   tag,
   industry,
+  category,
   categories,
   illustration,
   image,
@@ -59,10 +65,23 @@ export function CaseStudyCard({
 
   const linkHref = href || (slug ? `/case-studies/${slug}` : '/case-studies')
 
-  const theme = getCategoryTheme({ slug, categories, tag, industry, title, href: linkHref })
+  const theme = getCategoryTheme({
+    slug,
+    categorySlug: category?.slug,
+    categoryName: category?.name,
+    categories,
+    tag,
+    industry,
+    title,
+    href: linkHref,
+  })
 
-  // Clean industry/tag string
-  let rawTag = industry || (categories && categories.length > 0 ? categories[0] : tag) || theme.name
+  // Clean industry/tag string: Authoritative category takes primary precedence
+  let rawTag =
+    category?.name ||
+    industry ||
+    (categories && categories.length > 0 ? categories[0] : tag) ||
+    theme.name
 
   if (rawTag.includes('http://') || rawTag.includes('https://')) {
     rawTag = (categories && categories.find((c) => !c.includes('http'))) || theme.name

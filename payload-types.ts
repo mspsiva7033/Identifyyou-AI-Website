@@ -449,8 +449,10 @@ export interface BlogsAndNew {
    * e.g. ai-in-manufacturing-quality-inspection-2026
    */
   slug: string;
-  category:
-    'Vision AI & Quality' | 'Industrial Automation' | 'Data Engineering' | 'Digital Engineering' | 'Industry Insights';
+  /**
+   * Category name. Categories appear dynamically as filter buttons on the website.
+   */
+  category?: string | null;
   excerpt: string;
   /**
    * Upload cover image. Saved directly to the media folder on VPS.
@@ -470,6 +472,9 @@ export interface BlogsAndNew {
         id?: string | null;
       }[]
     | null;
+  /**
+   * Keywords/topics separated by · or comma. Topics appear dynamically as filter chips on the website.
+   */
   topics?: string | null;
   updatedAt: string;
   createdAt: string;

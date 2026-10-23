@@ -70,17 +70,13 @@ export const BlogsAndNews: CollectionConfig = {
     },
     {
       name: 'category',
-      type: 'select',
+      type: 'text',
       label: 'Category',
-      required: true,
-      defaultValue: 'Vision AI & Quality',
-      options: [
-        { label: 'Vision AI & Quality', value: 'Vision AI & Quality' },
-        { label: 'Industrial Automation', value: 'Industrial Automation' },
-        { label: 'Data Engineering', value: 'Data Engineering' },
-        { label: 'Digital Engineering', value: 'Digital Engineering' },
-        { label: 'Industry Insights', value: 'Industry Insights' },
-      ],
+      required: false,
+      admin: {
+        placeholder: 'e.g. AI Innovations, Deep Tech, Company News',
+        description: 'Category name. Categories appear dynamically as filter buttons on the website.',
+      },
     },
     {
       name: 'excerpt',
@@ -136,7 +132,12 @@ export const BlogsAndNews: CollectionConfig = {
     {
       name: 'topics',
       type: 'text',
-      label: 'Topics / Keywords (e.g. Vision AI · Computer Vision · TensorRT)',
+      label: 'Topics / Keywords',
+      required: false,
+      admin: {
+        placeholder: 'e.g. Computer Vision, Robotics, Edge AI',
+        description: 'Keywords/topics separated by · or comma. Topics appear dynamically as filter chips on the website.',
+      },
     },
   ],
 }

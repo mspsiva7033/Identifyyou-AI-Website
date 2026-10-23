@@ -125,17 +125,47 @@ export const CATEGORY_THEMES: Record<CategoryKey, CategoryTheme> = {
 
 export function getCategoryTheme(params: {
   slug?: string
+  categorySlug?: string
+  categoryName?: string
   categories?: string[]
   tag?: string
   industry?: string
   title?: string
   href?: string
 }): CategoryTheme {
-  const { slug = '', categories = [], tag = '', industry = '', title = '', href = '' } = params
-  const catStr = categories.join(' ').toLowerCase()
-  const tagStr = tag.toLowerCase()
+  const {
+    slug = '',
+    categorySlug = '',
+    categoryName = '',
+    categories = [],
+    tag = '',
+    industry = '',
+    title = '',
+    href = '',
+  } = params
 
-  // 1. Direct Slug Exact Mapping (Highest Priority & Single Source of Truth for static case studies)
+  const catStr = (categories || []).join(' ').toLowerCase()
+  const tagStr = (tag || '').toLowerCase()
+
+  // 1. Direct Dynamic Category Slug (Authoritative)
+  if (categorySlug && CATEGORY_THEMES[categorySlug as CategoryKey]) {
+    return CATEGORY_THEMES[categorySlug as CategoryKey]
+  }
+
+  // 2. Direct Dynamic Category Name
+  if (categoryName) {
+    const cName = categoryName.toLowerCase()
+    if (cName.includes('vision')) return CATEGORY_THEMES['vision-ai']
+    if (cName.includes('no-code') || cName.includes('no code')) return CATEGORY_THEMES['ai-no-code']
+    if (cName.includes('intelligent business')) return CATEGORY_THEMES['ai-intelligent-business']
+    if (cName.includes('data engineering')) return CATEGORY_THEMES['data-engineering']
+    if (cName.includes('digital engineering')) return CATEGORY_THEMES['digital-engineering']
+    if (cName.includes('industry automation') || cName.includes('automation')) return CATEGORY_THEMES['industry-automation']
+    if (cName.includes('supply chain')) return CATEGORY_THEMES['supply-chain']
+    if (cName.includes('manufacturing')) return CATEGORY_THEMES['manufacturing']
+  }
+
+  // 3. Direct Slug Exact Mapping (Single Source of Truth fallback)
   if (
     slug === 'business-driven-software-system' ||
     slug === 'nlp-text-to-business-application' ||
@@ -195,7 +225,8 @@ export function getCategoryTheme(params: {
     slug === 'vision-ai-complex-dimension' ||
     slug === 'zebra-line-inspection' ||
     slug === 'precision-vision-ai-setup' ||
-    slug === 'end-to-end-inspection-cell'
+    slug === 'end-to-end-inspection-cell' ||
+    slug === 'ai-autonomous-inspection-cell-2026'
   ) {
     return CATEGORY_THEMES['vision-ai']
   }

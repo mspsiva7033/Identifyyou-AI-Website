@@ -4,7 +4,7 @@ import Link from 'next/link'
 import { Header } from '@/components/layout/Header'
 import { Footer } from '@/components/layout/Footer'
 import { CaseStudiesClient } from './CaseStudiesClient'
-import { getCaseStudies } from '@/lib/payload'
+import { getCaseStudies, getCaseStudyCategories } from '@/lib/payload'
 
 import styles from './page.module.css'
 
@@ -21,7 +21,10 @@ export const dynamic = 'force-dynamic'
 export const revalidate = 0
 
 export default async function CaseStudiesPage() {
-  const caseStudies = await getCaseStudies()
+  const [categories, caseStudies] = await Promise.all([
+    getCaseStudyCategories(),
+    getCaseStudies(),
+  ])
 
   return (
     <div className={styles.mainWrapper}>
@@ -47,7 +50,7 @@ export default async function CaseStudiesPage() {
           </div>
         }
       >
-        <CaseStudiesClient caseStudies={caseStudies} />
+        <CaseStudiesClient categories={categories} caseStudies={caseStudies} />
       </Suspense>
       <Footer />
     </div>

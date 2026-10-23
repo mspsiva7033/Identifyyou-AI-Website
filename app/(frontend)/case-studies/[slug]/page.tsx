@@ -113,11 +113,19 @@ export default async function CaseStudyDetailPage({ params }: { params: Promise<
   if (!cs) notFound()
 
   const summary = (await getCaseStudies()).find((item) => item.slug === slug)
-  const theme = getCategoryTheme({ slug, tag: cs.tag, title: cs.title, categories: summary?.categories })
+  const categoryName = summary?.category?.name || cs.tag
+  const theme = getCategoryTheme({
+    slug,
+    categorySlug: summary?.category?.slug,
+    categoryName: summary?.category?.name,
+    tag: categoryName,
+    title: cs.title,
+    categories: summary?.categories,
+  })
 
   return (
     <div className={styles.page}>
-      <CaseStudyTracker slug={slug} title={cs.title} category={theme.name || cs.tag} />
+      <CaseStudyTracker slug={slug} title={cs.title} category={categoryName} />
       <Header />
 
       <div className={styles.breadcrumb}>
@@ -148,7 +156,7 @@ export default async function CaseStudyDetailPage({ params }: { params: Promise<
           className={styles.tagBadge}
           style={{ color: theme.tagColor, backgroundColor: theme.badgeBg, borderColor: theme.tintColor }}
         >
-          {cs.tag}
+          {categoryName}
         </div>
         <h1 className={styles.title}>{cleanHeadingText(cs.title)}</h1>
 
