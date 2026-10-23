@@ -1,11 +1,14 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
+import { Suspense } from 'react'
 import { Header } from '@/components/layout/Header'
 import { Footer } from '@/components/layout/Footer'
-import { getBlogsAndNews, BlogArticleSummary } from '@/lib/payload'
+import { getBlogsAndNews, getBlogCategoriesAndTopics } from '@/lib/payload'
+import { BlogsAndNewsClient } from './BlogsAndNewsClient'
 import styles from './page.module.css'
 
 export const dynamic = 'force-dynamic'
+export const revalidate = 0
 
 export const metadata: Metadata = {
   title: 'Deep Tech Blogs & Industry Insights',
@@ -16,75 +19,11 @@ export const metadata: Metadata = {
   },
 }
 
-// SAFETY NET DISABLED: All blogs and news are strictly served from the backend Payload CMS database
-/*
-const articles: BlogArticleSummary[] = [
-  {
-    slug: 'ai-in-manufacturing-quality-inspection-2026',
-    category: 'Vision AI & Quality',
-    date: 'August 28, 2026',
-    readTime: '6 min read',
-    title: 'How AI-Powered Vision Inspection is Transforming High-Precision Manufacturing',
-    excerpt:
-      'Discover how integrating high-speed Basler industrial cameras with convolutional neural networks eliminates visual defect bottlenecks on automotive assembly lines.',
-    image: '/images/vision_ai_hero_new.png',
-  },
-  {
-    slug: 'building-connected-factories-opc-ua-mqtt-edge',
-    category: 'Industrial Automation',
-    date: 'August 14, 2026',
-    readTime: '8 min read',
-    title: 'Architecting Connected Factories: From OPC-UA & MQTT to Edge Computing',
-    excerpt:
-      'A comprehensive guide for factory managers on unifying legacy PLC signals, edge buffering, and real-time cloud data pipelines without disrupting ongoing operations.',
-    image: '/images/end_to_end_inspection_cell.png',
-  },
-  {
-    slug: 'snowflake-cortex-ai-manufacturing-data-platform',
-    category: 'Data Engineering',
-    date: 'July 30, 2026',
-    readTime: '5 min read',
-    title: 'Leveraging Snowflake Cortex AI for Intelligent Procurement and Supply Chain Analytics',
-    excerpt:
-      'How enterprise manufacturing teams use native Snowflake Cortex AI applications to forecast raw material pricing and mitigate stock-out risks.',
-    image: '/images/snowflake_cortex_architecture.png',
-  },
-  {
-    slug: 'no-code-ai-platforms-for-enterprise-workflows',
-    category: 'Digital Engineering',
-    date: 'July 12, 2026',
-    readTime: '7 min read',
-    title: 'The Shift Towards No-Code Enterprise Applications in Industrial Operations',
-    excerpt:
-      'Empowering plant engineers and floor supervisors to create custom tracking apps and workflow automations without traditional software development delays.',
-    image: '/images/ai_no_code_hero.png',
-  },
-  {
-    slug: 'deep-tech-computer-vision-assembly-lines',
-    category: 'Vision AI & Quality',
-    date: 'June 25, 2026',
-    readTime: '6 min read',
-    title: 'Computer Vision & Edge Inferencing on High-Speed Assembly Lines',
-    excerpt:
-      'Synchronizing multi-angle camera feeds with edge TensorRT inferencing to verify component placement, wiring, and surface finish in sub-50ms cycles.',
-    image: '/images/vision_ai_hero_production_line.png',
-  },
-  {
-    slug: 'predictive-maintenance-iiot-sensor-fusion',
-    category: 'Industrial Automation',
-    date: 'June 10, 2026',
-    readTime: '7 min read',
-    title: 'Predictive Maintenance at Scale with IIoT Sensor Fusion & Machine Learning',
-    excerpt:
-      'Fusing thermal telemetry, vibration metrics, and current draw sensors to predict equipment failure before catastrophic downtime occurs.',
-    image: '/images/industry_automation_hero.png',
-  },
-]
-*/
-
 export default async function BlogsAndNewsPage() {
-  // Strictly fetch from backend database (Payload CMS)
-  const displayArticles = await getBlogsAndNews()
+  const [taxonomy, articles] = await Promise.all([
+    getBlogCategoriesAndTopics(),
+    getBlogsAndNews(),
+  ])
 
   return (
     <div className={styles.page}>
@@ -100,41 +39,13 @@ export default async function BlogsAndNewsPage() {
         </div>
       </section>
 
-      <section className={styles.articlesSection}>
-        <div className={styles.container}>
-          <div className={styles.grid}>
-            {displayArticles.map((article) => (
-              <article key={article.slug} className={styles.card}>
-                {article.image && (
-                  <div className={styles.cardImageWrapper}>
-                    <img
-                      src={article.image}
-                      alt={article.title}
-                      width="600"
-                      height="340"
-                      loading="lazy"
-                      className={styles.cardImage}
-                    />
-                  </div>
-                )}
-                <div className={styles.cardHeader}>
-                  <span className={styles.category}>{article.category}</span>
-                  <div className={styles.meta}>
-                    <span>{article.date}</span> • <span>{article.readTime}</span>
-                  </div>
-                </div>
-                <h2 className={styles.articleTitle}>{article.title}</h2>
-                <p className={styles.excerpt}>{article.excerpt}</p>
-                <div className={styles.cardFooter}>
-                  <Link href={`/blogs-and-news/${article.slug}`} className={styles.readMore}>
-                    Read Article →
-                  </Link>
-                </div>
-              </article>
-            ))}
-          </div>
-        </div>
-      </section>
+      <Suspense fallback={<div className={styles.container} style={{ textAlign: 'center', padding: '60px 0' }}>Loading articles...</div>}>
+        <BlogsAndNewsClient
+          categories={taxonomy.categories}
+          topics={taxonomy.topics}
+          articles={articles}
+        />
+      </Suspense>
 
       {/* BANNER CTA */}
       <section className={styles.ctaBanner}>

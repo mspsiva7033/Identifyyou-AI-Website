@@ -190,13 +190,13 @@ export function getDatabaseConfig(): DatabaseConfigResult {
   }
 }
 
-/**
- * Creates pg.Pool config object
- */
 export function getPoolConfig(): PoolConfig {
   const config = getDatabaseConfig()
   return {
     connectionString: config.connectionString,
     ssl: config.ssl,
+    max: 8,
+    idleTimeoutMillis: 10000,
+    connectionTimeoutMillis: 30000,
   }
 }

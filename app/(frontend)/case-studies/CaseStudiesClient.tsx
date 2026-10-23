@@ -1,14 +1,20 @@
 'use client'
 
-import { useState, useEffect, useCallback } from 'react'
+import { useState, useEffect, useCallback, useMemo } from 'react'
 import { useSearchParams, useRouter, usePathname } from 'next/navigation'
 import { CaseStudyCard } from '@/components/ui/CaseStudyCard'
+import type { CaseStudyCategory } from '@/lib/payload'
 import styles from './page.module.css'
 
 type CaseStudy = {
   slug: string
   title: string
   tag: string
+  category?: {
+    id: number | string
+    name: string
+    slug: string
+  }
   categories: string[]
   challenge: string
   objective: string
@@ -21,56 +27,91 @@ type CaseStudy = {
 }
 
 type Props = {
+  categories: CaseStudyCategory[]
   caseStudies: CaseStudy[]
 }
 
-const filterLabels = [
-  'All',
-  'AI & Intelligent Business',
-  'AI & No-Code Platform',
-  'Data Engineering',
-  'Digital Engineering',
-  'Industry Automation',
-  'Vision AI',
-]
-
-export function CaseStudiesClient({ caseStudies }: Props) {
+export function CaseStudiesClient({ categories = [], caseStudies = [] }: Props) {
   const router = useRouter()
   const pathname = usePathname()
   const searchParams = useSearchParams()
 
-  // Read active filter from URL — persists across back navigation
-  const getFilterFromUrl = useCallback(() => {
+  // Generate dynamic filter tabs from CMS categories
+  const filterTabs = useMemo(() => {
+    const validCats = (categories || [])
+      .filter((cat) => cat && cat.slug && cat.name && cat.slug !== 'all')
+      .map((cat) => ({
+        id: cat.id,
+        name: cat.name,
+        slug: cat.slug,
+      }))
+
+    return [
+      { id: 'all', name: 'All', slug: 'all' },
+      ...validCats,
+    ]
+  }, [categories])
+
+  // Read active filter from URL: matches either category.slug or category.name
+  const getFilterSlugFromUrl = useCallback(() => {
     const param = searchParams.get('filter')
-    return param && filterLabels.includes(param) ? param : 'All'
-  }, [searchParams])
+    if (!param) return 'all'
+    const trimmed = param.trim().toLowerCase()
+    const slugFormat = trimmed.replace(/[^a-z0-9]+/g, '-')
 
-  const [filter, setFilter] = useState(getFilterFromUrl)
+    const match = filterTabs.find((tab) => {
+      const tabSlug = tab.slug.toLowerCase()
+      const tabName = tab.name.toLowerCase()
+      return (
+        tabSlug === trimmed ||
+        tabSlug === slugFormat ||
+        tabName === trimmed ||
+        (tab.name === 'Industry Automation' && trimmed.includes('industry-automation')) ||
+        (tab.name === 'Vision AI' && (trimmed === 'vision-ai' || trimmed === 'vision ai'))
+      )
+    })
 
-  // Sync state when URL changes (e.g. back button)
+    return match ? match.slug : 'all'
+  }, [searchParams, filterTabs])
+
+  const [activeSlug, setActiveSlug] = useState(getFilterSlugFromUrl)
+
+  // Sync state when URL changes (e.g. browser back/forward button)
   useEffect(() => {
-    setFilter(getFilterFromUrl())
-  }, [searchParams, getFilterFromUrl])
+    setActiveSlug(getFilterSlugFromUrl())
+  }, [searchParams, getFilterSlugFromUrl])
 
-  // When user clicks a filter, update both state AND URL
-  const handleFilter = (label: string) => {
-    setFilter(label)
+  // When user clicks a filter tab, update state and URL query param
+  const handleFilterSelect = (tab: { slug: string; name: string }) => {
+    setActiveSlug(tab.slug)
     const params = new URLSearchParams(searchParams.toString())
-    if (label === 'All') {
+    if (tab.slug === 'all') {
       params.delete('filter')
     } else {
-      params.set('filter', label)
+      params.set('filter', tab.name)
     }
     const query = params.toString()
     router.replace(`${pathname}${query ? `?${query}` : ''}`, { scroll: false })
   }
 
-  const visible =
-    filter === 'All'
-      ? caseStudies
-      : caseStudies.filter((c) => {
-          return Array.isArray(c.categories) && c.categories.includes(filter)
-        })
+  // Filter case studies strictly by authoritative category relationship:
+  const visible = useMemo(() => {
+    if (activeSlug === 'all') return caseStudies
+
+    return caseStudies.filter((c) => {
+      // 1. Authoritative category slug match
+      if (c.category?.slug && c.category.slug === activeSlug) return true
+
+      // 2. Authoritative category name match
+      const targetTab = filterTabs.find((t) => t.slug === activeSlug)
+      if (targetTab && c.category?.name?.toLowerCase() === targetTab.name.toLowerCase()) return true
+      if (targetTab && Array.isArray(c.categories) && c.categories.includes(targetTab.name)) return true
+
+      return false
+    })
+  }, [activeSlug, caseStudies, filterTabs])
+
+  const currentTab = filterTabs.find((t) => t.slug === activeSlug) || filterTabs[0]
 
   return (
     <>
@@ -81,16 +122,16 @@ export function CaseStudiesClient({ caseStudies }: Props) {
           </h2>
         </div>
 
-        {/* Filters */}
+        {/* Dynamic Filters from CMS */}
         <div className={styles.filters}>
-          {filterLabels.map((label) => (
+          {filterTabs.map((tab) => (
             <button
-              key={label}
-              id={`filter-${label.toLowerCase().replace(/\s+/g, '-')}`}
-              onClick={() => handleFilter(label)}
-              className={`${styles.filterBtn} ${filter === label ? styles.filterActive : ''}`}
+              key={tab.slug}
+              id={`filter-${tab.name.toLowerCase().replace(/\s+/g, '-')}`}
+              onClick={() => handleFilterSelect(tab)}
+              className={`${styles.filterBtn} ${activeSlug === tab.slug ? styles.filterActive : ''}`}
             >
-              {label}
+              {tab.name}
             </button>
           ))}
         </div>
@@ -103,6 +144,7 @@ export function CaseStudiesClient({ caseStudies }: Props) {
               slug={cs.slug}
               title={cs.title}
               tag={cs.tag}
+              category={cs.category}
               categories={cs.categories}
               illustration={cs.illustration}
             />
@@ -110,7 +152,9 @@ export function CaseStudiesClient({ caseStudies }: Props) {
         </div>
 
         {visible.length === 0 && (
-          <div className={styles.noResults}>No success stories found for &ldquo;{filter}&rdquo;.</div>
+          <div className={styles.noResults}>
+            No success stories found for &ldquo;{currentTab.name}&rdquo;.
+          </div>
         )}
       </section>
     </>

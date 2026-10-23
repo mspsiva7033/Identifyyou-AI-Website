@@ -229,7 +229,7 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ slu
       </div>
 
       <section className={styles.content}>
-        <div className={styles.tagBadge}>{article.category}</div>
+        {article.category ? <div className={styles.tagBadge}>{article.category}</div> : null}
         <h1 className={styles.title}>{article.title}</h1>
         <div className={styles.metaLine}>
           <span>{article.date}</span> • <span>{article.readTime}</span>
@@ -269,10 +269,14 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ slu
           </div>
         )}
 
-        <div className={styles.techUsed}>
-          <div className={styles.techUsedLabel}>Topics Covered</div>
-          <div className={styles.techUsedValue}>{article.topics}</div>
-        </div>
+        {(article.topicsRaw || (Array.isArray(article.topics) && article.topics.length > 0)) ? (
+          <div className={styles.techUsed}>
+            <div className={styles.techUsedLabel}>Topics Covered</div>
+            <div className={styles.techUsedValue}>
+              {article.topicsRaw || (Array.isArray(article.topics) ? article.topics.join(' · ') : article.topics)}
+            </div>
+          </div>
+        ) : null}
 
         <div className={styles.ctaBox}>
           <h3>Interested in implementing this in your operations?</h3>
