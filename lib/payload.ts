@@ -5448,6 +5448,8 @@ export async function getCaseStudyBySlug(slug: string): Promise<CaseStudyDetail 
       illustration: uploadedIllustration || getCaseStudyIllustration(doc.slug || normalizedSlug),
       docItems: doc.docItems || [],
       comparisonTable: doc.comparisonTable || null,
+      tableBlock: doc.tableBlock || null,
+      customCTA: doc.customCTA || null,
       overview: doc.detail?.shortDescription || doc.summary?.solution || '',
       richTextOverview: doc.detail?.overview || null,
       challenges: doc.detail?.challenges?.map((c: any, index: number) => ({
