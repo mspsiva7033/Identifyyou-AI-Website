@@ -69,7 +69,8 @@ export const canCreateUser: Access = async ({ req }) => {
  * Admin Panel Access Guard:
  * Blocks deactivated accounts (isActive === false) from logging in or entering the admin portal.
  */
-export const isAdminPanelUser: Access = ({ req: { user } }) => {
+export const isAdminPanelUser = ({ req }: { req: { user?: any } }): boolean => {
+  const user = req?.user
   if (!user) return false
   return user.isActive !== false
 }
