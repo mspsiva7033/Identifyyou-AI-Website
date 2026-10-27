@@ -5561,6 +5561,7 @@ export async function saveContactSubmission(submission: {
 }
 
 export interface BlogArticleSummary {
+  id?: number | string
   slug: string
   category: string
   date: string
@@ -5628,6 +5629,7 @@ export async function getBlogsAndNews(): Promise<BlogArticleSummary[]> {
 
     if (result.docs && result.docs.length > 0) {
       return result.docs.map((doc: any) => ({
+        id: doc.id,
         slug: doc.slug,
         title: doc.title,
         category: doc.category ? doc.category.trim() : '',

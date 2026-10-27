@@ -41,6 +41,11 @@
   ],
   "exclude": [
     "node_modules",
-    "scratch"
+    "scratch",
+    "scratch/**/*",
+    "scripts",
+    "scripts/**/*",
+    "backups",
+    "backups/**/*"
   ]
 }
