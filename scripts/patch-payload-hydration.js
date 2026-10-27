@@ -44,3 +44,20 @@ if (fs.existsSync(targetFile)) {
 } else {
   console.log('• @payloadcms/next RootLayout not found (node_modules might not be installed yet).')
 }
+
+// Patch @payloadcms/graphql formatName to sanitize '&' for GraphQL identifiers
+const formatNameFile = path.resolve(
+  __dirname,
+  '../node_modules/@payloadcms/graphql/dist/utilities/formatName.js'
+)
+
+if (fs.existsSync(formatNameFile)) {
+  let fnContent = fs.readFileSync(formatNameFile, 'utf8')
+  if (fnContent.includes(".replace(/'/g, '_')") && !fnContent.includes(".replace(/&/g, '_')")) {
+    fnContent = fnContent.replace(".replace(/'/g, '_')", ".replace(/'/g, '_').replace(/&/g, '_')")
+    fs.writeFileSync(formatNameFile, fnContent, 'utf8')
+    console.log('✓ Successfully patched @payloadcms/graphql formatName to sanitize & character.')
+  } else {
+    console.log('• @payloadcms/graphql formatName already patched or snippet not found.')
+  }
+}

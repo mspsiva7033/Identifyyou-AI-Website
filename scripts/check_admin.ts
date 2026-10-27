@@ -1,6 +1,6 @@
 import { getPayloadClient } from '../lib/payload'
 
-async function resetAdminPassword() {
+async function checkAdminStatus() {
   try {
     const payload = await getPayloadClient()
     if (!payload) {
@@ -10,32 +10,24 @@ async function resetAdminPassword() {
 
     const users = await payload.find({
       collection: 'users',
+      limit: 50,
     })
 
     if (users.docs.length > 0) {
-      const adminUser = users.docs[0]
-      await payload.update({
-        collection: 'users',
-        id: adminUser.id,
-        data: {
-          password: 'AdminPassword123!',
-        },
+      console.log(`\nFound ${users.docs.length} registered admin user(s):`)
+      users.docs.forEach((u: any, idx: number) => {
+        console.log(`  ${idx + 1}. ${u.email} (ID: ${u.id})`)
       })
-      console.log(`Updated password for admin user: ${adminUser.email}`)
     } else {
-      const newAdmin = await payload.create({
-        collection: 'users',
-        data: {
-          email: 'mspsiva5820@gmail.com',
-          password: 'AdminPassword123!',
-        },
-      })
-      console.log('Created admin user:', newAdmin.email)
+      console.log('\n✓ No admin users found in the database.')
+      console.log('👉 Please open http://localhost:3000/admin in your browser.')
+      console.log('   Payload CMS will automatically display the "Create First User" onboarding screen.\n')
     }
   } catch (err) {
-    console.error('Error resetting password:', err)
+    console.error('Error checking admin status:', err)
   }
   process.exit(0)
 }
 
-resetAdminPassword()
+checkAdminStatus()
+

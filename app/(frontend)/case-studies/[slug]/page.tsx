@@ -10,7 +10,7 @@ import { getCategoryTheme } from '@/lib/caseStudyCategories'
 import { RichText } from '@payloadcms/richtext-lexical/react'
 import styles from './page.module.css'
 
-export const dynamic = 'force-dynamic'
+export const revalidate = 60
 
 export async function generateStaticParams() {
   const caseStudies = await getCaseStudies()
@@ -20,11 +20,17 @@ export async function generateStaticParams() {
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
   const { slug } = await params
   const cs = await getCaseStudyBySlug(slug)
-  if (!cs) return { title: 'Success Story Not Found — IdentifYou Case Studies' }
+  if (!cs) return { title: 'Success Story Not Found — IdentifYou Deep Tech' }
 
   const cleanTitle = cleanHeadingText(cs.title)
-  // Ensure title stays under 45 chars so when appended with " | IdentifYou" (14 chars) it remains under 60 chars
-  const seoTitle = cleanTitle.length > 44 ? `${cleanTitle.substring(0, 41)}...` : cleanTitle
+  // Ensure title length when appended with " | IdentifYou" (14 chars) is >= 30 and <= 60 chars
+  let seoTitle = cleanTitle
+  if (seoTitle.length + 14 < 30) {
+    seoTitle = `${seoTitle} Enterprise Solution`
+  }
+  if (seoTitle.length > 45) {
+    seoTitle = `${seoTitle.substring(0, 42).trim()}...`
+  }
 
   const rawDesc = cs.overview || cs.title
   let seoDesc = rawDesc.replace(/\s+/g, ' ').trim()
@@ -47,6 +53,12 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
 function cleanHeadingText(text: string): string {
   if (!text) return text
   return text.replace(/^(?:0?\d{1,2}\s*[—–\-.:)]\s*|0\d\s+)/, '').trim()
+}
+
+function formatCaseStudyH1(text: string): string {
+  const cleaned = cleanHeadingText(text)
+  if (cleaned.length <= 70) return cleaned
+  return `${cleaned.substring(0, 67).trim()}...`
 }
 
 function cleanTableText(text: string): string {
@@ -158,7 +170,7 @@ export default async function CaseStudyDetailPage({ params }: { params: Promise<
         >
           {categoryName}
         </div>
-        <h1 className={styles.title}>{cleanHeadingText(cs.title)}</h1>
+        <h1 className={styles.title}>{formatCaseStudyH1(cs.title)}</h1>
 
         <div className={styles.heroImgWrapper}>
           <img

@@ -43,6 +43,12 @@ const nextConfig: NextConfig = {
         destination: '/case-studies/power-bi-abm',
         permanent: true,
       },
+      // Redirect alias to canonical fleet intelligence case study
+      {
+        source: '/case-studies/optimizing-shipment-and-fleet-operations',
+        destination: '/case-studies/optimizing-shipment-fleet-snowflake',
+        permanent: true,
+      },
       // Shorten URL over 115 characters to clean canonical destination
       {
         source: '/case-studies/overcoming-data-access-challenges-in-a-multi-business-environment-for-streamlined-decision-making',

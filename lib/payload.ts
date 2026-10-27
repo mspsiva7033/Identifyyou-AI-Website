@@ -5840,7 +5840,7 @@ export const FALLBACK_ABOUT_THANK_YOU: AboutThankYouData = {
   title: 'Thank You',
   website: 'identifyyou.ai',
   websiteUrl: 'https://identifyyou.ai',
-  email: 'ai.connect@identifyyou.in',
+  email: 'ai.support@identifyyou.in',
   phone: '+91 95009 46929',
   offices: [
     {
@@ -5870,7 +5870,7 @@ export async function getAboutThankYouData(): Promise<AboutThankYouData> {
     const footerData = await payload.findGlobal({ slug: 'footer' as any }).catch(() => null)
     if (footerData && (footerData as any).contact) {
       const c = (footerData as any).contact
-      const email = c.email && c.email !== 'ai.support@identifyyou.ai' ? c.email : FALLBACK_ABOUT_THANK_YOU.email
+      const email = c.email ? c.email : FALLBACK_ABOUT_THANK_YOU.email
       const phone = c.phone && c.phone !== '+91 9597046682' ? c.phone : FALLBACK_ABOUT_THANK_YOU.phone
       return {
         ...FALLBACK_ABOUT_THANK_YOU,

@@ -36,6 +36,8 @@ const defaultColumns: FooterColumn[] = [
     title: 'Industries',
     links: [
       { label: 'Manufacturing', href: '/manufacturing' },
+      { label: 'Manufacturing Deep Tech', href: '/deep-tech/manufacturing' },
+      { label: 'Supply Chain & Logistics', href: '/deep-tech/supply-chain' },
       { label: 'Industrial Robots', href: '/industrial-robots' },
       { label: 'Thinking Factory', href: '/thinking-factory' },
       { label: 'Financial Services & FinTech', isText: true },
@@ -65,7 +67,7 @@ export function Footer({
   copyright,
 }: FooterProps) {
   const b = brand || { name: 'IdentifYou Technologies', tagline: 'Deep Tech. Built Around Business.' }
-  const c = contact || { email: 'ai.support@identifyyou.ai', phone: '+91 9597046682' }
+  const c = contact || { email: 'ai.support@identifyyou.in', phone: '+91 9597046682' }
   const copy = copyright || '© 2026 IdentifYou Technologies. All rights reserved.'
 
   return (

@@ -29,7 +29,7 @@ const fourCaseStudies = [
   {
     category: 'LOGISTICS · SNOWFLAKE',
     title: 'Optimizing Shipment and Fleet Operations with Snowflake',
-    href: '/case-studies/optimizing-shipment-and-fleet-operations',
+    href: '/case-studies/optimizing-shipment-fleet-snowflake',
   },
   {
     category: 'LOGISTICS · SNOWFLAKE',

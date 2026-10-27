@@ -34,7 +34,7 @@ export function JsonLdSchema() {
             '@type': 'ContactPoint',
             telephone: '+91-9597046682',
             contactType: 'customer support',
-            email: 'support@identifyyou.ai',
+            email: 'ai.support@identifyyou.in',
             availableLanguage: ['English'],
           },
         ],

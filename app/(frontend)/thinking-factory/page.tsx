@@ -95,37 +95,37 @@ export default function ThinkingFactoryCaseStudyPage() {
           {/* Cards Section */}
           <div className={customStyles.cardsGrid}>
             <div className={customStyles.card}>
-              <h4 className={customStyles.cardTitle}>Every Machine</h4>
+              <h3 className={customStyles.cardTitle}>Every Machine</h3>
               <p className={customStyles.cardText}>
                 An intelligent edge device connected every machine — modern and legacy — capturing machine, PLC, CNC and sensor data across OPC UA, MQTT and other industrial protocols. The machines became connected intelligence nodes rather than isolated production assets.
               </p>
             </div>
             <div className={customStyles.card}>
-              <h4 className={customStyles.cardTitle}>Every Material &amp; Movement</h4>
+              <h3 className={customStyles.cardTitle}>Every Material &amp; Movement</h3>
               <p className={customStyles.cardText}>
                 Materials, pallets, bins and WIP received digital identities and became traceable across the plant. RFID, QR and location technologies connected physical movement with material, production order, quantity, process and location.
               </p>
             </div>
             <div className={customStyles.card}>
-              <h4 className={customStyles.cardTitle}>Every Process</h4>
+              <h3 className={customStyles.cardTitle}>Every Process</h3>
               <p className={customStyles.cardText}>
                 Work orders moved from ERP into the factory, while actual production events moved back into the digital environment. Planned production could now be continuously compared with what was physically happening on the floor.
               </p>
             </div>
             <div className={customStyles.card}>
-              <h4 className={customStyles.cardTitle}>Every Product</h4>
+              <h3 className={customStyles.cardTitle}>Every Product</h3>
               <p className={customStyles.cardText}>
                 Each component could be associated with its material, lot or heat, production order, machine, process, inspection and dispatch history — establishing a digital genealogy across the manufacturing lifecycle.
               </p>
             </div>
             <div className={customStyles.card}>
-              <h4 className={customStyles.cardTitle}>Every Inspection</h4>
+              <h3 className={customStyles.cardTitle}>Every Inspection</h3>
               <p className={customStyles.cardText}>
                 Vision inspection and process data were brought together with material and production context, enabling quality intelligence to move beyond defect detection toward identifying process drift and emerging quality risks.
               </p>
             </div>
             <div className={customStyles.card}>
-              <h4 className={customStyles.cardTitle}>Every Asset &amp; System</h4>
+              <h3 className={customStyles.cardTitle}>Every Asset &amp; System</h3>
               <p className={customStyles.cardText}>
                 Machine behaviour was continuously observed through the intelligent edge for predictive maintenance. SAP, MES, WMS, QMS, and analytics were connected through a common architecture, creating bi-directional flow between enterprise intent and physical execution.
               </p>

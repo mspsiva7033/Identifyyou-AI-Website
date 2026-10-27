@@ -22,7 +22,8 @@
     "test": "node --import tsx/esm scripts/test_production_readiness.ts",
     "test:prod": "node --import tsx/esm scripts/test_production_readiness.ts",
     "test:e2e": "node --env-file=.env.local --import tsx/esm scripts/verify_full_system.ts",
-    "email:test": "node --import tsx/esm scripts/test_email.ts"
+    "email:test": "node --import tsx/esm scripts/test_email.ts",
+    "admin:reset-password": "node --import tsx/esm scripts/reset_password.ts"
   },
   "dependencies": {
     "@google-analytics/data": "^7.2.1",

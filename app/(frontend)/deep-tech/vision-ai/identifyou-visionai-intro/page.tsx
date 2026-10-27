@@ -79,6 +79,20 @@ export default function IdentifYouVisionAIIntroPage() {
               Every Vision AI installation follows a rigorous industrial deployment lifecycle. First, our optical engineers design specialized wavelength lighting and telecentric lens configurations. Second, we curate real production image datasets to train optimized convolutional networks. Third, deep learning models are quantized and compiled onto edge inference hardware such as NVIDIA Jetson or TensorRT runtimes. Finally, hardware I/O lines are wired directly to PLC safety relays to execute sub-second reject triggering.
             </p>
           </div>
+
+          <div style={{ marginTop: '36px', padding: '24px', background: '#F8F9FA', borderRadius: '8px' }}>
+            <h3 style={{ fontSize: '18px', fontWeight: 700, color: '#12181B', marginBottom: '12px' }}>
+              Why Vision AI Matters for Your Shop Floor
+            </h3>
+            <p className={styles.precisionDesc} style={{ marginBottom: '12px' }}>
+              Manual inspection can tire human eyes after hours of repetitive shifts. Our optical cameras stay sharp all day and all night. They inspect every single unit that passes through the production line without slowing down work.
+            </p>
+            <ul style={{ color: '#5B6862', fontSize: '15px', lineHeight: 1.6, paddingLeft: '20px' }}>
+              <li><strong>Fast Error Detection:</strong> The system spots tiny surface flaws in under 15 milliseconds.</li>
+              <li><strong>Less Material Waste:</strong> Bad parts are removed before extra work is done on them.</li>
+              <li><strong>Simple Factory Setup:</strong> Our hardware connects easily to existing conveyors, alarms, and reject arms.</li>
+            </ul>
+          </div>
         </div>
       </section>
 

@@ -4,7 +4,7 @@ import { Header } from '@/components/layout/Header'
 import { Footer } from '@/components/layout/Footer'
 
 export const metadata: Metadata = {
-  title: 'Page Not Found',
+  title: '404 - Page Not Found — IdentifYou Deep Tech',
   description: 'The requested page could not be found.',
   robots: {
     index: false,

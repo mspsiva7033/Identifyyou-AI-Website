@@ -3,7 +3,11 @@
 import { useEffect, useRef } from 'react'
 import { usePathname, useSearchParams } from 'next/navigation'
 
-export const UMAMI_WEBSITE_ID = process.env.NEXT_PUBLIC_UMAMI_WEBSITE_ID
+export const UMAMI_WEBSITE_ID =
+  process.env.NEXT_PUBLIC_UMAMI_WEBSITE_ID &&
+  process.env.NEXT_PUBLIC_UMAMI_WEBSITE_ID !== 'your-umami-website-id'
+    ? process.env.NEXT_PUBLIC_UMAMI_WEBSITE_ID
+    : undefined
 export const UMAMI_HOST_URL = (process.env.NEXT_PUBLIC_UMAMI_HOST_URL || 'https://cloud.umami.is').replace(/\/$/, '')
 
 // Declare global window.umami object for TypeScript

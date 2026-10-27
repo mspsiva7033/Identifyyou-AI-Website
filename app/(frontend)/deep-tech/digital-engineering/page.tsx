@@ -42,7 +42,7 @@ const digitalCaseStudies = [
     image: '/images/case-studies/enhancing-support-efficiency-with-integrated-order-management.png',
   },
   {
-    slug: 'overcoming-data-access-challenges-in-a-multi-business-environment-for-streamlined-decision-making',
+    slug: 'overcoming-data-access-challenges',
     title: 'Overcoming Data Access Challenges in a Multi-Business Environment',
     tag: 'MULTI-BUSINESS DATA · BI ANALYTICS · DECISION MAKING',
     categories: ['Digital Engineering', 'Data'],
@@ -97,6 +97,9 @@ export default function DigitalEngineeringPage() {
           We combine modern application engineering, cloud, data, AI and integration capabilities to build scalable digital solutions.
           From business applications and enterprise integrations to customer and operational platforms, we connect technology with real business needs.
           Our Business First approach ensures every solution is designed around measurable business value, agility and long-term growth.
+        </p>
+        <p className={styles.introParagraph} style={{ marginTop: '16px' }}>
+          We help companies replace slow manual processes with fast digital workflows. Our tools integrate cleanly with your existing databases, ERPs, and CRM systems. Your team gets work done faster, with fewer manual errors and lower operating costs.
         </p>
       </section>
 

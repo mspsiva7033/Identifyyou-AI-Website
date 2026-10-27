@@ -40,7 +40,7 @@ export const FooterGlobal: GlobalConfig = {
       name: 'contact',
       label: 'Contact Info',
       fields: [
-        { name: 'email', type: 'email', defaultValue: 'ai.connect@identifyyou.in' },
+        { name: 'email', type: 'email', defaultValue: 'ai.support@identifyyou.in' },
         { name: 'phone', type: 'text', defaultValue: '+91 95009 46929' },
         { name: 'indiaAddress', type: 'text', defaultValue: 'B3 Pandikovil Ring Road, near ELCOT IT Park, Madurai, Tamil Nadu, India 625107' },
         { name: 'ukAddress', type: 'text', defaultValue: 'Flat 2, 3 Northwood Avenue, Purely, London, UK CR8 2ER' },

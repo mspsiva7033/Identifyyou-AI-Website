@@ -3,6 +3,7 @@ import { postgresAdapter } from '@payloadcms/db-postgres'
 import { lexicalEditor } from '@payloadcms/richtext-lexical'
 import { s3Storage } from '@payloadcms/storage-s3'
 import { nodemailerAdapter } from '@payloadcms/email-nodemailer'
+import { microsoftGraphEmailAdapter } from './lib/email'
 import sharp from 'sharp'
 import path from 'path'
 import fs from 'fs'
@@ -130,6 +131,19 @@ export default buildConfig({
   }),
   sharp,
   email: (() => {
+    // 1. Prefer Microsoft Graph API if Azure / Microsoft 365 credentials exist in environment
+    const hasGraph = Boolean(
+      (process.env.MS_GRAPH_TENANT_ID || process.env.AZURE_TENANT_ID) &&
+      (process.env.MS_GRAPH_CLIENT_ID || process.env.AZURE_CLIENT_ID) &&
+      (process.env.MS_GRAPH_CLIENT_SECRET || process.env.AZURE_CLIENT_SECRET) &&
+      (process.env.MS_GRAPH_SENDER_EMAIL || process.env.AZURE_SENDER_EMAIL || process.env.CONTACT_EMAIL_FROM)
+    )
+
+    if (hasGraph) {
+      return microsoftGraphEmailAdapter()
+    }
+
+    // 2. Fallback to Nodemailer SMTP if configured
     const host = process.env.SMTP_HOST
     const user = process.env.SMTP_USER
     const pass = process.env.SMTP_PASS
@@ -146,7 +160,7 @@ export default buildConfig({
     }
 
     return nodemailerAdapter({
-      defaultFromAddress: process.env.SMTP_FROM || 'noreply@identifyyou.com',
+      defaultFromAddress: process.env.SMTP_FROM || 'ai.support@identifyyou.in',
       defaultFromName: 'IdentifYou Technologies',
       skipVerify: process.env.SMTP_SKIP_VERIFY === 'true',
       transportOptions: {

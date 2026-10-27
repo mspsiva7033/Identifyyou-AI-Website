@@ -49,6 +49,9 @@ export default async function AboutPage() {
           <p style={{ margin: 0 }}>
             By fusing operational technology on the shop floor with enterprise cloud systems, we turn routine machine signals into competitive advantages. Our client engagements deliver reduced scrap, faster production cycles, and dependable operational transparency.
           </p>
+          <p style={{ marginTop: '16px' }}>
+            Our goal is straightforward: build reliable tools that help teams work smarter. We partner closely with your staff to solve day-to-day challenges and generate measurable cost savings.
+          </p>
         </div>
 
         {/* ── Leadership Team Section ────────────────────────────── */}

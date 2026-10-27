@@ -151,8 +151,8 @@ export function ContactClient() {
             <div className={styles.contactInfo}>
               <div className={styles.contactInfoTitle}>Contact Details</div>
               <p className={styles.contactInfoText}>
-                <a href="mailto:support@identifyyou.ai" style={{ color: '#94C640', textDecoration: 'none' }}>
-                  support@identifyyou.ai
+                <a href="mailto:ai.support@identifyyou.in" style={{ color: '#94C640', textDecoration: 'none' }}>
+                  ai.support@identifyyou.in
                 </a>
               </p>
               <p className={styles.contactInfoText}>
@@ -169,6 +169,18 @@ export function ContactClient() {
                 <Link href="/deep-tech" style={{ color: '#94C640', fontSize: '14px', fontWeight: 600, textDecoration: 'none' }}>
                   Discover Deep Tech Capabilities →
                 </Link>
+              </div>
+              <div style={{ marginTop: '20px', paddingTop: '16px', borderTop: '1px solid rgba(255,255,255,0.1)' }}>
+                <div className={styles.contactInfoTitle}>What to Expect</div>
+                <p className={styles.contactInfoText} style={{ marginBottom: '8px' }}>
+                  Our deep tech engineers review every request promptly. You will hear back within one business day.
+                </p>
+                <p className={styles.contactInfoText} style={{ marginBottom: '8px' }}>
+                  We offer an initial session to review your goals. We discuss your current line setup, machine protocols, and software requirements.
+                </p>
+                <p className={styles.contactInfoText}>
+                  Next, we provide a clear project plan with estimated timelines, expected cost savings, and pilot milestones.
+                </p>
               </div>
             </div>
           </div>

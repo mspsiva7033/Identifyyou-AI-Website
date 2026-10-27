@@ -86,6 +86,21 @@ export default function SupplyChainDeepTechPage() {
         <p className={styles.introParagraph} style={{ marginTop: '16px' }}>
           This transparency connects enterprise resource planning with real-world shipping conditions. Supply chain leaders eliminate deadhead miles and protect perishable cargo integrity. Companies maintain minimal working capital while preserving high on-time fulfillment rates.
         </p>
+
+        <div style={{ marginTop: '24px', textAlign: 'left', maxWidth: '780px', margin: '24px auto 0', padding: '20px', background: '#F8F9FA', borderRadius: '8px' }}>
+          <h3 style={{ fontSize: '18px', fontWeight: 700, color: '#12181B', marginBottom: '8px' }}>
+            How We Streamline Supply Chains:
+          </h3>
+          <p style={{ color: '#5B6862', fontSize: '15px', lineHeight: 1.6, marginBottom: '8px' }}>
+            1. <strong>Track Shipments in Real Time:</strong> GPS and temperature sensors show exactly where trucks are. Dispatchers know arrival times before trucks pull into the yard.
+          </p>
+          <p style={{ color: '#5B6862', fontSize: '15px', lineHeight: 1.6, marginBottom: '8px' }}>
+            2. <strong>Prevent Stockouts Before They Happen:</strong> Smart forecast models check store inventory and sales daily. Warehouses reorder goods automatically before shelves run empty.
+          </p>
+          <p style={{ color: '#5B6862', fontSize: '15px', lineHeight: 1.6 }}>
+            3. <strong>Cut Unnecessary Fuel and Miles:</strong> Route planning tools find the fastest paths around traffic and bad weather. Fleets use less fuel and deliver on schedule.
+          </p>
+        </div>
       </section>
 
       {/* FLOW CHAIN */}

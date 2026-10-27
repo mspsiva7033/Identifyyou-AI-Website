@@ -195,8 +195,8 @@ export function getPoolConfig(): PoolConfig {
   return {
     connectionString: config.connectionString,
     ssl: config.ssl,
-    max: 8,
-    idleTimeoutMillis: 10000,
+    max: 3,
+    idleTimeoutMillis: 5000,
     connectionTimeoutMillis: 30000,
   }
 }

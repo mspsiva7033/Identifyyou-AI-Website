@@ -407,3 +407,120 @@ export async function sendContactNotification(
 
   return sendEmailViaMicrosoftGraph(data, config)
 }
+
+/**
+ * Low-level function to send any generic email (such as Password Reset) via Microsoft Graph API.
+ */
+export async function sendRawGraphEmail(options: {
+  to: string | string[]
+  subject: string
+  html?: string
+  text?: string
+}): Promise<{ success: boolean; error?: string }> {
+  const config = getMicrosoftGraphConfig()
+  if (!config) {
+    return { success: false, error: 'Microsoft Graph configuration is missing.' }
+  }
+
+  const token = await getGraphAccessToken(config)
+  const sendMailEndpoint = `https://graph.microsoft.com/v1.0/users/${encodeURIComponent(
+    config.senderEmail
+  )}/sendMail`
+
+  const recipients = (Array.isArray(options.to) ? options.to : [options.to])
+    .map((item) => {
+      if (typeof item === 'string') {
+        const match = item.match(/<([^>]+)>/)
+        return match ? match[1].trim() : item.trim()
+      } else if (item && typeof item === 'object' && 'address' in item) {
+        return (item as any).address.trim()
+      }
+      return ''
+    })
+    .filter(Boolean)
+
+  if (recipients.length === 0) {
+    return { success: false, error: 'No valid recipient email addresses provided.' }
+  }
+
+  const messagePayload = {
+    message: {
+      subject: options.subject,
+      body: {
+        contentType: options.html ? 'HTML' : 'Text',
+        content: options.html || options.text || '',
+      },
+      toRecipients: recipients.map((email) => ({
+        emailAddress: {
+          address: email,
+        },
+      })),
+    },
+    saveToSentItems: config.saveToSentItems,
+  }
+
+  const response = await fetch(sendMailEndpoint, {
+    method: 'POST',
+    headers: {
+      Authorization: `Bearer ${token}`,
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(messagePayload),
+  })
+
+  if (!response.ok) {
+    const errText = await response.text()
+    console.error(`[Microsoft Graph API] Error sending email (HTTP ${response.status}):`, errText)
+    return { success: false, error: `HTTP ${response.status}: ${errText}` }
+  }
+
+  return { success: true }
+}
+
+/**
+ * Native Payload CMS 3.x Email Adapter backed by Microsoft Graph API.
+ * Automatically sends Payload emails (Password Reset, Admin Invitations)
+ * using the existing Azure / Microsoft 365 OAuth 2.0 Client Credentials.
+ */
+export const microsoftGraphEmailAdapter = () => {
+  const config = getMicrosoftGraphConfig()
+  const defaultFrom = config?.senderEmail || process.env.SMTP_FROM || 'ai.support@identifyyou.in'
+
+  return ({ payload }: { payload: any }) => ({
+    name: 'microsoft-graph',
+    defaultFromAddress: defaultFrom,
+    defaultFromName: 'IdentifYou Technologies',
+    sendEmail: async (message: any) => {
+      try {
+        const toList: string[] = []
+        if (typeof message.to === 'string') {
+          toList.push(message.to)
+        } else if (Array.isArray(message.to)) {
+          message.to.forEach((t: any) => {
+            if (typeof t === 'string') toList.push(t)
+            else if (t && typeof t === 'object' && 'address' in t) toList.push(t.address)
+          })
+        }
+
+        const res = await sendRawGraphEmail({
+          to: toList,
+          subject: message.subject || 'Notification from IdentifYou',
+          html: typeof message.html === 'string' ? message.html : undefined,
+          text: typeof message.text === 'string' ? message.text : undefined,
+        })
+
+        if (!res.success) {
+          payload.logger?.error?.({ msg: `[MS Graph Email Adapter] Send failed: ${res.error}` })
+          throw new Error(res.error)
+        }
+
+        payload.logger?.info?.({ msg: `[MS Graph Email Adapter] Successfully sent email to ${toList.join(', ')}` })
+        return res
+      } catch (err) {
+        payload.logger?.error?.({ msg: `[MS Graph Email Adapter] Error: ${err}` })
+        throw err
+      }
+    },
+  })
+}
+

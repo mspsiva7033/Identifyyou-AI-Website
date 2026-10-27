@@ -3,10 +3,15 @@ import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import { Header } from '@/components/layout/Header'
 import { Footer } from '@/components/layout/Footer'
-import { getBlogBySlug } from '@/lib/payload'
+import { getBlogBySlug, getBlogsAndNews } from '@/lib/payload'
 import styles from './page.module.css'
 
-export const dynamic = 'force-dynamic'
+export const revalidate = 60
+
+export async function generateStaticParams() {
+  const articles = await getBlogsAndNews()
+  return articles.map((article) => ({ slug: article.slug }))
+}
 
 interface ArticleDetail {
   title: string
@@ -184,10 +189,12 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   if (!article) return { title: 'Blog Article Not Found — IdentifYou Insights' }
 
   const rawTitle = article.title
-  let seoTitle = rawTitle.length > 44 ? `${rawTitle.substring(0, 41)}...` : rawTitle
-  if (seoTitle.length < 30) {
-    seoTitle = `${seoTitle} — Deep Tech Insights`
-    if (seoTitle.length > 44) seoTitle = `${seoTitle.substring(0, 41)}...`
+  let seoTitle = rawTitle
+  if (seoTitle.length + 14 < 30) {
+    seoTitle = `${seoTitle} — Deep Tech`
+  }
+  if (seoTitle.length > 45) {
+    seoTitle = `${seoTitle.substring(0, 42).trim()}...`
   }
 
   const rawDesc = article.overview || article.title
@@ -206,6 +213,12 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
       canonical: `/blogs-and-news/${slug}`,
     },
   }
+}
+
+function formatBlogH1(text: string): string {
+  if (!text) return text
+  if (text.length <= 70) return text
+  return `${text.substring(0, 67).trim()}...`
 }
 
 export default async function BlogDetailPage({ params }: { params: Promise<{ slug: string }> }) {
@@ -230,7 +243,7 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ slu
 
       <section className={styles.content}>
         {article.category ? <div className={styles.tagBadge}>{article.category}</div> : null}
-        <h1 className={styles.title}>{article.title}</h1>
+        <h1 className={styles.title}>{formatBlogH1(article.title)}</h1>
         <div className={styles.metaLine}>
           <span>{article.date}</span> • <span>{article.readTime}</span>
         </div>

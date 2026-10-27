@@ -68,6 +68,21 @@ export default function ManufacturingDeepTechPage() {
           </ul>
         </div>
 
+        <div style={{ marginTop: '24px', textAlign: 'left', maxWidth: '780px', margin: '24px auto 0', padding: '20px', background: '#F8F9FA', borderRadius: '8px' }}>
+          <h3 style={{ fontSize: '18px', fontWeight: 700, color: '#12181B', marginBottom: '8px' }}>
+            How It Works in Practice:
+          </h3>
+          <p style={{ color: '#5B6862', fontSize: '15px', lineHeight: 1.6, marginBottom: '8px' }}>
+            1. <strong>Smart Sensors Watch Every Part:</strong> High-speed cameras check parts as they move down the belt. The system catches errors in less than a second. This stops bad parts from reaching customers.
+          </p>
+          <p style={{ color: '#5B6862', fontSize: '15px', lineHeight: 1.6, marginBottom: '8px' }}>
+            2. <strong>Machines Talk to Each Other:</strong> Old and new machines connect to a central hub. Teams see when tools need care before they break down. This keeps production lines running without surprise stops.
+          </p>
+          <p style={{ color: '#5B6862', fontSize: '15px', lineHeight: 1.6 }}>
+            3. <strong>Teams Make Faster Decisions:</strong> Plant managers see live data on their screens. They know exact output numbers at any time of day. This saves time and cuts waste across the factory floor.
+          </p>
+        </div>
+
         <div style={{ marginTop: '28px', textAlign: 'center' }}>
           <Link href="/manufacturing" className={styles.btnPrimary}>
             Explore Full Manufacturing Ecosystem →
