@@ -1,5 +1,6 @@
 import type { CollectionConfig, CollectionAfterChangeHook } from 'payload'
 import { sendContactNotification } from '../../lib/email'
+import { canViewLeads, isSuperAdmin, hasRole } from '../../lib/access'
 
 const sendEmailHook: CollectionAfterChangeHook = async ({ doc, operation }) => {
   if (operation === 'create') {
@@ -33,12 +34,13 @@ export const ContactSubmissions: CollectionConfig = {
     useAsTitle: 'name',
     group: 'Operations',
     defaultColumns: ['name', 'email', 'selectedPath', 'createdAt'],
+    hidden: ({ user }) => !user || (!hasRole(user, 'superadmin') && !hasRole(user, 'lead-manager')),
   },
   access: {
-    read: () => true,
-    create: () => true,
-    update: () => false,
-    delete: () => false,
+    read: canViewLeads,
+    create: () => true, // Public website inquiry submission
+    update: canViewLeads,
+    delete: isSuperAdmin,
   },
   hooks: {
     afterChange: [sendEmailHook],

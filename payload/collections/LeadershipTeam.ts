@@ -1,4 +1,5 @@
 import type { CollectionConfig } from 'payload'
+import { isEditorOrAdmin, isSuperAdmin } from '../../lib/access'
 
 export const LeadershipTeam: CollectionConfig = {
   slug: 'leadership-team',
@@ -13,9 +14,9 @@ export const LeadershipTeam: CollectionConfig = {
   },
   access: {
     read: () => true,
-    create: ({ req: { user } }) => Boolean(user),
-    update: ({ req: { user } }) => Boolean(user),
-    delete: ({ req: { user } }) => Boolean(user),
+    create: isEditorOrAdmin,
+    update: isEditorOrAdmin,
+    delete: isSuperAdmin,
   },
   fields: [
     {

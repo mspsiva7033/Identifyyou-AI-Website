@@ -29,6 +29,7 @@ if (!process.env.DATABASE_URI) {
   }
 }
 
+import { Users } from './payload/collections/Users'
 import { Media } from './payload/collections/Media'
 import { CaseStudyCategories } from './payload/collections/CaseStudyCategories'
 import { CaseStudies } from './payload/collections/CaseStudies'
@@ -94,15 +95,7 @@ export default buildConfig({
     },
   },
   collections: [
-    {
-      slug: 'users',
-      auth: true,
-      access: {
-        delete: () => true,
-        update: () => true,
-      },
-      fields: [],
-    },
+    Users,
     Media,
     CaseStudyCategories,
     CaseStudies,

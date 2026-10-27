@@ -1,13 +1,16 @@
 import type { GlobalConfig } from 'payload'
+import { isSuperAdmin, hasRole } from '../../lib/access'
 
 export const SiteSettings: GlobalConfig = {
   slug: 'site-settings',
   label: 'Site Settings',
   admin: {
     group: 'Site Settings',
+    hidden: ({ user }) => !hasRole(user, 'superadmin'),
   },
   access: {
     read: () => true,
+    update: isSuperAdmin,
   },
   fields: [
     { name: 'siteName', type: 'text', label: 'Site Name', defaultValue: 'IdentifYou Technologies' },

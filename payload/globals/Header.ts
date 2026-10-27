@@ -1,13 +1,16 @@
 import type { GlobalConfig } from 'payload'
+import { isSuperAdmin, hasRole } from '../../lib/access'
 
 export const HeaderGlobal: GlobalConfig = {
   slug: 'header',
   label: 'Header',
   admin: {
     group: 'Site Settings',
+    hidden: ({ user }) => !hasRole(user, 'superadmin'),
   },
   access: {
     read: () => true,
+    update: isSuperAdmin,
   },
   fields: [
     {

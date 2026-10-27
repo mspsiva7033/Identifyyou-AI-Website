@@ -1,6 +1,7 @@
 import type { CollectionConfig } from 'payload'
 import path from 'path'
 import { fileURLToPath } from 'url'
+import { isEditorOrAdmin, isSuperAdmin } from '../../lib/access'
 
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
@@ -17,6 +18,9 @@ export const Media: CollectionConfig = {
   },
   access: {
     read: () => true,
+    create: isEditorOrAdmin,
+    update: isEditorOrAdmin,
+    delete: isSuperAdmin,
   },
   upload: {
     staticDir: path.resolve(dirname, '../../public/media'),

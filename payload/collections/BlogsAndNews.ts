@@ -1,4 +1,5 @@
 import type { CollectionConfig } from 'payload'
+import { isEditorOrAdmin, isSuperAdmin } from '../../lib/access'
 
 export const BlogsAndNews: CollectionConfig = {
   slug: 'blogs-and-news',
@@ -17,6 +18,9 @@ export const BlogsAndNews: CollectionConfig = {
   },
   access: {
     read: () => true,
+    create: isEditorOrAdmin,
+    update: isEditorOrAdmin,
+    delete: isSuperAdmin,
   },
   versions: {
     drafts: true,

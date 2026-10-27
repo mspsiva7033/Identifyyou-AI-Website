@@ -1,4 +1,5 @@
 import type { CollectionConfig } from 'payload'
+import { isEditorOrAdmin, isSuperAdmin } from '../../lib/access'
 
 export const CaseStudies: CollectionConfig = {
   slug: 'case-studies',
@@ -23,6 +24,9 @@ export const CaseStudies: CollectionConfig = {
   },
   access: {
     read: () => true,
+    create: isEditorOrAdmin,
+    update: isEditorOrAdmin,
+    delete: isSuperAdmin,
   },
   versions: {
     drafts: true,
