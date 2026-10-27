@@ -4650,6 +4650,94 @@ export async function seed() {
   }
 
   console.log(`Successfully seeded ${count} Case Studies into Payload CMS database!`)
+
+  // Seed initial Blogs & News articles if collection is empty
+  try {
+    const existingBlogs = await payload.find({
+      collection: 'blogs-and-news',
+      limit: 1,
+    })
+    if (existingBlogs.docs.length === 0) {
+      console.log('Seeding initial Blogs & News articles...')
+      const sampleBlogs = [
+        {
+          title: 'The Future of Industrial Vision AI in 2026: From Defect Detection to Root Cause Autonomy',
+          slug: 'future-of-industrial-vision-ai',
+          category: 'Vision AI & Quality',
+          readTime: '6 min read',
+          excerpt: 'How modern computer vision algorithms and edge neural networks are transforming factory floors from simple visual sorting to autonomous process optimization.',
+          status: 'published',
+          publishedAt: new Date().toISOString(),
+          overview: 'Industrial vision inspection is experiencing a fundamental generational shift. Explore the key advancements shaping factory quality in 2026.',
+          sections: [
+            {
+              title: 'From Passive Cameras to Active Edge Reasoning',
+              content: 'Modern high-speed production environments require sub-millisecond defect classification. Edge AI gateways run quantized neural models directly alongside PLC sensors to stop bad parts before secondary processing.',
+            },
+            {
+              title: 'Measurable ROI on the Factory Floor',
+              content: 'Automated continuous vision monitoring delivers rapid payback by eliminating manual inspection fatigue and reducing false scrap rates by over 40%.',
+            },
+          ],
+          takeaways: [
+            { point: 'Sub-millisecond inference on edge cameras reduces scrap by up to 40%.' },
+            { point: 'Closed-loop PLC integration enables automatic line stops upon pattern defect detection.' },
+            { point: 'Unified factory dashboards provide real-time yield analytics across multiple production lines.' },
+          ],
+        },
+        {
+          title: 'Sub-Millisecond Edge AI in Modern Manufacturing Lines',
+          slug: 'edge-ai-manufacturing-lines',
+          category: 'Industrial Automation',
+          readTime: '5 min read',
+          excerpt: 'Deploying deep learning inference directly on PLC-adjacent hardware to guarantee zero escape defects in high-volume production.',
+          status: 'published',
+          publishedAt: new Date(Date.now() - 86400000 * 3).toISOString(),
+          overview: 'How edge computing architectures eliminate latency constraints in industrial computer vision inspection.',
+          sections: [
+            {
+              title: 'Deterministic Real-Time Edge Processing',
+              content: 'By removing cloud round-trip latency, edge nodes inspect assemblies at 60+ frames per second with deterministic timing.',
+            },
+          ],
+          takeaways: [
+            { point: 'Sub-millisecond inspection latency at the production line.' },
+            { point: 'Direct industrial protocol integration with Siemens, Rockwell, and Beckhoff PLCs.' },
+          ],
+        },
+        {
+          title: 'Building Enterprise Intelligence with Snowflake Cortex and Deep Tech',
+          slug: 'snowflake-cortex-enterprise-intelligence',
+          category: 'Data Engineering',
+          readTime: '7 min read',
+          excerpt: 'Unifying operational manufacturing telemetry and LLM-driven query interfaces inside the Snowflake AI Data Cloud.',
+          status: 'published',
+          publishedAt: new Date(Date.now() - 86400000 * 7).toISOString(),
+          overview: 'Transforming telemetry silos into actionable conversational analytics across enterprise factory networks.',
+          sections: [
+            {
+              title: 'Bridging OT Telemetry and Enterprise Data Warehousing',
+              content: 'Streaming MQTT and OPC-UA sensor telemetry directly into Snowflake Cortex for real-time root-cause analysis.',
+            },
+          ],
+          takeaways: [
+            { point: 'Unified data model across multi-plant industrial operations.' },
+            { point: 'Instant natural-language querying of line anomalies and production yields.' },
+          ],
+        },
+      ]
+
+      for (const blog of sampleBlogs) {
+        await payload.create({
+          collection: 'blogs-and-news',
+          data: blog as any,
+        })
+      }
+      console.log(`Successfully seeded ${sampleBlogs.length} Blog articles into Payload CMS!`)
+    }
+  } catch (err) {
+    console.warn('Note on blog seeding:', err instanceof Error ? err.message : err)
+  }
 }
 
 if (process.argv[2] === '--run') {
