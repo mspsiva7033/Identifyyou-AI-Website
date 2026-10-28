@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import { Header } from '@/components/layout/Header'
 import { Footer } from '@/components/layout/Footer'
-import globalStyles from '../case-studies/[slug]/page.module.css'
+import globalStyles from '../success-stories/[slug]/page.module.css'
 import customStyles from './page.module.css'
 
 export const metadata: Metadata = {

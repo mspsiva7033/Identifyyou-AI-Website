@@ -303,7 +303,7 @@ export default function AINoCodePage() {
                     </div>
 
                     <div style={{ marginTop: '24px' }}>
-                      <Link href={`/case-studies/${cs.slug}`} className={styles.csBtn}>
+                      <Link href={`/success-stories/${cs.slug}`} className={styles.csBtn}>
                         Explore Success Story →
                       </Link>
                     </div>

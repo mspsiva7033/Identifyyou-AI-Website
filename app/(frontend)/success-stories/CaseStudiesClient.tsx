@@ -118,7 +118,7 @@ export function CaseStudiesClient({ categories = [], caseStudies = [] }: Props) 
       <section className={styles.content}>
         <div style={{ textAlign: 'center', marginBottom: '28px' }}>
           <h2 style={{ fontSize: '22px', fontWeight: 700, color: '#0f172a', margin: '0 0 8px' }}>
-            Featured Enterprise Case Studies
+            Featured Enterprise Success Stories
           </h2>
         </div>
 

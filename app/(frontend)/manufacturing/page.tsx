@@ -30,12 +30,12 @@ const seeActCards = [
 const supplyChainFlow = ['Supplier', 'Procurement', 'Material', 'Warehouse', 'Manufacturing', 'Quality', 'Inventory', 'Logistics', 'Customer']
 
 const mfgSolutionsImages: Record<string, { img: string; href: string }> = {
-  'Smart Factory': { img: '/images/case-studies/connected-intelligent-plant.png', href: '/case-studies/connected-intelligent-plant' },
-  'AI-Powered Procurement': { img: '/images/case-studies/procurement-operations-intelligence.png', href: '/case-studies/procurement-operations-intelligence' },
-  'Inventory Intelligence': { img: '/images/retail_inventory_dashboard.png', href: '/case-studies/revolutionizing-inventory-optimization' },
+  'Smart Factory': { img: '/images/case-studies/connected-intelligent-plant.png', href: '/success-stories/connected-intelligent-plant' },
+  'AI-Powered Procurement': { img: '/images/case-studies/procurement-operations-intelligence.png', href: '/success-stories/procurement-operations-intelligence' },
+  'Inventory Intelligence': { img: '/images/retail_inventory_dashboard.png', href: '/success-stories/revolutionizing-inventory-optimization' },
   'Vision Inspection': { img: '/images/uv_light_defect_detection.png', href: '/deep-tech/vision-ai' },
-  'Connected Factory': { img: '/images/end_to_end_inspection_cell.png', href: '/case-studies/fluke-t40' },
-  'Material Traceability': { img: '/images/case-studies/towards-zero-inventory-variance-automation.png', href: '/case-studies/towards-zero-inventory-variance-automation' },
+  'Connected Factory': { img: '/images/end_to_end_inspection_cell.png', href: '/success-stories/fluke-t40' },
+  'Material Traceability': { img: '/images/case-studies/towards-zero-inventory-variance-automation.png', href: '/success-stories/towards-zero-inventory-variance-automation' },
   'Production Intelligence': { img: '/images/precision_abm_dashboard.png', href: '/deep-tech/ai-intelligent-business' },
   'Manufacturing Data Platform': { img: '/images/snowflake_cortex_architecture.png', href: '/deep-tech/data-engineering' },
 }
@@ -94,7 +94,7 @@ export default async function ManufacturingPage() {
         <h2 className={styles.h2Center}>Manufacturing Solutions</h2>
         <div className={styles.solGrid}>
           {manufacturingSolutions.map((m: { title: string; tagline: string; href?: string }) => {
-            const extra = mfgSolutionsImages[m.title] || { img: '/images/industry_automation_hero.png', href: m.href || '/case-studies' }
+            const extra = mfgSolutionsImages[m.title] || { img: '/images/industry_automation_hero.png', href: m.href || '/success-stories' }
             return (
               <div key={m.title} className={styles.solCard}>
                 <img
@@ -123,7 +123,7 @@ export default async function ManufacturingPage() {
         </div>
 
         <div className={styles.caseStudiesLink}>
-          <Link href="/case-studies" className={styles.caseStudiesBtn}>See Manufacturing Success Stories</Link>
+          <Link href="/success-stories" className={styles.caseStudiesBtn}>See Manufacturing Success Stories</Link>
         </div>
       </section>
 

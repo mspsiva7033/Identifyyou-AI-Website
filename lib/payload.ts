@@ -5246,14 +5246,14 @@ export const FALLBACK_CASE_STUDIES_MAP: Record<string, CaseStudyDetail> = {
 */
 
 export const FALLBACK_MANUFACTURING_SOLUTIONS: ManufacturingSolutionItem[] = [
-  { title: 'Smart Factory', tagline: 'MES, production monitoring and digital shop-floor workflows.', href: '/case-studies' },
-  { title: 'AI-Powered Procurement', tagline: 'Supplier recommendation, price intelligence and forecasting.', href: '/case-studies' },
-  { title: 'Inventory Intelligence', tagline: 'Inventory variance, WIP visibility and stock optimization.', href: '/case-studies/revolutionizing-inventory-optimization' },
-  { title: 'Vision Inspection', tagline: 'Visual inspection, dimensional measurement and defect detection.', href: '/case-studies' },
-  { title: 'Connected Factory', tagline: 'IIoT, edge computing and machine connectivity.', href: '/case-studies' },
-  { title: 'Material Traceability', tagline: 'RFID, QR, lot tracking and pallet tracking.', href: '/case-studies' },
-  { title: 'Production Intelligence', tagline: 'Production monitoring, scheduling and analytics.', href: '/case-studies' },
-  { title: 'Manufacturing Data Platform', tagline: 'Enterprise manufacturing data, analytics and AI.', href: '/case-studies' },
+  { title: 'Smart Factory', tagline: 'MES, production monitoring and digital shop-floor workflows.', href: '/success-stories' },
+  { title: 'AI-Powered Procurement', tagline: 'Supplier recommendation, price intelligence and forecasting.', href: '/success-stories' },
+  { title: 'Inventory Intelligence', tagline: 'Inventory variance, WIP visibility and stock optimization.', href: '/success-stories/revolutionizing-inventory-optimization' },
+  { title: 'Vision Inspection', tagline: 'Visual inspection, dimensional measurement and defect detection.', href: '/success-stories' },
+  { title: 'Connected Factory', tagline: 'IIoT, edge computing and machine connectivity.', href: '/success-stories' },
+  { title: 'Material Traceability', tagline: 'RFID, QR, lot tracking and pallet tracking.', href: '/success-stories' },
+  { title: 'Production Intelligence', tagline: 'Production monitoring, scheduling and analytics.', href: '/success-stories' },
+  { title: 'Manufacturing Data Platform', tagline: 'Enterprise manufacturing data, analytics and AI.', href: '/success-stories' },
 ]
 
 export const FALLBACK_DEEP_TECH_CAPABILITIES: DeepTechCapabilityItem[] = [

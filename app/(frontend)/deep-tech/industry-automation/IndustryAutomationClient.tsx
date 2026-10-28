@@ -57,7 +57,7 @@ const useCaseCards = [
     highlight:
       'Achieving 99.4% equipment uptime, continuous 24/7 thermal assurance, and zero unpredicted critical failures.',
     btnLabel: 'Explore Fluke TV30 Success Story →',
-    btnHref: '/case-studies/fluke-tv30',
+    btnHref: '/success-stories/fluke-tv30',
     image: '/images/case-studies/fluke-tv30.png',
   },
   {
@@ -72,7 +72,7 @@ const useCaseCards = [
     highlight:
       'Sub-second edge anomaly detection with zero unpredicted thermal shutdowns.',
     btnLabel: 'Explore Fluke T40 Success Story →',
-    btnHref: '/case-studies/fluke-t40',
+    btnHref: '/success-stories/fluke-t40',
     image: '/images/case-studies/fluke-t40.png',
   },
   {
@@ -87,7 +87,7 @@ const useCaseCards = [
     highlight:
       'Sub-10ms real-time edge processing and fleet-wide OTA application management.',
     btnLabel: 'Explore Industrial Edge Intelligence →',
-    btnHref: '/case-studies/industrial-edge-intelligence',
+    btnHref: '/success-stories/industrial-edge-intelligence',
     image: '/images/case-studies/industrial-edge-intelligence.png',
   },
 ]
@@ -218,7 +218,7 @@ export function IndustryAutomationClient() {
               tag={cs.tag}
               categories={cs.categories}
               image={cs.image}
-              href={`/case-studies/${cs.slug}`}
+              href={`/success-stories/${cs.slug}`}
             />
           ))}
         </div>

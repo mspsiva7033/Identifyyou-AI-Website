@@ -24,7 +24,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     '/manufacturing',
     '/industrial-robots',
     '/thinking-factory',
-    '/case-studies',
+    '/success-stories',
     '/blogs-and-news',
   ]
 
@@ -40,7 +40,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     for (const cs of caseStudies) {
       if (cs.slug) {
         items.push({
-          url: `${baseUrl}/case-studies/${cs.slug}`,
+          url: `${baseUrl}/success-stories/${cs.slug}`,
           lastModified: new Date(),
           changeFrequency: 'monthly',
           priority: 0.7,

@@ -163,7 +163,7 @@ export function ContactClient() {
               <p className={styles.contactInfoText}>Pandi Kovil Ring Road, Madurai, Tamil Nadu 625107, India</p>
               <p className={styles.contactInfoText}>3 Northwood Avenue, Purley, London CR8 2ER, UK</p>
               <div style={{ marginTop: '16px', display: 'flex', flexDirection: 'column', gap: '8px' }}>
-                <Link href="/case-studies" style={{ color: '#94C640', fontSize: '14px', fontWeight: 600, textDecoration: 'none' }}>
+                <Link href="/success-stories" style={{ color: '#94C640', fontSize: '14px', fontWeight: 600, textDecoration: 'none' }}>
                   Explore Client Success Stories →
                 </Link>
                 <Link href="/deep-tech" style={{ color: '#94C640', fontSize: '14px', fontWeight: 600, textDecoration: 'none' }}>

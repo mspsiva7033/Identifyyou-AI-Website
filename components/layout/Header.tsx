@@ -34,7 +34,7 @@ const defaultNav: NavItem[] = [
       { label: 'Digital Engineering', href: '/deep-tech/digital-engineering' },
     ],
   },
-  { label: 'Success Stories', href: '/case-studies' },
+  { label: 'Success Stories', href: '/success-stories' },
   { label: 'Blogs & News', href: '/blogs-and-news' },
   { label: 'About', href: '/about' },
   { label: 'Contact', href: '/contact' },

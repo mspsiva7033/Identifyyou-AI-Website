@@ -9,18 +9,18 @@ import { getCaseStudies, getCaseStudyCategories } from '@/lib/payload'
 import styles from './page.module.css'
 
 export const metadata: Metadata = {
-  title: 'Deep Tech Case Studies & Client Stories',
+  title: 'Enterprise Deep Tech Success Stories',
   description:
-    'Explore enterprise case studies across Vision AI, industrial automation, predictive maintenance, and cloud data platforms.',
+    'Explore enterprise success stories across Vision AI, industrial automation, predictive maintenance, and cloud data platforms.',
   alternates: {
-    canonical: '/case-studies',
+    canonical: '/success-stories',
   },
 }
 
 export const dynamic = 'force-dynamic'
 export const revalidate = 0
 
-export default async function CaseStudiesPage() {
+export default async function SuccessStoriesPage() {
   const [categories, caseStudies] = await Promise.all([
     getCaseStudyCategories(),
     getCaseStudies(),
@@ -33,7 +33,7 @@ export default async function CaseStudiesPage() {
         <h1 className={styles.heroTitle}>
           Deep Tech in the <span className={styles.heroTitleGreen}>Real World</span>
         </h1>
-        <p className={styles.heroSub}>Enterprise case studies and technical success stories.</p>
+        <p className={styles.heroSub}>Enterprise technical success stories and proven business outcomes.</p>
       </section>
       <Suspense
         fallback={
@@ -41,7 +41,7 @@ export default async function CaseStudiesPage() {
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))', gap: '20px', textAlign: 'left' }}>
               {caseStudies.slice(0, 12).map((cs) => (
                 <div key={cs.slug} style={{ border: '1px solid #e2e8f0', borderRadius: '8px', padding: '16px' }}>
-                  <Link href={`/case-studies/${cs.slug}`} style={{ fontWeight: 700, color: '#0f172a', textDecoration: 'none' }}>
+                  <Link href={`/success-stories/${cs.slug}`} style={{ fontWeight: 700, color: '#0f172a', textDecoration: 'none' }}>
                     {cs.title} →
                   </Link>
                 </div>

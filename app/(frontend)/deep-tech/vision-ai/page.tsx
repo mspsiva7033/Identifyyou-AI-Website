@@ -54,19 +54,19 @@ const threeCaseStudies = [
   {
     title: 'Transforming Wind Turbine Telemetry into Predictive AI Intelligence',
     tag: 'RENEWABLE ENERGY · PREDICTIVE AI',
-    url: '/case-studies',
+    url: '/success-stories',
     desc: 'Transforming wind turbine telemetry into real-time predictive AI intelligence for failure prevention, gearbox health monitoring, and energy yield optimization.',
   },
   {
     title: 'Zebra Line Inspection',
     tag: 'GLASS MANUFACTURING · VISION AI',
-    url: '/case-studies/zebra-line-inspection',
+    url: '/success-stories/zebra-line-inspection',
     desc: 'High-speed, continuous float glass web inspection using multi-spectral cameras and deep learning models to detect optical defects, bubbles, and inclusions at line speeds.',
   },
   {
     title: 'Transforming Effluent Treatment Plants (ETP) through AI-Driven Industrial IoT (IIoT)',
     tag: 'PROCESS & ETP · INDUSTRIAL IOT',
-    url: '/case-studies',
+    url: '/success-stories',
     desc: 'AI-driven IIoT architecture for continuous water quality monitoring, automated chemical dosing optimization, and real-time compliance management in effluent treatment plants.',
   },
 ]
@@ -101,7 +101,7 @@ export default function VisionAIPage() {
               <Link href="/contact" className={styles.btnPrimary}>
                 Talk to a Vision AI Expert
               </Link>
-              <Link href="/case-studies" className={styles.btnSecondaryDark}>
+              <Link href="/success-stories" className={styles.btnSecondaryDark}>
                 Explore Success Stories
               </Link>
             </div>
@@ -154,7 +154,7 @@ export default function VisionAIPage() {
           </div>
 
           <div style={{ marginTop: '28px' }}>
-            <Link href="/case-studies/end-to-end-inspection-cell" className={styles.btnPrimary}>
+            <Link href="/success-stories/end-to-end-inspection-cell" className={styles.btnPrimary}>
               Explore More → End to End Inspection Cell
             </Link>
           </div>
@@ -205,7 +205,7 @@ export default function VisionAIPage() {
             <FlowChain nodes={precisionNodes} />
 
             <div style={{ marginTop: '28px' }}>
-              <Link href="/case-studies/precision-vision-ai-setup" className={styles.btnPrimary}>
+              <Link href="/success-stories/precision-vision-ai-setup" className={styles.btnPrimary}>
                 Explore Precision Vision AI Setup →
               </Link>
             </div>
@@ -269,7 +269,7 @@ export default function VisionAIPage() {
               <span className={styles.csStatBadge}>Manual Inspection Reduction</span>
             </div>
 
-            <Link href="/case-studies/advanced-vision-inspection-surface" className={styles.btnPrimary}>
+            <Link href="/success-stories/advanced-vision-inspection-surface" className={styles.btnPrimary}>
               View Vision AI Success Story →
             </Link>
           </div>

@@ -196,13 +196,13 @@ const featuredIntelligentBusinessCaseStudies = [
   {
     title: 'Smart Factory',
     industry: 'MANUFACTURING · MES & DIGITAL SHOP FLOOR',
-    href: '/case-studies/connected-intelligent-plant',
+    href: '/success-stories/connected-intelligent-plant',
     image: 'https://images.unsplash.com/photo-1563986768609-322da13575f3?q=80&w=1000&auto=format&fit=crop',
   },
   {
     title: 'Risk Insights Finance',
     industry: 'FINANCIAL SERVICES · RISK INTELLIGENCE',
-    href: '/case-studies/risk-insights-finance',
+    href: '/success-stories/risk-insights-finance',
     image: '/images/case-studies/risk-insights-finance.png',
   },
 ]
@@ -212,13 +212,13 @@ const smallIntelligentBusinessCaseStudies = [
   {
     title: 'Zebra Line Inspection',
     industry: 'MANUFACTURING · VISION AI',
-    href: '/case-studies/zebra-line-inspection',
+    href: '/success-stories/zebra-line-inspection',
     image: '/images/case-studies/advanced-vision-inspection-surface.svg',
   },
   {
     title: 'Machine Vision',
     industry: 'MANUFACTURING · PRECISION METROLOGY',
-    href: '/case-studies/machine-vision',
+    href: '/success-stories/machine-vision',
     image: '/images/case-studies/vision-ai-bore-measurement.svg',
   },
   {
@@ -234,13 +234,13 @@ const otherPillarCaseStudies = [
   {
     title: 'Enterprise Inventory Optimization',
     desc: 'Real-time data ingestion into Snowflake with automated ML safety stock replenishment models.',
-    href: '/case-studies/revolutionizing-inventory-optimization',
+    href: '/success-stories/revolutionizing-inventory-optimization',
     image: '/images/retail_inventory_dashboard.png',
   },
   {
     title: 'UV Light based Defect Detection',
     desc: 'Specialized ultraviolet illumination coupled with high-resolution vision models for micro-crack detection.',
-    href: '/case-studies/advanced-vision-inspection-surface',
+    href: '/success-stories/advanced-vision-inspection-surface',
     image: '/images/uv_light_defect_detection.png',
   },
 ]
@@ -487,7 +487,7 @@ export default function HomePage() {
               <p>
                 By engineering AI-driven visual inspection into the manufacturing process, quality control can move from a reactive cost centre to a proactive capability that improves quality, reduces waste, strengthens process control and drives operational performance.
               </p>
-              <Link href="/case-studies/advanced-vision-inspection-surface" className={styles.bannerBtnPrimary}>
+              <Link href="/success-stories/advanced-vision-inspection-surface" className={styles.bannerBtnPrimary}>
                 Explore Vision AI Success Story →
               </Link>
             </div>
@@ -537,7 +537,7 @@ export default function HomePage() {
               <p>
                 Delivering a 3.5x boost in high-intent account engagement and unified automated data pipelines.
               </p>
-              <Link href="/case-studies/precision-abm-snowflake-cortex" className={styles.bannerBtnOutline}>
+              <Link href="/success-stories/precision-abm-snowflake-cortex" className={styles.bannerBtnOutline}>
                 Explore ABM Snowflake Cortex Success Story →
               </Link>
             </div>
@@ -563,7 +563,7 @@ export default function HomePage() {
               <p>
                 Achieving 99.4% equipment uptime, continuous 24/7 thermal assurance, and zero unpredicted critical failures.
               </p>
-              <Link href="/case-studies/fluke-t40" className={styles.bannerBtnPrimary}>
+              <Link href="/success-stories/fluke-t40" className={styles.bannerBtnPrimary}>
                 Explore Fluke T40 Success Story →
               </Link>
             </div>
@@ -606,7 +606,7 @@ export default function HomePage() {
               title="Risk Insights Finance"
               industry="FINANCIAL SERVICES · RISK INTELLIGENCE"
               image="/images/case-studies/risk-insights-finance.png"
-              href="/case-studies/risk-insights-finance"
+              href="/success-stories/risk-insights-finance"
               aspectRatio="16 / 9"
             />
           </div>

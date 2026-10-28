@@ -13,12 +13,12 @@ export const CaseStudies: CollectionConfig = {
     defaultColumns: ['title', 'category', 'status', 'displayOrder'],
     preview: (doc) => {
       const slug = (doc?.slug as string) || 'manufacturing-data-platform'
-      return `${process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000'}/case-studies/${slug}`
+      return `${process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000'}/success-stories/${slug}`
     },
     livePreview: {
       url: ({ data }: { data: Record<string, unknown> }) => {
         const slug = data?.slug || 'manufacturing-data-platform'
-        return `${process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000'}/case-studies/${slug}`
+        return `${process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000'}/success-stories/${slug}`
       },
     },
   },

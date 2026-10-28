@@ -63,7 +63,7 @@ export function CaseStudyCard({
         : `/images/case-studies/thumbnails/${slug}.webp`
       : '/images/case-studies/placeholder.png')
 
-  const linkHref = href || (slug ? `/case-studies/${slug}` : '/case-studies')
+  const linkHref = href || (slug ? `/success-stories/${slug}` : '/success-stories')
 
   const theme = getCategoryTheme({
     slug,
@@ -141,7 +141,7 @@ export function CaseStudyCard({
       {/* Hover Dark Semi-transparent Overlay */}
       <div className={styles.overlay} />
 
-      {/* Centered Solid Circle Arrow + "Read Case Study" Text */}
+      {/* Centered Solid Circle Arrow + "Read Success Story" Text */}
       <div className={styles.centerContent}>
         <div className={styles.iconCircle} style={{ backgroundColor: theme.tintColor }}>
           <svg
@@ -157,7 +157,7 @@ export function CaseStudyCard({
             <polyline points="12 5 19 12 12 19" />
           </svg>
         </div>
-        <span className={styles.readText}>Read Case Study</span>
+        <span className={styles.readText}>Read Success Story</span>
       </div>
     </>
   )

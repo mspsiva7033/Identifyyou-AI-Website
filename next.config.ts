@@ -37,22 +37,33 @@ const nextConfig: NextConfig = {
   },
   async redirects() {
     return [
+      // Primary redirects from /case-studies to /success-stories
+      {
+        source: '/case-studies',
+        destination: '/success-stories',
+        permanent: true,
+      },
+      {
+        source: '/case-studies/:slug',
+        destination: '/success-stories/:slug',
+        permanent: true,
+      },
       // power-bi-abm used to live at a nested URL; redirect to the canonical [slug] route
       {
         source: '/case-studies/data-engineering/power-bi-abm',
-        destination: '/case-studies/power-bi-abm',
+        destination: '/success-stories/power-bi-abm',
         permanent: true,
       },
       // Redirect alias to canonical fleet intelligence case study
       {
         source: '/case-studies/optimizing-shipment-and-fleet-operations',
-        destination: '/case-studies/optimizing-shipment-fleet-snowflake',
+        destination: '/success-stories/optimizing-shipment-fleet-snowflake',
         permanent: true,
       },
       // Shorten URL over 115 characters to clean canonical destination
       {
         source: '/case-studies/overcoming-data-access-challenges-in-a-multi-business-environment-for-streamlined-decision-making',
-        destination: '/case-studies/overcoming-data-access-challenges',
+        destination: '/success-stories/overcoming-data-access-challenges',
         permanent: true,
       },
       {

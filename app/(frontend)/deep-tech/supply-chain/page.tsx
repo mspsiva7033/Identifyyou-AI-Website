@@ -131,7 +131,7 @@ export default function SupplyChainDeepTechPage() {
                 <h3 className={styles.csTitle}>{cs.title}</h3>
                 <p className={styles.csSection}>{cs.desc}</p>
                 <div style={{ marginTop: '16px' }}>
-                  <Link href={`/case-studies/${cs.slug}`} className={styles.csBtn}>
+                  <Link href={`/success-stories/${cs.slug}`} className={styles.csBtn}>
                     Explore Success Story →
                   </Link>
                 </div>

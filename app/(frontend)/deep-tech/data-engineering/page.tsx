@@ -29,22 +29,22 @@ const fourCaseStudies = [
   {
     category: 'LOGISTICS · SNOWFLAKE',
     title: 'Optimizing Shipment and Fleet Operations with Snowflake',
-    href: '/case-studies/optimizing-shipment-fleet-snowflake',
+    href: '/success-stories/optimizing-shipment-fleet-snowflake',
   },
   {
     category: 'LOGISTICS · SNOWFLAKE',
     title: 'Streamlining Shipment Planning and Carrier Selection',
-    href: '/case-studies/streamlining-shipment-planning-and-carrier-selection',
+    href: '/success-stories/streamlining-shipment-planning-and-carrier-selection',
   },
   {
     category: 'MANUFACTURING · MIGRATION',
     title: 'Migrating Hadoop and HANA to Snowflake for Manufacturing',
-    href: '/case-studies/migrating-hadoop-and-hana-to-snowflake',
+    href: '/success-stories/migrating-hadoop-and-hana-to-snowflake',
   },
   {
     category: 'RETAIL · FORECASTING',
     title: 'Optimizing Retail Demand Forecasting and Peak Season',
-    href: '/case-studies/optimizing-retail-demand-forecasting',
+    href: '/success-stories/optimizing-retail-demand-forecasting',
   },
 ]
 
@@ -101,7 +101,7 @@ export default function DataEngineeringPage() {
               </p>
               <div className={styles.btnGroup}>
                 <Link
-                  href="/case-studies/precision-abm-snowflake-cortex"
+                  href="/success-stories/precision-abm-snowflake-cortex"
                   className={styles.btnPrimary}
                 >
                   View the ABM Success Story
@@ -123,7 +123,7 @@ export default function DataEngineeringPage() {
             </div>
           </div>
           <div className={styles.precisionAbmCaption}>
-            <Link href="/case-studies/precision-abm-snowflake-cortex" className={styles.captionLink}>
+            <Link href="/success-stories/precision-abm-snowflake-cortex" className={styles.captionLink}>
               Precision ABM, Powered by Cortex AI within the Snowflake AI Data Cloud — IdentifYou | IdentifYou Technologies
             </Link>
           </div>
@@ -249,7 +249,7 @@ export default function DataEngineeringPage() {
             </div>
 
             <Link
-              href="/case-studies/revolutionizing-inventory-optimization"
+              href="/success-stories/revolutionizing-inventory-optimization"
               className={styles.csLink}
             >
               Read the full success story →

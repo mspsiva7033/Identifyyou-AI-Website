@@ -152,7 +152,7 @@ export default function AIIntelligentBusinessPage() {
                 statement. We connect operational cost drivers to financial exposure — giving finance leaders early visibility
                 into risk building up on the floor.
               </p>
-              <Link href="/case-studies/risk-insights-finance" className={styles.csLinkGreen}>
+              <Link href="/success-stories/risk-insights-finance" className={styles.csLinkGreen}>
                 Read the success story →
               </Link>
             </div>
@@ -204,7 +204,7 @@ export default function AIIntelligentBusinessPage() {
               </p>
             </div>
             <Link
-              href="/case-studies/strategic-procurement-intelligence"
+              href="/success-stories/strategic-procurement-intelligence"
               className={styles.csLinkGreen}
             >
               Read more →
@@ -221,7 +221,7 @@ export default function AIIntelligentBusinessPage() {
               </p>
             </div>
             <Link
-              href="/case-studies/procurement-operations-intelligence"
+              href="/success-stories/procurement-operations-intelligence"
               className={styles.csLinkGreen}
             >
               Read more →

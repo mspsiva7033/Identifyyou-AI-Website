@@ -116,7 +116,7 @@ export default function DigitalEngineeringPage() {
 
             <div className={styles.csSplitGrid}>
               <div className={styles.csVisualBox}>
-                <Link href="/case-studies/enhancing-the-rfq-process-in-d365-business-central">
+                <Link href="/success-stories/enhancing-the-rfq-process-in-d365-business-central">
                   <img
                     src="/images/case-studies/enhancing-the-rfq-process-in-d365-business-central.png"
                     alt="RFQ management dashboard with vendor comparison view"
@@ -133,7 +133,7 @@ export default function DigitalEngineeringPage() {
               <div className={styles.csContentBox}>
                 <div className={styles.csEyebrow}>INDUSTRY — MANUFACTURING</div>
                 <h3 className={styles.csTitle}>
-                  <Link href="/case-studies/enhancing-the-rfq-process-in-d365-business-central" style={{ color: 'inherit', textDecoration: 'none' }}>
+                  <Link href="/success-stories/enhancing-the-rfq-process-in-d365-business-central" style={{ color: 'inherit', textDecoration: 'none' }}>
                     Streamlining Quotation &amp; Vendor Management in D365
                   </Link>
                 </h3>
@@ -155,7 +155,7 @@ export default function DigitalEngineeringPage() {
 
                 <div>
                   <Link
-                    href="/case-studies/enhancing-the-rfq-process-in-d365-business-central"
+                    href="/success-stories/enhancing-the-rfq-process-in-d365-business-central"
                     className={styles.btnPrimary}
                     style={{ textDecoration: 'none' }}
                   >
@@ -187,7 +187,7 @@ export default function DigitalEngineeringPage() {
                 tag={cs.tag}
                 categories={cs.categories}
                 image={cs.image}
-                href={`/case-studies/${cs.slug}`}
+                href={`/success-stories/${cs.slug}`}
               />
             ))}
           </div>

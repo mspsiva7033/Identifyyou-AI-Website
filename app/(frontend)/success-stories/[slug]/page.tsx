@@ -45,7 +45,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     title: seoTitle,
     description: seoDesc,
     alternates: {
-      canonical: `/case-studies/${slug}`,
+      canonical: `/success-stories/${slug}`,
     },
   }
 }
@@ -142,17 +142,13 @@ export default async function CaseStudyDetailPage({ params }: { params: Promise<
 
       <div className={styles.breadcrumb}>
         <Link href="/" className={styles.breadcrumbLink}>Home</Link>
-        {theme.key !== 'manufacturing' && (
-          <>
-            {' / '}
-            <span>Deep Tech</span>
-          </>
-        )}
-        {theme.key !== 'default' && theme.name !== 'Deep Tech' && (
+        {' / '}
+        <Link href="/success-stories" className={styles.breadcrumbLink}>Success Stories</Link>
+        {theme.key !== 'default' && theme.name !== 'Deep Tech' && categoryName && (
           <>
             {' / '}
             <Link
-              href={theme.key === 'manufacturing' ? '/manufacturing' : `/deep-tech/${theme.key}`}
+              href={`/success-stories?filter=${encodeURIComponent(categoryName)}`}
               className={styles.breadcrumbLink}
             >
               {theme.name}
@@ -164,12 +160,13 @@ export default async function CaseStudyDetailPage({ params }: { params: Promise<
       </div>
 
       <section className={styles.content}>
-        <div
+        <Link
+          href={`/success-stories?filter=${encodeURIComponent(categoryName || '')}`}
           className={styles.tagBadge}
-          style={{ color: theme.tagColor, backgroundColor: theme.badgeBg, borderColor: theme.tintColor }}
+          style={{ color: theme.tagColor, backgroundColor: theme.badgeBg, borderColor: theme.tintColor, textDecoration: 'none', cursor: 'pointer' }}
         >
           {categoryName}
-        </div>
+        </Link>
         <h1 className={styles.title}>{formatCaseStudyH1(cs.title)}</h1>
 
         <div className={styles.heroImgWrapper}>
