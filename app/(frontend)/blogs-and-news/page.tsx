@@ -7,8 +7,7 @@ import { getBlogsAndNews, getBlogCategoriesAndTopics } from '@/lib/payload'
 import { BlogsAndNewsClient } from './BlogsAndNewsClient'
 import styles from './page.module.css'
 
-export const dynamic = 'force-dynamic'
-export const revalidate = 0
+export const revalidate = 60
 
 export const metadata: Metadata = {
   title: 'Deep Tech Blogs & Industry Insights',

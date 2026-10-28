@@ -180,7 +180,7 @@ export function CaseStudyCard({
   }
 
   return (
-    <Link href={linkHref} className={combinedClassName} style={customStyle}>
+    <Link href={linkHref} className={combinedClassName} style={customStyle} prefetch={true}>
       {cardContent}
     </Link>
   )

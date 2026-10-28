@@ -120,6 +120,7 @@ export function Header({ logo, navItems = defaultNav, ctaButton }: HeaderProps) 
                         href={item.href}
                         className={styles.navLink}
                         onClick={() => setOpenDropdown(null)}
+                        prefetch={true}
                       >
                         {item.label}
                       </Link>

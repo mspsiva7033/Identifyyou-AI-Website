@@ -13,6 +13,8 @@ export const metadata: Metadata = {
   },
 }
 
+export const revalidate = 60
+
 const differentiators = [
   { title: 'Business First', desc: 'We understand the commercial priority before designing any technical solution.' },
   { title: 'Deep Tech Architecture', desc: 'We engineer solutions with Vision AI, IIoT sensors, edge computing, and real-time models.' },
