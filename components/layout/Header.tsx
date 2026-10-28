@@ -170,31 +170,19 @@ export function Header({ logo, navItems = defaultNav, ctaButton }: HeaderProps) 
                   <div className={styles.megaIndustriesHeading}>Industries</div>
                   <ul className={styles.megaIndustriesList}>
                     <li>
-                      <Link
-                        href="/deep-tech/manufacturing"
-                        className={styles.megaLink}
-                        onClick={() => setOpenDropdown(null)}
-                      >
+                      <span className={styles.megaIndustryText}>
                         Manufacturing Deep Tech
-                      </Link>
+                      </span>
                     </li>
                     <li>
-                      <Link
-                        href="/deep-tech/supply-chain"
-                        className={styles.megaLink}
-                        onClick={() => setOpenDropdown(null)}
-                      >
+                      <span className={styles.megaIndustryText}>
                         Supply Chain &amp; Logistics
-                      </Link>
+                      </span>
                     </li>
                     <li>
-                      <Link
-                        href="/industrial-robots"
-                        className={styles.megaLink}
-                        onClick={() => setOpenDropdown(null)}
-                      >
+                      <span className={styles.megaIndustryText}>
                         Industrial Robotics
-                      </Link>
+                      </span>
                     </li>
                     <li>
                       <span className={styles.megaIndustryText}>
