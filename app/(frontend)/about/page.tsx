@@ -108,7 +108,7 @@ export default async function AboutPage() {
         </div>
 
         {/* ── Thank You / Global Presence Section (Seamless, No Card UI) ────────────────── */}
-        <section className={styles.thankYouSection} aria-label="Thank You and Office Locations">
+        {/* <section className={styles.thankYouSection} aria-label="Thank You and Office Locations">
           <h2 className={styles.thankYouTitle}>{thankYouData.title}</h2>
 
           <div className={styles.thankYouContactRow}>
@@ -150,7 +150,7 @@ export default async function AboutPage() {
               </div>
             ))}
           </div>
-        </section>
+        </section> */}
 
         <div className={styles.ctaBox}>
           <h2 className={styles.ctaTitle} style={{ color: '#0F172A', display: 'block', visibility: 'visible', opacity: 1 }}>
