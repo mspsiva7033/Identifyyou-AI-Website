@@ -34,12 +34,12 @@ export default async function AboutPage() {
         <h1 className={styles.title}>About IdentifYou Technologies</h1>
         <p className={styles.subtitle}>Deep Tech. Built Around Business.</p>
         <p className={styles.desc}>
-          IdentifYou was founded to solve a fundamental industry problem. Advanced technology is often developed in isolation from real commercial goals. We bridge that gap by designing industrial intelligence directly around physical operations and enterprise workflows.
+          We don't start with technology. We start with the business problem, operational challenge or growth opportunity — with deep expertise in Manufacturing and Integrated Supply Chain, and extensive experience across Financial Services, Investment, FinTech and Healthcare — and engineer the right AI-powered solution around it.
         </p>
       </section>
 
       <section className={styles.content}>
-        <div style={{ maxWidth: '840px', margin: '0 auto 48px', color: '#475569', fontSize: '16px', lineHeight: 1.7 }}>
+        {/* <div style={{ maxWidth: '840px', margin: '0 auto 48px', color: '#475569', fontSize: '16px', lineHeight: 1.7 }}>
           <p style={{ marginBottom: '16px' }}>
             We work alongside plant managers, operations leaders, and digital transformation teams. Our focus spans high-precision manufacturing, supply chain logistics, financial services, and healthcare systems. Our multidisciplinary engineering team develops custom computer vision cells, edge IoT gateways, automated replenishment algorithms, and cloud data platforms.
           </p>
@@ -52,7 +52,7 @@ export default async function AboutPage() {
           <p style={{ marginTop: '16px' }}>
             Our goal is straightforward: build reliable tools that help teams work smarter. We partner closely with your staff to solve day-to-day challenges and generate measurable cost savings.
           </p>
-        </div>
+        </div> */}
 
         {/* ── Leadership Team Section ────────────────────────────── */}
         <section className={styles.leadershipSection}>
