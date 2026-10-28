@@ -229,11 +229,10 @@ async function runAllApiTests() {
     const data = JSON.parse(body)
     return data.user === null
   })
-  await testApi('GET', '/api/contact-submissions', 'Protected collection access without auth (access control)', [401, 403, 200], {}, undefined, (body) => {
-    // Check if protected or empty for public
+  await testApi('GET', '/api/contact-submissions', 'Protected collection access without auth (access control)', [401, 403], {}, undefined, (body, status) => {
     try {
       const data = JSON.parse(body)
-      return data.docs ? true : false
+      return (status === 403 || status === 401) && Array.isArray(data.errors)
     } catch {
       return false
     }
