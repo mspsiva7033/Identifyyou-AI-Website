@@ -217,8 +217,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
 
 function formatBlogH1(text: string): string {
   if (!text) return text
-  if (text.length <= 70) return text
-  return `${text.substring(0, 67).trim()}...`
+  return text.trim()
 }
 
 export default async function BlogDetailPage({ params }: { params: Promise<{ slug: string }> }) {

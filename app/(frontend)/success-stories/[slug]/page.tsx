@@ -56,9 +56,7 @@ function cleanHeadingText(text: string): string {
 }
 
 function formatCaseStudyH1(text: string): string {
-  const cleaned = cleanHeadingText(text)
-  if (cleaned.length <= 70) return cleaned
-  return `${cleaned.substring(0, 67).trim()}...`
+  return cleanHeadingText(text)
 }
 
 function cleanTableText(text: string): string {
