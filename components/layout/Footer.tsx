@@ -35,7 +35,7 @@ const defaultColumns: FooterColumn[] = [
   {
     title: 'Industries',
     links: [
-      { label: 'Manufacturing', href: '/manufacturing' },
+      { label: 'Manufacturing', isText: true },
       { label: 'Manufacturing Deep Tech', isText: true },
       { label: 'Supply Chain & Logistics', isText: true },
       { label: 'Industrial Robots', isText: true },
