@@ -5457,13 +5457,20 @@ export async function getCaseStudies(): Promise<CaseStudySummary[]> {
 }
 
 export async function getCaseStudyBySlug(slug: string): Promise<CaseStudyDetail | null> {
-  const slugAliases: Record<string, string> = {
-    'optimizing-shipment-and-fleet-operations': 'optimizing-shipment-fleet-snowflake',
-    'ai-powered-procurement': 'procurement-operations-intelligence',
-    'overcoming-data-access-challenges-in-a-multi-business-environment-for-streamlined-decision-making': 'overcoming-data-access-challenges',
+  const slugAliases: Record<string, string[]> = {
+    'optimizing-shipment-and-fleet-operations': ['optimizing-shipment-fleet-snowflake', 'optimizing-shipment-and-fleet-operations'],
+    'ai-powered-procurement': ['procurement-operations-intelligence', 'ai-powered-procurement'],
+    'overcoming-data-access-challenges': [
+      'overcoming-data-access-challenges-in-a-multi-business-environment-for-streamlined-decision-making',
+      'overcoming-data-access-challenges',
+    ],
+    'overcoming-data-access-challenges-in-a-multi-business-environment-for-streamlined-decision-making': [
+      'overcoming-data-access-challenges-in-a-multi-business-environment-for-streamlined-decision-making',
+      'overcoming-data-access-challenges',
+    ],
   }
 
-  const normalizedSlug = slugAliases[slug] || slug
+  const slugsToTry = slugAliases[slug] || [slug]
 
   try {
     const payload = await getPayloadClient()
@@ -5472,7 +5479,7 @@ export async function getCaseStudyBySlug(slug: string): Promise<CaseStudyDetail 
     const result = await payload.find({
       collection: 'case-studies',
       where: {
-        slug: { equals: normalizedSlug },
+        or: slugsToTry.map((s) => ({ slug: { equals: s } })),
       },
       limit: 1,
       depth: 2,
@@ -5510,7 +5517,7 @@ export async function getCaseStudyBySlug(slug: string): Promise<CaseStudyDetail 
       title: doc.title,
       breadcrumb: doc.breadcrumb || doc.title,
       tag: doc.tags?.[0]?.tag || 'Deep Tech',
-      illustration: uploadedIllustration || getCaseStudyIllustration(doc.slug || normalizedSlug),
+      illustration: uploadedIllustration || getCaseStudyIllustration(doc.slug || slug),
       docItems: doc.docItems || [],
       comparisonTable: doc.comparisonTable || null,
       tableBlock: doc.tableBlock || null,
