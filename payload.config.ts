@@ -54,10 +54,22 @@ const serverURL =
   (process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : '') ||
   'http://localhost:3000'
 
+const allowedOrigins = Array.from(
+  new Set([
+    serverURL,
+    'http://localhost:3000',
+    'http://127.0.0.1:3000',
+    'https://identifyyou.ai',
+    'https://www.identifyyou.ai',
+    'https://sivamsp-lenovo-b490.tail00b6b9.ts.net',
+    ...(process.env.NEXT_PUBLIC_SITE_URL ? [process.env.NEXT_PUBLIC_SITE_URL] : []),
+  ].filter(Boolean))
+)
+
 export default buildConfig({
   serverURL: serverURL,
-  cors: [serverURL],
-  csrf: [serverURL],
+  cors: allowedOrigins,
+  csrf: allowedOrigins,
   admin: {
     user: 'users',
     suppressHydrationWarning: true,
