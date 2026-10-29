@@ -78,7 +78,7 @@ export default function DigitalEngineeringPage() {
               <Link href="/contact" className={styles.btnPrimary}>
                 Talk to a Digital Engineering Expert
               </Link>
-              <Link href="/case-studies" className={styles.btnSecondaryDark}>
+              <Link href="/success-stories" className={styles.btnSecondaryDark}>
                 Explore Success Stories
               </Link>
             </div>
@@ -226,7 +226,7 @@ export default function DigitalEngineeringPage() {
             <Link href="/contact" className={styles.btnPrimary}>
               Talk to a Digital Engineering Expert
             </Link>
-            <Link href="/case-studies" className={styles.btnSecondaryDark}>
+            <Link href="/success-stories" className={styles.btnSecondaryDark}>
               Explore All Success Stories
             </Link>
           </div>

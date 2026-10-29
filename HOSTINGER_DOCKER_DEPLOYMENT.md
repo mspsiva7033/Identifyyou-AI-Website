@@ -297,12 +297,22 @@ sudo nginx -t
 sudo systemctl reload nginx
 ```
 
-### 6.4 Issue Free Let's Encrypt SSL Certificates
+### 6.4 Issue Free Let's Encrypt SSL Certificates & Enable HSTS
 Run Certbot:
 ```bash
 sudo certbot --nginx -d yourdomain.com -d www.yourdomain.com -d analytics.yourdomain.com
 ```
-Enter your email address and accept terms. Certbot will automatically issue certificates and configure SSL in Nginx!
+Enter your email address and accept terms. Certbot will automatically issue certificates and configure SSL in Nginx.
+
+To enforce HTTP Strict Transport Security (HSTS) at the Nginx reverse-proxy SSL layer, open `/etc/nginx/sites-available/identifyyou.conf` and verify the HTTPS server block includes:
+```nginx
+add_header Strict-Transport-Security "max-age=31536000" always;
+```
+Reload Nginx:
+```bash
+sudo nginx -t && sudo systemctl reload nginx
+```
+*(Note: IdentifYou Next.js application also automatically returns `Strict-Transport-Security: max-age=31536000` on all responses via `next.config.ts`).*
 
 ---
 

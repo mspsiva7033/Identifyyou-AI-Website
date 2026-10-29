@@ -123,7 +123,7 @@ export async function seed() {
         "title": "Sub-Case Study: Power BI ABM Analytics & Installation Guide",
         "desc": "Access the complete Power BI ABM framework, deployment guide, Snowflake connection parameters, configuration options, validation steps, troubleshooting, and user guide below.",
         "linkLabel": "POWER BI ABM →",
-        "linkHref": "/case-studies/power-bi-abm"
+        "linkHref": "/success-stories/power-bi-abm"
       },
       "results": [
         { "stat": "3.5x", "label": "High-Intent Account Engagement Boost" },

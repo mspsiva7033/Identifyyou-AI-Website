@@ -372,7 +372,7 @@ export default function VisionAIPage() {
                 <h3 className={styles.povTitle}>[Future Vision AI POV]</h3>
                 <p className={styles.povDesc}>[Teaser pending]</p>
               </div>
-              <Link href="/case-studies" className={styles.csLink}>
+              <Link href="/success-stories" className={styles.csLink}>
                 Read the POV →
               </Link>
             </div>
@@ -383,7 +383,7 @@ export default function VisionAIPage() {
                 <h3 className={styles.povTitle}>[Future Vision AI POV]</h3>
                 <p className={styles.povDesc}>[Teaser pending]</p>
               </div>
-              <Link href="/case-studies" className={styles.csLink}>
+              <Link href="/success-stories" className={styles.csLink}>
                 Read the POV →
               </Link>
             </div>

@@ -64,7 +64,7 @@ export async function GET() {
           title: "Sub-Case Study: Power BI ABM Analytics & Installation Guide",
           desc: "Access the complete Power BI ABM framework, deployment guide, Snowflake connection parameters, configuration options, validation steps, troubleshooting, and user guide below.",
           linkLabel: "POWER BI ABM →",
-          linkHref: "/case-studies/power-bi-abm"
+          linkHref: "/success-stories/power-bi-abm"
         },
         detail: {
           technologyUsed: 'Snowflake Cortex AI, Streamlit, Power BI',

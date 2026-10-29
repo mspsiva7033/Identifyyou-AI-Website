@@ -39,8 +39,8 @@ services:
       DATABASE_TYPE: postgresql
       APP_SECRET: ${UMAMI_APP_SECRET:?Umami secret required in .env}
     ports:
-      # Internal reverse proxy port for analytics.yourdomain.com
-      - "127.0.0.1:3001:3000"
+      # Expose for analytics (accessible via localhost and Tailscale network)
+      - "${UMAMI_PORT:-3001}:3000"
     networks:
       - app_network
 
@@ -92,8 +92,8 @@ services:
       # Persistent volume for uploaded Payload CMS media
       - media_uploads:/app/public/media
     ports:
-      # Internal reverse proxy port for yourdomain.com
-      - "127.0.0.1:3000:3000"
+      # Expose for Next.js app (accessible via localhost, Tailscale funnel and network)
+      - "${APP_PORT:-3000}:3000"
     networks:
       - app_network
 

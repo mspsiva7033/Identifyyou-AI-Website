@@ -122,7 +122,8 @@ export default async function CaseStudyDetailPage({ params }: { params: Promise<
 
   if (!cs) notFound()
 
-  const summary = (await getCaseStudies()).find((item) => item.slug === slug)
+  const allCaseStudies = await getCaseStudies()
+  const summary = allCaseStudies.find((item) => item.slug === slug)
   const categoryName = summary?.category?.name || cs.tag
   const theme = getCategoryTheme({
     slug,
@@ -133,6 +134,19 @@ export default async function CaseStudyDetailPage({ params }: { params: Promise<
     categories: summary?.categories,
   })
 
+  // Ensure every success story page always has crawlable links to related success stories
+  let relatedStories = cs.more && cs.more.length > 0 ? cs.more : []
+  if (relatedStories.length === 0) {
+    relatedStories = allCaseStudies
+      .filter((item) => item.slug !== slug)
+      .slice(0, 3)
+      .map((item) => ({
+        slug: item.slug,
+        title: item.title,
+        tag: item.tag || item.category?.name || 'Success Story',
+      }))
+  }
+
   return (
     <div className={styles.page}>
       <CaseStudyTracker slug={slug} title={cs.title} category={categoryName} />
@@ -142,14 +156,14 @@ export default async function CaseStudyDetailPage({ params }: { params: Promise<
         <Link href="/" className={styles.breadcrumbLink}>Home</Link>
         {' / '}
         <Link href="/success-stories" className={styles.breadcrumbLink}>Success Stories</Link>
-        {theme.key !== 'default' && theme.name !== 'Deep Tech' && categoryName && (
+        {categoryName && (
           <>
             {' / '}
             <Link
               href={`/success-stories?filter=${encodeURIComponent(categoryName)}`}
               className={styles.breadcrumbLink}
             >
-              {theme.name}
+              {theme.name || categoryName}
             </Link>
           </>
         )}
@@ -366,13 +380,13 @@ export default async function CaseStudyDetailPage({ params }: { params: Promise<
         )}
       </section>
 
-      {/* More Case Studies */}
-      {cs.more && cs.more.length > 0 && (
+      {/* More Success Stories */}
+      {relatedStories.length > 0 && (
         <section className={styles.moreSection}>
           <div className={styles.moreInner}>
             <h2 className={styles.moreTitle}>More Success Stories</h2>
             <div className={styles.moreGrid}>
-              {cs.more.map((m) => (
+              {relatedStories.map((m) => (
                 <CaseStudyCard key={m.slug} slug={m.slug} title={m.title} />
               ))}
             </div>

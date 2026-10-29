@@ -38,7 +38,9 @@ export const Users: CollectionConfig = {
       type: 'text',
       label: 'Full Name',
       required: true,
-      defaultValue: 'IdentifYou Team Member',
+      admin: {
+        placeholder: 'e.g. John Doe',
+      },
     },
     {
       name: 'roles',
@@ -46,7 +48,6 @@ export const Users: CollectionConfig = {
       label: 'Assigned Roles',
       hasMany: true,
       required: true,
-      defaultValue: ['editor'],
       options: [
         { label: 'Super Admin', value: 'superadmin' },
         { label: 'Content Editor', value: 'editor' },
@@ -91,10 +92,10 @@ export const Users: CollectionConfig = {
       ({ data, operation }) => {
         // Enforce corporate email domain in production environment
         if (process.env.NODE_ENV === 'production' && operation === 'create' && data?.email) {
-          const allowedDomains = ['@identifyyou.in']
+          const allowedDomains = ['@identifyyou.in', '@identifyyou.com']
           const isValid = allowedDomains.some((domain) => data.email.toLowerCase().endsWith(domain))
           if (!isValid) {
-            throw new Error('Only official @identifyyou.in corporate email addresses are permitted.')
+            throw new Error('Only official corporate email addresses (@identifyyou.in or @identifyyou.com) are permitted.')
           }
         }
         return data

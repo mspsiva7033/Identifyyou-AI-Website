@@ -326,7 +326,7 @@ export default function DataEngineeringPage() {
             <Link href="/contact" className={styles.btnPrimary}>
               Talk to a Snowflake Expert
             </Link>
-            <Link href="/case-studies" className={styles.btnSecondary}>
+            <Link href="/success-stories" className={styles.btnSecondary}>
               Explore All Success Stories
             </Link>
           </div>

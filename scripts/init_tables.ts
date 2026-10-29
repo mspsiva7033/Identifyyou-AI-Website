@@ -94,30 +94,38 @@ async function syncAndInitTables() {
         }
       }
 
-      // 3b. Ensure RBAC columns and users_roles table exist
-      await client.query(`
-        ALTER TABLE "users" 
-        ADD COLUMN IF NOT EXISTS "name" varchar DEFAULT 'IdentifYou Team Member';
-        
-        ALTER TABLE "users" 
-        ADD COLUMN IF NOT EXISTS "is_active" boolean DEFAULT true;
+      // 3b. Ensure RBAC columns and users_roles table exist (if users table already exists)
+      if (usersTableExists) {
+        await client.query(`
+          ALTER TABLE "users" 
+          ADD COLUMN IF NOT EXISTS "name" varchar DEFAULT 'IdentifYou Team Member';
+          
+          ALTER TABLE "users" 
+          ADD COLUMN IF NOT EXISTS "is_active" boolean DEFAULT true;
 
-        DO $$ BEGIN
-          CREATE TYPE "public"."enum_users_roles" AS ENUM('superadmin', 'editor', 'lead-manager', 'viewer');
-        EXCEPTION
-          WHEN duplicate_object THEN null;
-        END $$;
+          DO $$ BEGIN
+            CREATE TYPE "public"."enum_users_roles" AS ENUM('superadmin', 'editor', 'lead-manager', 'viewer');
+          EXCEPTION
+            WHEN duplicate_object THEN null;
+          END $$;
 
-        CREATE TABLE IF NOT EXISTS "users_roles" (
-          "order" integer NOT NULL,
-          "parent_id" integer NOT NULL REFERENCES "users"("id") ON DELETE CASCADE,
-          "value" "public"."enum_users_roles",
-          "id" serial PRIMARY KEY
-        );
+          CREATE TABLE IF NOT EXISTS "users_roles" (
+            "order" integer NOT NULL,
+            "parent_id" integer NOT NULL REFERENCES "users"("id") ON DELETE CASCADE,
+            "value" "public"."enum_users_roles",
+            "id" serial PRIMARY KEY
+          );
 
-        CREATE INDEX IF NOT EXISTS "users_roles_order_idx" ON "users_roles" ("order");
-        CREATE INDEX IF NOT EXISTS "users_roles_parent_id_idx" ON "users_roles" ("parent_id");
-      `)
+          CREATE INDEX IF NOT EXISTS "users_roles_order_idx" ON "users_roles" ("order");
+          CREATE INDEX IF NOT EXISTS "users_roles_parent_id_idx" ON "users_roles" ("parent_id");
+
+          ALTER TABLE "payload_locked_documents_rels" 
+          ADD COLUMN IF NOT EXISTS "leadership_team_id" integer;
+
+          ALTER TABLE "payload_preferences_rels" 
+          ADD COLUMN IF NOT EXISTS "leadership_team_id" integer;
+        `)
+      }
 
       await client.end()
       client = null

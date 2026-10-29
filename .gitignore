@@ -51,3 +51,14 @@ next-env.d.ts
 
 # standalone umami analytics instance
 /umami/
+
+# local scratch and audit scripts
+/scratch/
+
+# local utility and temporary scripts
+/scripts/askpass.bat
+/scripts/check_env.py
+/scripts/create_leadership_table.sql
+/scripts/fix_pg_password.py
+/scripts/remote_check_env.js
+/scripts/verify_61_urls.ts

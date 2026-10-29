@@ -18,6 +18,7 @@ const eslintConfig = [
       "**/build/**",
       "next-env.d.ts",
       "scripts/**",
+      "scratch/**",
       "temp_inspect_*/**",
       "extract_docx.cjs",
     ],

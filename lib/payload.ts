@@ -4954,10 +4954,75 @@ export const FALLBACK_CASE_STUDIES_MAP: Record<string, CaseStudyDetail> = {
       title: "Sub-Case Study: Power BI ABM Analytics & Installation Guide",
       desc: "Access the complete Power BI ABM framework, deployment guide, Snowflake connection parameters, configuration options, validation steps, troubleshooting, and user guide below.",
       linkLabel: "POWER BI ABM →",
-      linkHref: "/case-studies/power-bi-abm"
+      linkHref: "/success-stories/power-bi-abm"
     },
-    technologyUsed: "",
-    more: []
+    technologyUsed: "Snowflake Cortex AI, Streamlit, Power BI",
+    more: [
+      {
+        slug: "power-bi-abm",
+        title: "Account Based Marketing — Power BI ABM",
+        tag: "Data Engineering"
+      },
+      {
+        slug: "optimizing-shipment-fleet-snowflake",
+        title: "Optimizing Shipment and Fleet Operations with Snowflake",
+        tag: "Data Engineering"
+      },
+      {
+        slug: "migrating-hadoop-and-hana-to-snowflake",
+        title: "Migrating Hadoop and HANA to Snowflake for Manufacturing",
+        tag: "Data Engineering"
+      }
+    ]
+  },
+  "power-bi-abm": {
+    title: "Account Based Marketing — Power BI ABM",
+    breadcrumb: "Account Based Marketing — Power BI ABM",
+    tag: "Data Engineering",
+    illustration: "/images/case-studies/precision-abm-snowflake-cortex.png",
+    technologyUsed: "Microsoft Power BI, Snowflake AI Data Cloud, SQL, Basic Authentication",
+    overview: "Unified analytical framework consolidating ICP analysis, account scoring, engagement intelligence, deal analytics, and revenue insights on Snowflake.",
+    docItems: [
+      { type: "p", text: "Account Based Marketing — Power BI ABM Framework & Snowflake Engine" },
+      { type: "p", text: "Industry: Financial Services & Enterprise · Function: Revenue Analytics · Focus: ABM Intelligence" },
+      { type: "h2", text: "Strategic Foundation: Turning Account Intelligence into Revenue Growth" },
+      { type: "p", text: "Empowering data-driven sales and marketing decisions, the Account Based Marketing framework unifies ICP Analysis, Account Fit Scoring, Engagement Intelligence, Deal Analytics, and Revenue Insights into a single analytical framework on Snowflake." },
+      { type: "h2", text: "The Four-Phase ABM Framework" },
+      { type: "bullet", text: "Sales Foundation: ICP analysis, account fit evaluation, and intent identification." },
+      { type: "bullet", text: "Pre-Sales Engagement: Engagement monitoring and contact activity analysis." },
+      { type: "bullet", text: "Deals & Activities: Deal velocity, pipeline visibility, and opportunity tracking." },
+      { type: "bullet", text: "Sales Closure: Close-rate analysis and revenue optimization." },
+      { type: "h2", text: "Installation & Configuration" },
+      { type: "p", text: "Install the Account Based Marketing application from Microsoft AppSource, connect Snowflake credentials, and authenticate with Basic Authentication." }
+    ],
+    customCTA: {
+      title: "Microsoft AppSource Marketplace",
+      desc: "Download and install the certified Account Based Marketing (ABM) application for Microsoft Power BI directly from Microsoft AppSource.",
+      linkLabel: "VIEW ON MICROSOFT MARKETPLACE →",
+      linkHref: "https://marketplace.microsoft.com/en-us/product/power-bi/entifyoutechnologiesopcprivatelimited1682039191501.abm-powerbi-app?tab=Overview"
+    },
+    results: [
+      { stat: "Unified", label: "ICP & Intent Account Scoring" },
+      { stat: "Real-Time", label: "Power BI & Snowflake Ingestion" },
+      { stat: "AppSource", label: "Certified Microsoft Marketplace App" }
+    ],
+    more: [
+      {
+        slug: "precision-abm-snowflake-cortex",
+        title: "Precision ABM with Snowflake Cortex AI",
+        tag: "Data Engineering"
+      },
+      {
+        slug: "optimizing-shipment-fleet-snowflake",
+        title: "Optimizing Shipment and Fleet Operations with Snowflake",
+        tag: "Data Engineering"
+      },
+      {
+        slug: "migrating-hadoop-and-hana-to-snowflake",
+        title: "Migrating Hadoop and HANA to Snowflake for Manufacturing",
+        tag: "Data Engineering"
+      }
+    ]
   },
   "zebra-line-inspection": {
     "title": "Zebra Line Inspection",
@@ -5494,7 +5559,7 @@ export async function getManufacturingSolutions(): Promise<ManufacturingSolution
     return result.docs.map((doc: any) => ({
       title: doc.title,
       tagline: doc.tagline,
-      href: doc.href || '/case-studies',
+      href: doc.href || '/success-stories',
     }))
   } catch {
     return FALLBACK_MANUFACTURING_SOLUTIONS

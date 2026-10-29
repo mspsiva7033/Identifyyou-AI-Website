@@ -38,9 +38,6 @@ export const metadata: Metadata = {
   description:
     'AI-powered solutions for intelligent manufacturing, connected industries, Vision AI, data engineering, and enterprise operations.',
   metadataBase: new URL(siteUrl),
-  alternates: {
-    canonical: '/',
-  },
   openGraph: {
     type: 'website',
     siteName: 'IdentifYou Technologies',
