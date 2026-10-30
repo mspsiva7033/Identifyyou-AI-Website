@@ -203,6 +203,12 @@ async function syncAndInitTables() {
           ALTER TABLE "payload_preferences_rels" 
           ADD COLUMN IF NOT EXISTS "leadership_team_id" integer,
           ADD COLUMN IF NOT EXISTS "audit_logs_id" integer;
+
+          -- Sync _status with status for published entries
+          UPDATE "case_studies" SET "_status" = 'published' WHERE "status" = 'published' AND ("_status" IS NULL OR "_status" != 'published');
+          UPDATE "blogs_and_news" SET "_status" = 'published' WHERE "status" = 'published' AND ("_status" IS NULL OR "_status" != 'published');
+          UPDATE "_case_studies_v" SET "version__status" = 'published' WHERE "version_status" = 'published' AND ("version__status" IS NULL OR "version__status" != 'published');
+          UPDATE "_blogs_and_news_v" SET "version__status" = 'published' WHERE "version_status" = 'published' AND ("version__status" IS NULL OR "version__status" != 'published');
         `)
       }
 
@@ -231,6 +237,24 @@ async function syncAndInitTables() {
         }
       } catch (seedErr) {
         console.warn('⚠️ Notice: Auto-seed skipped or encountered a non-fatal error:', seedErr instanceof Error ? seedErr.message : seedErr)
+      }
+
+      // 6. Automatically seed leadership team if 0 exist
+      try {
+        const leadCheck = await payload.find({
+          collection: 'leadership-team' as any,
+          limit: 1,
+        })
+        if (!leadCheck.docs || leadCheck.docs.length === 0) {
+          console.log('🌱 No leadership team found in database. Automatically seeding leadership team...')
+          const { seedLeadership } = await import('./seed_leadership_all')
+          if (typeof seedLeadership === 'function') {
+            await seedLeadership()
+            console.log('✅ Initial leadership team seed completed successfully!')
+          }
+        }
+      } catch (leadErr) {
+        console.warn('⚠️ Notice: Leadership auto-seed skipped or encountered a non-fatal error:', leadErr instanceof Error ? leadErr.message : leadErr)
       }
 
       process.exit(0)

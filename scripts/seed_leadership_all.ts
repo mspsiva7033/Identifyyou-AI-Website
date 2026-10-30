@@ -56,7 +56,7 @@ const ALL_5_MEMBERS = [
   },
 ]
 
-async function seed() {
+export async function seedLeadership() {
   console.log('Connecting to Payload...')
   const payload = await getPayload({ config })
 
@@ -89,4 +89,6 @@ async function seed() {
   }
 }
 
-seed().catch(console.error)
+if (process.argv[1] && process.argv[1].includes('seed_leadership_all')) {
+  seedLeadership().catch(console.error)
+}
