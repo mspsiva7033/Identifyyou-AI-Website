@@ -76,6 +76,7 @@ export interface Config {
     'contact-submissions': ContactSubmission;
     'blogs-and-news': BlogsAndNew;
     'leadership-team': LeadershipTeam;
+    'audit-logs': AuditLog;
     'payload-kv': PayloadKv;
     'payload-locked-documents': PayloadLockedDocument;
     'payload-preferences': PayloadPreference;
@@ -92,6 +93,7 @@ export interface Config {
     'contact-submissions': ContactSubmissionsSelect<false> | ContactSubmissionsSelect<true>;
     'blogs-and-news': BlogsAndNewsSelect<false> | BlogsAndNewsSelect<true>;
     'leadership-team': LeadershipTeamSelect<false> | LeadershipTeamSelect<true>;
+    'audit-logs': AuditLogsSelect<false> | AuditLogsSelect<true>;
     'payload-kv': PayloadKvSelect<false> | PayloadKvSelect<true>;
     'payload-locked-documents': PayloadLockedDocumentsSelect<false> | PayloadLockedDocumentsSelect<true>;
     'payload-preferences': PayloadPreferencesSelect<false> | PayloadPreferencesSelect<true>;
@@ -148,7 +150,7 @@ export interface UserAuthOperations {
 export interface User {
   id: number;
   name: string;
-  roles: ('superadmin' | 'editor' | 'lead-manager' | 'viewer')[];
+  roles: ('superadmin' | 'admin' | 'editor' | 'author' | 'lead-manager' | 'viewer')[];
   /**
    * Uncheck to immediately block login access without deleting historical references.
    */
@@ -240,6 +242,23 @@ export interface CaseStudyCategory {
 export interface CaseStudy {
   id: number;
   status: 'draft' | 'published';
+  publishedAt?: string | null;
+  /**
+   * The person credited publicly for writing this case study
+   */
+  author?: string | null;
+  /**
+   * Set automatically by server-side authentication
+   */
+  createdBy?: (number | null) | User;
+  /**
+   * Updated automatically on every modification
+   */
+  updatedBy?: (number | null) | User;
+  /**
+   * Account that approved publication
+   */
+  publishedBy?: (number | null) | User;
   /**
    * Choose visual template layout for this Case Study
    */
@@ -450,6 +469,22 @@ export interface BlogsAndNew {
   status: 'draft' | 'published';
   publishedAt?: string | null;
   readTime?: string | null;
+  /**
+   * The person credited publicly for writing this content
+   */
+  author?: string | null;
+  /**
+   * Set automatically by server-side authentication
+   */
+  createdBy?: (number | null) | User;
+  /**
+   * Updated automatically on every modification
+   */
+  updatedBy?: (number | null) | User;
+  /**
+   * Account that approved publication
+   */
+  publishedBy?: (number | null) | User;
   title: string;
   /**
    * e.g. ai-in-manufacturing-quality-inspection-2026
@@ -522,6 +557,44 @@ export interface LeadershipTeam {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "audit-logs".
+ */
+export interface AuditLog {
+  id: number;
+  timestamp: string;
+  action:
+    | 'create'
+    | 'update'
+    | 'delete'
+    | 'publish'
+    | 'unpublish'
+    | 'user_create'
+    | 'user_update'
+    | 'user_delete'
+    | 'role_change'
+    | 'status_change'
+    | 'security_denied';
+  actor?: (number | null) | User;
+  actorEmail?: string | null;
+  actorRole?: string | null;
+  resourceType: string;
+  resourceId: string;
+  resourceTitle?: string | null;
+  outcome?: ('success' | 'failure') | null;
+  details?:
+    | {
+        [k: string]: unknown;
+      }
+    | unknown[]
+    | string
+    | number
+    | boolean
+    | null;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "payload-kv".
  */
 export interface PayloadKv {
@@ -579,6 +652,10 @@ export interface PayloadLockedDocument {
     | ({
         relationTo: 'leadership-team';
         value: number | LeadershipTeam;
+      } | null)
+    | ({
+        relationTo: 'audit-logs';
+        value: number | AuditLog;
       } | null);
   globalSlug?: string | null;
   user: {
@@ -717,6 +794,11 @@ export interface CaseStudyCategoriesSelect<T extends boolean = true> {
  */
 export interface CaseStudiesSelect<T extends boolean = true> {
   status?: T;
+  publishedAt?: T;
+  author?: T;
+  createdBy?: T;
+  updatedBy?: T;
+  publishedBy?: T;
   template?: T;
   displayOrder?: T;
   title?: T;
@@ -864,6 +946,10 @@ export interface BlogsAndNewsSelect<T extends boolean = true> {
   status?: T;
   publishedAt?: T;
   readTime?: T;
+  author?: T;
+  createdBy?: T;
+  updatedBy?: T;
+  publishedBy?: T;
   title?: T;
   slug?: T;
   category?: T;
@@ -900,6 +986,24 @@ export interface LeadershipTeamSelect<T extends boolean = true> {
   photo?: T;
   displayOrder?: T;
   status?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "audit-logs_select".
+ */
+export interface AuditLogsSelect<T extends boolean = true> {
+  timestamp?: T;
+  action?: T;
+  actor?: T;
+  actorEmail?: T;
+  actorRole?: T;
+  resourceType?: T;
+  resourceId?: T;
+  resourceTitle?: T;
+  outcome?: T;
+  details?: T;
   updatedAt?: T;
   createdAt?: T;
 }

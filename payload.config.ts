@@ -38,6 +38,7 @@ import { DeepTechCapabilities } from './payload/collections/DeepTechCapabilities
 import { ContactSubmissions } from './payload/collections/ContactSubmissions'
 import { BlogsAndNews } from './payload/collections/BlogsAndNews'
 import { LeadershipTeam } from './payload/collections/LeadershipTeam'
+import { AuditLogs } from './payload/collections/AuditLogs'
 
 import { HeaderGlobal } from './payload/globals/Header'
 import { FooterGlobal } from './payload/globals/Footer'
@@ -116,6 +117,7 @@ export default buildConfig({
     ContactSubmissions,
     BlogsAndNews,
     LeadershipTeam,
+    AuditLogs,
   ],
   globals: [
     HeaderGlobal,

@@ -5401,6 +5401,9 @@ export async function getCaseStudies(): Promise<CaseStudySummary[]> {
 
     const result = await payload.find({
       collection: 'case-studies',
+      where: {
+        status: { equals: 'published' },
+      },
       sort: 'displayOrder',
       limit: 100,
       depth: 2,
@@ -5479,7 +5482,10 @@ export async function getCaseStudyBySlug(slug: string): Promise<CaseStudyDetail 
     const result = await payload.find({
       collection: 'case-studies',
       where: {
-        or: slugsToTry.map((s) => ({ slug: { equals: s } })),
+        and: [
+          { status: { equals: 'published' } },
+          { or: slugsToTry.map((s) => ({ slug: { equals: s } })) },
+        ],
       },
       limit: 1,
       depth: 2,
@@ -5753,7 +5759,10 @@ export async function getBlogBySlug(slug: string): Promise<BlogArticleDetail | n
     const result = await payload.find({
       collection: 'blogs-and-news' as any,
       where: {
-        slug: { equals: slug },
+        and: [
+          { status: { equals: 'published' } },
+          { slug: { equals: slug } },
+        ],
       },
       limit: 1,
       depth: 2,

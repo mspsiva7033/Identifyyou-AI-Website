@@ -1,4 +1,5 @@
 import type { CollectionConfig } from 'payload'
+import { APIError } from 'payload'
 import {
   isSuperAdmin,
   isSelfOrAdmin,
@@ -7,6 +8,7 @@ import {
   isSuperAdminField,
   hasRole,
 } from '../../lib/access'
+import { logAuditEvent } from '../../lib/audit'
 
 export const Users: CollectionConfig = {
   slug: 'users',
@@ -23,7 +25,7 @@ export const Users: CollectionConfig = {
     useAsTitle: 'name',
     group: 'Administration',
     defaultColumns: ['name', 'email', 'roles', 'isActive'],
-    hidden: ({ user }) => !hasRole(user, 'superadmin'),
+    hidden: ({ user }) => !hasRole(user, 'superadmin') && !hasRole(user, 'admin'),
   },
   access: {
     admin: isAdminPanelUser,
@@ -50,7 +52,9 @@ export const Users: CollectionConfig = {
       required: true,
       options: [
         { label: 'Super Admin', value: 'superadmin' },
+        { label: 'Administrator', value: 'admin' },
         { label: 'Content Editor', value: 'editor' },
+        { label: 'Content Author', value: 'author' },
         { label: 'Lead Manager (Sales)', value: 'lead-manager' },
         { label: 'Read-only Viewer', value: 'viewer' },
       ],
@@ -86,6 +90,99 @@ export const Users: CollectionConfig = {
           }
         }
         return data
+      },
+    ],
+    afterChange: [
+      async ({ doc, req, operation, previousDoc }) => {
+        // Audit log user events
+        if (operation === 'create') {
+          await logAuditEvent({
+            payload: req.payload,
+            actor: req.user,
+            action: 'user_create',
+            resourceType: 'users',
+            resourceId: doc.id,
+            resourceTitle: doc.name || doc.email,
+            outcome: 'success',
+            details: {
+              email: doc.email,
+              roles: doc.roles,
+              isActive: doc.isActive,
+            },
+          })
+        } else if (operation === 'update') {
+          const roleChanged = JSON.stringify(previousDoc?.roles) !== JSON.stringify(doc.roles)
+          const statusChanged = previousDoc?.isActive !== doc.isActive
+
+          if (roleChanged) {
+            await logAuditEvent({
+              payload: req.payload,
+              actor: req.user,
+              action: 'role_change',
+              resourceType: 'users',
+              resourceId: doc.id,
+              resourceTitle: doc.name || doc.email,
+              outcome: 'success',
+              details: {
+                previousRoles: previousDoc?.roles,
+                newRoles: doc.roles,
+              },
+            })
+          }
+
+          if (statusChanged) {
+            await logAuditEvent({
+              payload: req.payload,
+              actor: req.user,
+              action: 'status_change',
+              resourceType: 'users',
+              resourceId: doc.id,
+              resourceTitle: doc.name || doc.email,
+              outcome: 'success',
+              details: {
+                previousStatus: previousDoc?.isActive,
+                newStatus: doc.isActive,
+              },
+            })
+          }
+
+          await logAuditEvent({
+            payload: req.payload,
+            actor: req.user,
+            action: 'user_update',
+            resourceType: 'users',
+            resourceId: doc.id,
+            resourceTitle: doc.name || doc.email,
+            outcome: 'success',
+            details: {
+              updatedFields: Object.keys(doc).filter(k => previousDoc && doc[k] !== previousDoc[k]),
+            },
+          })
+        }
+      },
+    ],
+    afterDelete: [
+      async ({ doc, req }) => {
+        await logAuditEvent({
+          payload: req.payload,
+          actor: req.user,
+          action: 'user_delete',
+          resourceType: 'users',
+          resourceId: doc.id,
+          resourceTitle: doc.name || doc.email,
+          outcome: 'success',
+          details: {
+            deletedEmail: doc.email,
+          },
+        })
+      },
+    ],
+    beforeLogin: [
+      ({ user }) => {
+        if (user && user.isActive === false) {
+          throw new APIError('This account has been deactivated. Please contact an administrator.', 401)
+        }
+        return user
       },
     ],
     beforeValidate: [

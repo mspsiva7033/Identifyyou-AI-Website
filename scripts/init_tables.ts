@@ -104,7 +104,19 @@ async function syncAndInitTables() {
           ADD COLUMN IF NOT EXISTS "is_active" boolean DEFAULT true;
 
           DO $$ BEGIN
-            CREATE TYPE "public"."enum_users_roles" AS ENUM('superadmin', 'editor', 'lead-manager', 'viewer');
+            CREATE TYPE "public"."enum_users_roles" AS ENUM('superadmin', 'admin', 'editor', 'author', 'lead-manager', 'viewer');
+          EXCEPTION
+            WHEN duplicate_object THEN null;
+          END $$;
+
+          DO $$ BEGIN
+            ALTER TYPE "public"."enum_users_roles" ADD VALUE IF NOT EXISTS 'admin';
+          EXCEPTION
+            WHEN duplicate_object THEN null;
+          END $$;
+
+          DO $$ BEGIN
+            ALTER TYPE "public"."enum_users_roles" ADD VALUE IF NOT EXISTS 'author';
           EXCEPTION
             WHEN duplicate_object THEN null;
           END $$;
@@ -119,11 +131,78 @@ async function syncAndInitTables() {
           CREATE INDEX IF NOT EXISTS "users_roles_order_idx" ON "users_roles" ("order");
           CREATE INDEX IF NOT EXISTS "users_roles_parent_id_idx" ON "users_roles" ("parent_id");
 
+          -- Ownership columns on blogs_and_news
+          ALTER TABLE "blogs_and_news" 
+          ADD COLUMN IF NOT EXISTS "created_by_id" integer REFERENCES "users"("id") ON DELETE SET NULL,
+          ADD COLUMN IF NOT EXISTS "updated_by_id" integer REFERENCES "users"("id") ON DELETE SET NULL,
+          ADD COLUMN IF NOT EXISTS "published_by_id" integer REFERENCES "users"("id") ON DELETE SET NULL,
+          ADD COLUMN IF NOT EXISTS "author" varchar DEFAULT 'IdentifYou Team';
+
+          ALTER TABLE "_blogs_and_news_v" 
+          ADD COLUMN IF NOT EXISTS "version_created_by_id" integer,
+          ADD COLUMN IF NOT EXISTS "version_updated_by_id" integer,
+          ADD COLUMN IF NOT EXISTS "version_published_by_id" integer,
+          ADD COLUMN IF NOT EXISTS "version_author" varchar DEFAULT 'IdentifYou Team';
+
+          -- Ownership columns on case_studies
+          ALTER TABLE "case_studies" 
+          ADD COLUMN IF NOT EXISTS "created_by_id" integer REFERENCES "users"("id") ON DELETE SET NULL,
+          ADD COLUMN IF NOT EXISTS "updated_by_id" integer REFERENCES "users"("id") ON DELETE SET NULL,
+          ADD COLUMN IF NOT EXISTS "published_by_id" integer REFERENCES "users"("id") ON DELETE SET NULL,
+          ADD COLUMN IF NOT EXISTS "published_at" timestamp with time zone,
+          ADD COLUMN IF NOT EXISTS "author" varchar DEFAULT 'IdentifYou Team';
+
+          ALTER TABLE "_case_studies_v" 
+          ADD COLUMN IF NOT EXISTS "version_created_by_id" integer,
+          ADD COLUMN IF NOT EXISTS "version_updated_by_id" integer,
+          ADD COLUMN IF NOT EXISTS "version_published_by_id" integer,
+          ADD COLUMN IF NOT EXISTS "version_published_at" timestamp with time zone,
+          ADD COLUMN IF NOT EXISTS "version_author" varchar DEFAULT 'IdentifYou Team';
+
+          -- Audit logs table
+          DO $$ BEGIN
+            CREATE TYPE "public"."enum_audit_logs_action" AS ENUM(
+              'create', 'update', 'delete', 'publish', 'unpublish', 
+              'user_create', 'user_update', 'user_delete', 'role_change', 'status_change', 'security_denied'
+            );
+          EXCEPTION
+            WHEN duplicate_object THEN null;
+          END $$;
+
+          DO $$ BEGIN
+            CREATE TYPE "public"."enum_audit_logs_outcome" AS ENUM('success', 'failure');
+          EXCEPTION
+            WHEN duplicate_object THEN null;
+          END $$;
+
+          CREATE TABLE IF NOT EXISTS "audit_logs" (
+            "id" serial PRIMARY KEY,
+            "timestamp" timestamp with time zone DEFAULT now() NOT NULL,
+            "actor_id" integer REFERENCES "users"("id") ON DELETE SET NULL,
+            "actor_email" varchar,
+            "actor_role" varchar,
+            "action" "public"."enum_audit_logs_action" NOT NULL,
+            "resource_type" varchar NOT NULL,
+            "resource_id" varchar NOT NULL,
+            "resource_title" varchar,
+            "outcome" "public"."enum_audit_logs_outcome" DEFAULT 'success' NOT NULL,
+            "details" jsonb DEFAULT '{}'::jsonb,
+            "updated_at" timestamp with time zone DEFAULT now() NOT NULL,
+            "created_at" timestamp with time zone DEFAULT now() NOT NULL
+          );
+
+          CREATE INDEX IF NOT EXISTS "idx_audit_logs_timestamp" ON "audit_logs" ("timestamp");
+          CREATE INDEX IF NOT EXISTS "idx_audit_logs_actor_id" ON "audit_logs" ("actor_id");
+          CREATE INDEX IF NOT EXISTS "idx_audit_logs_action" ON "audit_logs" ("action");
+          CREATE INDEX IF NOT EXISTS "idx_audit_logs_resource" ON "audit_logs" ("resource_type", "resource_id");
+
           ALTER TABLE "payload_locked_documents_rels" 
-          ADD COLUMN IF NOT EXISTS "leadership_team_id" integer;
+          ADD COLUMN IF NOT EXISTS "leadership_team_id" integer,
+          ADD COLUMN IF NOT EXISTS "audit_logs_id" integer;
 
           ALTER TABLE "payload_preferences_rels" 
-          ADD COLUMN IF NOT EXISTS "leadership_team_id" integer;
+          ADD COLUMN IF NOT EXISTS "leadership_team_id" integer,
+          ADD COLUMN IF NOT EXISTS "audit_logs_id" integer;
         `)
       }
 

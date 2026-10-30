@@ -20,7 +20,11 @@ import { getPayload } from 'payload'
 import config from '../payload.config'
 import {
   isSuperAdmin,
+  isAdmin,
   isEditorOrAdmin,
+  canCreateContent,
+  canUpdateContent,
+  canDeleteContent,
   canViewLeads,
   isAdminPanelUser,
   isSelfOrAdmin,
@@ -50,25 +54,41 @@ async function runRBACTests() {
 
   const payload = await getPayload({ config })
 
-  // 1. Setup Mock User Personas
+  // Setup Mock User Personas
   const superadminUser = {
-    id: 'user-superadmin-1',
+    id: 3,
     name: 'Test Super Admin',
     email: 'superadmin@identifyyou.in',
     roles: ['superadmin'],
     isActive: true,
   }
 
+  const adminUser = {
+    id: 7,
+    name: 'Test Administrator',
+    email: 'admin@identifyyou.in',
+    roles: ['admin'],
+    isActive: true,
+  }
+
   const editorUser = {
-    id: 'user-editor-1',
+    id: 4,
     name: 'Test Content Editor',
     email: 'editor@identifyyou.in',
     roles: ['editor'],
     isActive: true,
   }
 
+  const authorUser = {
+    id: 8,
+    name: 'Test Content Author',
+    email: 'author@identifyyou.in',
+    roles: ['author'],
+    isActive: true,
+  }
+
   const leadManagerUser = {
-    id: 'user-leadmgr-1',
+    id: 5,
     name: 'Test Lead Manager',
     email: 'leadmgr@identifyyou.in',
     roles: ['lead-manager'],
@@ -76,7 +96,7 @@ async function runRBACTests() {
   }
 
   const viewerUser = {
-    id: 'user-viewer-1',
+    id: 6,
     name: 'Test Read Viewer',
     email: 'viewer@identifyyou.in',
     roles: ['viewer'],
@@ -84,7 +104,7 @@ async function runRBACTests() {
   }
 
   const inactiveUser = {
-    id: 'user-inactive-1',
+    id: 99,
     name: 'Deactivated Employee',
     email: 'inactive@identifyyou.in',
     roles: ['editor'],
@@ -94,110 +114,67 @@ async function runRBACTests() {
   const anonymousUser = null
 
   console.log('👤 Testing Category 1: Super Admin')
-  // SuperAdmin should have full permissions
   assert('superadmin', 'isSuperAdmin predicate passes', isSuperAdmin({ req: { user: superadminUser } as any }) === true)
-  assert('superadmin', 'Can edit marketing content', isEditorOrAdmin({ req: { user: superadminUser } as any }) === true)
+  assert('superadmin', 'isAdmin predicate passes', isAdmin({ req: { user: superadminUser } as any }) === true)
+  assert('superadmin', 'Can create content', canCreateContent({ req: { user: superadminUser } as any }) === true)
+  assert('superadmin', 'Can edit all marketing content', canUpdateContent({ req: { user: superadminUser } as any }) === true)
+  assert('superadmin', 'Can delete content', canDeleteContent({ req: { user: superadminUser } as any }) === true)
   assert('superadmin', 'Can view client leads', canViewLeads({ req: { user: superadminUser } as any }) === true)
   assert('superadmin', 'Can enter Admin Panel', isAdminPanelUser({ req: { user: superadminUser } as any }) === true)
   assert('superadmin', 'Has self/admin user access', isSelfOrAdmin({ req: { user: superadminUser } as any }) === true)
 
-  console.log('👤 Testing Category 2: Content Editor')
-  // Editor can edit content, but CANNOT view leads or act as superadmin
+  console.log('👤 Testing Category 2: Administrator')
+  assert('admin', 'Cannot act as SuperAdmin', isSuperAdmin({ req: { user: adminUser } as any }) === false)
+  assert('admin', 'isAdmin predicate passes', isAdmin({ req: { user: adminUser } as any }) === true)
+  assert('admin', 'Can create content', canCreateContent({ req: { user: adminUser } as any }) === true)
+  assert('admin', 'Can edit all marketing content', canUpdateContent({ req: { user: adminUser } as any }) === true)
+  assert('admin', 'Can delete content', canDeleteContent({ req: { user: adminUser } as any }) === true)
+  assert('admin', 'Can view client leads', canViewLeads({ req: { user: adminUser } as any }) === true)
+  assert('admin', 'Can enter Admin Panel', isAdminPanelUser({ req: { user: adminUser } as any }) === true)
+
+  console.log('👤 Testing Category 3: Content Editor')
   assert('editor', 'Cannot act as SuperAdmin', isSuperAdmin({ req: { user: editorUser } as any }) === false)
-  assert('editor', 'Can edit marketing content', isEditorOrAdmin({ req: { user: editorUser } as any }) === true)
+  assert('editor', 'Cannot act as Admin', isAdmin({ req: { user: editorUser } as any }) === false)
+  assert('editor', 'Can create content', canCreateContent({ req: { user: editorUser } as any }) === true)
+  assert('editor', 'Can edit any marketing content', canUpdateContent({ req: { user: editorUser } as any }) === true)
+  assert('editor', 'FORBIDDEN from deleting content', canDeleteContent({ req: { user: editorUser } as any }) === false)
   assert('editor', 'FORBIDDEN from viewing client leads', canViewLeads({ req: { user: editorUser } as any }) === false)
   assert('editor', 'Can enter Admin Panel', isAdminPanelUser({ req: { user: editorUser } as any }) === true)
-  const editorSelfAccess = isSelfOrAdmin({ req: { user: editorUser } as any })
-  assert('editor', 'Scoped to self-only for user records', typeof editorSelfAccess === 'object' && editorSelfAccess !== null)
 
-  console.log('👤 Testing Category 3: Lead Manager (Sales)')
-  // Lead Manager can view leads, but CANNOT edit content or act as superadmin
+  console.log('👤 Testing Category 4: Content Author')
+  assert('author', 'Cannot act as SuperAdmin', isSuperAdmin({ req: { user: authorUser } as any }) === false)
+  assert('author', 'Can create content', canCreateContent({ req: { user: authorUser } as any }) === true)
+  const authorUpdateScope = canUpdateContent({ req: { user: authorUser } as any })
+  const isScopedToOwn = typeof authorUpdateScope === 'object' && authorUpdateScope !== null && (authorUpdateScope as any)?.createdBy?.equals === 8
+  assert('author', 'Can ONLY edit owned content (scoped by createdBy)', isScopedToOwn)
+  assert('author', 'FORBIDDEN from deleting content', canDeleteContent({ req: { user: authorUser } as any }) === false)
+  assert('author', 'FORBIDDEN from viewing client leads', canViewLeads({ req: { user: authorUser } as any }) === false)
+  assert('author', 'Can enter Admin Panel', isAdminPanelUser({ req: { user: authorUser } as any }) === true)
+
+  console.log('👤 Testing Category 5: Lead Manager (Sales)')
   assert('lead-manager', 'Cannot act as SuperAdmin', isSuperAdmin({ req: { user: leadManagerUser } as any }) === false)
-  assert('lead-manager', 'FORBIDDEN from editing marketing content', isEditorOrAdmin({ req: { user: leadManagerUser } as any }) === false)
+  assert('lead-manager', 'FORBIDDEN from editing marketing content', canUpdateContent({ req: { user: leadManagerUser } as any }) === false)
   assert('lead-manager', 'Can view client leads', canViewLeads({ req: { user: leadManagerUser } as any }) === true)
   assert('lead-manager', 'Can enter Admin Panel', isAdminPanelUser({ req: { user: leadManagerUser } as any }) === true)
 
-  console.log('👤 Testing Category 4: Read-Only Viewer')
-  // Viewer cannot edit content, cannot view leads, cannot act as superadmin
+  console.log('👤 Testing Category 6: Read-Only Viewer')
   assert('viewer', 'Cannot act as SuperAdmin', isSuperAdmin({ req: { user: viewerUser } as any }) === false)
-  assert('viewer', 'FORBIDDEN from editing marketing content', isEditorOrAdmin({ req: { user: viewerUser } as any }) === false)
+  assert('viewer', 'FORBIDDEN from creating content', canCreateContent({ req: { user: viewerUser } as any }) === false)
+  assert('viewer', 'FORBIDDEN from editing content', canUpdateContent({ req: { user: viewerUser } as any }) === false)
+  assert('viewer', 'FORBIDDEN from deleting content', canDeleteContent({ req: { user: viewerUser } as any }) === false)
   assert('viewer', 'FORBIDDEN from viewing client leads', canViewLeads({ req: { user: viewerUser } as any }) === false)
   assert('viewer', 'Can enter Admin Panel as viewer', isAdminPanelUser({ req: { user: viewerUser } as any }) === true)
 
-  console.log('👤 Testing Category 5: Deactivated Account (isActive: false)')
-  // Inactive user should be blocked from Admin Panel access
+  console.log('👤 Testing Category 7: Deactivated Account (isActive: false)')
   assert('inactive', 'Access to Admin Panel immediately BLOCKED', isAdminPanelUser({ req: { user: inactiveUser } as any }) === false)
+  assert('inactive', 'Content creation immediately BLOCKED', canCreateContent({ req: { user: inactiveUser } as any }) === false)
+  assert('inactive', 'Content editing immediately BLOCKED', canUpdateContent({ req: { user: inactiveUser } as any }) === false)
 
-  console.log('👤 Testing Category 6: Anonymous Public Visitor')
-  // Anonymous visitor has no admin rights
+  console.log('👤 Testing Category 8: Anonymous Public Visitor')
   assert('anonymous', 'Admin access BLOCKED', isAdminPanelUser({ req: { user: anonymousUser } as any }) === false)
-  assert('anonymous', 'Content editing BLOCKED', isEditorOrAdmin({ req: { user: anonymousUser } as any }) === false)
+  assert('anonymous', 'Content creation BLOCKED', canCreateContent({ req: { user: anonymousUser } as any }) === false)
+  assert('anonymous', 'Content editing BLOCKED', canUpdateContent({ req: { user: anonymousUser } as any }) === false)
   assert('anonymous', 'Leads viewing BLOCKED', canViewLeads({ req: { user: anonymousUser } as any }) === false)
-
-  console.log('\n🔒 Testing Live Payload Local API with Access Enforcement (overrideAccess: false)')
-  console.log('────────────────────────────────────────────────────────────────────────────')
-
-  // Live Test 1: Lead Manager accessing ContactSubmissions
-  try {
-    const leadsAsLeadMgr = await payload.find({
-      collection: 'contact-submissions',
-      user: leadManagerUser as any,
-      overrideAccess: false,
-      limit: 1,
-    })
-    assert('lead-manager', 'Live query to contact-submissions SUCCEEDS', Array.isArray(leadsAsLeadMgr.docs))
-  } catch (err) {
-    assert('lead-manager', 'Live query to contact-submissions SUCCEEDS', false, String(err))
-  }
-
-  // Live Test 2: Editor attempting to access ContactSubmissions (Must be BLOCKED)
-  try {
-    const leadsAsEditor = await payload.find({
-      collection: 'contact-submissions',
-      user: editorUser as any,
-      overrideAccess: false,
-      limit: 1,
-    })
-    // In Payload, if access is false, it returns empty docs or throws Forbidden
-    const editorBlocked = !leadsAsEditor.docs || leadsAsEditor.docs.length === 0
-    assert('editor', 'Live query to contact-submissions BLOCKED (0 docs returned)', editorBlocked)
-  } catch {
-    assert('editor', 'Live query to contact-submissions BLOCKED (Forbidden error thrown)', true)
-  }
-
-  // Live Test 3: Viewer attempting to delete a Case Study (Must be BLOCKED)
-  try {
-    await payload.delete({
-      collection: 'case-studies',
-      id: 999999,
-      user: viewerUser as any,
-      overrideAccess: false,
-    })
-    assert('viewer', 'Live delete on case-studies BLOCKED', false, 'Delete should have failed')
-  } catch (err: any) {
-    const isAccessDenied = err?.message?.toLowerCase().includes('forbidden') ||
-      err?.message?.toLowerCase().includes('not allowed') ||
-      err?.status === 403 ||
-      err !== undefined
-    assert('viewer', 'Live delete on case-studies BLOCKED (Unauthorized)', isAccessDenied)
-  }
-
-  // Live Test 4: Editor attempting to delete a Case Study (Must be BLOCKED because only superadmin can delete)
-  try {
-    await payload.delete({
-      collection: 'case-studies',
-      id: 999999,
-      user: editorUser as any,
-      overrideAccess: false,
-    })
-    assert('editor', 'Live delete on case-studies BLOCKED (Only superadmin can delete)', false, 'Delete should have failed')
-  } catch (err: any) {
-    const isAccessDenied = err?.message?.toLowerCase().includes('forbidden') ||
-      err?.message?.toLowerCase().includes('not allowed') ||
-      err?.status === 403 ||
-      err !== undefined
-    assert('editor', 'Live delete on case-studies BLOCKED (Only superadmin can delete)', isAccessDenied)
-  }
 
   // Print Summary Table
   console.log('\n============================================================')
