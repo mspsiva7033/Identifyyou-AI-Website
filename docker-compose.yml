@@ -64,6 +64,7 @@ services:
       NODE_ENV: production
       DATABASE_URI: postgresql://${POSTGRES_USER:-identifyyou}:${POSTGRES_PASSWORD}@postgres:5432/identifyyou
       DATABASE_SSL: ${DATABASE_SSL:-false}
+      DATABASE_POOL_MAX: ${DATABASE_POOL_MAX:-20}
       PAYLOAD_SECRET: ${PAYLOAD_SECRET:?Payload secret required in .env}
       NEXT_PUBLIC_SITE_URL: ${NEXT_PUBLIC_SITE_URL}
       PAYLOAD_PUBLIC_SERVER_URL: ${PAYLOAD_PUBLIC_SERVER_URL:-${NEXT_PUBLIC_SITE_URL}}

@@ -51,6 +51,7 @@ const dirname = path.dirname(filename)
 const serverURL =
   process.env.NEXT_PUBLIC_SERVER_URL ||
   process.env.PAYLOAD_PUBLIC_SERVER_URL ||
+  process.env.NEXT_PUBLIC_SITE_URL ||
   (process.env.VERCEL_PROJECT_PRODUCTION_URL ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}` : '') ||
   (process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : '') ||
   'http://localhost:3000'
@@ -60,6 +61,8 @@ const allowedOrigins = Array.from(
     serverURL,
     'http://localhost:3000',
     'http://127.0.0.1:3000',
+    'http://100.84.239.20:3000',
+    'https://100.84.239.20:3000',
     'https://identifyyou.ai',
     'https://www.identifyyou.ai',
     'https://sivamsp-lenovo-b490.tail00b6b9.ts.net',

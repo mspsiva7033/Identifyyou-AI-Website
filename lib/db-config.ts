@@ -192,11 +192,18 @@ export function getDatabaseConfig(): DatabaseConfigResult {
 
 export function getPoolConfig(): PoolConfig {
   const config = getDatabaseConfig()
+  const poolMax = parseInt(
+    process.env.DATABASE_POOL_MAX ||
+    process.env.DATABASE_MAX_CONNECTIONS ||
+    '20',
+    10
+  )
   return {
     connectionString: config.connectionString,
     ssl: config.ssl,
-    max: 3,
-    idleTimeoutMillis: 5000,
-    connectionTimeoutMillis: 30000,
+    max: isNaN(poolMax) ? 20 : poolMax,
+    idleTimeoutMillis: 10000,
+    connectionTimeoutMillis: 10000,
   }
 }
+
