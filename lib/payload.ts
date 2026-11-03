@@ -14,7 +14,7 @@ export interface CaseStudySummary {
   slug: string
   title: string
   tag: string
-  category: {
+  category?: {
     id: number | string
     name: string
     slug: string
@@ -5352,6 +5352,7 @@ const CATEGORY_ID_MAP: Record<number | string, string> = {
   58: 'Industry Automation',
   59: 'AI & No-Code Platform',
   60: 'Data Engineering',
+  61: 'Digital Engineering',
 }
 
 function normalizeCategoryName(raw: string): string {
@@ -5451,27 +5452,6 @@ export async function getCaseStudies(): Promise<CaseStudySummary[]> {
       }
     })
 
-    const existingSlugs = new Set(mapped.map((d: any) => d.slug))
-    const slugAliases: Record<string, string[]> = {
-      'optimizing-shipment-and-fleet-operations': ['optimizing-shipment-fleet-snowflake', 'optimizing-shipment-and-fleet-operations'],
-      'ai-powered-procurement': ['procurement-operations-intelligence', 'ai-powered-procurement'],
-      'overcoming-data-access-challenges': [
-        'overcoming-data-access-challenges-in-a-multi-business-environment-for-streamlined-decision-making',
-        'overcoming-data-access-challenges',
-      ],
-      'overcoming-data-access-challenges-in-a-multi-business-environment-for-streamlined-decision-making': [
-        'overcoming-data-access-challenges-in-a-multi-business-environment-for-streamlined-decision-making',
-        'overcoming-data-access-challenges',
-      ],
-    }
-
-    for (const fb of FALLBACK_CASE_STUDIES) {
-      const isPresent = existingSlugs.has(fb.slug) || (slugAliases[fb.slug] && slugAliases[fb.slug].some((a) => existingSlugs.has(a)))
-      if (!isPresent) {
-        mapped.push(fb)
-      }
-    }
-
     return mapped
   } catch (error) {
     console.error('Failed to fetch case studies from Payload CMS:', error)
@@ -5520,12 +5500,12 @@ export async function getCaseStudyBySlug(slug: string): Promise<CaseStudyDetail 
     })
 
     if (!result.docs || result.docs.length === 0) {
-      return getFallback()
+      return null
     }
 
     const doc: any = result.docs[0]
     if (doc.slug === 'mollitia-fugit-similique-placeat' || !doc.title || doc.title.includes('Mollitia')) {
-      return getFallback()
+      return null
     }
 
     const uploadedIllustration =

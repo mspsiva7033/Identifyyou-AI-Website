@@ -13,13 +13,9 @@ import styles from './page.module.css'
 export const revalidate = 60
 
 export async function generateStaticParams() {
-  const caseStudies = await getCaseStudies()
-  const slugs = new Set(caseStudies.map((cs) => cs.slug))
-  slugs.add('cost-model-simulation')
-  slugs.add('enhancing-support-efficiency-with-integrated-order-management')
-  slugs.add('overcoming-data-access-challenges')
-  slugs.add('overcoming-data-access-challenges-in-a-multi-business-environment-for-streamlined-decision-making')
-  return Array.from(slugs).map((slug) => ({ slug }))
+  // Return empty array during build so Next.js renders on-demand (ISR 60s)
+  // This prevents build-time database connection exhaustion (EMAXCONNSESSION) in Docker
+  return []
 }
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {

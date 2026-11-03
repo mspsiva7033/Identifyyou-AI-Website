@@ -9,8 +9,7 @@ import styles from './page.module.css'
 export const revalidate = 60
 
 export async function generateStaticParams() {
-  const articles = await getBlogsAndNews()
-  return articles.map((article) => ({ slug: article.slug }))
+  return []
 }
 
 interface ArticleDetail {

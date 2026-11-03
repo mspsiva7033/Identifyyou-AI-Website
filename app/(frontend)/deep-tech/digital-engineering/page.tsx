@@ -4,6 +4,7 @@ import Link from 'next/link'
 import { Header } from '@/components/layout/Header'
 import { Footer } from '@/components/layout/Footer'
 import { CaseStudyCard } from '@/components/ui/CaseStudyCard'
+import { getCaseStudies } from '@/lib/payload'
 import styles from './page.module.css'
 
 export const metadata: Metadata = {
@@ -14,6 +15,8 @@ export const metadata: Metadata = {
     canonical: '/deep-tech/digital-engineering',
   },
 }
+
+export const revalidate = 60
 
 const techEcosystemPills = [
   'Microsoft PowerApps',
@@ -26,7 +29,7 @@ const techEcosystemPills = [
   'SQL',
 ]
 
-const digitalCaseStudies = [
+const fallbackDigitalCaseStudies = [
   {
     slug: 'cost-model-simulation',
     title: 'Cost Model for K-Type Configuration Manufacturing',
@@ -50,7 +53,43 @@ const digitalCaseStudies = [
   },
 ]
 
-export default function DigitalEngineeringPage() {
+export default async function DigitalEngineeringPage() {
+  const allCaseStudies = await getCaseStudies()
+
+  const targetSlugs = [
+    'cost-model-simulation',
+    'enhancing-support-efficiency-with-integrated-order-management',
+    'overcoming-data-access-challenges',
+  ]
+
+  const cmsMap = new Map(allCaseStudies.map((cs) => [cs.slug, cs]))
+  const longSlug =
+    'overcoming-data-access-challenges-in-a-multi-business-environment-for-streamlined-decision-making'
+
+  const liveCaseStudies = targetSlugs
+    .map((slug) => {
+      const doc =
+        cmsMap.get(slug) ||
+        (slug === 'overcoming-data-access-challenges' ? cmsMap.get(longSlug) : undefined)
+      if (!doc) return null
+      return {
+        slug,
+        title: doc.title,
+        tag: doc.tag || 'DIGITAL ENGINEERING',
+        categories: doc.categories || ['Digital Engineering'],
+        image: doc.illustration || `/images/case-studies/${slug}.png`,
+        href: `/success-stories/${slug}`,
+      }
+    })
+    .filter((cs): cs is NonNullable<typeof cs> => Boolean(cs))
+
+  const displayedCaseStudies =
+    liveCaseStudies.length > 0
+      ? liveCaseStudies
+      : allCaseStudies.length === 0
+      ? fallbackDigitalCaseStudies
+      : []
+
   return (
     <div className={styles.page}>
       <Header />
@@ -169,30 +208,32 @@ export default function DigitalEngineeringPage() {
       </section>
 
       {/* SECTION 4: DIGITAL ENGINEERING SUCCESS STORIES GRID */}
-      <section className={styles.sectionCaseStudyBanner}>
-        <div className={styles.container}>
-          <div className={styles.eyebrowGreen} style={{ textAlign: 'center' }}>
-            MORE DIGITAL ENGINEERING SUCCESS STORIES
-          </div>
-          <h2 className={styles.sectionTitle} style={{ textAlign: 'center', marginBottom: '36px' }}>
-            Proven Digital Solutions in Action
-          </h2>
+      {displayedCaseStudies.length > 0 && (
+        <section className={styles.sectionCaseStudyBanner}>
+          <div className={styles.container}>
+            <div className={styles.eyebrowGreen} style={{ textAlign: 'center' }}>
+              MORE DIGITAL ENGINEERING SUCCESS STORIES
+            </div>
+            <h2 className={styles.sectionTitle} style={{ textAlign: 'center', marginBottom: '36px' }}>
+              Proven Digital Solutions in Action
+            </h2>
 
-          <div className={styles.caseStudiesGrid}>
-            {digitalCaseStudies.map((cs) => (
-              <CaseStudyCard
-                key={cs.slug}
-                slug={cs.slug}
-                title={cs.title}
-                tag={cs.tag}
-                categories={cs.categories}
-                image={cs.image}
-                href={`/success-stories/${cs.slug}`}
-              />
-            ))}
+            <div className={styles.caseStudiesGrid}>
+              {displayedCaseStudies.map((cs) => (
+                <CaseStudyCard
+                  key={cs.slug}
+                  slug={cs.slug}
+                  title={cs.title}
+                  tag={cs.tag}
+                  categories={cs.categories}
+                  image={cs.image}
+                  href={`/success-stories/${cs.slug}`}
+                />
+              ))}
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
+      )}
 
       {/* SECTION 5: TECHNOLOGY ECOSYSTEM */}
       <section className={styles.sectionTechEcosystem}>
