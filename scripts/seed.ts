@@ -4723,8 +4723,8 @@ export async function seed() {
     { slug: 'business-driven-software-system', categoryId: noCodeCat.id, filter: [{ category: 'AI-Powered No-Code Platform' }, { category: 'AI' }, { category: 'Enterprise' }] },
     { slug: 'nlp-text-to-business-application', categoryId: noCodeCat.id, filter: [{ category: 'AI-Powered No-Code Platform' }, { category: 'AI' }, { category: 'Automation' }] },
     { slug: 'data-to-application-development', categoryId: noCodeCat.id, filter: [{ category: 'AI-Powered No-Code Platform' }, { category: 'Data Engineering' }, { category: 'Enterprise' }] },
-    { slug: 'business-portals-around-existing-erp', categoryId: noCodeCat.id, filter: [{ category: 'AI-Powered No-Code Platform' }, { category: 'Digital Engineering' }, { category: 'Manufacturing' }] },
-    { slug: 'deployment-management', categoryId: noCodeCat.id, filter: [{ category: 'AI-Powered No-Code Platform' }, { category: 'Digital Engineering' }, { category: 'Cloud' }] },
+    { slug: 'business-portals-around-existing-erp', categoryId: noCodeCat.id, filter: [{ category: 'AI-Powered No-Code Platform' }, { category: 'Enterprise' }, { category: 'Manufacturing' }] },
+    { slug: 'deployment-management', categoryId: noCodeCat.id, filter: [{ category: 'AI-Powered No-Code Platform' }, { category: 'Enterprise' }, { category: 'Cloud' }] },
 
     // Digital Engineering
     { slug: 'cost-model-simulation', categoryId: digitalEngineeringCat.id, filter: [{ category: 'Digital Engineering' }, { category: 'Automation' }, { category: 'Manufacturing' }] },

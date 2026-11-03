@@ -98,14 +98,20 @@ export function CaseStudiesClient({ categories = [], caseStudies = [] }: Props) 
   const visible = useMemo(() => {
     if (activeSlug === 'all') return caseStudies
 
+    const targetTab = filterTabs.find((t) => t.slug === activeSlug)
+    if (!targetTab) return caseStudies
+
     return caseStudies.filter((c) => {
       // 1. Authoritative category slug match
       if (c.category?.slug && c.category.slug === activeSlug) return true
 
       // 2. Authoritative category name match
-      const targetTab = filterTabs.find((t) => t.slug === activeSlug)
-      if (targetTab && c.category?.name?.toLowerCase() === targetTab.name.toLowerCase()) return true
-      if (targetTab && Array.isArray(c.categories) && c.categories.includes(targetTab.name)) return true
+      if (c.category?.name && c.category.name.toLowerCase() === targetTab.name.toLowerCase()) return true
+
+      // 3. Fallback only if no authoritative category object exists: match primary category (first in array)
+      if (!c.category?.slug && !c.category?.name && Array.isArray(c.categories) && c.categories.length > 0) {
+        return c.categories[0].toLowerCase() === targetTab.name.toLowerCase()
+      }
 
       return false
     })
