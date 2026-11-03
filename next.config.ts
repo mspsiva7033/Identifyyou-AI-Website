@@ -71,6 +71,11 @@ const nextConfig: NextConfig = {
         permanent: true,
       },
       {
+        source: '/success-stories/overcoming-data-access-challenges-in-a-multi-business-environment-for-streamlined-decision-making',
+        destination: '/success-stories/overcoming-data-access-challenges',
+        permanent: true,
+      },
+      {
         source: '/blogs-and-news/overcoming-data-access-challenges-in-a-multi-business-environment-for-streamlined-decision-making',
         destination: '/blogs-and-news/overcoming-data-access-challenges',
         permanent: true,

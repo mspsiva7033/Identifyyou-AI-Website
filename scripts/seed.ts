@@ -4543,6 +4543,154 @@ export async function seed() {
     ],
     "technologyUsed": "Python, SQL, Azure, React.js, CRM APIs, Enterprise Integration Layer",
     "more": []
+  },
+  "cost-model-simulation": {
+    "title": "Cost Model for K-Type Configuration Manufacturing",
+    "breadcrumb": "Cost Model for K-Type Configuration Manufacturing",
+    "tag": "Manufacturing · Digital Engineering · Simulation",
+    "illustration": "/images/case-studies/cost-model-simulation.png",
+    "overview": "Bespoke digital engineering cost model simulation platform interlocking bill-of-materials and parametric calculations for K-type manufacturing configurations.",
+    "docItems": [
+      { "type": "p", "text": "Cost Model for K-Type Configuration Manufacturing — Parametric Cost Simulation" },
+      { "type": "p", "text": "Industry: Manufacturing · Function: Engineering Simulation · Focus: Parametric Cost Calculation" },
+      { "type": "h2", "text": "The Challenge" },
+      { "type": "p", "text": "High variance in cost model estimation for complex K-type manufacturing configurations delayed sales quotation cycles and reduced margin accuracy." },
+      { "type": "bullet", "text": "Manual spreadsheet calculations led to inconsistent component costing across product variants." },
+      { "type": "bullet", "text": "Engineering teams spent days recalculating quotes when material prices fluctuated." },
+      { "type": "h2", "text": "The Solution" },
+      { "type": "p", "text": "IdentifYou engineered a deterministic simulation model for K-type configuration cost calculation and quotation accuracy." },
+      { "type": "bullet", "text": "Automated BOM parsing and parametric cost calculation engine." },
+      { "type": "bullet", "text": "Real-time margin impact analysis based on current raw material pricing." },
+      { "type": "h2", "text": "Business Outcomes" },
+      { "type": "bullet", "text": "100% quotation accuracy achieved across all K-type product configurations." },
+      { "type": "bullet", "text": "80% faster calculation time from days to minutes." }
+    ],
+    "results": [
+      { "stat": "100%", "label": "Quotation Accuracy" },
+      { "stat": "80%", "label": "Faster Calculation Time" },
+      { "stat": "Instant", "label": "Parametric BOM Costing" }
+    ],
+    "technologyUsed": "Python, Node.js, Microsoft PowerApps, SQL Server, CAD / BOM APIs",
+    "more": [
+      { "tag": "Digital Engineering · CRM", "title": "Integrating and Extending CRM Platforms Like Freshdesk", "slug": "enhancing-support-efficiency-with-integrated-order-management" },
+      { "tag": "Digital Engineering · RFQ", "title": "Digital Transformation of the RFQ Management Process", "slug": "enhancing-the-rfq-process-in-d365-business-central" }
+    ]
+  },
+  "enhancing-support-efficiency-with-integrated-order-management": {
+    "title": "Integrating and Extending CRM Platforms Like Freshdesk",
+    "breadcrumb": "Integrating and Extending CRM Platforms Like Freshdesk",
+    "tag": "Customer Support · Digital Engineering · CRM Integration",
+    "illustration": "/images/case-studies/enhancing-support-efficiency-with-integrated-order-management.png",
+    "overview": "IdentifYou CRM integration platform extending Freshdesk with automated order management workflows, messaging, and support operations analytics.",
+    "docItems": [
+      { "type": "p", "text": "Integrating and Extending CRM Platforms Like Freshdesk — Customer Support Efficiency" },
+      { "type": "p", "text": "Industry: Customer Support · Function: CRM Integration · Focus: Order Management Workflow" },
+      { "type": "h2", "text": "The Challenge" },
+      { "type": "p", "text": "Disconnected support channels and manual order tracking caused delayed resolution times and high ticket backlogs for support agents." },
+      { "type": "bullet", "text": "Agents toggled between CRM tickets and ERP order screens to find order status." },
+      { "type": "bullet", "text": "Manual status updates delayed customer communication." },
+      { "type": "h2", "text": "The Solution" },
+      { "type": "p", "text": "IdentifYou built an integrated order management extension over Freshdesk connecting messaging, order data, and ticket management." },
+      { "type": "bullet", "text": "Real-time ERP order synchronization embedded inside Freshdesk ticket sidebar." },
+      { "type": "bullet", "text": "Automated status notification triggers sent across customer messaging channels." },
+      { "type": "h2", "text": "Business Outcomes" },
+      { "type": "bullet", "text": "50% reduction in average ticket resolution time." },
+      { "type": "bullet", "text": "Unified order tracking and agent productivity boost." }
+    ],
+    "results": [
+      { "stat": "50%", "label": "Ticket Resolution Time Reduction" },
+      { "stat": "Unified", "label": "Single-Pane Order Tracking" },
+      { "stat": "100%", "label": "Automated Customer Status Sync" }
+    ],
+    "technologyUsed": "Freshdesk API, Node.js, React.js, WebSockets, PostgreSQL, ERP Connectors",
+    "more": [
+      { "tag": "Digital Engineering · Cost Simulation", "title": "Cost Model for K-Type Configuration Manufacturing", "slug": "cost-model-simulation" },
+      { "tag": "Digital Engineering · RFQ Automation", "title": "Digital Transformation of the RFQ Management Process", "slug": "enhancing-the-rfq-process-in-d365-business-central" }
+    ]
+  },
+  "overcoming-data-access-challenges": {
+    "title": "Overcoming Data Access Challenges in a Multi-Business Environment for Streamlined Decision-Making",
+    "breadcrumb": "Overcoming Data Access Challenges",
+    "tag": "Enterprise · Digital Engineering · Multi-Business Data Access",
+    "illustration": "/images/case-studies/overcoming-data-access-challenges.png",
+    "overview": "In a multi-business and services environment, accessing decision-critical data spread across multiple enterprise systems poses significant challenges. Identifying the appropriate business functions for assigned tasks and issues is further complicated by tight SLAs and OLAs compliance targets, representing a major pain point for customers.",
+    "docItems": [
+      {
+        "type": "h2",
+        "text": "Problem Statement"
+      },
+      {
+        "type": "p",
+        "text": "In a multi-business and services environment, accessing decision-critical data spread across multiple enterprise systems poses significant challenges. Identifying the appropriate business functions for assigned tasks and issues is further complicated by tight SLAs and OLAs compliance targets, representing a major pain point for customers."
+      },
+      {
+        "type": "h2",
+        "text": "Solution Approach"
+      },
+      {
+        "type": "p",
+        "text": "To overcome these challenges, a customized application was developed. This application dynamically generates taxonomy-based business rules and interfaces with multiple enterprise systems and databases to validate these rules. By accurately identifying the right business functions to handle tasks, assignments, and issues, the solution streamlines processes."
+      },
+      {
+        "type": "p",
+        "text": "Additionally, through business flow automation and seamless integration with CRM systems, rapid issue resolution is facilitated, allowing customers to maintain higher SLAs and elevate their customer engagement scores. Moreover, strict adherence to OLAs compliances within the operations team is ensured, further enhancing operational efficiency."
+      },
+      {
+        "type": "h2",
+        "text": "Key Features"
+      },
+      {
+        "type": "bullet",
+        "text": "Dynamic Configuration of Business Rules: Users have the flexibility to dynamically configure business rules according to specific requirements."
+      },
+      {
+        "type": "bullet",
+        "text": "Seamless Integration Layer: The solution interface layer ensures seamless integrations between multiple enterprise systems, promoting data integrity and consistency."
+      },
+      {
+        "type": "bullet",
+        "text": "Enhanced Collaboration: A higher degree of collaboration between enterprise systems fosters improved data integrity and consistency, contributing to more effective decision-making processes."
+      },
+      {
+        "type": "h2",
+        "text": "Key Benefits"
+      },
+      {
+        "type": "bullet",
+        "text": "Improved Operational Efficiency: Streamlined processes and accurate business function identification lead to improved operational efficiency."
+      },
+      {
+        "type": "bullet",
+        "text": "Enhanced Compliance: Strict adherence to SLAs and OLAs compliances within the operations team ensures regulatory compliance and customer satisfaction."
+      },
+      {
+        "type": "bullet",
+        "text": "Elevated Customer Engagement: Rapid issue resolution and seamless integration with CRM systems result in higher customer engagement scores and improved customer satisfaction."
+      }
+    ],
+    "results": [
+      {
+        "stat": "100%",
+        "label": "OLA & SLA Compliance Adherence"
+      },
+      {
+        "stat": "Dynamic",
+        "label": "Taxonomy Business Rule Validation"
+      }
+    ],
+    "technologyUsed": "Python, SQL, Azure, React.js, CRM APIs, Enterprise Integration Layer",
+    "more": [
+      {
+        "tag": "Manufacturing · Digital Engineering · Simulation",
+        "title": "Cost Model for K-Type Configuration Manufacturing",
+        "slug": "cost-model-simulation"
+      },
+      {
+        "tag": "Customer Support · Digital Engineering · CRM Integration",
+        "title": "Integrating and Extending CRM Platforms Like Freshdesk",
+        "slug": "enhancing-support-efficiency-with-integrated-order-management"
+      }
+    ]
   }
 }
 
@@ -4582,6 +4730,7 @@ export async function seed() {
     { slug: 'cost-model-simulation', categoryId: digitalEngineeringCat.id, filter: [{ category: 'Digital Engineering' }, { category: 'Automation' }, { category: 'Manufacturing' }] },
     { slug: 'enhancing-support-efficiency-with-integrated-order-management', categoryId: digitalEngineeringCat.id, filter: [{ category: 'Digital Engineering' }, { category: 'Automation' }, { category: 'Customer Support' }] },
     { slug: 'overcoming-data-access-challenges-in-a-multi-business-environment-for-streamlined-decision-making', categoryId: digitalEngineeringCat.id, filter: [{ category: 'Digital Engineering' }, { category: 'Data' }, { category: 'Automation' }] },
+    { slug: 'overcoming-data-access-challenges', categoryId: digitalEngineeringCat.id, filter: [{ category: 'Digital Engineering' }, { category: 'Data' }, { category: 'Automation' }] },
     { slug: 'enhancing-the-rfq-process-in-d365-business-central', categoryId: digitalEngineeringCat.id, filter: [{ category: 'Digital Engineering' }, { category: 'Manufacturing' }, { category: 'Supply Chain' }] },
     { slug: 'tailored-enterprise-solutions', categoryId: digitalEngineeringCat.id, filter: [{ category: 'Digital Engineering' }, { category: 'Automation' }, { category: 'Manufacturing' }] },
 

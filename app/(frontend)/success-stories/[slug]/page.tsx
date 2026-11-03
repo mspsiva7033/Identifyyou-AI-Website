@@ -14,7 +14,12 @@ export const revalidate = 60
 
 export async function generateStaticParams() {
   const caseStudies = await getCaseStudies()
-  return caseStudies.map((cs) => ({ slug: cs.slug }))
+  const slugs = new Set(caseStudies.map((cs) => cs.slug))
+  slugs.add('cost-model-simulation')
+  slugs.add('enhancing-support-efficiency-with-integrated-order-management')
+  slugs.add('overcoming-data-access-challenges')
+  slugs.add('overcoming-data-access-challenges-in-a-multi-business-environment-for-streamlined-decision-making')
+  return Array.from(slugs).map((slug) => ({ slug }))
 }
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
@@ -123,7 +128,21 @@ export default async function CaseStudyDetailPage({ params }: { params: Promise<
   if (!cs) notFound()
 
   const allCaseStudies = await getCaseStudies()
-  const summary = allCaseStudies.find((item) => item.slug === slug)
+  const slugAliases: Record<string, string[]> = {
+    'optimizing-shipment-and-fleet-operations': ['optimizing-shipment-fleet-snowflake', 'optimizing-shipment-and-fleet-operations'],
+    'ai-powered-procurement': ['procurement-operations-intelligence', 'ai-powered-procurement'],
+    'overcoming-data-access-challenges': [
+      'overcoming-data-access-challenges-in-a-multi-business-environment-for-streamlined-decision-making',
+      'overcoming-data-access-challenges',
+    ],
+    'overcoming-data-access-challenges-in-a-multi-business-environment-for-streamlined-decision-making': [
+      'overcoming-data-access-challenges-in-a-multi-business-environment-for-streamlined-decision-making',
+      'overcoming-data-access-challenges',
+    ],
+  }
+  const summary = allCaseStudies.find(
+    (item) => item.slug === slug || (slugAliases[slug] && slugAliases[slug].includes(item.slug))
+  )
   const categoryName = summary?.category?.name || cs.tag
   const theme = getCategoryTheme({
     slug,

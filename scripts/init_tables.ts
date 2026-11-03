@@ -223,17 +223,22 @@ async function syncAndInitTables() {
 
       console.log('✅ PostgreSQL database tables and migrations verified successfully!')
 
-      // 5. Automatically seed initial case studies if the database has 0 case studies
+      // 5. Automatically seed initial case studies or sync missing digital engineering case studies
       try {
         const csCheck = await payload.find({
           collection: 'case-studies',
           limit: 1,
         })
-        if (!csCheck.docs || csCheck.docs.length === 0) {
-          console.log('🌱 No case studies found in database. Automatically seeding initial case studies...')
+        const keyCheck = await payload.find({
+          collection: 'case-studies',
+          where: { slug: { equals: 'cost-model-simulation' } },
+          limit: 1,
+        })
+        if (!csCheck.docs || csCheck.docs.length === 0 || !keyCheck.docs || keyCheck.docs.length === 0) {
+          console.log('🌱 Seeding / syncing case studies in database...')
           const { seed } = await import('./seed')
           await seed()
-          console.log('✅ Initial database seed completed successfully!')
+          console.log('✅ Case studies synchronization completed successfully!')
         }
       } catch (seedErr) {
         console.warn('⚠️ Notice: Auto-seed skipped or encountered a non-fatal error:', seedErr instanceof Error ? seedErr.message : seedErr)

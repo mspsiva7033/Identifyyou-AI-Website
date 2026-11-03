@@ -97,12 +97,7 @@ export interface DeepTechCapabilityItem {
   outcome: string
 }
 
-// SAFETY NET DISABLED: Case studies and blogs are strictly served from backend Payload CMS
-export const FALLBACK_CASE_STUDIES: CaseStudySummary[] = []
-export const FALLBACK_CASE_STUDIES_MAP: Record<string, CaseStudyDetail> = {}
-
-/*
-const PREVIOUS_FALLBACK_CASE_STUDIES: CaseStudySummary[] = [
+export const FALLBACK_CASE_STUDIES: CaseStudySummary[] = [
   
   // --- AI-Powered No-Code Platform ---
   {
@@ -5308,7 +5303,9 @@ export const FALLBACK_CASE_STUDIES_MAP: Record<string, CaseStudyDetail> = {
     ]
   }
 }
-*/
+
+FALLBACK_CASE_STUDIES_MAP['overcoming-data-access-challenges-in-a-multi-business-environment-for-streamlined-decision-making'] =
+  FALLBACK_CASE_STUDIES_MAP['overcoming-data-access-challenges']
 
 export const FALLBACK_MANUFACTURING_SOLUTIONS: ManufacturingSolutionItem[] = [
   { title: 'Smart Factory', tagline: 'MES, production monitoring and digital shop-floor workflows.', href: '/success-stories' },
@@ -5397,7 +5394,7 @@ export async function getCaseStudyCategories(): Promise<CaseStudyCategory[]> {
 export async function getCaseStudies(): Promise<CaseStudySummary[]> {
   try {
     const payload = await getPayloadClient()
-    if (!payload) return []
+    if (!payload) return FALLBACK_CASE_STUDIES
 
     const result = await payload.find({
       collection: 'case-studies',
@@ -5414,10 +5411,10 @@ export async function getCaseStudies(): Promise<CaseStudySummary[]> {
     )
 
     if (validDocs.length === 0) {
-      return []
+      return FALLBACK_CASE_STUDIES
     }
 
-    return validDocs.map((doc: any) => {
+    const mapped = validDocs.map((doc: any) => {
       const docCategory = typeof doc?.category === 'object' && doc?.category !== null ? doc.category : null
       const catId: number | string = docCategory?.id || (typeof doc?.category === 'number' || typeof doc?.category === 'string' ? doc.category : '')
       let catName: string = docCategory?.name || (typeof catId === 'number' && CATEGORY_ID_MAP[catId]) || 'Deep Tech'
@@ -5453,9 +5450,32 @@ export async function getCaseStudies(): Promise<CaseStudySummary[]> {
           getCaseStudyThumbnail(doc.slug),
       }
     })
+
+    const existingSlugs = new Set(mapped.map((d: any) => d.slug))
+    const slugAliases: Record<string, string[]> = {
+      'optimizing-shipment-and-fleet-operations': ['optimizing-shipment-fleet-snowflake', 'optimizing-shipment-and-fleet-operations'],
+      'ai-powered-procurement': ['procurement-operations-intelligence', 'ai-powered-procurement'],
+      'overcoming-data-access-challenges': [
+        'overcoming-data-access-challenges-in-a-multi-business-environment-for-streamlined-decision-making',
+        'overcoming-data-access-challenges',
+      ],
+      'overcoming-data-access-challenges-in-a-multi-business-environment-for-streamlined-decision-making': [
+        'overcoming-data-access-challenges-in-a-multi-business-environment-for-streamlined-decision-making',
+        'overcoming-data-access-challenges',
+      ],
+    }
+
+    for (const fb of FALLBACK_CASE_STUDIES) {
+      const isPresent = existingSlugs.has(fb.slug) || (slugAliases[fb.slug] && slugAliases[fb.slug].some((a) => existingSlugs.has(a)))
+      if (!isPresent) {
+        mapped.push(fb)
+      }
+    }
+
+    return mapped
   } catch (error) {
     console.error('Failed to fetch case studies from Payload CMS:', error)
-    return []
+    return FALLBACK_CASE_STUDIES
   }
 }
 
@@ -5475,9 +5495,17 @@ export async function getCaseStudyBySlug(slug: string): Promise<CaseStudyDetail 
 
   const slugsToTry = slugAliases[slug] || [slug]
 
+  const getFallback = () => {
+    if (FALLBACK_CASE_STUDIES_MAP[slug]) return FALLBACK_CASE_STUDIES_MAP[slug]
+    for (const s of slugsToTry) {
+      if (FALLBACK_CASE_STUDIES_MAP[s]) return FALLBACK_CASE_STUDIES_MAP[s]
+    }
+    return null
+  }
+
   try {
     const payload = await getPayloadClient()
-    if (!payload) return null
+    if (!payload) return getFallback()
 
     const result = await payload.find({
       collection: 'case-studies',
@@ -5492,12 +5520,12 @@ export async function getCaseStudyBySlug(slug: string): Promise<CaseStudyDetail 
     })
 
     if (!result.docs || result.docs.length === 0) {
-      return null
+      return getFallback()
     }
 
     const doc: any = result.docs[0]
     if (doc.slug === 'mollitia-fugit-similique-placeat' || !doc.title || doc.title.includes('Mollitia')) {
-      return null
+      return getFallback()
     }
 
     const uploadedIllustration =
@@ -5547,11 +5575,11 @@ export async function getCaseStudyBySlug(slug: string): Promise<CaseStudyDetail 
         outcome: s.outcome || '',
       })) || [],
       technologyUsed: doc.detail?.technologyUsed || doc.summary?.tech || '',
-      more: moreFromCms,
+      more: moreFromCms && moreFromCms.length > 0 ? moreFromCms : (getFallback()?.more || []),
     }
   } catch (error) {
     console.error(`Failed to fetch case study ${slug} from Payload CMS:`, error)
-    return null
+    return getFallback()
   }
 }
 

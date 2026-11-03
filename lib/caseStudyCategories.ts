@@ -200,6 +200,7 @@ export function getCategoryTheme(params: {
   if (
     slug === 'cost-model-simulation' ||
     slug === 'enhancing-support-efficiency-with-integrated-order-management' ||
+    slug === 'overcoming-data-access-challenges' ||
     slug === 'overcoming-data-access-challenges-in-a-multi-business-environment-for-streamlined-decision-making' ||
     slug === 'enhancing-the-rfq-process-in-d365-business-central' ||
     slug === 'tailored-enterprise-solutions'
