@@ -1100,13 +1100,24 @@ html[data-theme='dark'] {
     }
   }
 
-  /* Notification Toasts & Alerts */
-  .payload-toast-container, .toast {
+  /* Notification Toasts & Alerts (Positioned from top, not bottom) */
+  [data-sonner-toaster],
+  .payload-toast-container {
+    top: 24px !important;
+    bottom: auto !important;
+    right: 24px !important;
+    left: auto !important;
+  }
+
+  [data-sonner-toaster] [data-sonner-toast],
+  .payload-toast-container,
+  .payload-toast-item,
+  .toast {
     background: #14241B !important;
     border: 1px solid #96c73d !important;
     color: #FFFFFF !important;
     border-radius: 12px !important;
-    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.5) !important;
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.6) !important;
     font-weight: 600 !important;
   }
 
@@ -1175,5 +1186,171 @@ html[data-theme='dark'] {
     left: auto !important;
     right: 24px !important;
     bottom: 24px !important;
+  }
+
+  /* ----------------------------------------------------------------------
+     QA AUDIT UI ENHANCEMENTS
+     ---------------------------------------------------------------------- */
+
+  /* 1. "Create New" Button Right Alignment in Collection List Headers */
+  .list-header {
+    &__content {
+      display: flex !important;
+      align-items: center !important;
+      justify-content: space-between !important;
+      width: 100% !important;
+    }
+
+    &__title-and-actions {
+      display: flex !important;
+      align-items: center !important;
+      justify-content: space-between !important;
+      width: 100% !important;
+      flex: 1 1 auto !important;
+    }
+
+    &__title-actions,
+    &__create-new-button,
+    .list-create-new-doc {
+      margin-left: auto !important;
+      display: flex !important;
+      align-items: center !important;
+    }
+  }
+
+  /* 2. Tooltip High-Contrast Visibility on Button Hover */
+  .tooltip,
+  [class*='__tooltip'] {
+    background-color: #1A2E24 !important;
+    color: #FFFFFF !important;
+    border: 1px solid rgba(150, 199, 61, 0.6) !important;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.75) !important;
+    font-weight: 600 !important;
+    font-size: 12.5px !important;
+    padding: 6px 12px !important;
+    border-radius: 6px !important;
+    opacity: 1 !important;
+    text-shadow: none !important;
+
+    &::after {
+      border-top-color: #1A2E24 !important;
+    }
+  }
+
+  /* 3. Fix Wordings Collapsed / Overlapping in Tag Section (Collapsible Array Headers) */
+  .collapsible__toggle {
+    color: transparent !important;
+
+    span,
+    .visually-hidden {
+      color: transparent !important;
+      font-size: 0 !important;
+      line-height: 0 !important;
+      display: none !important;
+      opacity: 0 !important;
+      visibility: hidden !important;
+      width: 0 !important;
+      height: 0 !important;
+      overflow: hidden !important;
+    }
+  }
+
+  .collapsible__toggle-wrap {
+    position: relative !important;
+
+    .row-label {
+      display: inline-block !important;
+      font-size: 14px !important;
+      font-weight: 600 !important;
+      color: #E2EBE6 !important;
+      z-index: 1 !important;
+    }
+  }
+
+  /* 4. React Datepicker Full Visibility in Dark Mode */
+  .react-datepicker {
+    background-color: #101815 !important;
+    border: 1px solid rgba(150, 199, 61, 0.35) !important;
+    color: #FFFFFF !important;
+    border-radius: 12px !important;
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.8) !important;
+    font-family: inherit !important;
+    overflow: hidden !important;
+
+    &__header {
+      background-color: #141F1B !important;
+      border-bottom: 1px solid rgba(150, 199, 61, 0.2) !important;
+      padding-top: 12px !important;
+    }
+
+    &__current-month,
+    &__header-dropdown {
+      color: #FFFFFF !important;
+      font-weight: 700 !important;
+    }
+
+    &__day-names {
+      margin-top: 8px !important;
+      display: flex !important;
+      justify-content: space-around !important;
+    }
+
+    &__day-name {
+      color: #96c73d !important;
+      font-weight: 700 !important;
+      font-size: 13px !important;
+      width: 2rem !important;
+      line-height: 2rem !important;
+    }
+
+    &__month {
+      margin: 0.6rem !important;
+    }
+
+    &__day {
+      color: #E2EBE6 !important;
+      font-weight: 500 !important;
+      width: 2rem !important;
+      line-height: 2rem !important;
+      border-radius: 6px !important;
+      transition: all 0.15s ease !important;
+
+      &:hover {
+        background-color: rgba(150, 199, 61, 0.3) !important;
+        color: #FFFFFF !important;
+      }
+
+      &--selected,
+      &--keyboard-selected {
+        background-color: #96c73d !important;
+        color: #090E0C !important;
+        font-weight: 800 !important;
+      }
+
+      &--today {
+        border: 1px solid #96c73d !important;
+        font-weight: 700 !important;
+      }
+
+      &--outside-month {
+        color: rgba(255, 255, 255, 0.25) !important;
+      }
+
+      &--disabled {
+        color: rgba(255, 255, 255, 0.15) !important;
+      }
+    }
+
+    &__navigation {
+      top: 12px !important;
+
+      &-icon::before {
+        border-color: #96c73d !important;
+      }
+    }
+
+    &__triangle {
+      display: none !important;
+    }
   }
 }

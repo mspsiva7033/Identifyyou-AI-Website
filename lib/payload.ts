@@ -55,7 +55,7 @@ export interface CaseStudyDetail {
   customCTA?: { title: string; desc: string; linkLabel: string; linkHref: string }
   technologyUsed: string
   tag: string
-  more: { tag: string; title: string; slug: string }[]
+  more: { tag: string; title: string; slug: string; illustration?: string }[]
 }
 
 export function getCaseStudyIllustration(slug: string): string {
@@ -5392,6 +5392,15 @@ export async function getCaseStudyCategories(): Promise<CaseStudyCategory[]> {
   }
 }
 
+export function normalizeMediaUrl(url?: string | null): string {
+  if (!url || typeof url !== 'string') return ''
+  const match = url.match(/(\/api\/media\/file\/[^\s?#]+|\/media\/[^\s?#]+)/)
+  if (match) {
+    return match[1]
+  }
+  return url
+}
+
 export async function getCaseStudies(): Promise<CaseStudySummary[]> {
   try {
     const payload = await getPayloadClient()
@@ -5446,9 +5455,10 @@ export async function getCaseStudies(): Promise<CaseStudySummary[]> {
         integration: doc.summary?.integration || '',
         outcome: doc.summary?.outcome || '',
         illustration:
-          (typeof doc.detail?.thumbnail === 'object' && (doc.detail?.thumbnail?.sizes?.card?.url || doc.detail?.thumbnail?.sizes?.thumbnail?.url || doc.detail?.thumbnail?.url)) ||
-          (typeof doc.detail?.heroImage === 'object' && (doc.detail?.heroImage?.sizes?.card?.url || doc.detail?.heroImage?.sizes?.thumbnail?.url || doc.detail?.heroImage?.url)) ||
-          getCaseStudyThumbnail(doc.slug),
+          normalizeMediaUrl(
+            (typeof doc.detail?.thumbnail === 'object' && (doc.detail?.thumbnail?.sizes?.card?.url || doc.detail?.thumbnail?.sizes?.thumbnail?.url || doc.detail?.thumbnail?.url)) ||
+            (typeof doc.detail?.heroImage === 'object' && (doc.detail?.heroImage?.sizes?.card?.url || doc.detail?.heroImage?.sizes?.thumbnail?.url || doc.detail?.heroImage?.url))
+          ) || getCaseStudyThumbnail(doc.slug),
       }
     })
 
@@ -5509,9 +5519,10 @@ export async function getCaseStudyBySlug(slug: string): Promise<CaseStudyDetail 
     }
 
     const uploadedIllustration =
-      (typeof doc.detail?.heroImage === 'object' && doc.detail?.heroImage?.url) ||
-      (typeof doc.detail?.thumbnail === 'object' && doc.detail?.thumbnail?.url) ||
-      null
+      normalizeMediaUrl(
+        (typeof doc.detail?.heroImage === 'object' && (doc.detail?.heroImage?.sizes?.hero?.url || doc.detail?.heroImage?.url)) ||
+        (typeof doc.detail?.thumbnail === 'object' && (doc.detail?.thumbnail?.sizes?.hero?.url || doc.detail?.thumbnail?.url))
+      ) || null
 
     const moreResult = await payload.find({
       collection: 'case-studies',
@@ -5525,6 +5536,11 @@ export async function getCaseStudyBySlug(slug: string): Promise<CaseStudyDetail 
       tag: m.tags?.[0]?.tag || 'Deep Tech',
       title: m.title,
       slug: m.slug,
+      illustration:
+        normalizeMediaUrl(
+          (typeof m.detail?.thumbnail === 'object' && (m.detail?.thumbnail?.sizes?.card?.url || m.detail?.thumbnail?.url)) ||
+          (typeof m.detail?.heroImage === 'object' && (m.detail?.heroImage?.sizes?.card?.url || m.detail?.heroImage?.url))
+        ) || null,
     }))
 
     return {
@@ -5725,9 +5741,10 @@ export async function getBlogsAndNews(): Promise<BlogArticleSummary[]> {
         readTime: doc.readTime || '5 min read',
         excerpt: doc.excerpt || '',
         image:
-          (typeof doc.featuredImage === 'object' && doc.featuredImage?.url) ||
-          (typeof doc.featuredImage === 'string' ? doc.featuredImage : undefined) ||
-          getBlogImageFallback(doc.slug, doc.category),
+          normalizeMediaUrl(
+            (typeof doc.featuredImage === 'object' && doc.featuredImage?.url) ||
+            (typeof doc.featuredImage === 'string' ? doc.featuredImage : undefined)
+          ) || getBlogImageFallback(doc.slug, doc.category),
         topics: parseTopics(doc.topics),
       }))
     }
@@ -5788,9 +5805,10 @@ export async function getBlogBySlug(slug: string): Promise<BlogArticleDetail | n
         readTime: doc.readTime || '5 min read',
         excerpt: doc.excerpt || '',
         image:
-          (typeof doc.featuredImage === 'object' && doc.featuredImage?.url) ||
-          (typeof doc.featuredImage === 'string' ? doc.featuredImage : undefined) ||
-          getBlogImageFallback(doc.slug, doc.category),
+          normalizeMediaUrl(
+            (typeof doc.featuredImage === 'object' && doc.featuredImage?.url) ||
+            (typeof doc.featuredImage === 'string' ? doc.featuredImage : undefined)
+          ) || getBlogImageFallback(doc.slug, doc.category),
         overview: doc.overview || doc.excerpt || '',
         sections: doc.sections || [],
         takeaways: (doc.takeaways || []).map((t: any) => (typeof t === 'string' ? t : t.point || '')),

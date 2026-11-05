@@ -1,5 +1,5 @@
-import fs from 'fs'
-import path from 'path'
+import * as fs from 'fs'
+import * as path from 'path'
 
 const envPath = path.resolve(process.cwd(), '.env.local')
 if (fs.existsSync(envPath)) {
@@ -91,7 +91,7 @@ export async function seed() {
     "precision-abm-snowflake-cortex": {
       "title": "Precision ABM, Powered by Cortex AI within the Snowflake AI Data Cloud",
       "breadcrumb": "Precision ABM, Powered by Cortex AI",
-      "tag": "ENTERPRISE · DATA ENGINEERING · SNOWFLAKE CORTEX AI",
+      "tag": "ENTERPRISE Â· DATA ENGINEERING Â· SNOWFLAKE CORTEX AI",
       "technologyUsed": "Snowflake Cortex AI, Streamlit, Power BI, Python, SQL, REST APIs",
       "docItems": [
         { "type": "h2", "text": "Strategic Foundation" },
@@ -100,7 +100,7 @@ export async function seed() {
         { "type": "p", "text": "This four-phase Account Based Marketing Framework (Sales Foundation, Pre-Sales Engagement, Deals & Activities, and Sales Closure) provides end-to-end visibility across the customer journey, helping teams align marketing and sales efforts while improving conversion effectiveness." },
         { "type": "h4", "text": "Smart Sales Framework" },
         { "type": "p", "text": "By integrating these critical business functions, organizations gain a unified analytical view that improves account prioritization, opportunity management, and revenue performance." },
-        { "type": "h2", "text": "ABM Analytics & Visualization Engine — Power BI & Snowflake" },
+        { "type": "h2", "text": "ABM Analytics & Visualization Engine â€” Power BI & Snowflake" },
         { "type": "h3", "text": "Executive Intelligence" },
         { "type": "bullet", "text": "Account Visibility: Monitor ICP Match Scores, Account Fit Scores, Intent Signals, and Opportunity Performance from a centralized dashboard." },
         { "type": "bullet", "text": "Performance Insights: Analyze engagement trends, pipeline progression, and conversion effectiveness." },
@@ -122,7 +122,7 @@ export async function seed() {
       "customCTA": {
         "title": "Sub-Case Study: Power BI ABM Analytics & Installation Guide",
         "desc": "Access the complete Power BI ABM framework, deployment guide, Snowflake connection parameters, configuration options, validation steps, troubleshooting, and user guide below.",
-        "linkLabel": "POWER BI ABM →",
+        "linkLabel": "POWER BI ABM â†’",
         "linkHref": "/success-stories/power-bi-abm"
       },
       "results": [
@@ -134,14 +134,14 @@ export async function seed() {
     "precision-vision-ai-setup": {
       "title": "Precision Vision AI Setup",
       "breadcrumb": "Precision Vision AI Setup",
-      "tag": "VISION AI · PRECISION INSPECTION",
+      "tag": "VISION AI Â· PRECISION INSPECTION",
       "technologyUsed": "Basler Industrial Cameras, UV/RGB LED Illumination, 3D Laser Profilers, TensorRT, Industrial PC, Pick-and-Place Robotics",
       "docItems": [
-        { "type": "p", "text": "Precision Vision AI Setup — Engineering Micron-Level Inspection" },
-        { "type": "p", "text": "Industry: Industrial Manufacturing · Function: Quality Control · Focus: Micron-Level Production Inspection" },
+        { "type": "p", "text": "Precision Vision AI Setup â€” Engineering Micron-Level Inspection" },
+        { "type": "p", "text": "Industry: Industrial Manufacturing Â· Function: Quality Control Â· Focus: Micron-Level Production Inspection" },
         { "type": "h2", "text": "The Challenge" },
         { "type": "h3", "text": "Engineering Challenges at Micron-Level Tolerances" },
-        { "type": "p", "text": "At micron-level tolerances (6–16 microns), even small variations in imaging geometry, camera distance or lighting angle influence measurements. Systems cannot achieve precision by simply slowing down line speed—accuracy and throughput must coexist." },
+        { "type": "p", "text": "At micron-level tolerances (6â€“16 microns), even small variations in imaging geometry, camera distance or lighting angle influence measurements. Systems cannot achieve precision by simply slowing down line speedâ€”accuracy and throughput must coexist." },
         { "type": "bullet", "text": "Measurement Precision: Small positional variations alter high-magnification measurements." },
         { "type": "bullet", "text": "Illumination Control: Unstable lighting introduces reflections, shadows and false edge readings." },
         { "type": "bullet", "text": "Repeatable Presentation: Part presentation must be mechanically stabilized before image capture." },
@@ -156,10 +156,10 @@ export async function seed() {
         { "type": "bullet", "text": "Vision AI & Industrial Computing: Sub-millisecond TensorRT inferences deliver real-time Pass/Fail decisions." },
         { "type": "bullet", "text": "Robotic Handling & Segregation: Automated pick-and-place robotics isolate defective parts into quarantine." },
         { "type": "h2", "text": "A Production-Ready Vision AI System" },
-        { "type": "p", "text": "IdentifYou designs and deploys Vision AI systems where 6–16 micron tolerance levels meet real production conditions—maintaining reliability, consistency, cycle time, and throughput demanded by modern manufacturing." }
+        { "type": "p", "text": "IdentifYou designs and deploys Vision AI systems where 6â€“16 micron tolerance levels meet real production conditionsâ€”maintaining reliability, consistency, cycle time, and throughput demanded by modern manufacturing." }
       ],
       "results": [
-        { "stat": "6–16 µm", "label": "Tolerance Measurement Precision" },
+        { "stat": "6â€“16 Âµm", "label": "Tolerance Measurement Precision" },
         { "stat": "100%", "label": "Inline Production Speed Inspection" },
         { "stat": "Sub-Second", "label": "Robotic Defect Segregation Cycle" }
       ]
@@ -167,17 +167,17 @@ export async function seed() {
     "end-to-end-inspection-cell": {
       "title": "End-to-End Inspection Cell Engineering",
       "breadcrumb": "End-to-End Inspection Cell Engineering",
-      "tag": "VISION AI · PRODUCTION ENGINEERING",
+      "tag": "VISION AI Â· PRODUCTION ENGINEERING",
       "technologyUsed": "Vibratory/Step Feeders, Indexing Conveyors, Vision AI, Industrial Robotics, PLC Integration, TensorRT",
       "docItems": [
-        { "type": "p", "text": "End-to-End Inspection Cell Engineering — From Part Feeding to Intelligent Production" },
-        { "type": "p", "text": "Industry: Industrial Manufacturing · Function: Cell Engineering · Focus: Complete Automation System" },
+        { "type": "p", "text": "End-to-End Inspection Cell Engineering â€” From Part Feeding to Intelligent Production" },
+        { "type": "p", "text": "Industry: Industrial Manufacturing Â· Function: Cell Engineering Â· Focus: Complete Automation System" },
         { "type": "h2", "text": "From Part Feeding to Intelligent Production" },
         { "type": "p", "text": "In modern manufacturing, automated inspection cannot be treated as an isolated camera-and-software problem. A vision system can identify a defect, but neither delivers value unless the part is presented correctly, inspected reliably, handled at speed, and moved to the next process." },
         { "type": "h2", "text": "The Challenge" },
         { "type": "p", "text": "Production requirements extend beyond simple inspection to complex cell automation: feeder design, singulation, part orientation, conveyancing, optical clearance, cycle time constraints, robot reach, reject handling, and safety." },
         { "type": "h2", "text": "The IdentifYou Approach" },
-        { "type": "h3", "text": "Feed → Present → See → Understand → Decide → Act → Continue" },
+        { "type": "h3", "text": "Feed â†’ Present â†’ See â†’ Understand â†’ Decide â†’ Act â†’ Continue" },
         { "type": "bullet", "text": "Feeder Design: Vibratory bowls, step feeders, and flexible feeders matched to part geometry." },
         { "type": "bullet", "text": "Singulation & Escapements: Controlled separation ensuring 100% repeatable part positioning." },
         { "type": "bullet", "text": "Precision Fixtures: Datum references designed around camera field-of-view and lighting angles." },
@@ -192,13 +192,13 @@ export async function seed() {
       ]
     },
     "power-bi-abm": {
-      "title": "Account Based Marketing — Power BI ABM",
-      "breadcrumb": "Account Based Marketing — Power BI ABM",
-      "tag": "DATA ENGINEERING · POWER BI & SNOWFLAKE · ABM",
+      "title": "Account Based Marketing â€” Power BI ABM",
+      "breadcrumb": "Account Based Marketing â€” Power BI ABM",
+      "tag": "DATA ENGINEERING Â· POWER BI & SNOWFLAKE Â· ABM",
       "technologyUsed": "Microsoft Power BI, Snowflake AI Data Cloud, SQL, Basic Authentication",
       "docItems": [
-        { "type": "p", "text": "Account Based Marketing — Power BI ABM Framework & Snowflake Engine" },
-        { "type": "p", "text": "Industry: Financial Services & Enterprise · Function: Revenue Analytics · Focus: ABM Intelligence" },
+        { "type": "p", "text": "Account Based Marketing â€” Power BI ABM Framework & Snowflake Engine" },
+        { "type": "p", "text": "Industry: Financial Services & Enterprise Â· Function: Revenue Analytics Â· Focus: ABM Intelligence" },
         { "type": "h2", "text": "Strategic Foundation: Turning Account Intelligence into Revenue Growth" },
         { "type": "p", "text": "Empowering data-driven sales and marketing decisions, the Account Based Marketing framework unifies ICP Analysis, Account Fit Scoring, Engagement Intelligence, Deal Analytics, and Revenue Insights into a single analytical framework on Snowflake." },
         { "type": "h2", "text": "The Four-Phase ABM Framework" },
@@ -206,7 +206,7 @@ export async function seed() {
         { "type": "bullet", "text": "Pre-Sales Engagement: Engagement monitoring and contact activity analysis." },
         { "type": "bullet", "text": "Deals & Activities: Deal velocity, pipeline visibility, and opportunity tracking." },
         { "type": "bullet", "text": "Sales Closure: Close-rate analysis and revenue optimization." },
-        { "type": "h2", "text": "ABM Analytics & Visualization Engine — Power BI & Snowflake" },
+        { "type": "h2", "text": "ABM Analytics & Visualization Engine â€” Power BI & Snowflake" },
         { "type": "h3", "text": "Executive Intelligence" },
         { "type": "bullet", "text": "Account Visibility: Monitor ICP Match Scores, Account Fit Scores, Intent Signals, and Opportunity Performance from a centralized dashboard." },
         { "type": "bullet", "text": "Performance Insights: Analyze engagement trends, pipeline progression, and conversion effectiveness." },
@@ -264,7 +264,7 @@ export async function seed() {
       "customCTA": {
         "title": "Microsoft AppSource Marketplace",
         "desc": "Download and install the certified Account Based Marketing (ABM) application for Microsoft Power BI directly from Microsoft AppSource.",
-        "linkLabel": "VIEW ON MICROSOFT MARKETPLACE →",
+        "linkLabel": "VIEW ON MICROSOFT MARKETPLACE â†’",
         "linkHref": "https://marketplace.microsoft.com/en-us/product/power-bi/entifyoutechnologiesopcprivatelimited1682039191501.abm-powerbi-app?tab=Overview"
       },
       "results": [
@@ -276,11 +276,11 @@ export async function seed() {
     "business-driven-software-system": {
       "title": "Business Driven Software System",
       "breadcrumb": "Business Driven Software System",
-      "tag": "Enterprise Operations · Business Architecture · Business-Owned Software",
+      "tag": "Enterprise Operations Â· Business Architecture Â· Business-Owned Software",
       "technologyUsed": "IdentifYou Business Engine + React.js + Python + Node.js + REST APIs",
       "docItems": [
-        { "type": "p", "text": "Business Driven Software System — Business-Owned No-Code Platform" },
-        { "type": "p", "text": "Industry: Enterprise Operations · Function: Application Engineering · Focus: No-Code Platform" },
+        { "type": "p", "text": "Business Driven Software System â€” Business-Owned No-Code Platform" },
+        { "type": "p", "text": "Industry: Enterprise Operations Â· Function: Application Engineering Â· Focus: No-Code Platform" },
         { "type": "h2", "text": "The Challenge" },
         { "type": "p", "text": "Traditional software development requires translating business requirements to IT teams, creating bottlenecks where simple functional updates take weeks or months." },
         { "type": "h2", "text": "The Solution" },
@@ -294,14 +294,14 @@ export async function seed() {
     "nlp-text-to-business-application": {
       "title": "NLP based Text-to-Business Application",
       "breadcrumb": "NLP based Text-to-Business Application",
-      "tag": "Operational Automation · NLP Engine · Text-to-Application",
+      "tag": "Operational Automation Â· NLP Engine Â· Text-to-Application",
       "technologyUsed": "IdentifYou NLP Engine + Reusable Knowledge Base + React.js + PostgreSQL",
       "docItems": [
         { "type": "p", "text": "NLP based Text-to-Business Application" },
         { "type": "h2", "text": "The Challenge" },
         { "type": "p", "text": "Converting business requirements into software requires multiple stages of analysis, design, development, and testing, often duplicating existing logic." },
         { "type": "h2", "text": "The Solution" },
-        { "type": "p", "text": "IdentifYou’s NLP-based No-Code Platform interprets natural language prompts to automatically generate UIs, business rules, workflows, validations, and actions." }
+        { "type": "p", "text": "IdentifYouâ€™s NLP-based No-Code Platform interprets natural language prompts to automatically generate UIs, business rules, workflows, validations, and actions." }
       ],
       "results": [
         { "stat": "Instant", "label": "Text-to-App Generation" },
@@ -311,7 +311,7 @@ export async function seed() {
     "data-to-application-development": {
       "title": "Data to Application Development",
       "breadcrumb": "Data to Application Development",
-      "tag": "Enterprise Data · Data-to-Application · Schema Integration",
+      "tag": "Enterprise Data Â· Data-to-Application Â· Schema Integration",
       "technologyUsed": "IdentifYou Data Connectors + SQL Server + Snowflake + Excel Engine + React.js",
       "docItems": [
         { "type": "p", "text": "Data to Application Development" },
@@ -328,7 +328,7 @@ export async function seed() {
     "business-portals-around-existing-erp": {
       "title": "Business Portals Around Existing ERP",
       "breadcrumb": "Business Portals Around Existing ERP",
-      "tag": "Enterprise ERP · SAP & MES Extension · Portal Layer",
+      "tag": "Enterprise ERP Â· SAP & MES Extension Â· Portal Layer",
       "technologyUsed": "IdentifYou Connectors + SAP RFC / OData + MES APIs + Node.js + React.js",
       "docItems": [
         { "type": "p", "text": "Business Portals Around Existing ERP" },
@@ -345,7 +345,7 @@ export async function seed() {
     "deployment-management": {
       "title": "Deployment Management",
       "breadcrumb": "Deployment Management",
-      "tag": "Cloud Runtime · Application Lifecycle · Revision Control",
+      "tag": "Cloud Runtime Â· Application Lifecycle Â· Revision Control",
       "technologyUsed": "IdentifYou Lifecycle Manager + Revision Engine + Docker + Azure/AWS Cloud",
       "docItems": [
         { "type": "p", "text": "Deployment Management" },
@@ -362,7 +362,7 @@ export async function seed() {
     "streamlining-shipment-planning-and-carrier-selection": {
       "title": "Streamlining Shipment Planning and Carrier Selection",
       "breadcrumb": "Streamlining Shipment Planning and Carrier Selection",
-      "tag": "Supply Chain · Carrier Intelligence · Logistics Planning",
+      "tag": "Supply Chain Â· Carrier Intelligence Â· Logistics Planning",
       "technologyUsed": "Snowflake, Python, PostgreSQL, REST APIs",
       "docItems": [
         { "type": "p", "text": "Streamlining Shipment Planning and Carrier Selection" },
@@ -379,7 +379,7 @@ export async function seed() {
     "migrating-hadoop-and-hana-to-snowflake": {
       "title": "Migrating Hadoop and HANA to Snowflake for Manufacturing",
       "breadcrumb": "Migrating Hadoop and HANA to Snowflake for Manufacturing",
-      "tag": "Manufacturing · Cloud Migration · Data Engineering",
+      "tag": "Manufacturing Â· Cloud Migration Â· Data Engineering",
       "technologyUsed": "Snowflake, Snowpark, dbt, Python, Apache Airflow",
       "docItems": [
         { "type": "p", "text": "Migrating Hadoop and HANA to Snowflake for Manufacturing" },
@@ -396,7 +396,7 @@ export async function seed() {
     "optimizing-retail-demand-forecasting": {
       "title": "Optimizing Retail Demand Forecasting and Peak Season",
       "breadcrumb": "Optimizing Retail Demand Forecasting and Peak Season",
-      "tag": "Retail · Data Engineering · Predictive Analytics",
+      "tag": "Retail Â· Data Engineering Â· Predictive Analytics",
       "technologyUsed": "Snowflake, PySpark, Python, Streamlit, PostgreSQL",
       "docItems": [
         { "type": "p", "text": "Optimizing Retail Demand Forecasting and Peak Season" },
@@ -413,7 +413,7 @@ export async function seed() {
     "procurement-operations-intelligence": {
       "title": "Transforming Routine Procurement from Manual Processing to Intelligent Automation",
       "breadcrumb": "Transforming Routine Procurement from Manual Processing to Intelligent Automation",
-      "tag": "Industry: Automotive & Engineering ManufacturingFunction: Procurement OperationsFocus: Standard Items • Routine Purchases • Replenishment",
+      "tag": "Industry: Automotive & Engineering ManufacturingFunction: Procurement OperationsFocus: Standard Items â€¢ Routine Purchases â€¢ Replenishment",
 
     "docItems": [
       {
@@ -422,7 +422,7 @@ export async function seed() {
       },
       {
         "type": "p",
-        "text": "Industry: Automotive & Engineering ManufacturingFunction: Procurement OperationsFocus: Standard Items • Routine Purchases • Replenishment"
+        "text": "Industry: Automotive & Engineering ManufacturingFunction: Procurement OperationsFocus: Standard Items â€¢ Routine Purchases â€¢ Replenishment"
       },
       {
         "type": "h2",
@@ -482,7 +482,7 @@ export async function seed() {
       },
       {
         "type": "p",
-        "text": "The real challenge is transforming that data into timely procurement intelligence—automatically identifying what needs attention, understanding why it matters, determining the potential business impact, and guiding the procurement team toward the right action."
+        "text": "The real challenge is transforming that data into timely procurement intelligenceâ€”automatically identifying what needs attention, understanding why it matters, determining the potential business impact, and guiding the procurement team toward the right action."
       },
       {
         "type": "h3",
@@ -490,7 +490,7 @@ export async function seed() {
       },
       {
         "type": "p",
-        "text": "“Here is the procurement data. Find the problem.”"
+        "text": "â€œHere is the procurement data. Find the problem.â€"
       },
       {
         "type": "p",
@@ -498,7 +498,7 @@ export async function seed() {
       },
       {
         "type": "p",
-        "text": "“Here is what requires your attention today, why it matters, what could happen if you do nothing, and what action you should take.”"
+        "text": "â€œHere is what requires your attention today, why it matters, what could happen if you do nothing, and what action you should take.â€"
       },
       {
         "type": "p",
@@ -514,7 +514,7 @@ export async function seed() {
       },
       {
         "type": "p",
-        "text": "IdentifYou adds an AI-powered operational procurement intelligence layer over the organization’s existing ERP, procurement and business systems—without requiring procurement teams to replace the systems they already use."
+        "text": "IdentifYou adds an AI-powered operational procurement intelligence layer over the organizationâ€™s existing ERP, procurement and business systemsâ€”without requiring procurement teams to replace the systems they already use."
       },
       {
         "type": "p",
@@ -538,35 +538,35 @@ export async function seed() {
       },
       {
         "type": "p",
-        "text": "SENSE → UNDERSTAND → PREDICT → RECOMMEND → ACT → MONITOR"
+        "text": "SENSE â†’ UNDERSTAND â†’ PREDICT â†’ RECOMMEND â†’ ACT â†’ MONITOR"
       },
       {
         "type": "bullet",
-        "text": "Sense — Continuously observe inventory, demand, consumption, open POs, deliveries, suppliers, prices and procurement activity across plants."
+        "text": "Sense â€” Continuously observe inventory, demand, consumption, open POs, deliveries, suppliers, prices and procurement activity across plants."
       },
       {
         "type": "bullet",
-        "text": "Understand — Connect these signals to determine the actual procurement situation rather than looking at each transaction in isolation."
+        "text": "Understand â€” Connect these signals to determine the actual procurement situation rather than looking at each transaction in isolation."
       },
       {
         "type": "bullet",
-        "text": "Predict — Identify upcoming shortages, replenishment requirements, delivery risks, price deviations and potential inventory build-up before they become operational problems."
+        "text": "Predict â€” Identify upcoming shortages, replenishment requirements, delivery risks, price deviations and potential inventory build-up before they become operational problems."
       },
       {
         "type": "bullet",
-        "text": "Recommend — Recommend what to buy, when to buy, how much to buy, from whom, and what action should be taken, with the reasoning and business context behind every recommendation."
+        "text": "Recommend â€” Recommend what to buy, when to buy, how much to buy, from whom, and what action should be taken, with the reasoning and business context behind every recommendation."
       },
       {
         "type": "bullet",
-        "text": "Act — Automate routine procurement activities where appropriate—such as alerts, follow-ups, RFQ initiation, PO preparation and workflow triggers—while keeping critical purchasing decisions under buyer control."
+        "text": "Act â€” Automate routine procurement activities where appropriateâ€”such as alerts, follow-ups, RFQ initiation, PO preparation and workflow triggersâ€”while keeping critical purchasing decisions under buyer control."
       },
       {
         "type": "bullet",
-        "text": "Monitor — Continuously track outcomes, supplier commitments, procurement decisions and exceptions, allowing the system to learn from actual business results."
+        "text": "Monitor â€” Continuously track outcomes, supplier commitments, procurement decisions and exceptions, allowing the system to learn from actual business results."
       },
       {
         "type": "h3",
-        "text": "From “Data Available” to “Action Identified”"
+        "text": "From â€œData Availableâ€ to â€œAction Identifiedâ€"
       },
       {
         "type": "p",
@@ -578,7 +578,7 @@ export async function seed() {
       },
       {
         "type": "p",
-        "text": "“Here are 10,000 purchase records. Find what needs attention.”"
+        "text": "â€œHere are 10,000 purchase records. Find what needs attention.â€"
       },
       {
         "type": "p",
@@ -586,11 +586,11 @@ export async function seed() {
       },
       {
         "type": "p",
-        "text": "“These 12 requirements need attention today. Three may cause production shortages, two suppliers are likely to miss their commitments, four purchase prices are above expected levels, and three orders can be safely deferred based on current inventory and demand.”"
+        "text": "â€œThese 12 requirements need attention today. Three may cause production shortages, two suppliers are likely to miss their commitments, four purchase prices are above expected levels, and three orders can be safely deferred based on current inventory and demand.â€"
       },
       {
         "type": "p",
-        "text": "Every recommendation can be supported by explainable AI, confidence levels, business rules and the underlying procurement signals, allowing buyers and managers to understand why the system is recommending an action—not simply accept a black-box decision."
+        "text": "Every recommendation can be supported by explainable AI, confidence levels, business rules and the underlying procurement signals, allowing buyers and managers to understand why the system is recommending an actionâ€”not simply accept a black-box decision."
       },
       {
         "type": "p",
@@ -638,7 +638,7 @@ export async function seed() {
       },
       {
         "type": "p",
-        "text": "Requirement → AI Recommendation → Buyer Approval"
+        "text": "Requirement â†’ AI Recommendation â†’ Buyer Approval"
       },
       {
         "type": "p",
@@ -658,7 +658,7 @@ export async function seed() {
       },
       {
         "type": "p",
-        "text": "Stock-Out Risk • Excess Inventory • Delayed PO • Price Anomaly • Supplier Risk • Unfulfilled Requirement"
+        "text": "Stock-Out Risk â€¢ Excess Inventory â€¢ Delayed PO â€¢ Price Anomaly â€¢ Supplier Risk â€¢ Unfulfilled Requirement"
       },
       {
         "type": "p",
@@ -682,7 +682,7 @@ export async function seed() {
       },
       {
         "type": "p",
-        "text": "Monitor → Check Data → Analyze → Select Supplier → Create PO → Follow Up"
+        "text": "Monitor â†’ Check Data â†’ Analyze â†’ Select Supplier â†’ Create PO â†’ Follow Up"
       },
       {
         "type": "p",
@@ -690,7 +690,7 @@ export async function seed() {
       },
       {
         "type": "p",
-        "text": "Sense → Predict → Recommend → Approve → Automate → Manage Exceptions"
+        "text": "Sense â†’ Predict â†’ Recommend â†’ Approve â†’ Automate â†’ Manage Exceptions"
       },
       {
         "type": "p",
@@ -750,7 +750,7 @@ export async function seed() {
       },
       {
         "type": "p",
-        "text": "AI Predicts → AI Recommends → Automation Executes → Humans Manage Exceptions"
+        "text": "AI Predicts â†’ AI Recommends â†’ Automation Executes â†’ Humans Manage Exceptions"
       },
       {
         "type": "p",
@@ -775,7 +775,7 @@ export async function seed() {
       },
       {
         "type": "p",
-        "text": "Industry: Financial ServicesFunction: Risk Management & OperationsFocus: Risk Prediction • Anomaly Detection • Risk Scoring • Explainable AIApproach: Domain Intelligence + Data Engineering + AI/ML + Decision Intelligence"
+        "text": "Industry: Financial ServicesFunction: Risk Management & OperationsFocus: Risk Prediction â€¢ Anomaly Detection â€¢ Risk Scoring â€¢ Explainable AIApproach: Domain Intelligence + Data Engineering + AI/ML + Decision Intelligence"
       },
       {
         "type": "h2",
@@ -791,7 +791,7 @@ export async function seed() {
       },
       {
         "type": "p",
-        "text": "Risk teams often have rules, reports and alerts—but identifying the most meaningful emerging risks can still require significant manual analysis."
+        "text": "Risk teams often have rules, reports and alertsâ€”but identifying the most meaningful emerging risks can still require significant manual analysis."
       },
       {
         "type": "p",
@@ -823,11 +823,11 @@ export async function seed() {
       },
       {
         "type": "p",
-        "text": "Enterprise Data↓Data Engineering & Feature Engineering↓Domain Rules + AI/ML Models↓Risk Prediction & Scoring↓Confidence & Explainability Layer↓Risk Insight & Recommended Action↓Human Decision"
+        "text": "Enterprise Dataâ†“Data Engineering & Feature Engineeringâ†“Domain Rules + AI/ML Modelsâ†“Risk Prediction & Scoringâ†“Confidence & Explainability Layerâ†“Risk Insight & Recommended Actionâ†“Human Decision"
       },
       {
         "type": "p",
-        "text": "The intelligence layer augments existing risk systems—it does not require replacing them."
+        "text": "The intelligence layer augments existing risk systemsâ€”it does not require replacing them."
       },
       {
         "type": "h2",
@@ -859,7 +859,7 @@ export async function seed() {
       },
       {
         "type": "p",
-        "text": "Example:Risk Score: 87 / 100 — High Risk"
+        "text": "Example:Risk Score: 87 / 100 â€” High Risk"
       },
       {
         "type": "h2",
@@ -879,7 +879,7 @@ export async function seed() {
       },
       {
         "type": "p",
-        "text": "Confidence indicates the model's confidence in its prediction—not the probability that the predicted event will definitely occur."
+        "text": "Confidence indicates the model's confidence in its predictionâ€”not the probability that the predicted event will definitely occur."
       },
       {
         "type": "h2",
@@ -1003,7 +1003,7 @@ export async function seed() {
       },
       {
         "type": "p",
-        "text": "Detect → Generate Alert → Manual Investigation → Decision"
+        "text": "Detect â†’ Generate Alert â†’ Manual Investigation â†’ Decision"
       },
       {
         "type": "p",
@@ -1015,7 +1015,7 @@ export async function seed() {
       },
       {
         "type": "p",
-        "text": "Detect → Predict → Score → Explain → Prioritize → Recommend → Act"
+        "text": "Detect â†’ Predict â†’ Score â†’ Explain â†’ Prioritize â†’ Recommend â†’ Act"
       },
       {
         "type": "p",
@@ -1071,7 +1071,7 @@ export async function seed() {
       },
       {
         "type": "p",
-        "text": "“Why did AI flag this?”"
+        "text": "â€œWhy did AI flag this?â€"
       },
       {
         "type": "p",
@@ -1171,11 +1171,11 @@ export async function seed() {
       },
       {
         "type": "p",
-        "text": "Data → Intelligence → Explanation → Decision → Action"
+        "text": "Data â†’ Intelligence â†’ Explanation â†’ Decision â†’ Action"
       },
       {
         "type": "p",
-        "text": "IdentifYou — Engineering Intelligent Risk Operations"
+        "text": "IdentifYou â€” Engineering Intelligent Risk Operations"
       }
     ],
     "technologyUsed": "",
@@ -1196,7 +1196,7 @@ export async function seed() {
       },
       {
         "type": "p",
-        "text": "Industry: Automotive & Engineering ManufacturingFunction: Procurement & Strategic SourcingFocus: CAPEX • Raw Materials • ToolingApproach: Manufacturing Domain Intelligence + AI + Decision Science"
+        "text": "Industry: Automotive & Engineering ManufacturingFunction: Procurement & Strategic SourcingFocus: CAPEX â€¢ Raw Materials â€¢ ToolingApproach: Manufacturing Domain Intelligence + AI + Decision Science"
       },
       {
         "type": "p",
@@ -1260,7 +1260,7 @@ export async function seed() {
       },
       {
         "type": "p",
-        "text": "The intelligence layer helps procurement and business teams compare suppliers across technical capability, commercial competitiveness, lifecycle value, delivery risk and service capability—rather than selecting suppliers based on price alone."
+        "text": "The intelligence layer helps procurement and business teams compare suppliers across technical capability, commercial competitiveness, lifecycle value, delivery risk and service capabilityâ€”rather than selecting suppliers based on price alone."
       },
       {
         "type": "p",
@@ -1272,7 +1272,7 @@ export async function seed() {
       },
       {
         "type": "bullet",
-        "text": "Technical–commercial comparison"
+        "text": "Technicalâ€“commercial comparison"
       },
       {
         "type": "bullet",
@@ -1388,7 +1388,7 @@ export async function seed() {
       },
       {
         "type": "p",
-        "text": "ERP & Procurement Data↓Data Engineering & Feature Engineering↓AI / Analytics Models↓Strategic Procurement Intelligence↓Explainable Recommendations↓Buyer / Procurement Decision↓Procurement Execution & Outcome Feedback"
+        "text": "ERP & Procurement Dataâ†“Data Engineering & Feature Engineeringâ†“AI / Analytics Modelsâ†“Strategic Procurement Intelligenceâ†“Explainable Recommendationsâ†“Buyer / Procurement Decisionâ†“Procurement Execution & Outcome Feedback"
       },
       {
         "type": "p",
@@ -1428,7 +1428,7 @@ export async function seed() {
       },
       {
         "type": "p",
-        "text": "Higher Procurement ProductivityLess time spent searching, comparing and consolidating data—and more time spent on strategic decisions."
+        "text": "Higher Procurement ProductivityLess time spent searching, comparing and consolidating dataâ€”and more time spent on strategic decisions."
       },
       {
         "type": "p",
@@ -1448,11 +1448,11 @@ export async function seed() {
       },
       {
         "type": "p",
-        "text": "Data → Intelligence → Decision → Business Value"
+        "text": "Data â†’ Intelligence â†’ Decision â†’ Business Value"
       },
       {
         "type": "p",
-        "text": "Strategic Procurement Intelligence — turning procurement data into a competitive advantage."
+        "text": "Strategic Procurement Intelligence â€” turning procurement data into a competitive advantage."
       }
     ],
     "technologyUsed": "",
@@ -1541,7 +1541,7 @@ export async function seed() {
       },
       {
         "type": "p",
-        "text": "Establish a digitally controlled manufacturing environment in which every material movement is authorized, every piece remains traceable and every inventory transaction is accountable—driving inventory variance towards zero."
+        "text": "Establish a digitally controlled manufacturing environment in which every material movement is authorized, every piece remains traceable and every inventory transaction is accountableâ€”driving inventory variance towards zero."
       },
       {
         "type": "h2",
@@ -1649,7 +1649,7 @@ export async function seed() {
       },
       {
         "type": "p",
-        "text": "MES decides → Device instructs → RFID identifies → System validates → Material moves → Movement is confirmed → Inventory is updated"
+        "text": "MES decides â†’ Device instructs â†’ RFID identifies â†’ System validates â†’ Material moves â†’ Movement is confirmed â†’ Inventory is updated"
       },
       {
         "type": "p",
@@ -1729,7 +1729,7 @@ export async function seed() {
       },
       {
         "type": "p",
-        "text": "Inventory pooling → Lower FG inventory → Greater flexibility → Reduced variant-specific inventory"
+        "text": "Inventory pooling â†’ Lower FG inventory â†’ Greater flexibility â†’ Reduced variant-specific inventory"
       },
       {
         "type": "p",
@@ -1761,7 +1761,7 @@ export async function seed() {
       },
       {
         "type": "p",
-        "text": "Individual Pieces → Processing Batch → Production Order → Process → Individual Pieces"
+        "text": "Individual Pieces â†’ Processing Batch â†’ Production Order â†’ Process â†’ Individual Pieces"
       },
       {
         "type": "p",
@@ -1865,7 +1865,7 @@ export async function seed() {
       },
       {
         "type": "p",
-        "text": "↓Identify↓Validate↓Authorize↓Move↓Confirm↓Update MES↓"
+        "text": "â†“Identifyâ†“Validateâ†“Authorizeâ†“Moveâ†“Confirmâ†“Update MESâ†“"
       },
       {
         "type": "p",
@@ -1897,11 +1897,11 @@ export async function seed() {
       },
       {
         "type": "p",
-        "text": "Physical Inventory ≈ System Inventory"
+        "text": "Physical Inventory â‰ˆ System Inventory"
       },
       {
         "type": "p",
-        "text": "Inventory Variance → 0"
+        "text": "Inventory Variance â†’ 0"
       },
       {
         "type": "h2",
@@ -2013,7 +2013,7 @@ export async function seed() {
       },
       {
         "type": "p",
-        "text": "Production Order→ Material Identification→ Routing Validation→ Movement Authorization→ Process Execution→ Traceability→ Inventory Update→ Accountability"
+        "text": "Production Orderâ†’ Material Identificationâ†’ Routing Validationâ†’ Movement Authorizationâ†’ Process Executionâ†’ Traceabilityâ†’ Inventory Updateâ†’ Accountability"
       },
       {
         "type": "p",
@@ -2033,7 +2033,7 @@ export async function seed() {
       },
       {
         "type": "p",
-        "text": "IdentifYou enables manufacturers to connect production orders, MES, RFID, edge devices and shop-floor execution into one digitally controlled material flow—turning inventory accuracy from a periodic reconciliation exercise into a continuous manufacturing discipline."
+        "text": "IdentifYou enables manufacturers to connect production orders, MES, RFID, edge devices and shop-floor execution into one digitally controlled material flowâ€”turning inventory accuracy from a periodic reconciliation exercise into a continuous manufacturing discipline."
       }
     ],
     "technologyUsed": "",
@@ -2090,9 +2090,9 @@ export async function seed() {
   "revolutionizing-inventory-optimization": {
     "title": "Revolutionizing Enterprise Inventory Optimization with Snowflake",
     "breadcrumb": "Revolutionizing Enterprise Inventory Optimization with Snowflake",
-    "tag": "Manufacturing · Data Engineering · Supply Chain Optimization",
+    "tag": "Manufacturing Â· Data Engineering Â· Supply Chain Optimization",
     "illustration": "/images/case-studies/revolutionizing-inventory-optimization.png",
-    "overview": "Inventory management is critical to retail and manufacturing success, balancing the fine line between stockouts and overstock situations. Traditional inventory systems often struggle to provide real-time insights, leading to lost sales opportunities or excess carrying costs. Snowflake’s Data Cloud empowers enterprises to optimize inventory by providing real-time tracking, predictive analytics, and actionable insights to ensure optimal stock levels.",
+    "overview": "Inventory management is critical to retail and manufacturing success, balancing the fine line between stockouts and overstock situations. Traditional inventory systems often struggle to provide real-time insights, leading to lost sales opportunities or excess carrying costs. Snowflakeâ€™s Data Cloud empowers enterprises to optimize inventory by providing real-time tracking, predictive analytics, and actionable insights to ensure optimal stock levels.",
     "docItems": [
       {
         "type": "h2",
@@ -2100,7 +2100,7 @@ export async function seed() {
       },
       {
         "type": "p",
-        "text": "Inventory management is critical to retail success, balancing the fine line between stockouts and overstock situations. Traditional inventory systems often struggle to provide real-time insights, leading to lost sales opportunities or excess carrying costs. Snowflake’s Data Cloud empowers retailers to optimize inventory by providing real-time tracking, predictive analytics, and actionable insights to ensure optimal stock levels."
+        "text": "Inventory management is critical to retail success, balancing the fine line between stockouts and overstock situations. Traditional inventory systems often struggle to provide real-time insights, leading to lost sales opportunities or excess carrying costs. Snowflakeâ€™s Data Cloud empowers retailers to optimize inventory by providing real-time tracking, predictive analytics, and actionable insights to ensure optimal stock levels."
       },
       {
         "type": "p",
@@ -2188,31 +2188,14 @@ export async function seed() {
     "technologyUsed": "Snowflake Data Cloud, Snowpark, PySpark, dbt, Apache Airflow, Python, POS/WMS Connectors",
     "more": []
   },
-  "tailored-enterprise-solutions": {
-    "title": "Digital Engineering",
-    "breadcrumb": "Digital Engineering",
-    "tag": "https://identifyyou.ai/tailored-enterprise-solutions/",
-    "docItems": [
-      {
-        "type": "p",
-        "text": "Digital Engineering"
-      },
-      {
-        "type": "p",
-        "text": "https://identifyyou.ai/tailored-enterprise-solutions/"
-      }
-    ],
-    "technologyUsed": "",
-    "more": []
-  },
   "fluke-t40": {
-    "title": "Industrial Edge Gateway for Fluke Thermalert® T40 Pyrometer",
-    "breadcrumb": "Industrial Edge Gateway for Fluke Thermalert® T40 Pyrometer",
+    "title": "Industrial Edge Gateway for Fluke ThermalertÂ® T40 Pyrometer",
+    "breadcrumb": "Industrial Edge Gateway for Fluke ThermalertÂ® T40 Pyrometer",
     "tag": "Case Study",
     "docItems": [
       {
         "type": "p",
-        "text": "Industrial Edge Gateway for Fluke Thermalert® T40 Pyrometer"
+        "text": "Industrial Edge Gateway for Fluke ThermalertÂ® T40 Pyrometer"
       },
       {
         "type": "p",
@@ -2220,7 +2203,7 @@ export async function seed() {
       },
       {
         "type": "p",
-        "text": "Business-First Thermal Intelligence Instead of just monitoring heat, our solution ensures operational continuity. By leveraging high-performance edge computing, the gateway processes data at the source, allowing for instantaneous decision-making without the latency of cloud-only processing."
+        "text": "Business-First Thermal IntelligenceÂ Instead of just monitoring heat, our solution ensures operational continuity. By leveraging high-performance edge computing, the gateway processes data at the source, allowing for instantaneous decision-making without the latency of cloud-only processing."
       },
       {
         "type": "h2",
@@ -2228,7 +2211,7 @@ export async function seed() {
       },
       {
         "type": "h3",
-        "text": "➤ High-Performance Edge Computing"
+        "text": "âž¤ High-Performance Edge Computing"
       },
       {
         "type": "p",
@@ -2236,23 +2219,23 @@ export async function seed() {
       },
       {
         "type": "bullet",
-        "text": "Raspberry Pi 4 Model B (64 bit Quad Core Cortex-A72 ARM V8 @ 1.5GHz) Provides the high-speed computational backbone needed to manage heavy data loads and complex 64-bit processing with industrial-grade efficiency."
+        "text": "Raspberry Pi 4 Model B (64 bit Quad Core Cortex-A72 ARM V8 @ 1.5GHz)Â Provides the high-speed computational backbone needed to manage heavy data loads and complex 64-bit processing with industrial-grade efficiency."
       },
       {
         "type": "bullet",
-        "text": "4GB LPDDR4-3200 SDRAM for robust data processing High-performance memory that ensures smooth, real-time data handling and prevents bottlenecks during peak operational workloads."
+        "text": "4GB LPDDR4-3200 SDRAM for robust data processingÂ High-performance memory that ensures smooth, real-time data handling and prevents bottlenecks during peak operational workloads."
       },
       {
         "type": "bullet",
-        "text": "64GB Industrial microSDXC (Class 10, A1) storage High-endurance, professional-grade storage built for continuous data logging and long-term reliability in demanding environments."
+        "text": "64GB Industrial microSDXC (Class 10, A1) storageÂ High-endurance, professional-grade storage built for continuous data logging and long-term reliability in demanding environments."
       },
       {
         "type": "bullet",
-        "text": "Optimized for real-time anomaly detection algorithms Custom-engineered software tuned specifically for the hardware to deliver ultra-low latency and immediate recognition of thermal irregularities."
+        "text": "Optimized for real-time anomaly detection algorithmsÂ Custom-engineered software tuned specifically for the hardware to deliver ultra-low latency and immediate recognition of thermal irregularities."
       },
       {
         "type": "h3",
-        "text": "➤ Intelligent Anomaly Detection Engine"
+        "text": "âž¤ Intelligent Anomaly Detection Engine"
       },
       {
         "type": "p",
@@ -2268,7 +2251,7 @@ export async function seed() {
       },
       {
         "type": "h3",
-        "text": "➤ Industry-Grade Reliability"
+        "text": "âž¤ Industry-Grade Reliability"
       },
       {
         "type": "p",
@@ -2276,7 +2259,7 @@ export async function seed() {
       },
       {
         "type": "bullet",
-        "text": "Operating Temperature: -40°C to +85°C"
+        "text": "Operating Temperature: -40Â°C to +85Â°C"
       },
       {
         "type": "bullet",
@@ -2292,7 +2275,7 @@ export async function seed() {
       },
       {
         "type": "h3",
-        "text": "➤ Seamless Integration"
+        "text": "âž¤ Seamless Integration"
       },
       {
         "type": "bullet",
@@ -2312,7 +2295,7 @@ export async function seed() {
       },
       {
         "type": "h3",
-        "text": "➤ Instant WhatsApp Alert System"
+        "text": "âž¤ Instant WhatsApp Alert System"
       },
       {
         "type": "p",
@@ -2336,7 +2319,7 @@ export async function seed() {
       },
       {
         "type": "h3",
-        "text": "➤ Seamless Intelligent Connectivity"
+        "text": "âž¤ Seamless Intelligent Connectivity"
       },
       {
         "type": "p",
@@ -2368,15 +2351,15 @@ export async function seed() {
       },
       {
         "type": "bullet",
-        "text": "Desktop Command Centre: For deep-dive analysis and full-scale plant monitoring."
+        "text": "Desktop Command Centre:Â For deep-dive analysis and full-scale plant monitoring."
       },
       {
         "type": "bullet",
-        "text": "Mobile Pulse: A streamlined mobile version for supervisors on the move."
+        "text": "Mobile Pulse:Â A streamlined mobile version for supervisors on the move."
       },
       {
         "type": "bullet",
-        "text": "Instant WhatsApp Alerts: Critical anomalies are pushed directly to your WhatsApp, ensuring the right people are notified the second a threshold is breached."
+        "text": "Instant WhatsApp Alerts:Â Critical anomalies are pushed directly to your WhatsApp, ensuring the right people are notified the second a threshold is breached."
       },
       {
         "type": "h2",
@@ -2384,28 +2367,28 @@ export async function seed() {
       },
       {
         "type": "bullet",
-        "text": "Reduce Unplanned Downtime: Early detection of anomalies allows for predictive maintenance."
+        "text": "Reduce Unplanned Downtime:Â Early detection of anomalies allows for predictive maintenance."
       },
       {
         "type": "bullet",
-        "text": "Enhanced Safety: Automated alerts for dangerous temperature spikes protect both assets and personnel."
+        "text": "Enhanced Safety:Â Automated alerts for dangerous temperature spikes protect both assets and personnel."
       },
       {
         "type": "bullet",
-        "text": "Data-Driven Efficiency: Use historical thermal trends to optimize your manufacturing or processing parameters."
+        "text": "Data-Driven Efficiency:Â Use historical thermal trends to optimize your manufacturing or processing parameters."
       }
     ],
     "technologyUsed": "",
     "more": []
   },
   "fluke-tv30": {
-    "title": "Industrial Edge Gateway for Fluke Thermalert® TV30 Pyrometer",
-    "breadcrumb": "Industrial Edge Gateway for Fluke Thermalert® TV30 Pyrometer",
+    "title": "Industrial Edge Gateway for Fluke ThermalertÂ® TV30 Pyrometer",
+    "breadcrumb": "Industrial Edge Gateway for Fluke ThermalertÂ® TV30 Pyrometer",
     "tag": "Case Study",
     "docItems": [
       {
         "type": "p",
-        "text": "Industrial Edge Gateway for Fluke Thermalert® TV30 Pyrometer"
+        "text": "Industrial Edge Gateway for Fluke ThermalertÂ® TV30 Pyrometer"
       },
       {
         "type": "p",
@@ -2413,7 +2396,7 @@ export async function seed() {
       },
       {
         "type": "p",
-        "text": "Business-First Thermal Intelligence Instead of just monitoring heat, our solution ensures operational continuity. By leveraging high-performance edge computing, the gateway processes data at the source, allowing for instantaneous decision-making without the latency of cloud-only processing."
+        "text": "Business-First Thermal IntelligenceÂ Instead of just monitoring heat, our solution ensures operational continuity. By leveraging high-performance edge computing, the gateway processes data at the source, allowing for instantaneous decision-making without the latency of cloud-only processing."
       },
       {
         "type": "h2",
@@ -2429,19 +2412,19 @@ export async function seed() {
       },
       {
         "type": "bullet",
-        "text": "Raspberry Pi 4 Model B (64 bit Quad Core Cortex-A72 ARM V8 @ 1.5GHz) Provides the high-speed computational backbone needed to manage heavy data loads and complex 64-bit processing with industrial-grade efficiency."
+        "text": "Raspberry Pi 4 Model B (64 bit Quad Core Cortex-A72 ARM V8 @ 1.5GHz)Â Provides the high-speed computational backbone needed to manage heavy data loads and complex 64-bit processing with industrial-grade efficiency."
       },
       {
         "type": "bullet",
-        "text": "4GB LPDDR4-3200 SDRAM for robust data processing High-performance memory that ensures smooth, real-time data handling and prevents bottlenecks during peak operational workloads."
+        "text": "4GB LPDDR4-3200 SDRAM for robust data processingÂ High-performance memory that ensures smooth, real-time data handling and prevents bottlenecks during peak operational workloads."
       },
       {
         "type": "bullet",
-        "text": "64GB Industrial microSDXC (Class 10, A1) storage High-endurance, professional-grade storage built for continuous data logging and long-term reliability in demanding environments."
+        "text": "64GB Industrial microSDXC (Class 10, A1) storageÂ High-endurance, professional-grade storage built for continuous data logging and long-term reliability in demanding environments."
       },
       {
         "type": "bullet",
-        "text": "Optimized for real-time anomaly detection algorithms Custom-engineered software tuned specifically for the hardware to deliver ultra-low latency and immediate recognition of thermal irregularities."
+        "text": "Optimized for real-time anomaly detection algorithmsÂ Custom-engineered software tuned specifically for the hardware to deliver ultra-low latency and immediate recognition of thermal irregularities."
       },
       {
         "type": "p",
@@ -2469,7 +2452,7 @@ export async function seed() {
       },
       {
         "type": "bullet",
-        "text": "Operating Temperature: -40°C to +85°C"
+        "text": "Operating Temperature: -40Â°C to +85Â°C"
       },
       {
         "type": "bullet",
@@ -2561,15 +2544,15 @@ export async function seed() {
       },
       {
         "type": "bullet",
-        "text": "Desktop Command Centre: For deep-dive analysis and full-scale plant monitoring."
+        "text": "Desktop Command Centre:Â For deep-dive analysis and full-scale plant monitoring."
       },
       {
         "type": "bullet",
-        "text": "Mobile Pulse: A streamlined mobile version for supervisors on the move."
+        "text": "Mobile Pulse:Â A streamlined mobile version for supervisors on the move."
       },
       {
         "type": "bullet",
-        "text": "Instant WhatsApp Alerts: Critical anomalies are pushed directly to your WhatsApp, ensuring the right people are notified the second a threshold is breached."
+        "text": "Instant WhatsApp Alerts:Â Critical anomalies are pushed directly to your WhatsApp, ensuring the right people are notified the second a threshold is breached."
       },
       {
         "type": "h2",
@@ -2577,15 +2560,15 @@ export async function seed() {
       },
       {
         "type": "bullet",
-        "text": "Reduce Unplanned Downtime: Early detection of anomalies allows for predictive maintenance."
+        "text": "Reduce Unplanned Downtime:Â Early detection of anomalies allows for predictive maintenance."
       },
       {
         "type": "bullet",
-        "text": "Enhanced Safety: Automated alerts for dangerous temperature spikes protect both assets and personnel."
+        "text": "Enhanced Safety:Â Automated alerts for dangerous temperature spikes protect both assets and personnel."
       },
       {
         "type": "bullet",
-        "text": "Data-Driven Efficiency: Use historical thermal trends to optimize your manufacturing or processing parameters."
+        "text": "Data-Driven Efficiency:Â Use historical thermal trends to optimize your manufacturing or processing parameters."
       }
     ],
     "technologyUsed": "",
@@ -2594,7 +2577,7 @@ export async function seed() {
   "connected-intelligent-plant": {
     "title": "Connected Intelligent Plant Architecture",
     "breadcrumb": "Connected Intelligent Plant Architecture",
-    "tag": "Industry: Manufacturing · Application: Connected Operations & Autonomous Execution · Technology: IIoT + Edge Intelligence + Enterprise Integration",
+    "tag": "Industry: Manufacturing Â· Application: Connected Operations & Autonomous Execution Â· Technology: IIoT + Edge Intelligence + Enterprise Integration",
     "docItems": [
       {
         "type": "p",
@@ -2693,7 +2676,7 @@ export async function seed() {
       },
       {
         "type": "p",
-        "text": "The objective was to create an Edge platform capable of acting as a secure computing layer between the physical and digital worlds — connecting industrial assets while locally processing, storing and securing operational data."
+        "text": "The objective was to create an Edge platform capable of acting as a secure computing layer between the physical and digital worlds â€” connecting industrial assets while locally processing, storing and securing operational data."
       },
       {
         "type": "h2",
@@ -2709,11 +2692,11 @@ export async function seed() {
       },
       {
         "type": "p",
-        "text": "Connect → Compute → Store → Secure → Extend"
+        "text": "Connect â†’ Compute â†’ Store â†’ Secure â†’ Extend"
       },
       {
         "type": "p",
-        "text": "Connect — Universal Industrial Connectivity"
+        "text": "Connect â€” Universal Industrial Connectivity"
       },
       {
         "type": "p",
@@ -2737,7 +2720,7 @@ export async function seed() {
       },
       {
         "type": "p",
-        "text": "Compute — Processing at the Edge"
+        "text": "Compute â€” Processing at the Edge"
       },
       {
         "type": "p",
@@ -2753,7 +2736,7 @@ export async function seed() {
       },
       {
         "type": "p",
-        "text": "Store — Resilient Local Data"
+        "text": "Store â€” Resilient Local Data"
       },
       {
         "type": "p",
@@ -2769,7 +2752,7 @@ export async function seed() {
       },
       {
         "type": "p",
-        "text": "Secure — Security by Design"
+        "text": "Secure â€” Security by Design"
       },
       {
         "type": "p",
@@ -2785,7 +2768,7 @@ export async function seed() {
       },
       {
         "type": "p",
-        "text": "Extend — From Gateway to Computing Platform"
+        "text": "Extend â€” From Gateway to Computing Platform"
       },
       {
         "type": "p",
@@ -2865,31 +2848,31 @@ export async function seed() {
       },
       {
         "type": "p",
-        "text": "Universal Connectivity — connecting diverse industrial equipment and protocols."
+        "text": "Universal Connectivity â€” connecting diverse industrial equipment and protocols."
       },
       {
         "type": "p",
-        "text": "Local Intelligence — processing, analyzing and acting on data closer to its source."
+        "text": "Local Intelligence â€” processing, analyzing and acting on data closer to its source."
       },
       {
         "type": "p",
-        "text": "Data Resilience — maintaining operational data through buffering and store-and-forward."
+        "text": "Data Resilience â€” maintaining operational data through buffering and store-and-forward."
       },
       {
         "type": "p",
-        "text": "Security by Design — protecting hardware, applications, communication and data."
+        "text": "Security by Design â€” protecting hardware, applications, communication and data."
       },
       {
         "type": "p",
-        "text": "Edge AI Readiness — supporting computer vision, ML and AI inference."
+        "text": "Edge AI Readiness â€” supporting computer vision, ML and AI inference."
       },
       {
         "type": "p",
-        "text": "Enterprise Integration — connecting physical operations with ERP, analytics and cloud platforms."
+        "text": "Enterprise Integration â€” connecting physical operations with ERP, analytics and cloud platforms."
       },
       {
         "type": "p",
-        "text": "Fleet Management — remotely managing configuration, updates, health and diagnostics."
+        "text": "Fleet Management â€” remotely managing configuration, updates, health and diagnostics."
       },
       {
         "type": "p",
@@ -2909,7 +2892,7 @@ export async function seed() {
       },
       {
         "type": "p",
-        "text": "Gateway → Connected Edge → Intelligent Edge"
+        "text": "Gateway â†’ Connected Edge â†’ Intelligent Edge"
       },
       {
         "type": "p",
@@ -2938,7 +2921,7 @@ export async function seed() {
       },
       {
         "type": "p",
-        "text": "Connecting machines and devices is only the beginning. The real value of Edge computing comes from what happens after data is collected — how it is processed, analyzed, stored, acted upon and integrated with enterprise systems."
+        "text": "Connecting machines and devices is only the beginning. The real value of Edge computing comes from what happens after data is collected â€” how it is processed, analyzed, stored, acted upon and integrated with enterprise systems."
       },
       {
         "type": "p",
@@ -2978,11 +2961,11 @@ export async function seed() {
       },
       {
         "type": "p",
-        "text": "Ingest → Process → Store → Analyse → Act → Integrate"
+        "text": "Ingest â†’ Process â†’ Store â†’ Analyse â†’ Act â†’ Integrate"
       },
       {
         "type": "p",
-        "text": "Ingest — Bring Data Together"
+        "text": "Ingest â€” Bring Data Together"
       },
       {
         "type": "p",
@@ -3002,7 +2985,7 @@ export async function seed() {
       },
       {
         "type": "p",
-        "text": "Process — Turn Raw Data into Operational Data"
+        "text": "Process â€” Turn Raw Data into Operational Data"
       },
       {
         "type": "p",
@@ -3022,7 +3005,7 @@ export async function seed() {
       },
       {
         "type": "p",
-        "text": "Store — Create a Local Data Layer"
+        "text": "Store â€” Create a Local Data Layer"
       },
       {
         "type": "p",
@@ -3042,7 +3025,7 @@ export async function seed() {
       },
       {
         "type": "p",
-        "text": "Analyze — Bring Intelligence to the Edge"
+        "text": "Analyze â€” Bring Intelligence to the Edge"
       },
       {
         "type": "p",
@@ -3070,7 +3053,7 @@ export async function seed() {
       },
       {
         "type": "p",
-        "text": "Act — From Insight to Action"
+        "text": "Act â€” From Insight to Action"
       },
       {
         "type": "p",
@@ -3094,7 +3077,7 @@ export async function seed() {
       },
       {
         "type": "p",
-        "text": "Sense → Process → Understand → Decide → Act"
+        "text": "Sense â†’ Process â†’ Understand â†’ Decide â†’ Act"
       },
       {
         "type": "p",
@@ -3154,7 +3137,7 @@ export async function seed() {
       },
       {
         "type": "p",
-        "text": "Physical Assets → Edge → Enterprise → Cloud → Analytics → Business Decisions"
+        "text": "Physical Assets â†’ Edge â†’ Enterprise â†’ Cloud â†’ Analytics â†’ Business Decisions"
       },
       {
         "type": "p",
@@ -3234,7 +3217,7 @@ export async function seed() {
       },
       {
         "type": "p",
-        "text": "↓"
+        "text": "â†“"
       },
       {
         "type": "p",
@@ -3242,7 +3225,7 @@ export async function seed() {
       },
       {
         "type": "p",
-        "text": "↓"
+        "text": "â†“"
       },
       {
         "type": "p",
@@ -3262,35 +3245,35 @@ export async function seed() {
       },
       {
         "type": "p",
-        "text": "Real-Time Processing — Analyze operational data closer to its source."
+        "text": "Real-Time Processing â€” Analyze operational data closer to its source."
       },
       {
         "type": "p",
-        "text": "Edge AI — Run AI inference without continuously sending raw data to the cloud."
+        "text": "Edge AI â€” Run AI inference without continuously sending raw data to the cloud."
       },
       {
         "type": "p",
-        "text": "Data Resilience — Continue operating through temporary connectivity interruptions."
+        "text": "Data Resilience â€” Continue operating through temporary connectivity interruptions."
       },
       {
         "type": "p",
-        "text": "Application Flexibility — Deploy containerized applications and microservices on the Edge."
+        "text": "Application Flexibility â€” Deploy containerized applications and microservices on the Edge."
       },
       {
         "type": "p",
-        "text": "Event-Driven Intelligence — Convert data and events into automated actions."
+        "text": "Event-Driven Intelligence â€” Convert data and events into automated actions."
       },
       {
         "type": "p",
-        "text": "Enterprise Integration — Connect Edge operations with ERP, cloud and analytics platforms."
+        "text": "Enterprise Integration â€” Connect Edge operations with ERP, cloud and analytics platforms."
       },
       {
         "type": "p",
-        "text": "Centralized Management — Monitor, update and manage distributed Edge workloads remotely."
+        "text": "Centralized Management â€” Monitor, update and manage distributed Edge workloads remotely."
       },
       {
         "type": "p",
-        "text": "Scalable Architecture — Establish a common software foundation across multiple Edge deployments."
+        "text": "Scalable Architecture â€” Establish a common software foundation across multiple Edge deployments."
       },
       {
         "type": "p",
@@ -3310,7 +3293,7 @@ export async function seed() {
       },
       {
         "type": "p",
-        "text": "Connect → Process → Understand → Decide → Act"
+        "text": "Connect â†’ Process â†’ Understand â†’ Decide â†’ Act"
       },
       {
         "type": "p",
@@ -3335,7 +3318,7 @@ export async function seed() {
       },
       {
         "type": "p",
-        "text": "Industry: Automotive Component ManufacturingFocus: Inventory Accuracy • WIP Control • Material Traceability • Production ExecutionSolution: MES • RFID • Edge Devices • Industrial Handhelds • Digital Material Control"
+        "text": "Industry: Automotive Component ManufacturingFocus: Inventory Accuracy â€¢ WIP Control â€¢ Material Traceability â€¢ Production ExecutionSolution: MES â€¢ RFID â€¢ Edge Devices â€¢ Industrial Handhelds â€¢ Digital Material Control"
       },
       {
         "type": "p",
@@ -3363,7 +3346,7 @@ export async function seed() {
       },
       {
         "type": "p",
-        "text": "Create a digitally controlled material flow where every movement is authorized, every piece remains traceable and every inventory transaction is accountable—driving Inventory Variance towards Zero."
+        "text": "Create a digitally controlled material flow where every movement is authorized, every piece remains traceable and every inventory transaction is accountableâ€”driving Inventory Variance towards Zero."
       },
       {
         "type": "p",
@@ -3395,7 +3378,7 @@ export async function seed() {
       },
       {
         "type": "p",
-        "text": "Delayed Variance DetectionWhen movement is not controlled at the point of execution, discrepancies are often discovered only during periodic reconciliation—making the source difficult to identify."
+        "text": "Delayed Variance DetectionWhen movement is not controlled at the point of execution, discrepancies are often discovered only during periodic reconciliationâ€”making the source difficult to identify."
       },
       {
         "type": "h2",
@@ -3419,7 +3402,7 @@ export async function seed() {
       },
       {
         "type": "p",
-        "text": "MES decides → Device instructs → RFID identifies → System validates → Material moves → Movement is confirmed → Inventory is updated"
+        "text": "MES decides â†’ Device instructs â†’ RFID identifies â†’ System validates â†’ Material moves â†’ Movement is confirmed â†’ Inventory is updated"
       },
       {
         "type": "p",
@@ -3491,7 +3474,7 @@ export async function seed() {
       },
       {
         "type": "p",
-        "text": "Identify → Validate → Authorize → Execute → Confirm → Update"
+        "text": "Identify â†’ Validate â†’ Authorize â†’ Execute â†’ Confirm â†’ Update"
       },
       {
         "type": "p",
@@ -3523,7 +3506,7 @@ export async function seed() {
       },
       {
         "type": "p",
-        "text": "Physical Material Position ↔ Digital Inventory Position"
+        "text": "Physical Material Position â†” Digital Inventory Position"
       },
       {
         "type": "p",
@@ -3563,7 +3546,7 @@ export async function seed() {
       },
       {
         "type": "p",
-        "text": "Reduced Inventory VarianceControl material movement at the point of execution by validating every transfer against the production order, process, quantity, and destination—reducing the root causes of unexplained inventory differences."
+        "text": "Reduced Inventory VarianceControl material movement at the point of execution by validating every transfer against the production order, process, quantity, and destinationâ€”reducing the root causes of unexplained inventory differences."
       },
       {
         "type": "p",
@@ -3611,7 +3594,7 @@ export async function seed() {
       },
       {
         "type": "p",
-        "text": "Legacy Machines → Digital Connectivity → Controlled Material Flow → Real-Time Inventory Accountability"
+        "text": "Legacy Machines â†’ Digital Connectivity â†’ Controlled Material Flow â†’ Real-Time Inventory Accountability"
       },
       {
         "type": "p",
@@ -3623,7 +3606,7 @@ export async function seed() {
       },
       {
         "type": "p",
-        "text": "IdentifYou enables manufacturers to move from periodic inventory reconciliation to continuous inventory accountability—while extending the digital capabilities of their existing plant infrastructure."
+        "text": "IdentifYou enables manufacturers to move from periodic inventory reconciliation to continuous inventory accountabilityâ€”while extending the digital capabilities of their existing plant infrastructure."
       }
     ],
     "technologyUsed": "",
@@ -3672,7 +3655,7 @@ export async function seed() {
       },
       {
         "type": "p",
-        "text": "High-Resolution 2D Vision — Defect Detection"
+        "text": "High-Resolution 2D Vision â€” Defect Detection"
       },
       {
         "type": "p",
@@ -3680,7 +3663,7 @@ export async function seed() {
       },
       {
         "type": "p",
-        "text": "Controlled Lighting — Making Defects Visible"
+        "text": "Controlled Lighting â€” Making Defects Visible"
       },
       {
         "type": "p",
@@ -3696,7 +3679,7 @@ export async function seed() {
       },
       {
         "type": "p",
-        "text": "Vision AI — Distinguishing Defects from Surface Variation"
+        "text": "Vision AI â€” Distinguishing Defects from Surface Variation"
       },
       {
         "type": "p",
@@ -3825,7 +3808,7 @@ export async function seed() {
       },
       {
         "type": "bullet",
-        "text": "3D Profiler — Dimensional & Geometric Inspection"
+        "text": "3D Profiler â€” Dimensional & Geometric Inspection"
       },
       {
         "type": "p",
@@ -3857,11 +3840,11 @@ export async function seed() {
       },
       {
         "type": "p",
-        "text": "The system performs these measurements against micron-level tolerance limits, providing precise and repeatable inspection of the shaft–sprocket interface."
+        "text": "The system performs these measurements against micron-level tolerance limits, providing precise and repeatable inspection of the shaftâ€“sprocket interface."
       },
       {
         "type": "bullet",
-        "text": "2D Camera + Diffused Lighting — Position & Angular Inspection"
+        "text": "2D Camera + Diffused Lighting â€” Position & Angular Inspection"
       },
       {
         "type": "p",
@@ -3901,7 +3884,7 @@ export async function seed() {
       },
       {
         "type": "bullet",
-        "text": "Vision AI / Inspection Logic — Intelligent Decision Layer"
+        "text": "Vision AI / Inspection Logic â€” Intelligent Decision Layer"
       },
       {
         "type": "p",
@@ -3913,7 +3896,7 @@ export async function seed() {
       },
       {
         "type": "p",
-        "text": "Part Variant → Customer Specification → Inspection Recipe → Tolerance Limits"
+        "text": "Part Variant â†’ Customer Specification â†’ Inspection Recipe â†’ Tolerance Limits"
       },
       {
         "type": "p",
@@ -3965,7 +3948,7 @@ export async function seed() {
       },
       {
         "type": "p",
-        "text": "Bore Dimensions → Keyway Specifications → Micron-Level Tolerances → Customer Requirements"
+        "text": "Bore Dimensions â†’ Keyway Specifications â†’ Micron-Level Tolerances â†’ Customer Requirements"
       },
       {
         "type": "p",
@@ -4066,7 +4049,7 @@ export async function seed() {
       },
       {
         "type": "p",
-        "text": "3D Profiler — Thread & Internal Geometry"
+        "text": "3D Profiler â€” Thread & Internal Geometry"
       },
       {
         "type": "p",
@@ -4078,7 +4061,7 @@ export async function seed() {
       },
       {
         "type": "p",
-        "text": "2D Camera + Controlled Illumination — Visual & Reference Features"
+        "text": "2D Camera + Controlled Illumination â€” Visual & Reference Features"
       },
       {
         "type": "p",
@@ -4094,7 +4077,7 @@ export async function seed() {
       },
       {
         "type": "p",
-        "text": "A key challenge in thread inspection is the significant difference between the component’s outer and inner diameters. When a large outer diameter surrounds a relatively small inner diameter, the available viewing area for a conventional 2D camera becomes restricted, limiting visibility of the internal thread features. As the thread extends deeper into the component, occlusion, shadows and restricted line-of-sight can further obscure portions of the thread profile, making reliable detection and dimensional assessment difficult."
+        "text": "A key challenge in thread inspection is the significant difference between the componentâ€™s outer and inner diameters. When a large outer diameter surrounds a relatively small inner diameter, the available viewing area for a conventional 2D camera becomes restricted, limiting visibility of the internal thread features. As the thread extends deeper into the component, occlusion, shadows and restricted line-of-sight can further obscure portions of the thread profile, making reliable detection and dimensional assessment difficult."
       },
       {
         "type": "p",
@@ -4114,7 +4097,7 @@ export async function seed() {
       },
       {
         "type": "p",
-        "text": "Component Variant → Thread Specification → Internal Dimensions → Tolerance Limits"
+        "text": "Component Variant â†’ Thread Specification â†’ Internal Dimensions â†’ Tolerance Limits"
       },
       {
         "type": "p",
@@ -4195,7 +4178,7 @@ export async function seed() {
   "zebra-line-inspection": {
     "title": "Zebra Line Inspection",
     "breadcrumb": "Zebra Line Inspection",
-    "tag": "Industry: Glass Manufacturing · Application: On-Line Glass Inspection · Technology: Dual-Path Optics + Vision AI + Edge Acceleration",
+    "tag": "Industry: Glass Manufacturing Â· Application: On-Line Glass Inspection Â· Technology: Dual-Path Optics + Vision AI + Edge Acceleration",
     "docItems": [
       {
         "type": "p",
@@ -4203,7 +4186,7 @@ export async function seed() {
       },
       {
         "type": "p",
-        "text": "Industry: Glass Manufacturing · Application: On-Line Glass Inspection · Technology: Dual-Path Optics + Vision AI + Edge Acceleration"
+        "text": "Industry: Glass Manufacturing Â· Application: On-Line Glass Inspection Â· Technology: Dual-Path Optics + Vision AI + Edge Acceleration"
       },
       {
         "type": "h2",
@@ -4253,7 +4236,7 @@ export async function seed() {
       },
       {
         "type": "bullet",
-        "text": "Laser-Based Optics System: Multi-channel dark-field laser scattering data is treated as a high-frequency 1D/2D signal array. Machine learning models analyze the unique signature of the laser light scattering to immediately differentiate between a benign surface speck of dust and a structural scratch or crack smaller than 50 μm."
+        "text": "Laser-Based Optics System: Multi-channel dark-field laser scattering data is treated as a high-frequency 1D/2D signal array. Machine learning models analyze the unique signature of the laser light scattering to immediately differentiate between a benign surface speck of dust and a structural scratch or crack smaller than 50 Î¼m."
       },
       {
         "type": "h3",
@@ -4281,7 +4264,7 @@ export async function seed() {
       },
       {
         "type": "bullet",
-        "text": "Synthetic Defect Generation via GANs (Generative Adversarial Networks): High-quality glass production lines inherently suffer from a \"data scarcity\" problem—severe defects like deep knots or cracks are rare, making it difficult to collect balanced training datasets. The modern system utilizes GANs to synthetically generate realistic, high-fidelity images of rare defects, pre-training the vision models before the system even deploys."
+        "text": "Synthetic Defect Generation via GANs (Generative Adversarial Networks): High-quality glass production lines inherently suffer from a \"data scarcity\" problemâ€”severe defects like deep knots or cracks are rare, making it difficult to collect balanced training datasets. The modern system utilizes GANs to synthetically generate realistic, high-fidelity images of rare defects, pre-training the vision models before the system even deploys."
       },
       {
         "type": "bullet",
@@ -4316,7 +4299,7 @@ export async function seed() {
         ],
         [
           "4. Surface Defects (Scratches, dimples, chatter)",
-          "Microscopic scratches under 50 μm lack contrast, causing false negatives or high false-alarm rates.",
+          "Microscopic scratches under 50 Î¼m lack contrast, causing false negatives or high false-alarm rates.",
           "Semantic Edge Segmentation (e.g., U-Net architectures) maps and highlights micro-fissures at the pixel level."
         ]
       ]
@@ -4324,7 +4307,7 @@ export async function seed() {
     "results": [
       {
         "stat": "100%",
-        "label": "Zero-Miss Micro (<50 μm) & Macro Detection"
+        "label": "Zero-Miss Micro (<50 Î¼m) & Macro Detection"
       },
       {
         "stat": "98%",
@@ -4345,7 +4328,7 @@ export async function seed() {
   "machine-vision": {
     "title": "Machine Vision",
     "breadcrumb": "Machine Vision",
-    "tag": "Industry: Manufacturing · Application: Quality Control & Process Automation · Technology: Machine Vision + ML/AI Models",
+    "tag": "Industry: Manufacturing Â· Application: Quality Control & Process Automation Â· Technology: Machine Vision + ML/AI Models",
     "docItems": [
       {
         "type": "p",
@@ -4353,7 +4336,7 @@ export async function seed() {
       },
       {
         "type": "p",
-        "text": "Industry: Manufacturing · Application: Quality Control & Process Automation · Technology: Machine Vision + ML/AI Models"
+        "text": "Industry: Manufacturing Â· Application: Quality Control & Process Automation Â· Technology: Machine Vision + ML/AI Models"
       },
       {
         "type": "h2",
@@ -4361,19 +4344,19 @@ export async function seed() {
       },
       {
         "type": "p",
-        "text": "In the modern industrial landscape, Machine Vision is often misunderstood as a standalone gadget—a high-tech camera perched above a conveyor belt. In reality, machine vision is not an end unto itself. It is a critical sensory organ in the vast universe of manufacturing and quality control, leveraging advanced video image processing to feed raw data into broader ML/AI ecosystems that turn visual inputs into intelligent, automated decisions."
+        "text": "In the modern industrial landscape, Machine Vision is often misunderstood as a standalone gadgetâ€”a high-tech camera perched above a conveyor belt. In reality, machine vision is not an end unto itself. It is a critical sensory organ in the vast universe of manufacturing and quality control, leveraging advanced video image processing to feed raw data into broader ML/AI ecosystems that turn visual inputs into intelligent, automated decisions."
       },
       {
         "type": "p",
-        "text": "For executive leadership, the stakes couldn’t be higher. Quality control is no longer a task to be delegated; it is a fundamental driver of the bottom line. To remain competitive, quality assurance must be a \"built-in\" function, totally integrated into the design and production lifecycle. The computer—and specifically the data it processes—is the bridge to this integration."
+        "text": "For executive leadership, the stakes couldnâ€™t be higher. Quality control is no longer a task to be delegated; it is a fundamental driver of the bottom line. To remain competitive, quality assurance must be a \"built-in\" function, totally integrated into the design and production lifecycle. The computerâ€”and specifically the data it processesâ€”is the bridge to this integration."
       },
       {
         "type": "p",
-        "text": "While the cameras and sensors are impressive, hardware alone should never be the primary consideration. The true value lies in the transition from Image to Data—a process maximized by ML/AI models that analyse, learn from, and act on that data in real time."
+        "text": "While the cameras and sensors are impressive, hardware alone should never be the primary consideration. The true value lies in the transition from Image to Dataâ€”a process maximized by ML/AI models that analyse, learn from, and act on that data in real time."
       },
       {
         "type": "p",
-        "text": "Machine vision systems serve as the foundation for Computer Integrated Manufacturing (CIM). Backed by ML/AI intelligence, they tie together a company’s most vital resources: its people, its equipment, and its facilities (Man, Machine, Method)."
+        "text": "Machine vision systems serve as the foundation for Computer Integrated Manufacturing (CIM). Backed by ML/AI intelligence, they tie together a companyâ€™s most vital resources: its people, its equipment, and its facilities (Man, Machine, Method)."
       },
       {
         "type": "h2",
@@ -4385,7 +4368,7 @@ export async function seed() {
       },
       {
         "type": "bullet",
-        "text": "The Power of Timeliness: For data to be actionable, it must be accurate and—more importantly—timely. Automated data capture allows for real-time process control, significantly reducing errors and minimizing the risks associated with human fatigue."
+        "text": "The Power of Timeliness: For data to be actionable, it must be accurate andâ€”more importantlyâ€”timely. Automated data capture allows for real-time process control, significantly reducing errors and minimizing the risks associated with human fatigue."
       },
       {
         "type": "bullet",
@@ -4407,7 +4390,7 @@ export async function seed() {
       },
       {
         "type": "p",
-        "text": "For yarn manufacturers, Shade Variation—both package-to-package and within a single package—is a persistent technical nightmare. When these dyed yarns are woven into solid-color fabrics, even a slight depth-of-shade variation results in unlevel coloring across the fabric."
+        "text": "For yarn manufacturers, Shade Variationâ€”both package-to-package and within a single packageâ€”is a persistent technical nightmare. When these dyed yarns are woven into solid-color fabrics, even a slight depth-of-shade variation results in unlevel coloring across the fabric."
       },
       {
         "type": "h3",
@@ -4419,7 +4402,7 @@ export async function seed() {
       },
       {
         "type": "bullet",
-        "text": "Re-correction: Attempting to wash or re-dye the material, which is an expensive, time-consuming process that often degrades the yarn’s integrity."
+        "text": "Re-correction: Attempting to wash or re-dye the material, which is an expensive, time-consuming process that often degrades the yarnâ€™s integrity."
       },
       {
         "type": "h3",
@@ -4447,7 +4430,7 @@ export async function seed() {
       },
       {
         "type": "p",
-        "text": "Sophisticated manufacturing requires automated inspection to guarantee quality. From incoming receiving and forming to assembly and shipping, machine vision—powered by advanced ML/AI—is the key to a zero-defect strategy."
+        "text": "Sophisticated manufacturing requires automated inspection to guarantee quality. From incoming receiving and forming to assembly and shipping, machine visionâ€”powered by advanced ML/AIâ€”is the key to a zero-defect strategy."
       },
       {
         "type": "p",
@@ -4474,7 +4457,7 @@ export async function seed() {
   "overcoming-data-access-challenges-in-a-multi-business-environment-for-streamlined-decision-making": {
     "title": "Overcoming Data Access Challenges in a Multi-Business Environment for Streamlined Decision-Making",
     "breadcrumb": "Overcoming Data Access Challenges in a Multi-Business Environment for Streamlined Decision-Making",
-    "tag": "Enterprise · Digital Engineering · Multi-Business Data Access",
+    "tag": "Enterprise Â· Digital Engineering Â· Multi-Business Data Access",
     "illustration": "/images/case-studies/overcoming-data-access-challenges.png",
     "overview": "In a multi-business and services environment, accessing decision-critical data spread across multiple enterprise systems poses significant challenges. Identifying the appropriate business functions for assigned tasks and issues is further complicated by tight SLAs and OLAs compliance targets, representing a major pain point for customers.",
     "docItems": [
@@ -4547,12 +4530,12 @@ export async function seed() {
   "cost-model-simulation": {
     "title": "Cost Model for K-Type Configuration Manufacturing",
     "breadcrumb": "Cost Model for K-Type Configuration Manufacturing",
-    "tag": "Manufacturing · Digital Engineering · Simulation",
+    "tag": "Manufacturing Â· Digital Engineering Â· Simulation",
     "illustration": "/images/case-studies/cost-model-simulation.png",
     "overview": "Bespoke digital engineering cost model simulation platform interlocking bill-of-materials and parametric calculations for K-type manufacturing configurations.",
     "docItems": [
-      { "type": "p", "text": "Cost Model for K-Type Configuration Manufacturing — Parametric Cost Simulation" },
-      { "type": "p", "text": "Industry: Manufacturing · Function: Engineering Simulation · Focus: Parametric Cost Calculation" },
+      { "type": "p", "text": "Cost Model for K-Type Configuration Manufacturing â€” Parametric Cost Simulation" },
+      { "type": "p", "text": "Industry: Manufacturing Â· Function: Engineering Simulation Â· Focus: Parametric Cost Calculation" },
       { "type": "h2", "text": "The Challenge" },
       { "type": "p", "text": "High variance in cost model estimation for complex K-type manufacturing configurations delayed sales quotation cycles and reduced margin accuracy." },
       { "type": "bullet", "text": "Manual spreadsheet calculations led to inconsistent component costing across product variants." },
@@ -4572,19 +4555,19 @@ export async function seed() {
     ],
     "technologyUsed": "Python, Node.js, Microsoft PowerApps, SQL Server, CAD / BOM APIs",
     "more": [
-      { "tag": "Digital Engineering · CRM", "title": "Integrating and Extending CRM Platforms Like Freshdesk", "slug": "enhancing-support-efficiency-with-integrated-order-management" },
-      { "tag": "Digital Engineering · RFQ", "title": "Digital Transformation of the RFQ Management Process", "slug": "enhancing-the-rfq-process-in-d365-business-central" }
+      { "tag": "Digital Engineering Â· CRM", "title": "Integrating and Extending CRM Platforms Like Freshdesk", "slug": "enhancing-support-efficiency-with-integrated-order-management" },
+      { "tag": "Digital Engineering Â· RFQ", "title": "Digital Transformation of the RFQ Management Process", "slug": "enhancing-the-rfq-process-in-d365-business-central" }
     ]
   },
   "enhancing-support-efficiency-with-integrated-order-management": {
     "title": "Integrating and Extending CRM Platforms Like Freshdesk",
     "breadcrumb": "Integrating and Extending CRM Platforms Like Freshdesk",
-    "tag": "Customer Support · Digital Engineering · CRM Integration",
+    "tag": "Customer Support Â· Digital Engineering Â· CRM Integration",
     "illustration": "/images/case-studies/enhancing-support-efficiency-with-integrated-order-management.png",
     "overview": "IdentifYou CRM integration platform extending Freshdesk with automated order management workflows, messaging, and support operations analytics.",
     "docItems": [
-      { "type": "p", "text": "Integrating and Extending CRM Platforms Like Freshdesk — Customer Support Efficiency" },
-      { "type": "p", "text": "Industry: Customer Support · Function: CRM Integration · Focus: Order Management Workflow" },
+      { "type": "p", "text": "Integrating and Extending CRM Platforms Like Freshdesk â€” Customer Support Efficiency" },
+      { "type": "p", "text": "Industry: Customer Support Â· Function: CRM Integration Â· Focus: Order Management Workflow" },
       { "type": "h2", "text": "The Challenge" },
       { "type": "p", "text": "Disconnected support channels and manual order tracking caused delayed resolution times and high ticket backlogs for support agents." },
       { "type": "bullet", "text": "Agents toggled between CRM tickets and ERP order screens to find order status." },
@@ -4604,14 +4587,14 @@ export async function seed() {
     ],
     "technologyUsed": "Freshdesk API, Node.js, React.js, WebSockets, PostgreSQL, ERP Connectors",
     "more": [
-      { "tag": "Digital Engineering · Cost Simulation", "title": "Cost Model for K-Type Configuration Manufacturing", "slug": "cost-model-simulation" },
-      { "tag": "Digital Engineering · RFQ Automation", "title": "Digital Transformation of the RFQ Management Process", "slug": "enhancing-the-rfq-process-in-d365-business-central" }
+      { "tag": "Digital Engineering Â· Cost Simulation", "title": "Cost Model for K-Type Configuration Manufacturing", "slug": "cost-model-simulation" },
+      { "tag": "Digital Engineering Â· RFQ Automation", "title": "Digital Transformation of the RFQ Management Process", "slug": "enhancing-the-rfq-process-in-d365-business-central" }
     ]
   },
   "overcoming-data-access-challenges": {
     "title": "Overcoming Data Access Challenges in a Multi-Business Environment for Streamlined Decision-Making",
     "breadcrumb": "Overcoming Data Access Challenges",
-    "tag": "Enterprise · Digital Engineering · Multi-Business Data Access",
+    "tag": "Enterprise Â· Digital Engineering Â· Multi-Business Data Access",
     "illustration": "/images/case-studies/overcoming-data-access-challenges.png",
     "overview": "In a multi-business and services environment, accessing decision-critical data spread across multiple enterprise systems poses significant challenges. Identifying the appropriate business functions for assigned tasks and issues is further complicated by tight SLAs and OLAs compliance targets, representing a major pain point for customers.",
     "docItems": [
@@ -4691,6 +4674,166 @@ export async function seed() {
         "slug": "enhancing-support-efficiency-with-integrated-order-management"
       }
     ]
+  },
+  "enhancing-the-rfq-process-in-d365-business-central": {
+    "title": "Digital Transformation of the RFQ Management Process in D365 Business Central",
+    "breadcrumb": "RFQ Management in D365",
+    "tag": "Manufacturing · Digital Engineering · RFQ Automation",
+    "illustration": "/images/case-studies/enhancing-the-rfq-process-in-d365-business-central.png",
+    "overview": "Transforming manual and fragmented RFQ management in Dynamics 365 Business Central into an automated, streamlined digital workflow that accelerates vendor quoting, reduces procurement turnaround times, and enhances supply chain compliance.",
+    "docItems": [
+      {
+        "type": "h2",
+        "text": "Problem Statement"
+      },
+      {
+        "type": "p",
+        "text": "Manufacturing enterprises managing vendor quotations manually within Microsoft Dynamics 365 Business Central often face delayed turnaround times, communication silos, and lack of real-time visibility across complex procurement cycles. Managing RFQ documents across decentralized spreadsheets led to high procurement overhead and error-prone quote comparisons."
+      },
+      {
+        "type": "h2",
+        "text": "Solution Approach"
+      },
+      {
+        "type": "p",
+        "text": "IdentifYou designed and implemented an intelligent RFQ automation subsystem deeply integrated with Microsoft Dynamics 365 Business Central. The platform automates quote ingestion, standardizes vendor response templates, and provides automated side-by-side quote evaluation matrices."
+      },
+      {
+        "type": "h2",
+        "text": "Key Features"
+      },
+      {
+        "type": "bullet",
+        "text": "Automated RFQ Distribution: Instant dispatch of standardized quotation requests to vetted vendor networks directly from Business Central purchase lines."
+      },
+      {
+        "type": "bullet",
+        "text": "Intelligent Vendor Portal: Secure digital vendor portal allowing suppliers to submit bids, line-item pricing, and delivery timelines directly into the ERP pipeline."
+      },
+      {
+        "type": "bullet",
+        "text": "Comparative Analytics Matrix: Real-time price variance, lead time scoring, and automated award recommendations based on corporate purchasing policies."
+      },
+      {
+        "type": "h2",
+        "text": "Key Benefits"
+      },
+      {
+        "type": "bullet",
+        "text": "60% Reduction in Procurement Turnaround Time: Slashed quotation handling from weeks to days."
+      },
+      {
+        "type": "bullet",
+        "text": "100% Audit Compliance: Full trace audit log of all vendor interactions, bid versions, and procurement decisions within D365."
+      },
+      {
+        "type": "bullet",
+        "text": "Lower Procurement Cost: Competitive vendor bidding transparency resulting in measurable savings on direct materials."
+      }
+    ],
+    "results": [
+      {
+        "stat": "60%",
+        "label": "Faster RFQ Turnaround"
+      },
+      {
+        "stat": "100%",
+        "label": "Audit Traceability in D365"
+      }
+    ],
+    "technologyUsed": "Microsoft Dynamics 365 Business Central, Azure Functions, Power Automate, TypeScript, REST APIs",
+    "more": [
+      {
+        "tag": "Manufacturing · Digital Engineering · Cost Simulation",
+        "title": "Cost Model for K-Type Configuration Manufacturing",
+        "slug": "cost-model-simulation"
+      },
+      {
+        "tag": "Customer Support · Digital Engineering · CRM Integration",
+        "title": "Integrating and Extending CRM Platforms Like Freshdesk",
+        "slug": "enhancing-support-efficiency-with-integrated-order-management"
+      }
+    ]
+  },
+  "tailored-enterprise-solutions": {
+    "title": "Tailored Enterprise Digital Solutions & Integrated Portals",
+    "breadcrumb": "Tailored Enterprise Solutions",
+    "tag": "Enterprise · Digital Engineering · Custom Portals",
+    "illustration": "/images/case-studies/tailored-enterprise-solutions.png",
+    "overview": "Bespoke digital engineering microservices and enterprise portals tailored to bridge core ERP systems with operational workflows, eliminating operational silos and driving enterprise-wide efficiency.",
+    "docItems": [
+      {
+        "type": "h2",
+        "text": "Problem Statement"
+      },
+      {
+        "type": "p",
+        "text": "Legacy enterprise architectures often force cross-functional teams to rely on fragmented tools, disparate databases, and manual data reconciliation. Off-the-shelf software failed to fit specialized business logic, resulting in process bottlenecks and data discrepancies."
+      },
+      {
+        "type": "h2",
+        "text": "Solution Approach"
+      },
+      {
+        "type": "p",
+        "text": "IdentifYou engineered bespoke enterprise portals and integration microservices tailored precisely to the client's operational architecture. The solution wraps existing ERP, PLM, and CRM backends with modern responsive web interfaces and automated business rule engines."
+      },
+      {
+        "type": "h2",
+        "text": "Key Features"
+      },
+      {
+        "type": "bullet",
+        "text": "Unified Enterprise Hub: Single sign-on portal connecting legacy ERP systems with modern workflow orchestration."
+      },
+      {
+        "type": "bullet",
+        "text": "Custom Business Logic Engines: Dynamic rule execution tailored to unique production, costing, and fulfillment models."
+      },
+      {
+        "type": "bullet",
+        "text": "Secure Enterprise Data Connectors: High-throughput bi-directional APIs ensuring real-time data sync with zero data loss."
+      },
+      {
+        "type": "h2",
+        "text": "Key Benefits"
+      },
+      {
+        "type": "bullet",
+        "text": "Streamlined Cross-Functional Workflows: Eliminated manual data re-entry across 5 core enterprise departments."
+      },
+      {
+        "type": "bullet",
+        "text": "High Scalability & Reliability: Cloud-native architecture designed for 99.99% availability under peak enterprise loads."
+      },
+      {
+        "type": "bullet",
+        "text": "Rapid Deployment: Modular component architecture delivered 3x faster than traditional ERP custom builds."
+      }
+    ],
+    "results": [
+      {
+        "stat": "3x",
+        "label": "Accelerated Deployment Cycle"
+      },
+      {
+        "stat": "99.99%",
+        "label": "System Availability & Data Sync"
+      }
+    ],
+    "technologyUsed": "Node.js, Next.js, PostgreSQL, Docker, Azure Microservices, REST / GraphQL APIs",
+    "more": [
+      {
+        "tag": "Customer Support · Digital Engineering · CRM Integration",
+        "title": "Integrating and Extending CRM Platforms Like Freshdesk",
+        "slug": "enhancing-support-efficiency-with-integrated-order-management"
+      },
+      {
+        "tag": "Enterprise · Digital Engineering · Multi-Business Data Access",
+        "title": "Overcoming Data Access Challenges in a Multi-Business Environment",
+        "slug": "overcoming-data-access-challenges"
+      }
+    ]
   }
 }
 
@@ -4729,7 +4872,6 @@ export async function seed() {
     // Digital Engineering
     { slug: 'cost-model-simulation', categoryId: digitalEngineeringCat.id, filter: [{ category: 'Digital Engineering' }, { category: 'Automation' }, { category: 'Manufacturing' }] },
     { slug: 'enhancing-support-efficiency-with-integrated-order-management', categoryId: digitalEngineeringCat.id, filter: [{ category: 'Digital Engineering' }, { category: 'Automation' }, { category: 'Customer Support' }] },
-    { slug: 'overcoming-data-access-challenges-in-a-multi-business-environment-for-streamlined-decision-making', categoryId: digitalEngineeringCat.id, filter: [{ category: 'Digital Engineering' }, { category: 'Data' }, { category: 'Automation' }] },
     { slug: 'overcoming-data-access-challenges', categoryId: digitalEngineeringCat.id, filter: [{ category: 'Digital Engineering' }, { category: 'Data' }, { category: 'Automation' }] },
     { slug: 'enhancing-the-rfq-process-in-d365-business-central', categoryId: digitalEngineeringCat.id, filter: [{ category: 'Digital Engineering' }, { category: 'Manufacturing' }, { category: 'Supply Chain' }] },
     { slug: 'tailored-enterprise-solutions', categoryId: digitalEngineeringCat.id, filter: [{ category: 'Digital Engineering' }, { category: 'Automation' }, { category: 'Manufacturing' }] },

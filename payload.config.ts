@@ -77,8 +77,11 @@ export default buildConfig({
   admin: {
     user: 'users',
     suppressHydrationWarning: true,
+    toast: {
+      position: 'top-right',
+    },
     meta: {
-      titleSuffix: '— IdentifYou Admin',
+      titleSuffix: ' - IdentifYou Admin',
     },
     livePreview: {
       url: serverURL,

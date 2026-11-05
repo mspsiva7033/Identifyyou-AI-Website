@@ -6,7 +6,14 @@ import { PageTransitionLoader } from '@/components/ui/PageTransitionLoader'
 import { WhatsAppButton } from '@/components/ui/WhatsAppButton'
 import { CookieConsent } from '@/components/ui/CookieConsent'
 import { JsonLdSchema } from '@/components/seo/JsonLdSchema'
-import { UmamiAnalyticsTracker, UMAMI_WEBSITE_ID, UMAMI_HOST_URL } from '@/lib/umami'
+import { UmamiAnalyticsTracker } from '@/lib/umami'
+
+const UMAMI_WEBSITE_ID =
+  process.env.NEXT_PUBLIC_UMAMI_WEBSITE_ID &&
+  process.env.NEXT_PUBLIC_UMAMI_WEBSITE_ID !== 'your-umami-website-id'
+    ? process.env.NEXT_PUBLIC_UMAMI_WEBSITE_ID
+    : undefined
+const UMAMI_HOST_URL = (process.env.NEXT_PUBLIC_UMAMI_HOST_URL || 'https://cloud.umami.is').replace(/\/$/, '')
 import '../globals.css'
 
 const manrope = Manrope({
