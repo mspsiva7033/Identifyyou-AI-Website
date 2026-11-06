@@ -1100,19 +1100,25 @@ html[data-theme='dark'] {
     }
   }
 
-  /* Notification Toasts & Alerts (Positioned from top, not bottom) */
+  /* Notification Toasts & Alerts */
   [data-sonner-toaster],
   .payload-toast-container {
     top: 24px !important;
     bottom: auto !important;
     right: 24px !important;
     left: auto !important;
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
   }
 
   [data-sonner-toaster] [data-sonner-toast],
-  .payload-toast-container,
+  .payload-toast-container .payload-toast-item,
   .payload-toast-item,
   .toast {
+    top: 0 !important;
+    bottom: auto !important;
+    transform: none !important;
     background: #14241B !important;
     border: 1px solid #96c73d !important;
     color: #FFFFFF !important;

@@ -1,4 +1,4 @@
-import * as fs from 'fs'
+﻿import * as fs from 'fs'
 import * as path from 'path'
 
 const envPath = path.resolve(process.cwd(), '.env.local')
@@ -122,7 +122,7 @@ export async function seed() {
       "customCTA": {
         "title": "Sub-Case Study: Power BI ABM Analytics & Installation Guide",
         "desc": "Access the complete Power BI ABM framework, deployment guide, Snowflake connection parameters, configuration options, validation steps, troubleshooting, and user guide below.",
-        "linkLabel": "POWER BI ABM â†’",
+        "linkLabel": "POWER BI ABM →",
         "linkHref": "/success-stories/power-bi-abm"
       },
       "results": [
