@@ -24,6 +24,10 @@ export function AnalyticsNav() {
     setCurrentTheme(nextTheme)
     setTheme(nextTheme)
     document.documentElement.setAttribute('data-theme', nextTheme)
+    document.cookie = `payload-theme=${nextTheme};path=/;max-age=31536000;SameSite=Lax`
+    try {
+      localStorage.setItem('payload-theme', nextTheme)
+    } catch {}
 
     if (user?.id) {
       try {

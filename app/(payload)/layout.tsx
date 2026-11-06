@@ -8,6 +8,7 @@ import React from 'react'
 
 import { importMap } from './admin/importMap.js'
 import './custom.scss'
+import { GlobalThemeEnforcer } from '@/components/admin/GlobalThemeEnforcer'
 
 type Args = {
   children: React.ReactNode
@@ -29,6 +30,7 @@ const Layout = ({ children }: Args) => (
     importMap={importMap}
     serverFunction={serverFunction}
   >
+    <GlobalThemeEnforcer />
     {children}
   </RootLayout>
 )

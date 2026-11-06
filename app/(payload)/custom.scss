@@ -5,9 +5,9 @@
 /* ----------------------------------------------------------------------
    1. ROOT THEME VARIABLES & GLOBAL TOKENS
    ---------------------------------------------------------------------- */
-/* Dark theme tokens & styles (active by default or when dark mode is chosen) */
-html[data-theme='dark'],
-:root:not([data-theme='light']) {
+:root,
+html[data-theme='light'],
+html[data-theme='dark'] {
   --theme-bg: #090E0C !important;
   --theme-input-bg: #101815 !important;
   --theme-elevation-0: #060908 !important;
@@ -28,8 +28,27 @@ html[data-theme='dark'],
   --theme-success-300: #a6d64c !important;
   --theme-success-100: rgba(150, 199, 61, 0.15) !important;
 
-  /* Global Body */
-  body, .template-default, .app-header, .sidebar, .nav {
+  /* Global Body & All Admin Views */
+  body,
+  main,
+  .template-default,
+  .template-blank,
+  .collection-list,
+  .collection-edit,
+  .global-edit,
+  .account,
+  .dashboard,
+  .doc-header,
+  .doc-controls,
+  .doc-fields,
+  .document-fields,
+  .app-header,
+  .sidebar,
+  .nav,
+  .gutter--left,
+  .gutter--right,
+  [class*="template-"],
+  [class*="collection-"] {
     background-color: #090E0C !important;
     color: #F0F5F2 !important;
     font-family: 'IBM Plex Sans', -apple-system, BlinkMacSystemFont, sans-serif !important;
@@ -1385,7 +1404,7 @@ html[data-theme='dark'],
 }
 
 /* ==========================================================================
-   LIGHT THEME ENHANCEMENTS WITH IDENTIFYOU BRAND COLORS
+   LIGHT THEME ENHANCEMENTS WITH IDENTIFYOU BRAND COLORS & HIGH CONTRAST
    ========================================================================== */
 html[data-theme='light'] {
   --theme-bg: #F4F6F5 !important;
@@ -1398,23 +1417,354 @@ html[data-theme='light'] {
   --theme-elevation-250: #B2C4B7 !important;
   --theme-elevation-300: #9EB2A4 !important;
   --theme-border-color: rgba(0, 0, 0, 0.12) !important;
-  --theme-text: #111815 !important;
-  --theme-elevation-800: #3D4F46 !important;
-  --theme-elevation-900: #111815 !important;
+  --theme-text: #0F172A !important;
+  --theme-elevation-800: #1E293B !important;
+  --theme-elevation-900: #0F172A !important;
 
   /* Brand Green Accent Palette for Light Mode */
-  --theme-success-500: #588714 !important;
-  --theme-success-400: #6B9C1E !important;
-  --theme-success-300: #7DAF25 !important;
-  --theme-success-100: rgba(125, 175, 37, 0.12) !important;
+  --theme-success-500: #166534 !important;
+  --theme-success-400: #15803D !important;
+  --theme-success-300: #65A30D !important;
+  --theme-success-100: rgba(22, 101, 52, 0.1) !important;
 
-  body, .template-default, .app-header, .sidebar, .nav {
+  /* Global Body & All Admin Views */
+  body,
+  main,
+  .template-default,
+  .template-blank,
+  .collection-list,
+  .collection-edit,
+  .global-edit,
+  .account,
+  .dashboard,
+  .doc-header,
+  .doc-controls,
+  .doc-fields,
+  .document-fields,
+  .app-header,
+  .sidebar,
+  .nav,
+  .gutter--left,
+  .gutter--right,
+  [class*="template-"],
+  [class*="collection-"] {
     background-color: #F4F6F5 !important;
-    color: #111815 !important;
+    color: #0F172A !important;
     font-family: 'IBM Plex Sans', -apple-system, BlinkMacSystemFont, sans-serif !important;
   }
 
-  /* Form and Inputs in Light Mode */
+  /* Headings & Page Titles (Crisp dark slate text) */
+  .doc-header__title,
+  .doc-header h1,
+  .form-header h1,
+  .view-description,
+  h1, h2, h3, h4, h5, h6 {
+    color: #0F172A !important;
+  }
+
+  /* Form Labels & Required Indicators (High-contrast bold slate) */
+  .field-type .field-label,
+  .field-type label,
+  .form label,
+  .form .field-label,
+  label,
+  .field-label,
+  .render-fields .field-label,
+  .render-fields label {
+    color: #1E293B !important;
+    font-weight: 700 !important;
+  }
+
+  /* Metadata, Subtitles, Helper Notes & Descriptions */
+  .doc-header__meta,
+  .doc-header__meta span,
+  .doc-header p,
+  .field-description,
+  .field-description p,
+  .field-type p,
+  p.field-description,
+  p {
+    color: #475569 !important;
+  }
+
+  /* Document Controls (Sticky Action & Metadata Bar) */
+  .doc-controls {
+    background-color: rgba(244, 246, 245, 0.95) !important;
+    border-bottom: 1px solid #E2EAE4 !important;
+
+    &__divider {
+      background: #E2EAE4 !important;
+    }
+
+    &__value {
+      color: #0F172A !important;
+      font-weight: 600 !important;
+    }
+
+    &__label {
+      color: #475569 !important;
+      font-weight: 500 !important;
+    }
+
+    &__dots {
+      border: 1px solid #CBD5E1 !important;
+      background-color: #FFFFFF !important;
+      color: #1E293B !important;
+
+      div {
+        background-color: #1E293B !important;
+      }
+
+      &:hover {
+        border-color: #94A3B8 !important;
+        background-color: #F1F5F9 !important;
+      }
+    }
+  }
+
+  /* Document Header Tabs (Edit, API, Versions pill container) */
+  .doc-tabs {
+    &__tabs-container {
+      background-color: #EDF2EE !important;
+      border: 1px solid #CBD5E1 !important;
+      box-shadow: none !important;
+    }
+
+    .doc-tab,
+    .btn--style-tab {
+      background: transparent !important;
+      color: #475569 !important;
+      font-weight: 600 !important;
+
+      &:hover {
+        color: #0F172A !important;
+        background-color: rgba(0, 0, 0, 0.05) !important;
+      }
+
+      &--active,
+      &.btn--disabled,
+      &[aria-selected="true"] {
+        background-color: #FFFFFF !important;
+        color: #15803D !important;
+        border-color: #CBD5E1 !important;
+        font-weight: 700 !important;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08) !important;
+      }
+    }
+  }
+
+  /* Sidebar Navigation (High contrast, clearly visible links & section headers) */
+  .nav,
+  .sidebar {
+    background-color: #FFFFFF !important;
+    border-right: 1px solid #E2EAE4 !important;
+
+    .nav-group__label {
+      color: #15803D !important;
+      font-weight: 700 !important;
+      font-size: 11px !important;
+      letter-spacing: 0.08em !important;
+      text-transform: uppercase !important;
+    }
+
+    .nav-group__toggle {
+      color: #0F172A !important;
+      font-weight: 700 !important;
+      text-transform: uppercase !important;
+      letter-spacing: 0.05em !important;
+
+      &:hover {
+        background-color: rgba(22, 101, 52, 0.08) !important;
+        color: #15803D !important;
+      }
+    }
+
+    .nav__link {
+      color: #334155 !important;
+      font-weight: 600 !important;
+
+      &:hover {
+        background-color: rgba(22, 101, 52, 0.08) !important;
+        color: #15803D !important;
+      }
+
+      &--active,
+      &:has(.nav__link-indicator) {
+        background-color: rgba(22, 101, 52, 0.12) !important;
+        color: #15803D !important;
+        font-weight: 700 !important;
+      }
+    }
+
+    .nav__link-indicator {
+      background-color: #15803D !important;
+    }
+  }
+
+  /* App Header & Breadcrumbs / StepNav */
+  .app-header {
+    background-color: #FFFFFF !important;
+    border-bottom: 1px solid #E2EAE4 !important;
+
+    .app-header__step-nav,
+    .step-nav,
+    .step-nav__link {
+      color: #475569 !important;
+
+      a {
+        color: #15803D !important;
+        font-weight: 600 !important;
+      }
+
+      span {
+        color: #64748B !important;
+      }
+    }
+  }
+
+  /* Secondary & Outline Buttons ("Change Password", "Force Unlock", etc.) */
+  .btn--style-secondary,
+  button.btn--style-secondary,
+  #action-save-draft,
+  .btn#action-save-draft {
+    background-color: #FFFFFF !important;
+    border: 1px solid #CBD5E1 !important;
+    color: #1E293B !important;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05) !important;
+
+    .btn__content,
+    .btn__label,
+    span {
+      color: #1E293B !important;
+    }
+
+    &:hover {
+      background-color: #F1F5F9 !important;
+      border-color: #94A3B8 !important;
+      color: #0F172A !important;
+
+      .btn__content,
+      .btn__label,
+      span {
+        color: #0F172A !important;
+      }
+    }
+  }
+
+  /* Primary Button (Save, Create, Submit) */
+  .btn--style-primary,
+  button[type="submit"]:not(.btn--style-secondary):not(#action-save-draft) {
+    background-color: #15803D !important;
+    color: #FFFFFF !important;
+
+    .btn__content,
+    .btn__label,
+    span {
+      color: #FFFFFF !important;
+    }
+
+    &:hover {
+      background-color: #166534 !important;
+    }
+  }
+
+  /* Pill Buttons & List Filter Controls */
+  .list-controls__toggle-columns,
+  .list-controls__toggle-where,
+  .list-controls__toggle-sort,
+  .list-controls__toggle-group-by,
+  .list-controls {
+    .btn,
+    .pill,
+    button {
+      background-color: #FFFFFF !important;
+      border: 1px solid #CBD5E1 !important;
+      color: #334155 !important;
+
+      &:hover {
+        background-color: #F1F5F9 !important;
+        border-color: #94A3B8 !important;
+        color: #0F172A !important;
+      }
+
+      &--active,
+      &[aria-expanded="true"] {
+        background-color: rgba(22, 101, 52, 0.1) !important;
+        border-color: #15803D !important;
+        color: #15803D !important;
+      }
+    }
+  }
+
+  /* Search Bar & Filter Inputs */
+  .search-bar,
+  .search-filter {
+    background-color: #FFFFFF !important;
+    border: 1px solid #CBD5E1 !important;
+
+    .icon--search,
+    svg {
+      color: #475569 !important;
+      stroke: #475569 !important;
+    }
+
+    input,
+    #search-filter-input,
+    .search-filter__input {
+      color: #0F172A !important;
+      background: transparent !important;
+
+      &::placeholder {
+        color: #94A3B8 !important;
+      }
+    }
+
+    &:focus-within {
+      border-color: #15803D !important;
+      box-shadow: 0 0 0 3px rgba(22, 101, 52, 0.15) !important;
+    }
+  }
+
+  /* Checkboxes (e.g. ACTIVE STATUS) */
+  .checkbox-input {
+    .checkbox-input__input {
+      background-color: #FFFFFF !important;
+      border: 1.5px solid #CBD5E1 !important;
+
+      &:hover {
+        border-color: #15803D !important;
+      }
+    }
+
+    &--checked .checkbox-input__input {
+      background-color: #15803D !important;
+      border-color: #15803D !important;
+
+      .checkbox-input__icon svg {
+        opacity: 1 !important;
+        stroke: #FFFFFF !important;
+        color: #FFFFFF !important;
+      }
+    }
+
+    .checkbox-input__icon svg {
+      stroke: #FFFFFF !important;
+    }
+  }
+
+  /* Cards, Containers & Forms */
+  .card,
+  .dashboard__card,
+  .collection-list__wrap,
+  .render-fields,
+  .doc-fields,
+  .form {
+    background-color: #FFFFFF !important;
+    border-color: #E2EAE4 !important;
+    color: #0F172A !important;
+  }
+
+  /* Form Inputs & Selects */
   input[type="email"],
   input[type="password"],
   input[type="text"]:not(.rs__input):not(.rs__control input):not(.search-filter input):not(#search-filter-input):not(.search-bar input),
@@ -1422,58 +1772,284 @@ html[data-theme='light'] {
   textarea,
   select {
     background-color: #FFFFFF !important;
-    color: #111815 !important;
-    border: 1px solid #D5E0D8 !important;
+    color: #0F172A !important;
+    border: 1px solid #CBD5E1 !important;
 
     &:focus {
-      border-color: #6B9C1E !important;
-      box-shadow: 0 0 0 3px rgba(125, 175, 37, 0.2) !important;
+      border-color: #15803D !important;
+      box-shadow: 0 0 0 3px rgba(22, 101, 52, 0.15) !important;
       background-color: #FFFFFF !important;
+    }
+
+    &::placeholder {
+      color: #94A3B8 !important;
     }
   }
 
+  /* React Select & Dropdowns */
   .rs__control {
     background-color: #FFFFFF !important;
-    border: 1px solid #D5E0D8 !important;
+    border: 1px solid #CBD5E1 !important;
 
     .rs__single-value {
-      color: #111815 !important;
+      color: #0F172A !important;
     }
-  }
 
-  .field-label, label {
-    color: #3D4F46 !important;
-  }
+    .rs__placeholder {
+      color: #94A3B8 !important;
+    }
 
-  .table {
-    tbody tr {
-      background-color: #FFFFFF !important;
-      color: #111815 !important;
-      border-bottom: 1px solid #EDF2EE !important;
+    .rs__indicator {
+      color: #475569 !important;
 
-      &:hover {
-        background-color: #F8FAF9 !important;
+      svg {
+        stroke: #475569 !important;
       }
     }
   }
 
-  .btn--style-primary {
-    background-color: #7DAF25 !important;
-    color: #FFFFFF !important;
+  /* React Select Multi-Value Tags (e.g. ASSIGNED ROLES "Administrator x") */
+  .rs__multi-value {
+    background-color: rgba(22, 101, 52, 0.1) !important;
+    border: 1px solid rgba(22, 101, 52, 0.25) !important;
+    border-radius: 6px !important;
 
-    &:hover {
-      background-color: #588714 !important;
+    .rs__multi-value__label {
+      color: #15803D !important;
+      font-weight: 600 !important;
+    }
+
+    .rs__multi-value__remove {
+      color: #15803D !important;
+
+      &:hover {
+        background-color: #15803D !important;
+        color: #FFFFFF !important;
+      }
     }
   }
 
-  .app-header {
+  .rs__menu {
     background-color: #FFFFFF !important;
-    border-bottom: 1px solid #E2EAE4 !important;
+    border: 1px solid #CBD5E1 !important;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08) !important;
+
+    .rs__option {
+      color: #0F172A !important;
+
+      &--is-focused {
+        background-color: rgba(22, 101, 52, 0.08) !important;
+        color: #15803D !important;
+      }
+
+      &--is-selected {
+        background-color: #15803D !important;
+        color: #FFFFFF !important;
+      }
+    }
   }
 
-  .sidebar {
+  /* Field Groups and Array Containers */
+  .field-type.group,
+  .field-type.array {
+    background-color: #F8FAF9 !important;
+    border: 1px solid #E2EAE4 !important;
+  }
+
+  /* Tables & Collection List — Full Light Mode Override */
+  .table-container,
+  .table {
     background-color: #FFFFFF !important;
-    border-right: 1px solid #E2EAE4 !important;
+    border: 1px solid #E2EAE4 !important;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06) !important;
+
+    table {
+      background-color: #FFFFFF !important;
+    }
+
+    /* Column header row (FULL NAME, EMAIL, ASSIGNED ROLES, ACTIVE STATUS) */
+    thead th {
+      background-color: #F1F5F9 !important;
+      color: #15803D !important;
+      border-bottom: 1px solid #CBD5E1 !important;
+    }
+
+    /* Sort column buttons inherit thead color */
+    .sort-column__button {
+      color: inherit !important;
+
+      .sort-column__label {
+        color: inherit !important;
+      }
+
+      .sort-column__asc,
+      .sort-column__desc {
+        color: rgba(21, 128, 61, 0.5) !important;
+      }
+    }
+
+    /* Table body rows */
+    tbody td {
+      color: #0F172A !important;
+      border-bottom: 1px solid #EDF2EE !important;
+      background-color: transparent !important;
+
+      a {
+        color: #15803D !important;
+
+        &:hover {
+          color: #166534 !important;
+        }
+      }
+    }
+
+    tbody tr {
+      background-color: #FFFFFF !important;
+      color: #0F172A !important;
+      border-bottom: 1px solid #EDF2EE !important;
+
+      &:hover td {
+        background-color: #F8FAF9 !important;
+        color: #0F172A !important;
+      }
+    }
+
+    /* Checkbox select column */
+    th#heading-_select,
+    th.cell-_select,
+    td.cell-_select {
+      background-color: transparent !important;
+    }
+  }
+
+  /* Dashboard Collection Cards */
+  .card,
+  .collections__card-list .card,
+  .card-list__card {
+    background-color: #FFFFFF !important;
+    border: 1px solid #E2EAE4 !important;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06) !important;
+
+    .card__title,
+    h3.card__title,
+    h4.card__title,
+    h5.card__title {
+      color: #0F172A !important;
+
+      a, span {
+        color: #0F172A !important;
+      }
+    }
+
+    .card__actions .btn,
+    .card__actions .btn--style-icon-label {
+      background: rgba(22, 101, 52, 0.1) !important;
+      border: 1px solid rgba(22, 101, 52, 0.3) !important;
+      color: #15803D !important;
+
+      svg {
+        stroke: #15803D !important;
+      }
+
+      &:hover {
+        background: #15803D !important;
+
+        svg {
+          stroke: #FFFFFF !important;
+        }
+      }
+    }
+
+    &:hover {
+      background-color: #F8FAF9 !important;
+      border-color: #CBD5E1 !important;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1) !important;
+      transform: translateY(-2px) !important;
+
+      .card__title,
+      h3.card__title,
+      .card__title a,
+      .card__title span {
+        color: #15803D !important;
+      }
+    }
+  }
+
+  /* Dashboard collection group labels */
+  .collections__group .collections__label {
+    color: #0F172A !important;
+  }
+
+  /* Pill Badges & Status Indicators (e.g. "true" in ACTIVE STATUS column) */
+  .pill,
+  .status-pill,
+  tbody td .pill,
+  tbody td .status-pill {
+    background: rgba(22, 101, 52, 0.08) !important;
+    border: 1px solid rgba(22, 101, 52, 0.2) !important;
+    color: #15803D !important;
+    font-weight: 700 !important;
+  }
+
+  /* Rich Text Editors */
+  .rich-text,
+  .payload-richtext {
+    background-color: #FFFFFF !important;
+    border-color: #CBD5E1 !important;
+    color: #0F172A !important;
+  }
+
+  /* Modals, Popups & Drawers */
+  .popup__content,
+  .popup-button-list,
+  .drawer__content,
+  .modal {
+    background-color: #FFFFFF !important;
+    border: 1px solid #CBD5E1 !important;
+    color: #0F172A !important;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12) !important;
+
+    button,
+    a {
+      color: #1E293B !important;
+
+      &:hover {
+        background-color: #F1F5F9 !important;
+        color: #0F172A !important;
+      }
+    }
+  }
+
+  /* React Datepicker in Light Mode */
+  .react-datepicker {
+    background-color: #FFFFFF !important;
+    border: 1px solid #CBD5E1 !important;
+    color: #0F172A !important;
+
+    &__header {
+      background-color: #F8FAF9 !important;
+      border-bottom: 1px solid #E2EAE4 !important;
+    }
+
+    &__current-month,
+    &__day-name {
+      color: #0F172A !important;
+    }
+
+    &__day {
+      color: #1E293B !important;
+
+      &:hover {
+        background-color: rgba(22, 101, 52, 0.1) !important;
+        color: #15803D !important;
+      }
+
+      &--selected {
+        background-color: #15803D !important;
+        color: #FFFFFF !important;
+      }
+    }
   }
 }
+
 
