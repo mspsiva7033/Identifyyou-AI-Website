@@ -5514,7 +5514,7 @@ export async function getCaseStudyBySlug(slug: string): Promise<CaseStudyDetail 
     const payload = await getPayloadClient()
     if (!payload) return getFallback()
 
-    const result = await payload.find({
+    let result = await payload.find({
       collection: 'case-studies',
       where: {
         and: [
@@ -5527,7 +5527,20 @@ export async function getCaseStudyBySlug(slug: string): Promise<CaseStudyDetail 
     })
 
     if (!result.docs || result.docs.length === 0) {
-      return null
+      // Check for draft documents (enables previewing drafts directly from admin panel)
+      result = await payload.find({
+        collection: 'case-studies',
+        where: {
+          or: slugsToTry.map((s) => ({ slug: { equals: s } })),
+        },
+        draft: true,
+        limit: 1,
+        depth: 2,
+      })
+    }
+
+    if (!result.docs || result.docs.length === 0) {
+      return getFallback()
     }
 
     const doc: any = result.docs[0]
@@ -5844,6 +5857,19 @@ export async function getBlogBySlug(slug: string): Promise<BlogArticleDetail | n
       if (matched) {
         result.docs = [matched]
       }
+    }
+
+    if (!result.docs || result.docs.length === 0) {
+      // Check for drafts (e.g. for previewing in admin panel)
+      result = await payload.find({
+        collection: 'blogs-and-news' as any,
+        where: {
+          or: searchSlugs.map((s) => ({ slug: { equals: s } })),
+        },
+        draft: true,
+        limit: 1,
+        depth: 2,
+      })
     }
 
     if (result.docs && result.docs.length > 0) {

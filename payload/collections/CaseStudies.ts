@@ -17,13 +17,15 @@ export const CaseStudies: CollectionConfig = {
     group: 'Success Stories',
     defaultColumns: ['title', 'category', 'status', 'createdBy', 'updatedBy', 'displayOrder'],
     preview: (doc) => {
-      const slug = (doc?.slug as string) || 'manufacturing-data-platform'
-      return `${process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000'}/success-stories/${slug}`
+      const slug = doc?.slug as string
+      if (!slug) return null
+      return `/success-stories/${slug}`
     },
     livePreview: {
       url: ({ data }: { data: Record<string, unknown> }) => {
-        const slug = data?.slug || 'manufacturing-data-platform'
-        return `${process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000'}/success-stories/${slug}`
+        const slug = data?.slug as string
+        if (!slug) return ''
+        return `/success-stories/${slug}`
       },
     },
   },

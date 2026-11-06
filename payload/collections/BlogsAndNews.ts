@@ -17,8 +17,9 @@ export const BlogsAndNews: CollectionConfig = {
     group: 'Content',
     defaultColumns: ['title', 'category', 'status', 'createdBy', 'updatedBy', 'publishedAt'],
     preview: (doc) => {
-      const slug = (doc?.slug as string) || ''
-      return `${process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000'}/blogs-and-news/${slug}`
+      const slug = doc?.slug as string
+      if (!slug) return null
+      return `/blogs-and-news/${slug}`
     },
   },
   access: {
