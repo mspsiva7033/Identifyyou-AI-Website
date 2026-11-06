@@ -1,4 +1,4 @@
-﻿import * as fs from 'fs'
+import * as fs from 'fs'
 import * as path from 'path'
 
 const envPath = path.resolve(process.cwd(), '.env.local')
@@ -357,6 +357,46 @@ export async function seed() {
       "results": [
         { "stat": "3-Stage", "label": "Controlled Environment Promotion" },
         { "stat": "Complete", "label": "Revision Control & Feature Push" }
+      ]
+    },
+    "optimizing-shipment-fleet-snowflake": {
+      "title": "Optimizing Logistics, Shipment & Fleet Operations with Snowflake",
+      "breadcrumb": "Optimizing Logistics, Shipment & Fleet Operations with Snowflake",
+      "tag": "Supply Chain · Data Engineering · Fleet Intelligence",
+      "technologyUsed": "Snowflake, Snowpark, Apache Kafka, Python",
+      "docItems": [
+        { "type": "h2", "text": "Strategic Foundation" },
+        { "type": "p", "text": "Modern logistics operations depend on the seamless integration of telematics, GPS, and shipment data. Disconnected data sources cause routing delays, missed delivery windows, and excessive fuel consumption across fleets. IdentifYou built a cloud-native data streaming architecture on Snowflake that unifies vehicle telematics, carrier APIs, and warehouse management systems into a single real-time intelligence platform." },
+        { "type": "h3", "text": "Real-time visibility across every shipment and vehicle in the network." },
+        { "type": "p", "text": "The solution ingests live GPS telemetry, shipment consignment events, and carrier status feeds using Apache Kafka into Snowflake. Snowpark Python pipelines perform geospatial analysis, dynamic route optimization, and ETA recalculations in near-real-time — giving operations teams a unified dashboard to act instantly on delays." },
+        { "type": "h2", "text": "Fleet Intelligence Platform" },
+        { "type": "h3", "text": "Real-Time Telematics Ingestion" },
+        { "type": "bullet", "text": "Vehicle Tracking: Continuous GPS telemetry ingestion with sub-minute refresh rates across the entire active fleet." },
+        { "type": "bullet", "text": "Driver Behaviour Monitoring: Speed, idle time, harsh braking, and fuel efficiency metrics captured per driver and vehicle." },
+        { "type": "bullet", "text": "Geofencing Alerts: Real-time entry and exit notifications for defined zones such as depots, customer sites, and restricted areas." },
+        { "type": "h3", "text": "Dynamic Route Optimisation" },
+        { "type": "bullet", "text": "Traffic-Aware ETA: Live route recalculation factoring in real-time traffic, road closures, and delivery priority changes." },
+        { "type": "bullet", "text": "Multi-Stop Optimisation: Automatic sequencing of delivery stops to minimise total distance and fuel cost." },
+        { "type": "bullet", "text": "Carrier Handoff Intelligence: Real-time status synchronisation at every carrier handoff point to eliminate consignment visibility gaps." },
+        { "type": "h2", "text": "Snowflake Data Architecture" },
+        { "type": "h3", "text": "Streaming Pipeline" },
+        { "type": "p", "text": "Apache Kafka streams vehicle events into Snowflake at high throughput. Snowpark Python processes geospatial joins, computes route deviation scores, and publishes enriched records to operational dashboards within seconds of the source event." },
+        { "type": "h3", "text": "Predictive Logistics Layer" },
+        { "type": "p", "text": "Historical shipment patterns are used to build delay prediction models. These models score active shipments continuously and surface high-risk consignments to dispatchers before SLAs are breached — shifting operations from reactive firefighting to proactive intervention." }
+      ],
+      "tableBlock": {
+        "headers": ["Capability", "Data Source", "Business Outcome"],
+        "rows": [
+          ["Fleet Tracking", "Vehicle Telematics + GPS Trackers", "Full Fleet Visibility"],
+          ["Route Optimisation", "Live Traffic + WMS", "22% Transit Delay Reduction"],
+          ["Fuel Monitoring", "CAN Bus + Telematics", "15% Fuel Cost Saving"],
+          ["Carrier Sync", "Carrier APIs + Consignment Events", "Zero Visibility Gaps"]
+        ]
+      },
+      "results": [
+        { "stat": "22%", "label": "Decrease in Transit Delay Times" },
+        { "stat": "15%", "label": "Reduction in Fleet Fuel Consumption" },
+        { "stat": "Real-Time", "label": "GPS & Shipment Visibility" }
       ]
     },
     "streamlining-shipment-planning-and-carrier-selection": {
