@@ -5,9 +5,9 @@
 /* ----------------------------------------------------------------------
    1. ROOT THEME VARIABLES & GLOBAL TOKENS
    ---------------------------------------------------------------------- */
-:root,
-html[data-theme='light'],
-html[data-theme='dark'] {
+/* Dark theme tokens & styles (active by default or when dark mode is chosen) */
+html[data-theme='dark'],
+:root:not([data-theme='light']) {
   --theme-bg: #090E0C !important;
   --theme-input-bg: #101815 !important;
   --theme-elevation-0: #060908 !important;
@@ -1360,3 +1360,50 @@ html[data-theme='dark'] {
     }
   }
 }
+
+/* ==========================================================================
+   GLOBAL NOTIFICATION TOAST POSITIONING (Dark & Light Modes)
+   ========================================================================== */
+[data-sonner-toaster],
+.payload-toast-container {
+  top: 24px !important;
+  bottom: auto !important;
+  right: 24px !important;
+  left: auto !important;
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+[data-sonner-toaster] [data-sonner-toast],
+.payload-toast-container .payload-toast-item,
+.payload-toast-item,
+.toast {
+  top: 0 !important;
+  bottom: auto !important;
+  transform: none !important;
+}
+
+/* ==========================================================================
+   LIGHT THEME ENHANCEMENTS WITH IDENTIFYOU BRAND COLORS
+   ========================================================================== */
+html[data-theme='light'] {
+  --theme-success-500: #6B9C1E !important;
+  --theme-success-400: #7DAF25 !important;
+  --theme-success-300: #96c73d !important;
+  --theme-success-100: rgba(150, 199, 61, 0.15) !important;
+
+  .btn--style-primary {
+    background-color: #7DAF25 !important;
+    color: #FFFFFF !important;
+
+    &:hover {
+      background-color: #6B9C1E !important;
+    }
+  }
+
+  .app-header {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.08) !important;
+  }
+}
+

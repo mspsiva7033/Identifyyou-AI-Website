@@ -155,6 +155,10 @@ export interface User {
    * Uncheck to immediately block login access without deleting historical references.
    */
   isActive?: boolean | null;
+  /**
+   * Choose your preferred color theme when logging into the admin panel.
+   */
+  themePreference?: ('dark' | 'light' | 'auto') | null;
   updatedAt: string;
   createdAt: string;
   email: string;
@@ -707,6 +711,7 @@ export interface UsersSelect<T extends boolean = true> {
   name?: T;
   roles?: T;
   isActive?: T;
+  themePreference?: T;
   updatedAt?: T;
   createdAt?: T;
   email?: T;

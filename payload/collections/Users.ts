@@ -74,6 +74,20 @@ export const Users: CollectionConfig = {
         update: isSuperAdminField,
       },
     },
+    {
+      name: 'themePreference',
+      type: 'select',
+      label: 'Admin Theme Preference',
+      defaultValue: 'dark',
+      options: [
+        { label: 'Dark Mode (IdentifYou Deep Tech)', value: 'dark' },
+        { label: 'Light Mode', value: 'light' },
+        { label: 'Auto (Follow System)', value: 'auto' },
+      ],
+      admin: {
+        description: 'Choose your preferred color theme when logging into the admin panel.',
+      },
+    },
   ],
   hooks: {
     beforeChange: [
