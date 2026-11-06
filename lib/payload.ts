@@ -5936,6 +5936,7 @@ export async function getLeadershipTeam(): Promise<LeadershipTeamMember[]> {
       },
       sort: 'displayOrder',
       limit: 50,
+      depth: 2,
     })
 
     if (!result.docs || result.docs.length === 0) {
@@ -5950,10 +5951,17 @@ export async function getLeadershipTeam(): Promise<LeadershipTeamMember[]> {
           : (doc.name || 'LT').substring(0, 2).toUpperCase()
 
       let image: string | undefined = undefined
-      if (typeof doc.photo === 'string') {
-        image = doc.photo
-      } else if (doc.photo && typeof doc.photo === 'object') {
-        image = doc.photo.url || (doc.photo.filename ? `/media/${doc.photo.filename}` : undefined)
+      if (doc.photo) {
+        image =
+          getFeaturedImageUrl(doc.photo) ||
+          normalizeMediaUrl(
+            typeof doc.photo === 'object' && doc.photo?.url
+              ? doc.photo.url
+              : typeof doc.photo === 'string'
+              ? doc.photo
+              : undefined
+          ) ||
+          undefined
       }
 
       return {
