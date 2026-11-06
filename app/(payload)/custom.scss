@@ -1388,22 +1388,92 @@ html[data-theme='dark'],
    LIGHT THEME ENHANCEMENTS WITH IDENTIFYOU BRAND COLORS
    ========================================================================== */
 html[data-theme='light'] {
-  --theme-success-500: #6B9C1E !important;
-  --theme-success-400: #7DAF25 !important;
-  --theme-success-300: #96c73d !important;
-  --theme-success-100: rgba(150, 199, 61, 0.15) !important;
+  --theme-bg: #F4F6F5 !important;
+  --theme-input-bg: #FFFFFF !important;
+  --theme-elevation-0: #FFFFFF !important;
+  --theme-elevation-50: #EDF2EE !important;
+  --theme-elevation-100: #E2EAE4 !important;
+  --theme-elevation-150: #D5E0D8 !important;
+  --theme-elevation-200: #C4D3C8 !important;
+  --theme-elevation-250: #B2C4B7 !important;
+  --theme-elevation-300: #9EB2A4 !important;
+  --theme-border-color: rgba(0, 0, 0, 0.12) !important;
+  --theme-text: #111815 !important;
+  --theme-elevation-800: #3D4F46 !important;
+  --theme-elevation-900: #111815 !important;
+
+  /* Brand Green Accent Palette for Light Mode */
+  --theme-success-500: #588714 !important;
+  --theme-success-400: #6B9C1E !important;
+  --theme-success-300: #7DAF25 !important;
+  --theme-success-100: rgba(125, 175, 37, 0.12) !important;
+
+  body, .template-default, .app-header, .sidebar, .nav {
+    background-color: #F4F6F5 !important;
+    color: #111815 !important;
+    font-family: 'IBM Plex Sans', -apple-system, BlinkMacSystemFont, sans-serif !important;
+  }
+
+  /* Form and Inputs in Light Mode */
+  input[type="email"],
+  input[type="password"],
+  input[type="text"]:not(.rs__input):not(.rs__control input):not(.search-filter input):not(#search-filter-input):not(.search-bar input),
+  input[type="number"],
+  textarea,
+  select {
+    background-color: #FFFFFF !important;
+    color: #111815 !important;
+    border: 1px solid #D5E0D8 !important;
+
+    &:focus {
+      border-color: #6B9C1E !important;
+      box-shadow: 0 0 0 3px rgba(125, 175, 37, 0.2) !important;
+      background-color: #FFFFFF !important;
+    }
+  }
+
+  .rs__control {
+    background-color: #FFFFFF !important;
+    border: 1px solid #D5E0D8 !important;
+
+    .rs__single-value {
+      color: #111815 !important;
+    }
+  }
+
+  .field-label, label {
+    color: #3D4F46 !important;
+  }
+
+  .table {
+    tbody tr {
+      background-color: #FFFFFF !important;
+      color: #111815 !important;
+      border-bottom: 1px solid #EDF2EE !important;
+
+      &:hover {
+        background-color: #F8FAF9 !important;
+      }
+    }
+  }
 
   .btn--style-primary {
     background-color: #7DAF25 !important;
     color: #FFFFFF !important;
 
     &:hover {
-      background-color: #6B9C1E !important;
+      background-color: #588714 !important;
     }
   }
 
   .app-header {
-    border-bottom: 1px solid rgba(0, 0, 0, 0.08) !important;
+    background-color: #FFFFFF !important;
+    border-bottom: 1px solid #E2EAE4 !important;
+  }
+
+  .sidebar {
+    background-color: #FFFFFF !important;
+    border-right: 1px solid #E2EAE4 !important;
   }
 }
 

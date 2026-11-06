@@ -10,14 +10,14 @@ export function ThemeSync() {
 
   useEffect(() => {
     const pref = (user as any)?.themePreference
-    if (pref && pref !== appliedRef.current) {
+    if (pref && pref !== 'auto' && pref !== appliedRef.current) {
       appliedRef.current = pref
       if (pref !== theme) {
         setTheme(pref)
+        document.documentElement.setAttribute('data-theme', pref)
       }
     }
   }, [user, theme, setTheme])
 
   return null
 }
-
