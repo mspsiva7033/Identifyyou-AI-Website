@@ -183,14 +183,21 @@ export function BlogsAndNewsClient({ categories = [], topics = [], articles = []
             <article key={article.slug} className={styles.card}>
               {article.image && (
                 <div className={styles.cardImageWrapper}>
-                  <img
-                    src={article.image}
-                    alt={article.title}
-                    width="600"
-                    height="340"
-                    loading="lazy"
-                    className={styles.cardImage}
-                  />
+                  <Link href={`/blogs-and-news/${article.slug}`} aria-label={article.title}>
+                    <img
+                      src={article.image}
+                      alt={article.title}
+                      width="600"
+                      height="340"
+                      loading="lazy"
+                      className={styles.cardImage}
+                      onError={(e) => {
+                        const target = e.currentTarget
+                        target.onerror = null
+                        target.src = '/images/digital_engineering_hero.png'
+                      }}
+                    />
+                  </Link>
                 </div>
               )}
               <div className={styles.cardHeader}>
@@ -200,7 +207,11 @@ export function BlogsAndNewsClient({ categories = [], topics = [], articles = []
                 </div>
               </div>
 
-              <h2 className={styles.articleTitle}>{article.title}</h2>
+              <h2 className={styles.articleTitle}>
+                <Link href={`/blogs-and-news/${article.slug}`} style={{ color: 'inherit', textDecoration: 'none' }}>
+                  {article.title}
+                </Link>
+              </h2>
               <p className={styles.excerpt}>{article.excerpt}</p>
 
               {/* Topic tags on card */}

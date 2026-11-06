@@ -207,6 +207,9 @@ export const BlogsAndNews: CollectionConfig = {
   hooks: {
     beforeChange: [
       async ({ data, req, operation, originalDoc }) => {
+        if (data.slug) {
+          data.slug = data.slug.toLowerCase().trim().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '')
+        }
         const userId = req?.user?.id
         if (operation === 'create') {
           if (userId) {

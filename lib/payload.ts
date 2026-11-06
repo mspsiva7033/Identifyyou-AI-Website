@@ -5394,11 +5394,28 @@ export async function getCaseStudyCategories(): Promise<CaseStudyCategory[]> {
 
 export function normalizeMediaUrl(url?: string | null): string {
   if (!url || typeof url !== 'string') return ''
-  const match = url.match(/(\/api\/media\/file\/[^\s?#]+|\/media\/[^\s?#]+)/)
+  const match = url.match(/(?:\/api\/media\/file\/|\/media\/)([^\s?#]+)/)
   if (match) {
-    return match[1]
+    return `/media/${match[1]}`
   }
   return url
+}
+
+export function getFeaturedImageUrl(featuredImage: any): string {
+  if (!featuredImage) return ''
+  if (typeof featuredImage === 'object') {
+    if (featuredImage.url) {
+      const normalized = normalizeMediaUrl(featuredImage.url)
+      if (normalized) return normalized
+    }
+    if (featuredImage.filename) {
+      return `/media/${featuredImage.filename}`
+    }
+  }
+  if (typeof featuredImage === 'string') {
+    return normalizeMediaUrl(featuredImage)
+  }
+  return ''
 }
 
 export async function getCaseStudies(): Promise<CaseStudySummary[]> {
@@ -5741,6 +5758,7 @@ export async function getBlogsAndNews(): Promise<BlogArticleSummary[]> {
         readTime: doc.readTime || '5 min read',
         excerpt: doc.excerpt || '',
         image:
+          getFeaturedImageUrl(doc.featuredImage) ||
           normalizeMediaUrl(
             (typeof doc.featuredImage === 'object' && doc.featuredImage?.url) ||
             (typeof doc.featuredImage === 'string' ? doc.featuredImage : undefined)
@@ -5781,17 +5799,52 @@ export async function getBlogBySlug(slug: string): Promise<BlogArticleDetail | n
     const payload = await getPayloadClient()
     if (!payload) return null
 
-    const result = await payload.find({
+    const rawSlug = slug || ''
+    const decodedSlug = decodeURIComponent(rawSlug).trim()
+    const hyphenSlug = decodedSlug.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '')
+    const spaceSlug = decodedSlug.replace(/-/g, ' ')
+
+    const searchSlugs = Array.from(new Set([
+      rawSlug,
+      decodedSlug,
+      hyphenSlug,
+      spaceSlug,
+      rawSlug.toLowerCase(),
+      decodedSlug.toLowerCase(),
+    ])).filter(Boolean)
+
+    let result = await payload.find({
       collection: 'blogs-and-news' as any,
       where: {
         and: [
           { status: { equals: 'published' } },
-          { slug: { equals: slug } },
+          {
+            or: searchSlugs.map((s) => ({ slug: { equals: s } })),
+          },
         ],
       },
       limit: 1,
       depth: 2,
     })
+
+    if (!result.docs || result.docs.length === 0) {
+      const allResult = await payload.find({
+        collection: 'blogs-and-news' as any,
+        where: { status: { equals: 'published' } },
+        limit: 100,
+        depth: 2,
+      })
+      const matched = allResult.docs.find((d: any) => {
+        const dSlug = (d.slug || '').toLowerCase().trim()
+        const dHyphen = dSlug.replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '')
+        return searchSlugs.some(
+          (s) => s.toLowerCase() === dSlug || s.toLowerCase() === dHyphen
+        )
+      })
+      if (matched) {
+        result.docs = [matched]
+      }
+    }
 
     if (result.docs && result.docs.length > 0) {
       const doc: any = result.docs[0]
@@ -5805,6 +5858,7 @@ export async function getBlogBySlug(slug: string): Promise<BlogArticleDetail | n
         readTime: doc.readTime || '5 min read',
         excerpt: doc.excerpt || '',
         image:
+          getFeaturedImageUrl(doc.featuredImage) ||
           normalizeMediaUrl(
             (typeof doc.featuredImage === 'object' && doc.featuredImage?.url) ||
             (typeof doc.featuredImage === 'string' ? doc.featuredImage : undefined)
