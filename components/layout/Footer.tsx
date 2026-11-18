@@ -68,7 +68,8 @@ export function Footer({
 }: FooterProps) {
   const b = brand || { name: 'IdentifYou Technologies', tagline: 'Deep Tech. Built Around Business.' }
   const c = contact || { email: 'ai.support@identifyyou.in', phone: '+91 9597046682' }
-  const copy = copyright || '© 2026 IdentifYou Technologies. All rights reserved.'
+  const currentYear = new Date().getFullYear()
+  const copy = copyright || `© ${currentYear} IdentifYou Technologies. All rights reserved.`
 
   return (
     <footer className={styles.footer}>
