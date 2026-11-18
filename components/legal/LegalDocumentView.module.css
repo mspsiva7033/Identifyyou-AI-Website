@@ -55,62 +55,8 @@
   font-weight: 800;
   color: #12181B;
   line-height: 1.15;
-  margin: 0 0 16px;
+  margin: 0 0 32px;
   letter-spacing: -0.02em;
-}
-
-.metaBar {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: space-between;
-  gap: 16px;
-  padding: 16px 20px;
-  background: #FFFFFF;
-  border: 1px solid #E2E8F0;
-  border-radius: 12px;
-  margin-bottom: 40px;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
-}
-
-.metaInfo {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  font-size: 14px;
-  color: #64748B;
-}
-
-.docxPill {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  background: #EEF8E6;
-  color: #3B6B11;
-  font-size: 12px;
-  font-weight: 600;
-  padding: 3px 10px;
-  border-radius: 6px;
-}
-
-.downloadBtn {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  background: #12181B;
-  color: #FFFFFF;
-  font-size: 13px;
-  font-weight: 600;
-  padding: 8px 16px;
-  border-radius: 8px;
-  text-decoration: none;
-  transition: all 0.2s ease;
-}
-
-.downloadBtn:hover {
-  background: #2D3748;
-  color: #94C640;
-  transform: translateY(-1px);
 }
 
 /* Card containing converted DOCX HTML */
@@ -287,10 +233,5 @@
 
   .container {
     padding: 20px 20px 60px;
-  }
-
-  .metaBar {
-    flex-direction: column;
-    align-items: flex-start;
   }
 }

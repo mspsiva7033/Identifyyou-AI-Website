@@ -21,7 +21,6 @@ export default async function PrivacyPolicyPage() {
       title="Privacy Policy"
       breadcrumbTitle="Privacy Policy"
       doc={doc}
-      badgeText="PRIVACY & DATA PROTECTION"
     />
   )
 }

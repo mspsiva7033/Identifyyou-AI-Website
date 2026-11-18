@@ -21,7 +21,6 @@ export default async function TermsAndConditionsPage() {
       title="Terms and Conditions"
       breadcrumbTitle="Terms & Conditions"
       doc={doc}
-      badgeText="TERMS OF SERVICE"
     />
   )
 }
