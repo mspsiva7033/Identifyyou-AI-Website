@@ -264,6 +264,8 @@ This automatically seeds:
 - Deep Tech Capabilities & Manufacturing Solutions
 - Leadership Team data
 
+*(Note: No admin account or password is hardcoded or seeded. When you first access `/admin`, Payload CMS will show the **"Create First User"** screen so you create your own Super Admin account securely).*
+
 ### 6.3 Run Production Readiness Verification
 Verify everything is 100% healthy:
 ```bash
@@ -410,9 +412,8 @@ Test your live deployment:
    * Verify all case study cards display with industry tags, gradient overlays, and images.
 2. **Visit the CMS Admin:**
    * Open `https://identifyyou.ai/admin`.
-   * Log in using:
-     * **Email:** `admin@identifyyou.ai`
-     * **Password:** `IdentifYou@2026!`
+   * On first visit, the **"Create First User"** setup screen appears.
+   * Enter your admin email and a secure password to create your primary **Super Admin** account.
 3. **Test Creating a Case Study with an Image:**
    * Go to **Success Stories** &rarr; **Create New**.
    * Fill in **Title** and **Category**.
