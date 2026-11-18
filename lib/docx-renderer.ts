@@ -26,7 +26,9 @@ export async function getDocxContent(
     try {
       const files = fs.readdirSync(docsDir)
       const pattern = docType === 'privacy-policy' ? /privacy/i : /terms/i
-      const match = files.find((f) => f.toLowerCase().endsWith('.docx') && pattern.test(f))
+      const match = files.find(
+        (f) => !f.startsWith('~$') && f.toLowerCase().endsWith('.docx') && pattern.test(f)
+      )
       if (match) {
         filePath = path.join(docsDir, match)
         resolvedFilename = match
