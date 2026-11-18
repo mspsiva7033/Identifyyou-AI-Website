@@ -125,7 +125,9 @@
   color: #334155;
   text-align: justify;
   text-justify: inter-word;
-  hyphens: auto;
+  hyphens: none;
+  -webkit-hyphens: none;
+  word-break: normal;
 }
 
 .docContent ul,
@@ -140,6 +142,9 @@
   line-height: 1.7;
   text-align: justify;
   text-justify: inter-word;
+  hyphens: none;
+  -webkit-hyphens: none;
+  word-break: normal;
 }
 
 .docContent li::marker {
