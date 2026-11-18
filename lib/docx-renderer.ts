@@ -1,6 +1,7 @@
 import fs from 'fs'
 import path from 'path'
 import mammoth from 'mammoth'
+import sanitizeHtml from 'sanitize-html'
 
 export interface RenderedDocxResult {
   html: string
@@ -10,7 +11,49 @@ export interface RenderedDocxResult {
 }
 
 /**
- * Automatically reads and converts a .docx file from /public/docs/ to clean HTML.
+ * Strict server-side HTML sanitization configuration for converted document HTML.
+ * Strips script tags, unsafe iframes, javascript: URI schemes, and inline event handlers.
+ */
+export const sanitizeOptions: sanitizeHtml.IOptions = {
+  allowedTags: [
+    'h1', 'h2', 'h3', 'h4', 'h5', 'h6',
+    'p', 'a', 'span', 'strong', 'b', 'em', 'i', 'u', 's', 'strike', 'del',
+    'ul', 'ol', 'li',
+    'table', 'thead', 'tbody', 'tfoot', 'tr', 'th', 'td',
+    'blockquote', 'hr', 'br', 'code', 'pre',
+  ],
+  allowedAttributes: {
+    a: ['href', 'name', 'target', 'rel'],
+    th: ['colspan', 'rowspan', 'align'],
+    td: ['colspan', 'rowspan', 'align'],
+    span: ['class'],
+    p: ['class'],
+  },
+  allowedSchemes: ['http', 'https', 'mailto', 'tel'],
+  transformTags: {
+    a: (tagName, attribs) => {
+      const href = attribs.href || ''
+      const isExternal = href.startsWith('http://') || href.startsWith('https://')
+      return {
+        tagName: 'a',
+        attribs: {
+          ...attribs,
+          ...(isExternal ? { target: '_blank', rel: 'noopener noreferrer' } : {}),
+        },
+      }
+    },
+  },
+}
+
+/**
+ * Sanitizes raw HTML using sanitize-html before rendering to prevent XSS.
+ */
+export function sanitizeDocHtml(rawHtml: string): string {
+  return sanitizeHtml(rawHtml, sanitizeOptions)
+}
+
+/**
+ * Automatically reads, converts, and sanitizes a .docx file from /public/docs/ to clean, safe HTML.
  * If the file is not yet uploaded, falls back to a clean default template.
  */
 export async function getDocxContent(
@@ -51,7 +94,7 @@ export async function getDocxContent(
 
       if (result.value && result.value.trim().length > 0) {
         return {
-          html: result.value,
+          html: sanitizeDocHtml(result.value),
           isCustomDocx: true,
           lastModified,
           downloadUrl: `/docs/${encodeURIComponent(resolvedFilename)}`,
@@ -71,7 +114,7 @@ export async function getDocxContent(
 
   if (docType === 'privacy-policy') {
     return {
-      html: `
+      html: sanitizeDocHtml(`
         <h2>1. Introduction & Overview</h2>
         <p>IdentifYou Technologies (&ldquo;IdentifYou&rdquo;, &ldquo;we&rdquo;, &ldquo;us&rdquo;, or &ldquo;our&rdquo;) is committed to protecting the privacy, confidentiality, and security of our clients, website visitors, and business partners. This Privacy Policy outlines our standards and practices regarding the collection, use, processing, and safeguarding of personal and operational business data across our deep-tech engineering platforms, website, and commercial engagements.</p>
 
@@ -103,14 +146,14 @@ export async function getDocxContent(
         <p><strong>IdentifYou Technologies</strong><br />
         Email: <a href="mailto:ai.support@identifyyou.in">ai.support@identifyyou.in</a><br />
         Phone: +91 9597046682 / +91 95009 46929</p>
-      `,
+      `),
       isCustomDocx: false,
       lastModified: today,
     }
   }
 
   return {
-    html: `
+    html: sanitizeDocHtml(`
       <h2>1. Acceptance of Terms</h2>
       <p>By accessing or utilizing the website, digital portals, or deep-tech consulting services provided by IdentifYou Technologies, you acknowledge and agree to be bound by these Terms and Conditions and all applicable laws and regulations.</p>
 
@@ -128,7 +171,7 @@ export async function getDocxContent(
 
       <h2>6. Inquiries & Legal Notices</h2>
       <p>For legal notices or questions regarding these terms, please contact our legal desk at <a href="mailto:ai.support@identifyyou.in">ai.support@identifyyou.in</a>.</p>
-    `,
+    `),
     isCustomDocx: false,
     lastModified: today,
   }
