@@ -55,8 +55,6 @@ const defaultColumns: FooterColumn[] = [
     title: 'Company',
     links: [
       { label: 'About', href: '/about' },
-      { label: 'Privacy Policy', href: '/privacy-policy' },
-      { label: 'Terms and Conditions', href: '/terms-and-conditions' },
       { label: 'Contact', href: '/contact' },
     ],
   },
@@ -114,7 +112,20 @@ export function Footer({
           </div>
         </div>
 
-        <div className={styles.copyright}>{copy}</div>
+        <div className={styles.copyright}>
+          <span>{copy}</span>
+          <div className={styles.legalLinks}>
+            <Link href="/privacy-policy" className={styles.legalLink}>
+              Privacy
+            </Link>
+            <Link href="/terms-and-conditions" className={styles.legalLink}>
+              Terms
+            </Link>
+            <Link href="/privacy-policy" className={styles.legalLink}>
+              Cookies
+            </Link>
+          </div>
+        </div>
       </div>
     </footer>
   )

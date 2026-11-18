@@ -103,6 +103,23 @@
   gap: 16px;
 }
 
+.legalLinks {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.legalLink {
+  color: #64748B;
+  font-size: 13px;
+  text-decoration: none;
+  transition: color 150ms ease;
+}
+
+.legalLink:hover {
+  color: #94C640;
+}
+
 @media (max-width: 768px) {
   .footer {
     padding: 48px 20px 24px;
