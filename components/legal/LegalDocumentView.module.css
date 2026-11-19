@@ -54,70 +54,133 @@
 
 /* Callout Box matching the reference design */
 .calloutBox {
-  background: #F4F5F3;
+  background: #F8F9F6;
   border: 1px solid #E2E6DF;
   border-radius: 12px;
-  padding: 22px 28px;
+  padding: 20px 24px;
   margin-bottom: 44px;
   display: flex;
   flex-direction: column;
-  gap: 8px;
-  font-size: 15px;
-  line-height: 1.6;
-  color: #334155;
+}
+
+.calloutHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
 }
 
 .calloutOrg {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
   font-family: 'Manrope', sans-serif;
   font-weight: 700;
   color: #0F172A;
   font-size: 15.5px;
+  letter-spacing: -0.01em;
 }
 
-.calloutDates {
-  color: #334155;
-  font-size: 14.5px;
-}
-
-.calloutDates strong {
-  font-weight: 700;
-  color: #0F172A;
-}
-
-.calloutDates span {
-  color: #475569;
-}
-
-.divider {
-  margin: 0 12px;
-  color: #CBD5E1;
-}
-
-.calloutWebsites {
-  font-size: 14.5px;
-  color: #334155;
-}
-
-.calloutWebsites strong {
-  font-weight: 700;
-  color: #0F172A;
-  margin-right: 4px;
-}
-
-.calloutWebsites a {
+.calloutOrgIcon {
   color: #5E8A1E;
+  flex-shrink: 0;
+}
+
+.calloutBadge {
+  display: inline-flex;
+  align-items: center;
+  font-size: 11.5px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: #5E8A1E;
+  background: rgba(94, 138, 30, 0.08);
+  border: 1px solid rgba(94, 138, 30, 0.18);
+  padding: 3px 10px;
+  border-radius: 9999px;
+}
+
+.calloutDivider {
+  height: 1px;
+  background: #E5E9E2;
+  margin: 14px 0 16px;
+}
+
+.calloutGrid {
+  display: grid;
+  grid-template-columns: auto auto 1fr;
+  gap: 36px;
+  align-items: start;
+}
+
+@media (max-width: 820px) {
+  .calloutGrid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+}
+
+.calloutItem {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.calloutLabel {
+  font-size: 11px;
+  font-weight: 700;
+  color: #64748B;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.calloutValue {
+  font-size: 14px;
+  font-weight: 600;
+  color: #0F172A;
+  line-height: 1.4;
+}
+
+.calloutLinks {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px;
+}
+
+.calloutLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #5E8A1E;
+  text-decoration: none;
+  transition: all 150ms ease;
+}
+
+.calloutLink:hover {
+  color: #3B6B11;
   text-decoration: underline;
   text-underline-offset: 3px;
-  transition: color 150ms ease;
 }
 
-.calloutWebsites a:hover {
-  color: #3B6B11;
+.linkIcon {
+  color: #5E8A1E;
+  opacity: 0.75;
+  transition: transform 150ms ease;
 }
 
-.dot {
-  margin: 0 8px;
+.calloutLink:hover .linkIcon {
+  transform: translate(1px, -1px);
+  opacity: 1;
+}
+
+.linkDot {
+  margin: 0 4px;
   color: #94A3B8;
+  font-weight: 400;
 }
 
 /* Document Article and Typography */
