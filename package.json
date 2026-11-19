@@ -7,7 +7,7 @@
     "postinstall": "node scripts/patch-payload-hydration.js",
     "dev": "next dev --webpack",
     "build": "next build --webpack",
-    "start": "node --import tsx/esm scripts/init_tables.ts && next start",
+    "start": "next start",
     "db:init": "node --import tsx/esm scripts/init_tables.ts",
     "lint": "eslint",
     "generate:importmap": "node --import tsx/esm ./node_modules/payload/bin.js generate:importmap",
