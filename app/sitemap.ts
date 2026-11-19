@@ -26,13 +26,15 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     '/thinking-factory',
     '/success-stories',
     '/blogs-and-news',
+    '/privacy-policy',
+    '/terms-and-conditions',
   ]
 
   const items: MetadataRoute.Sitemap = staticRoutes.map((route) => ({
     url: `${baseUrl}${route}`,
     lastModified: new Date(),
     changeFrequency: route === '' ? 'weekly' : 'monthly',
-    priority: route === '' ? 1.0 : 0.8,
+    priority: route === '' ? 1.0 : route === '/privacy-policy' || route === '/terms-and-conditions' ? 0.5 : 0.8,
   }))
 
   try {

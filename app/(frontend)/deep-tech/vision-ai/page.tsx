@@ -130,8 +130,8 @@ export default function VisionAIPage() {
             <img
               src="/images/end_to_end_inspection_cell.png"
               alt="Full inspection cell: part feeder, conveyor, fixture, vision system, robot arm, sorting bins"
-              width="1200"
-              height="600"
+              width="1024"
+              height="1024"
               className={styles.realImg}
             />
           </div>
@@ -168,8 +168,8 @@ export default function VisionAIPage() {
             <img
               src="/images/precision_mechanical_measurement.png"
               alt="Precision mechanical component with dimensional measurement overlays"
-              width="800"
-              height="600"
+              width="1024"
+              height="1024"
               className={styles.realImg}
             />
           </div>
@@ -223,8 +223,8 @@ export default function VisionAIPage() {
             <img
               src="/images/uv_light_defect_detection.png"
               alt="UV Light-Based Inspection"
-              width="800"
-              height="600"
+              width="1024"
+              height="1024"
               className={styles.realImg}
             />
           </div>
