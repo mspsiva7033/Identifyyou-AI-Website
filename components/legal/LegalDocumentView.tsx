@@ -9,14 +9,12 @@ interface LegalDocumentViewProps {
   title: string
   breadcrumbTitle?: string
   doc: RenderedDocxResult
-  eyebrow?: string
   badgeText?: string
 }
 
 export function LegalDocumentView({
   title,
   doc,
-  eyebrow = 'TRUST & LEGAL',
 }: LegalDocumentViewProps) {
   const org = doc.organization || 'IdentifYou Technologies (OPC) Private Limited'
   const effectiveDate = doc.effectiveDate || '1-Jan-2024'
@@ -32,7 +30,6 @@ export function LegalDocumentView({
 
       <main className={styles.main}>
         <div className={styles.container}>
-          <div className={styles.eyebrow}>{eyebrow}</div>
           <h1 className={styles.title}>{title}</h1>
 
           <div className={styles.metaRow}>
