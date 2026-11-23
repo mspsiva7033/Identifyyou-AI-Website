@@ -29,6 +29,7 @@ const defaultColumns: FooterColumn[] = [
       { label: 'Industry Automation', href: '/deep-tech/industry-automation' },
       { label: 'Data Engineering', href: '/deep-tech/data-engineering' },
       { label: 'Digital Engineering', href: '/deep-tech/digital-engineering' },
+      { label: 'DEIA AIX', href: '/deep-tech/deia-aix' },
     ],
   },
 

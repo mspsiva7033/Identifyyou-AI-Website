@@ -32,44 +32,36 @@ export function LegalDocumentView({
         <div className={styles.container}>
           <h1 className={styles.title}>{title}</h1>
 
-          <div className={styles.metaRow}>
-            <div className={styles.metaItem}>
-              <strong>Organization:</strong>
-              <span>{org}</span>
-            </div>
-            <div className={styles.metaItem}>
-              <strong>Effective Date:</strong>
-              <span>{effectiveDate}</span>
-            </div>
-            <div className={styles.metaItem}>
-              <strong>Last Updated:</strong>
-              <span>{lastUpdated}</span>
-            </div>
-          </div>
-
           <div className={styles.calloutBox}>
             <div className={styles.calloutOrg}>{org}</div>
-            <div className={styles.calloutDates}>
-              <strong>Effective Date:</strong> <span>{effectiveDate}</span>
-              <span className={styles.divider}>|</span>
-              <strong>Last Updated:</strong> <span>{lastUpdated}</span>
-            </div>
-            <div className={styles.calloutWebsites}>
-              <strong>Websites:</strong>{' '}
-              {websites.map((w, idx) => (
-                <React.Fragment key={w.url}>
-                  <a
-                    href={w.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    {w.label}
-                  </a>
-                  {idx < websites.length - 1 && (
-                    <span className={styles.dot}>·</span>
-                  )}
-                </React.Fragment>
-              ))}
+            <div className={styles.calloutDivider} />
+            <div className={styles.calloutMeta}>
+              <div className={styles.calloutMetaItem}>
+                <strong>Effective Date:</strong> <span>{effectiveDate}</span>
+              </div>
+              <span className={styles.calloutSep}>|</span>
+              <div className={styles.calloutMetaItem}>
+                <strong>Last Updated:</strong> <span>{lastUpdated}</span>
+              </div>
+              <span className={styles.calloutSep}>|</span>
+              <div className={styles.calloutMetaItem}>
+                <strong>Websites:</strong>{' '}
+                {websites.map((w, idx) => (
+                  <React.Fragment key={w.url}>
+                    <a
+                      href={w.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className={styles.calloutLink}
+                    >
+                      {w.label}
+                    </a>
+                    {idx < websites.length - 1 && (
+                      <span className={styles.calloutDot}>·</span>
+                    )}
+                  </React.Fragment>
+                ))}
+              </div>
             </div>
           </div>
 

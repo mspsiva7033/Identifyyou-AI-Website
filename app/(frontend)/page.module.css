@@ -1802,3 +1802,229 @@
     padding: 40px 24px;
   }
 }
+
+/* ==========================================================================
+   DEIA AIX HOMEPAGE SECTION (Our Product Family)
+   ========================================================================== */
+.aixHome {
+  background: radial-gradient(1200px 500px at 85% -10%, rgba(148, 198, 64, 0.16), transparent 60%), #090e0c;
+  color: #ffffff;
+  padding: 96px 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.aixContainer {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 32px;
+}
+
+.aixGrid {
+  display: grid;
+  grid-template-columns: 1.05fr 1fr;
+  gap: 56px;
+  align-items: center;
+}
+
+.aixEyebrow {
+  font-size: 12.5px;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #94c640;
+  margin-bottom: 10px;
+}
+
+.aixH2 {
+  font-size: clamp(28px, 4vw, 41px);
+  font-weight: 800;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  margin: 10px 0 16px;
+  color: #ffffff;
+}
+
+.aixH2 span {
+  color: #94c640;
+}
+
+.aixIntro {
+  font-size: 18px;
+  color: #cbd5e1;
+  max-width: 760px;
+  line-height: 1.6;
+}
+
+.aixFlow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 22px 0 30px;
+}
+
+.aixFlow span {
+  font-size: 12.5px;
+  font-weight: 700;
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.04);
+  border-radius: 999px;
+  padding: 6px 12px;
+  line-height: 1.4;
+}
+
+.aixFlow span:nth-child(odd) {
+  border-color: rgba(148, 198, 64, 0.4);
+}
+
+.aixCtas {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.aixBtnLime {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14.5px;
+  font-weight: 700;
+  border-radius: 6px;
+  padding: 13px 28px;
+  background: #94c640;
+  color: #0d1612;
+  text-decoration: none;
+  transition: background 0.15s, color 0.15s;
+}
+
+.aixBtnLime:hover {
+  background: #a6d651;
+  color: #0d1612;
+}
+
+.aixBtnGhost {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14.5px;
+  font-weight: 700;
+  border-radius: 6px;
+  padding: 13px 28px;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  color: #ffffff;
+  text-decoration: none;
+  transition: border-color 0.15s, color 0.15s;
+}
+
+.aixBtnGhost:hover {
+  border-color: #94c640;
+  color: #94c640;
+}
+
+.aixFamilyNote {
+  margin-top: 22px;
+  font-size: 13px;
+  color: #94a3b8;
+  line-height: 1.5;
+}
+
+.aixLayer {
+  background: #111815;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  padding: 22px;
+}
+
+.aixLayer + .aixLayer {
+  margin-top: 14px;
+}
+
+.aixLayerHead {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 14px;
+  gap: 12px;
+}
+
+.aixLayerHead h3 {
+  font-size: 17px;
+  font-weight: 800;
+  color: #ffffff;
+  margin: 0;
+}
+
+.aixLayerHead small {
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  color: #94c640;
+}
+
+.aixChips {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+
+.aixChip {
+  display: block;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  padding: 12px;
+  background: rgba(255, 255, 255, 0.02);
+  text-decoration: none;
+  color: #ffffff;
+  transition: border-color 0.15s, transform 0.15s;
+}
+
+.aixChip:hover {
+  border-color: #94c640;
+  transform: translateY(-2px);
+}
+
+.aixChip b {
+  display: block;
+  font-size: 13.5px;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.aixChip span {
+  display: block;
+  font-size: 12px;
+  color: #94a3b8;
+  margin-top: 2px;
+}
+
+.aixChip .aixTag {
+  display: inline-block;
+  margin-top: 6px;
+  font-size: 9.5px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  color: #fbbf24;
+}
+
+@media (max-width: 900px) {
+  .aixGrid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+}
+
+@media (max-width: 640px) {
+  .aixHome {
+    padding: 64px 0;
+  }
+  .aixContainer {
+    padding: 0 20px;
+  }
+}
+
+@media (max-width: 520px) {
+  .aixChips {
+    grid-template-columns: 1fr;
+  }
+}

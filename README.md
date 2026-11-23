@@ -31,11 +31,11 @@ The official enterprise web application and CMS platform for **IdentifYou Techno
 
 ---
 
-## 🐳 Production Docker Deployment
+## 🚀 Production Deployment
 
 For self-hosted production deployment on Linux VPS (Hostinger, Ubuntu, Debian, AWS EC2, DigitalOcean), refer to the comprehensive guide:
 
-👉 **[Complete Docker Deployment Guide](DOCKER_DEPLOYMENT_GUIDE.md)**
+👉 **[Complete Hostinger VPS Nginx & PM2 Deployment Guide](HOSTINGER_NGINX_DEPLOYMENT_GUIDE.md)**
 
 ### Key Docker Commands:
 ```bash

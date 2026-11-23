@@ -32,6 +32,7 @@ const defaultNav: NavItem[] = [
       { label: 'AI-Powered No-Code Platform', href: '/deep-tech/ai-no-code' },
       { label: 'Data Engineering', href: '/deep-tech/data-engineering' },
       { label: 'Digital Engineering', href: '/deep-tech/digital-engineering' },
+      { label: 'DEIA AIX', href: '/deep-tech/deia-aix' },
     ],
   },
   { label: 'Success Stories', href: '/success-stories' },

@@ -63,3 +63,8 @@ next-env.d.ts
 /scripts/fix_pg_password.py
 /scripts/remote_check_env.js
 /scripts/verify_61_urls.ts
+
+# AI Agent rule and configuration files
+GEMINI.md
+AGENTS.md
+CLAUDE.md

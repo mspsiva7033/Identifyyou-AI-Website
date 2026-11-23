@@ -545,15 +545,133 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 3. FLUKE T430 / FLUKE T40 (Banner Type Layout, Black BG) */}
-      <section className={styles.sectionBannerDark}>
+      {/* 2.5. DEIA AIX – PRODUCT FAMILY SECTION */}
+      <section className={styles.aixHome} id="deia-aix">
+        <div className={styles.aixContainer}>
+          <div className={styles.aixGrid}>
+            <div>
+              <p className={styles.aixEyebrow}>Our product family · DEIA AIX</p>
+              <h2 className={styles.aixH2}>
+                Data to Knowledge to <span>Intelligence.</span>
+              </h2>
+              <p className={styles.aixIntro}>
+                DEIA AIX is IdentifYou’s AI-native product family for manufacturing. It turns the data already in your ERP, MES and IIoT into knowledge every team shares, and that knowledge into intelligence that acts, with people in control.
+              </p>
+              <div className={styles.aixFlow}>
+                <span>Sense</span>
+                <span>Predict</span>
+                <span>Recommend</span>
+                <span>Automate</span>
+                <span>Monitor</span>
+              </div>
+              <div className={styles.aixCtas}>
+                <Link
+                  className={styles.aixBtnLime}
+                  href="/deep-tech/deia-aix"
+                >
+                  Explore DEIA AIX →
+                </Link>
+                <a
+                  className={styles.aixBtnGhost}
+                  href="https://deiaaix.ai/?utm_source=identifyyou.ai&utm_medium=referral&utm_campaign=home_section"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Visit deiaaix.ai ↗
+                </a>
+              </div>
+              <p className={styles.aixFamilyNote}>
+                Private AI inside your environment · Works on top of SAP, Dynamics 365, MES and IIoT · No rip-and-replace
+              </p>
+            </div>
+
+            <div>
+              <div className={styles.aixLayer}>
+                <div className={styles.aixLayerHead}>
+                  <h3>Command Centers</h3>
+                  <small>DECISION LAYER</small>
+                </div>
+                <div className={styles.aixChips}>
+                  <a
+                    className={styles.aixChip}
+                    href="https://deiaaix.ai/production-command-center.html?utm_source=identifyyou.ai&utm_medium=referral&utm_campaign=home_section"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <b>Production</b>
+                    <span>Plan, output, risk</span>
+                  </a>
+                  <a
+                    className={styles.aixChip}
+                    href="https://deiaaix.ai/procurement-command-center.html?utm_source=identifyyou.ai&utm_medium=referral&utm_campaign=home_section"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <b>Procurement</b>
+                    <span>Supply risk, suppliers</span>
+                  </a>
+                  <a
+                    className={styles.aixChip}
+                    href="https://deiaaix.ai/service-command-center.html?utm_source=identifyyou.ai&utm_medium=referral&utm_campaign=home_section"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <b>Service</b>
+                    <span>Assets in the field</span>
+                    <span className={styles.aixTag}>EARLY ACCESS</span>
+                  </a>
+                </div>
+              </div>
+
+              <div className={styles.aixLayer}>
+                <div className={styles.aixLayerHead}>
+                  <h3>AIX Platforms</h3>
+                  <small>INTELLIGENCE LAYER</small>
+                </div>
+                <div className={styles.aixChips}>
+                  <a
+                    className={styles.aixChip}
+                    href="https://deiaaix.ai/plant-aix.html?utm_source=identifyyou.ai&utm_medium=referral&utm_campaign=home_section"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <b>Plant AIX</b>
+                    <span>Plant-floor execution</span>
+                  </a>
+                  <a
+                    className={styles.aixChip}
+                    href="https://deiaaix.ai/machine-aix.html?utm_source=identifyyou.ai&utm_medium=referral&utm_campaign=home_section"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <b>Machine AIX</b>
+                    <span>Machine intelligence</span>
+                  </a>
+                  <a
+                    className={styles.aixChip}
+                    href="https://deiaaix.ai/viz-aix.html?utm_source=identifyyou.ai&utm_medium=referral&utm_campaign=home_section"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <b>Viz AIX</b>
+                    <span>AI visualisation</span>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 3. FLUKE T430 / FLUKE T40 (Banner Type Layout, White BG) */}
+      <section className={styles.sectionBannerLight}>
         <div className={styles.bannerContainer}>
           <div className={styles.bannerTag} style={{ color: getCategoryTheme({ categories: ['Industry Automation'] }).tagColor }}>INDUSTRY AUTOMATION</div>
-          <h2 className={styles.bannerTitleDark}>
+          <h2 className={styles.bannerTitleLight}>
             Industrial Edge Gateway for Fluke Thermalert® T40 Pyrometer
           </h2>
           <div className={styles.bannerGrid}>
-            <div className={styles.bannerDescDark}>
+            <div className={styles.bannerDescLight}>
               <p>
                 Undetected thermal spikes in extreme manufacturing processes can cause sudden catastrophic machinery failures and expensive unpredicted downtime.
               </p>
@@ -563,11 +681,11 @@ export default function HomePage() {
               <p>
                 Achieving 99.4% equipment uptime, continuous 24/7 thermal assurance, and zero unpredicted critical failures.
               </p>
-              <Link href="/success-stories/fluke-t40" className={styles.bannerBtnPrimary}>
+              <Link href="/success-stories/fluke-t40" className={styles.bannerBtnOutline}>
                 Explore Fluke T40 Success Story →
               </Link>
             </div>
-            <div className={styles.bannerImgWrapDark}>
+            <div className={styles.bannerImgWrap}>
               <img
                 src="/images/case-studies/fluke-t40.png"
                 alt="Fluke Thermalert T40 Edge Gateway"
