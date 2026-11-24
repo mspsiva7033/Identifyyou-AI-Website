@@ -10,6 +10,8 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     '/about',
     '/contact',
     '/deep-tech',
+    '/deep-tech/deia-aix',
+    '/deia-aix',
     '/deep-tech/ai-intelligent-business',
     '/deep-tech/ai-no-code',
     '/deep-tech/data-engineering',
@@ -26,6 +28,8 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     '/thinking-factory',
     '/success-stories',
     '/blogs-and-news',
+    '/blogs-and-news/kmat-cost-model-app',
+    '/blogs-and-news/kmat-manufacturer-price-model',
     '/privacy-policy',
     '/terms-and-conditions',
   ]
