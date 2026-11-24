@@ -64,7 +64,9 @@ next-env.d.ts
 /scripts/remote_check_env.js
 /scripts/verify_61_urls.ts
 
-# AI Agent rule and configuration files
+# AI Agent rule and configuration files (Strict Rule: Never push code to GitHub. User will verify and push code)
 GEMINI.md
 AGENTS.md
 CLAUDE.md
+.gemini/
+.agent/
